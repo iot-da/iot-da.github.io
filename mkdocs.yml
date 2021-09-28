@@ -1,1 +1,14 @@
 site_name: Internet of Things and Data Analytics 
+site_url: https://iot-da.github.io
+nav:
+        - Home: index.md
+        - Subjects:
+                - IOTNA: Subjects/IOTNA/index.md
+                - MDM: Subjects/MDM/index.md
+                - SID: Subjects/SID/index.md
+                - IA: Subjects/IA/index.md
+                - NP1: Subjects/NP1/index.md
+                - NP2: Subjects/NP2/index.md
+                - SEC: Subjects/SEC/index.md
+                - EDGE: Subjects/EDGE/index.md
+        - Contact: Contact/index.md
