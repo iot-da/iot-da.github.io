@@ -1,7 +1,10 @@
 site_name: Internet of Things and Data Analytics 
 site_url: https://iot-da.github.io
+markdown_extensions:
+    - admonition
 nav:
         - Home: index.md
+        - General info.: General/index.md
         - Subjects:
                 - IOTNA: Subjects/IOTNA/index.md
                 - MDM: Subjects/MDM/index.md
