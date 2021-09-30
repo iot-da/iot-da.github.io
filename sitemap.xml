@@ -16,6 +16,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://iot-da.github.io/News/</loc>
+         <lastmod>2021-09-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://iot-da.github.io/Subjects/EDGE/</loc>
          <lastmod>2021-09-30</lastmod>
          <changefreq>daily</changefreq>
