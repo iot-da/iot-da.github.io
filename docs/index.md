@@ -1,19 +1,20 @@
 # Internet of Things and Data Analytics
 
-Welcome!
+Welcome to the Master Propio on IoT and Data Analytics. Lectures are starting the 5th October. We will be using Zoom and you can find the links in the schedule shown below.
+
+Looking forward to meet you all!
 
 ## **General information**
 
+
 General description here...
 
-## **1st part** - 4 Oct. till 18 Dec.
+## **1st term** - 4 Oct. till 18 Dec. 2021
 
-| Hours | Tuesday | Wednesday | Thursday |
-|-------|---------|-----------|----------|
-| 12-13 | [MDM](Subjects/MDM/index.md)     | [IOTNA](Subjects/IOTNA/index.md)     | [MDM](Subjects/MDM/index.md)      |
-| 13-14 | [MDM](Subjects/MDM/index.md)     | [IOTNA](Subjects/IOTNA/index.md)     | [MDM](Subjects/MDM/index.md)      |
-| 14-15 | [SID](Subjects/SID/index.md)     | [SID](Subjects/SID/index.md)       | [IOTNA](Subjects/IOTNA/index.md)    |
-| 15-16 | [SID](Subjects/SID/index.md)     | [SID](Subjects/SID/index.md)       | [IOTNA](Subjects/IOTNA/index.md)    |
+| Hours (GMT+1) | Tuesday | Wednesday | Thursday | Zoom Link |
+|-------|---------|-----------|----------|----------|
+| 12:00-13:55 | [MDM](Subjects/MDM/index.md)     | [IOTNA](Subjects/IOTNA/index.md)     | [MDM](Subjects/MDM/index.md)      | [Zoom link](https://us02web.zoom.us/j/88542365522?pwd=ZVVjZzV2eFNBWkM3VGlDakI0enlmQT09)  Meeting number: 885 4236 5522.   Passcode: 641877 |
+| 14:05-16:00 | [SID](Subjects/SID/index.md)     | [SID](Subjects/SID/index.md)       | [IOTNA](Subjects/IOTNA/index.md)    | [Zoom link](https://us02web.zoom.us/j/89284664167?pwd=ZGwxQzg4OXEyY0EydUd5RXNUenZ6Zz09)   Meeting number: 892 8466 4167 Passcode: 477109 |
 
 * **MDM**: *Massive Data Management*.
 * **SID**: *Smart Infrastructures Design*. 
@@ -41,7 +42,9 @@ General description here...
 | [NP2](Subjects/MDM/index.md)     | Francisco Igual    | figual@ucm.es   | -      |
 | [AI](Subjects/MDM/index.md)      | Héctor García      | hgarciad@ucm.es | -      |
 | [SEC](Subjects/MDM/index.md)     | Joaquín Recas      | recas@ucm.es    | -      |
+| [SEC](Subjects/MDM/index.md)     | Guillermo Botella      | gbotella@ucm.es    | -      |
 | [EDGE](Subjects/MDM/index.md)    | Carlos García      | garsanca@ucm.es | -      |
+| [EDGE](Subjects/MDM/index.md)    | Luis Piñuel      | lpinuel@ucm.es | -      |
 
 
 
