@@ -114,12 +114,184 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#iot-node-architecture" class="nav-link">IoT Node Architecture</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#general-information" class="nav-link">General information</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#professors" class="nav-link">Professors</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#schedule" class="nav-link">Schedule</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-<p>IOTNA</p></div>
+<h1 id="iot-node-architecture">IoT Node Architecture</h1>
+<h2 id="general-information">General information</h2>
+<p>This subject will cover several topics regarding embedded system programmings. Specifically, we will learn to develop IoT projects using <a href="https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/index.html">ESP-IDF</a>, a framework built onto <a href="https://www.freertos.org/">FreeRTOS</a>.  Some specific goals if this subject are:</p>
+<ul>
+<li>Get a global view of a safe application  development cycle.</li>
+<li>Meet the main components of an IoT device</li>
+<li>Learn basic components of Real Time Operating Systems (RTOS)</li>
+<li>Work with sensors and learn the most common interfaces</li>
+</ul>
+<h2 id="professors">Professors</h2>
+<p>Jose Ignacio Gomez (jigomez@ucm.es) and Katzalin Olcoz Merino (katzalin@ucm.es )</p>
+<h2 id="schedule">Schedule</h2>
+<table>
+<thead>
+<tr>
+<th>Day</th>
+<th>Topic</th>
+<th>Lab instructions</th>
+<th>Deliverable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>06/10</td>
+<td>Introduction: boards, SoC</td>
+<td>----</td>
+<td></td>
+</tr>
+<tr>
+<td>07/10</td>
+<td>ESP-IDF environment</td>
+<td>----</td>
+<td></td>
+</tr>
+<tr>
+<td>13/10</td>
+<td><em>MDM session</em></td>
+<td>----</td>
+<td></td>
+</tr>
+<tr>
+<td>14/10</td>
+<td>ESP-IDF</td>
+<td><a href="P1/index.md">1. Hello World </a></td>
+<td></td>
+</tr>
+<tr>
+<td>20/10</td>
+<td>Multitasking</td>
+<td><a href="P2/index.md">2. Producer / Consumer </a></td>
+<td> </td>
+</tr>
+<tr>
+<td>21/10</td>
+<td>Communication and synchronisation</td>
+<td><a href="P2/index.md">2. Producer / Consumer </a></td>
+<td>Lab1 deadline</td>
+</tr>
+<tr>
+<td>27/10</td>
+<td>Input/Output. The basics</td>
+<td><a href="P3/index.md">3. Internal sensors</a></td>
+<td></td>
+</tr>
+<tr>
+<td>27/10</td>
+<td>Input/Output. GPIO</td>
+<td><a href="P3/index.md">3. Internal sensors</a></td>
+<td></td>
+</tr>
+<tr>
+<td>03/11</td>
+<td>Event based programming</td>
+<td><a href="P4/index.md">4. Chronometer</a></td>
+<td>Lab2 deadline</td>
+</tr>
+<tr>
+<td>04/11</td>
+<td>Event based programming</td>
+<td><a href="P4/index.md">4. Chronometer</a></td>
+<td></td>
+</tr>
+<tr>
+<td>10/11</td>
+<td>Serial buses: I2C</td>
+<td><a href="P5/index.md">5. I2C sensors</a></td>
+<td>Lab3 deadline</td>
+</tr>
+<tr>
+<td>11/11</td>
+<td>Seral buses: SPI, UART</td>
+<td><a href="P5/index.md">5. I2C sensors</a></td>
+<td></td>
+</tr>
+<tr>
+<td>17/11</td>
+<td>Energy consumption</td>
+<td><a href="P6/index.md">6. Energy modes</a></td>
+<td>Lab4 deadline</td>
+</tr>
+<tr>
+<td>18/11</td>
+<td>Energy consumption</td>
+<td><a href="P6/index.md">6. Energy modes</a></td>
+<td></td>
+</tr>
+<tr>
+<td>24/11</td>
+<td>Flash and File Systems</td>
+<td><a href="P7/index.md">7. Log in flash</a> </td>
+<td>Lab5 deadline</td>
+</tr>
+<tr>
+<td>25/11</td>
+<td>Flash and File Systems</td>
+<td><a href="P7/index.md">7. Log in flash</a></td>
+<td></td>
+</tr>
+<tr>
+<td>01/12</td>
+<td>Firmware update</td>
+<td><a href="P8/index.md">8. OTA</a> </td>
+<td>Lab6 deadline</td>
+</tr>
+<tr>
+<td>01/12</td>
+<td>Firmware update</td>
+<td><a href="P8/index.md">8. OTA</a> </td>
+<td></td>
+</tr>
+<tr>
+<td>08/12</td>
+<td>NO LECTURE (non working day)</td>
+<td>--------</td>
+<td></td>
+</tr>
+<tr>
+<td>09/12</td>
+<td>Personal project</td>
+<td><a href="P9/index.md">9. Final Project</a> </td>
+<td>Lab7 deadline</td>
+</tr>
+<tr>
+<td>15/12</td>
+<td>Personal project</td>
+<td><a href="P9/index.md">9. Final Project</a> </td>
+<td></td>
+</tr>
+<tr>
+<td>16/12</td>
+<td>Personal project</td>
+<td><a href="P9/index.md">9. Final Project</a> </td>
+<td>Lab8 deadline</td>
+</tr>
+</tbody>
+</table></div>
             </div>
         </div>
 
