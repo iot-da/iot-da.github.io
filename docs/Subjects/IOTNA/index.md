@@ -12,7 +12,7 @@ This subject will cover several topics regarding embedded system programmings. S
 
 ## Professors
 
-Jose Ignacio Gomez (jigomez@ucm.es) and Katzalin Olcoz Merino (katzalin@ucm.es )
+Jose Ignacio Gomez (jigomez@ucm.es) and Katzalin Olcoz  (katzalin@ucm.es )
 
 ## Schedule
 
