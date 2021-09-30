@@ -5,6 +5,7 @@ markdown_extensions:
 nav:
         - Home: index.md
         - General info.: General/index.md
+        - News: News/index.md
         - Subjects:
                 - IOTNA: Subjects/IOTNA/index.md
                 - MDM: Subjects/MDM/index.md
