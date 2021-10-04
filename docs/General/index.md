@@ -1,6 +1,6 @@
 # General information
 
-## **1st term** - 4 Oct. till 18 Dec.
+## **1st term** - 19th Oct. 2021  till  13th Jan 2022
 
 | Hours (GMT+1) | Tuesday | Wednesday | Thursday |
 |-------|---------|-----------|----------|
@@ -11,7 +11,7 @@
 * **SID**: *Smart Infrastructures Design*. 
 * **IOTNA**: *IoT Node Architecture*.
 
-## **2nd term ** - 10 Jan. till 2 Apr.
+## **2nd term ** - 18th Jan. 2022 till 7th Apr. 2022
 
 | Hours (GMT+1) | Tuesday | Wednesday | Thursday |
 |-------|---------|-----------|----------|

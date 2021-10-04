@@ -1,10 +1,10 @@
 # Internet of Things and Data Analytics
 
-Welcome to the Master Propio on IoT and Data Analytics. Lectures are starting the 5th October. We will be using Zoom and you can find the links in the schedule shown below.
+Welcome to the Master Propio on IoT and Data Analytics. Lectures are starting the 19th October. We will be using Zoom and you can find the links in the schedule shown below.
 
 Looking forward to meet you all!
 
-## **1st term** - 4 Oct. till 18 Dec. 2021
+## **1st term** - 19th Oct. till 13th Jan. 2022
 
 | Hours (GMT+1) | Tuesday | Wednesday | Thursday | Zoom Link |
 |-------|---------|-----------|----------|----------|
