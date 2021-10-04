@@ -4,11 +4,6 @@ Welcome to the Master Propio on IoT and Data Analytics. Lectures are starting th
 
 Looking forward to meet you all!
 
-## **General information**
-
-
-General description here...
-
 ## **1st term** - 4 Oct. till 18 Dec. 2021
 
 | Hours (GMT+1) | Tuesday | Wednesday | Thursday | Zoom Link |
