@@ -6,7 +6,10 @@ Looking forward to meet you all!
 
 ## **1st term** - 19th Oct. till 13th Jan. 2022
 
-| Hours (GMT+1) | Tuesday | Wednesday | Thursday | Zoom Link |
+*Until 31st October, Spanish time is UTC+2, so the FIRST TWO WEEKS courses will be starting at 18:00h in China Standard Time. Starting November, Spanish time will be UTC+1, so courses will be starting at 19:00h in China Standard Time.*
+
+
+| Hours (Spanish time) | Tuesday | Wednesday | Thursday | Zoom Link |
 |-------|---------|-----------|----------|----------|
 | 12:00-13:55 | [MDM](Subjects/MDM/index.md)     | [IOTNA](Subjects/IOTNA/index.md)     | [MDM](Subjects/MDM/index.md)      | [Zoom link](https://us02web.zoom.us/j/88542365522?pwd=ZVVjZzV2eFNBWkM3VGlDakI0enlmQT09)  Meeting number: 885 4236 5522.   Passcode: 641877 |
 | 14:05-16:00 | [SID](Subjects/SID/index.md)     | [SID](Subjects/SID/index.md)       | [IOTNA](Subjects/IOTNA/index.md)    | [Zoom link](https://us02web.zoom.us/j/89284664167?pwd=ZGwxQzg4OXEyY0EydUd5RXNUenZ6Zz09)   Meeting number: 892 8466 4167 Passcode: 477109 |
