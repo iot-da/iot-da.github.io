@@ -36,7 +36,7 @@ Jose Ignacio Gomez (jigomez@ucm.es) and Katzalin Olcoz  (katzalin@ucm.es )
 |09/12  | Serial buses: SPI, UART 	  | [5. Built-in sensors](P5/index.md)                |   |
 |15/12  | ADC /DAC reading		  | [5. Built-in sensors](P5/index.md)                |  Lab4 deadline |
 |16/12  | Energy consumption           | [6. Energy modes](P6/index.md) |   |
-|22/12 | Energy consumption           | [6. Energy modes](P6/index.md) | |
+|22/12 | Powering the system           | [6. Energy modes](P6/index.md) | |
 |23/12 | Firmware update                 | Personal Project definition.   |  Labs 5 and 6 deadline |
 |12/01 | Personal project                  | [7. Final Project](P7/index.md) |   |
 |13/01 | Personal project                  | [7. Final Project](P7/index.md) | |
