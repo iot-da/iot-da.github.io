@@ -38,8 +38,8 @@ Jose Ignacio Gomez (jigomez@ucm.es) and Katzalin Olcoz  (katzalin@ucm.es )
 |16/12  | Energy consumption           | [6. Energy modes](P6/index.md) |   |
 |22/12 | Energy consumption           | [6. Energy modes](P6/index.md) | |
 |23/12 | Firmware update                 | Personal Project definition.   |  Labs 5 and 6 deadline |
-|12/01 | Personal project                  | [7. Final Project](P6/index.md) |   |
-|13/01 | Personal project                  | [7. Final Project](P6/index.md) | |
+|12/01 | Personal project                  | [7. Final Project](P7/index.md) |   |
+|13/01 | Personal project                  | [7. Final Project](P7/index.md) | |
 
 *The final, personal project, will be due before 20th Jan. 2022*
 
