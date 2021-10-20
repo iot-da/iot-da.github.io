@@ -9,17 +9,21 @@ This subject will cover several topics regarding embedded system programmings. S
 * Learn basic components of Real Time Operating Systems (RTOS)
 * Work with sensors and learn the most common interfaces
 
+### Subject program and evaluation methodology
+
+  [Program and evaluation](slides/intro.pdf)
 
 ## Professors
 
 Jose Ignacio Gomez (jigomez@ucm.es) and Katzalin Olcoz  (katzalin@ucm.es )
 
+
 ## Schedule
 
 |    Day      | Topic                    |  Lab instructions   |  Deliverable   |
 |--------------|------------------------|-------------------------|-------------------|
-| 20/10  | [Introduction: boards, SoC](slides/intro.pdf)  |  ----   |  |
-| 21/10  | ESP-IDF environment  | Online DEMO  |          |
+| 20/10  | [Introduction: boards, SoC](slides/soc.pdf)  |  ----   |  |
+| 21/10  | ESP-IDF environment  | [Online DEMO](demo/index.md)  |          |
 | 27/10  | ESP-IDF   			| [1. Starting ESP-IDF ](P1/index.md)              | |
 | 28/10  | ESP32 Memory map              | [1. Starting ESP-IDF ](P1/index.md)              | |
 |03/11  | ESP-IDF Task Scheduler     | [2. Producer / Consumer ](P2/index.md)              |  |
