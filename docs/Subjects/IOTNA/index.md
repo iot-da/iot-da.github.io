@@ -22,7 +22,7 @@ Jose Ignacio Gomez (jigomez@ucm.es) and Katzalin Olcoz  (katzalin@ucm.es )
 
 |    Day      | Topic                    |  Lab instructions   |  Deliverable   |
 |--------------|------------------------|-------------------------|-------------------|
-| 20/10  | [Introduction: boards, SoC](slides/soc.pdf)  |  ----   |  |
+| 20/10  | [Introduction: boards, SoC](slides/soc.pdf)  |  [C Exercises](ctutorial/index.md)   |  |
 | 21/10  | ESP-IDF environment  | [Online DEMO](demo/index.md)  |          |
 | 27/10  | ESP-IDF   			| [1. Starting ESP-IDF ](P1/index.md)              | |
 | 28/10  | ESP32 Memory map              | [1. Starting ESP-IDF ](P1/index.md)              | |
