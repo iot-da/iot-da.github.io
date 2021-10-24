@@ -122,6 +122,22 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-level="2"><a href="#pointers" class="nav-link">Pointers</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#arguments" class="nav-link">Arguments</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#strings" class="nav-link">Strings</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#bitwaise-operations" class="nav-link">Bitwaise operations</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -166,7 +182,7 @@ int main() {
 /**** QUESTIONS/TASKS ********
  * Compile and execute the code. 
  * 1. Why the first &quot;printf&quot; prints different values for the same variable 'a'?
- * 2. How largeais a 'char' variable?
+ * 2. How large is a 'char' variable?
  * 3. Why the value of 'a' changes that much when adding 1?  
  * 4. If &quot;long&quot; and &quot;double&quot; have the same size, what's the difference?
  *****/
@@ -195,7 +211,7 @@ int main() {
  * 1. Is there a compilation problem or a execution problem?
  * 2. Why is it complaining? Fix it and compila again.
  * 3. a,b,c, y x are declared one after the other. Are their addresses consecutive in memory?
- * 4. What does the modifer &quot;%lu&quot; means in printf()? 
+ * 4. What does the modifier &quot;%lu&quot; means in printf()? 
  * 5. Which address is &quot;pc&quot; pointed to? Is the address of any other variable? Are those two the same size?
  * 6. Does the size of &quot;array1&quot; matches the number of elements? Why?
  * 7. Do &quot;cadena1&quot; and &quot;cadena2 &quot;point to the same address? 
@@ -238,7 +254,7 @@ return 0;
  * 2. What is actually stored in the address of &quot;list&quot;?
  * 3. Why are we including the lentgh of the array as parameter to &quot;init_array&quot;?
  * 4. Why the sizeof() output is different for the array in &quot;init_array&quot; and the one in main()?
- * 5. Why aren't we inclugind a second parameter in init_array2?
+ * 5. Why aren't we including a second parameter in init_array2?
  * 6. Do sizeof() outuput now match with the array in init_array2()?
  ***************/
 
@@ -293,8 +309,7 @@ void init_array2(int array[N]) {
 #define MAXELEM 5000
 #define MAXVALID 100
 
-// funcion que imprime por pantalla el conteniod del array v de tam. size
-void imprimeArray(int v[],int size) {
+void printArray(int v[],int size) {
     int i;
     printf(&quot;-------------------\n&quot;);
     for (i=0;i&lt;size;i++)
@@ -303,7 +318,6 @@ void imprimeArray(int v[],int size) {
 
 }
 
-// funcion que copia el contenido de un array en otro
 void copyArray(int src[],int dst[],int size) {
     dst = src;
 }
@@ -329,8 +343,417 @@ int main() {
 
     //tmo();
     copyArray(A,B,N);
-    imprimeArray(B,N);
+    printArray(B,N);
 
+}
+</code></pre>
+<h2 id="pointers">Pointers</h2>
+<pre><code class="language-c">
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+/**** QUESTIONS/TASKS ********
+ * Compile and execute the code. 
+ * 1. Which operand should we use to declae a variable as a ponter?
+ * 2. How do we obtain the address of a variable?
+ * 3. How do we read/write into the address pointed by a pointer? 
+ * 4. There ¡s a bug in the code. Is it a compile-time or executiontime errror? Why does it happen?
+  ***********/
+int c = 7;
+int main(void) {
+
+    int *ptr;
+    printf(&quot;Address of ptr %p. ptr apunta a %p. Address of c: %p Valor of c %d\n&quot;,&amp;ptr,ptr,&amp;c,c);   
+
+    ptr = &amp;c;
+    printf(&quot;Address of ptr %p,. ptr apunta a %p. Address of c: %p Value of c %d\n&quot;,&amp;ptr,ptr,&amp;c,c);  
+
+    *ptr=4;
+    printf(&quot;ptr apunta a %p. Content of address of ptr: %d Address of c: %p Value of c %d\n&quot;,ptr,*ptr,&amp;c,c);    
+
+    ptr =  (int*) 0x600a48;
+    printf(&quot;Address of ptr %p. Value of c %d\n&quot;,ptr,c); 
+
+    *ptr =13;
+    printf(&quot;Address of ptr %p. Value of c %d\n&quot;,ptr,c); 
+
+return 0;
+
+}
+</code></pre>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+/**** QUESTIONS/TASKS ********
+ * Compile and execute the code. 
+ *  1. How many bytes are allocated in memory with the malloc() call?
+ *  2. Which are the addresses of the first and last bytes of the allocated area?
+ *  3. Why the content of the address pointed by &quot;ptr&quot; is 7 and not 5 in the first printf()?
+ *  4. Why the content of ptrg[1] is modified after the sentence *ptr2=15 ?
+ *  5. Suggest two different ways of writting the value 13 in the address of ptr[100] 
+ *  6. There is a bug in the code. Even if nothing goes wrong,the bug is there. Where?
+ *  ***********/
+int nelem;
+
+int main(void) {
+    int *ptr;
+    int * ptr2; 
+
+    nelem = 127;
+    ptr = (int*) malloc(nelem*sizeof(int));
+    *ptr = 5;
+    ptr[0] = 7;
+    ptr2 = ptr;
+
+    printf(&quot;Address pointed by ptr %p. Content of that address: %d \n&quot;,ptr,*ptr);   
+
+    ptr[1] = 10;    
+    printf(&quot;Address pointed by ptr[1] %p. Content of that address: %d \n&quot;,&amp;ptr[1],ptr[1]);  
+
+    ptr2++;
+    *ptr2 = 15;
+    printf(&quot;Address pointed by ptr[1] %p. Content of that address: %d \n&quot;,&amp;ptr[1],ptr[1]);  
+
+
+    free(ptr);  
+    *ptr = 3;
+    printf(&quot;Address pointed by ptr %p. Content of that address: %d \n&quot;,ptr,*ptr);   
+}
+</code></pre>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+/**** QUESTIONS/TASKS ********
+ * Compile and execute the code. 
+ *  1. Why the value of ptr[13] is changed after the sentence ptr = &amp;c;
+ *  2. This code has (at least) one bug. Compile or run-timer error? Why?
+ *  3. What happens with the memory allocated by malloc()  after the assignment ptr=&amp;c? 
+ *     How can we reach that memory again? How can we free it?
+ *  ***********/
+int nelem;
+int c;
+int main(void) {
+    int *ptr;
+    int i;
+    c = 37; 
+    nelem = 127;
+    ptr = (int*) malloc(nelem*sizeof(int));
+    for (i=0; i&lt;nelem; i++)
+        ptr[i] = i;
+
+    printf(&quot;ptr[0]= %d ptr[13]=%d \n&quot;,ptr[0],ptr[13]);  
+
+    ptr = &amp;c;
+    printf(&quot;ptr[0]= %d ptr[13]=%d \n&quot;,ptr[0],ptr[13]);  
+
+    free(ptr);
+}
+</code></pre>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+/**** QUESTIONS/TASKS ********
+ * Compile and execute the code. 
+ *  1. Why the second printf() prints a different value for 'd'?
+ *  2. What is 'f'? A variable? A function?
+ *  3. Use the function 'opera()' to perform the first addition. Then, use it again to perform a substraction.
+ *  4. Using typedef, build a type called ptrToFunc with the same prototype thatn 'f'
+ *  5. Creat a function 'choose()' that will return, alternatively, a pointer to &quot;add()&quot; and &quot;sub()&quot; 
+ *     every time it is called
+ *  ***********/
+
+int add (int x, int y);
+int sub(int x, int y);
+
+int (*f)(int a, int b);
+
+int add(int x, int y) {
+    return x+y;
+}
+
+int sub(int x, int y) {
+    return x-y;
+}
+
+int opera(int x, int y, int (*g)(int, int)) {
+    return g(x,y);
+}
+
+int main(void) {
+
+    int a = 12;
+    int b =  8;
+    int c,d;
+
+    f = add;
+    c = add(a,b);
+    d = f(a,b);
+    printf(&quot;c = %d d= %d \n&quot;,c,d);  
+    f = sub;
+    d = f(a,b);
+    printf(&quot;c = %d d= %d \n&quot;,c,d);
+}
+</code></pre>
+<h2 id="arguments">Arguments</h2>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+/**** QUESTIONS/TASKS ********
+ * Compile and execute the code. 
+ * 1. Why the value of 'xc' is not changed after the call to sumC()? 
+ *     Where do the write operations happen?
+ * 2. Comment  the two forwarded declarations of sum() and sumC(). Compile again. What happens?
+ *******************/
+/* Struct type */
+struct _complex_ {
+    float re;
+    float im;
+};
+
+/* Forward declarations */
+int sum(int a, int b);
+struct _complex_  sumC( struct _complex_ a,  struct _complex_ b);
+
+
+int main(void){
+    int x = 4,y = 5;
+    struct _complex_  xc = {.re = 1.0, .im = 2.0};
+    struct _complex_  yc = {.re = 3.0, .im = 1.0};
+    struct _complex_  zc; 
+
+    zc = sumC(xc,yc);
+
+    int total = sum(x,y); 
+
+    printf(&quot;Suma de complejos. (%f,%f i) + (%f,%f i) =(%f,%f i)\n&quot;,xc.re,xc.im,yc.re,yc.im,zc.re,zc.im);
+    printf(&quot;Suma de enteros:  x +y = %d + %d = %d \n&quot;,x,y, total);
+    return 0;
+}
+
+int sum(int x, int y) {  
+    int c;
+    c = x +y;
+    x = 7;
+    y =3;  
+    return c;         
+}
+
+
+struct _complex_  sumC( struct _complex_ a,  struct _complex_ b) {
+        struct _complex_ r;
+        r.re = a.re + b.re;
+        r.im = a.im + b.im;
+        // Try to change the first parameter
+        a.re = 12.5;
+        a.im = 13.4;
+        return r;
+}
+</code></pre>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+/**** QUESTIONS/TASKS ********
+ * Compile and execute the code. 
+ * 1. Why does the value of 'y' changes after the call to sum()?
+ * 2. Why sometimes we use operator '.' and other times '-&gt;'?
+ * 3. Why the vauue of 'zc' gets wrong without further using it in the code?
+ * 4. Fix the code to avoid the bug in 'zc' shown in previous point
+ *******************/
+struct _complex_ {
+    float re;
+    float im;
+};
+
+int sum(int *pa, int *pb);
+struct _complex_ * sumC( struct _complex_ *a,  struct _complex_ *b);
+
+
+int main(void){
+    int x = 4,y = 5;
+    int* ptr = &amp;y;
+    struct _complex_  xc = {.re = 1.0, .im = 2.0};
+    struct _complex_  yc = {.re = 3.0, .im = 1.0};
+    struct _complex_  *zc; 
+
+
+    printf(&quot;Complex addition (%f,%f i) + (%f,%f i) = &quot;,     xc.re,xc.im,yc.re,yc.im);
+    zc = sumC(&amp;xc,&amp;yc);
+    printf(&quot;(%f,%f i)\n&quot;,zc-&gt;re,zc-&gt;im);
+    int total = sum(&amp;x,ptr); 
+
+    printf(&quot;Complex addition:  x +y = %d + %d = %d \n&quot;,x,y, total);
+    printf(&quot;xc = (%f,%f i)  yc = (%f,%f i) zc = (%f,%f i)\n&quot;,xc.re,xc.im,yc.re,yc.im,zc-&gt;re,zc-&gt;im);
+    return 0;
+}
+
+int sum(int *pa, int *pb) {  
+   /* args passed by reference */
+  int c = *pa + *pb;
+  int buf[256] = {0};
+  *pa = 7;
+  *pb = 8;  
+   return c;      /* return by value */
+}
+
+
+struct _complex_ * sumC( struct _complex_* a,  struct _complex_* b) {
+        struct _complex_ r;
+        r.re = a-&gt;re + b-&gt;re;
+        r.im = a-&gt;im + b-&gt;im;
+        a-&gt;re = 12.5;
+        a-&gt;im = 13.4;
+        return &amp;r;
+}
+</code></pre>
+<h2 id="strings">Strings</h2>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+/**** QUESTIONS/TASKS ********
+ * Compile and execute the code. 
+ * 1. The code has a bug. Compile or run-time? Why?
+ * Fix the bug commenting the line(s) that produce it. Compile and execute again. 
+ * 2. Which is the address of letter 'B' in the chain &quot;Bonjour&quot;? And letter 'j'?
+ * 3. After the assignment p=msg2; how can we get back the address of &quot;Bonjour&quot;?
+ * 4. Why the length of strings 'p' and 'msg2' are 2 after the third assignment?
+ *    3 bytes are assigned to 'p', but then the length is only 2 !!
+ * 5. Why strlen() returns a different value than sizeof()?
+ * 6. Why the string stored in 'msg' in line 36 is bad-printed in the last printf()?
+ ************** */
+int main() {
+
+char msg[10]; /* array of 10 chars */
+char *p;          /* pointer to a char */
+
+char msg2[28]=&quot;Hello&quot;;  /* msg2 = 'H' 'e' 'l' 'l' 'o' '\0' */
+
+    p   = &quot;Bonjour&quot;; 
+    printf(&quot;msg: %s, p: %s, msg2: %s\n&quot;,msg,p,msg2);
+    printf(&quot;dir de msg: %p, dir de p: %p, dir de msg2: %p\n&quot;,msg,p,msg2);
+
+    p = msg2;
+    printf(&quot;msg: %s, p: %s, msg2: %s\n&quot;,msg,p,msg2);
+    printf(&quot;dir de msg: %p, dir de p: %p, dir de msg2: %p\n&quot;,msg,p,msg2);
+
+    p[0] = 'H', p[1] = 'i',p[2]='\0';
+    printf(&quot;msg: %s, p: %s, msg2: %s\n&quot;,msg,p,msg2);
+    printf(&quot;msg len: %lu p len %lu msg2 len %lu\n&quot;, strlen(msg),strlen(p),strlen(msg2));
+    printf(&quot;msg size: %lu p size %lu msg2 size %lu\n&quot;, sizeof(msg),sizeof(p),sizeof(msg2));
+
+    msg[0] = 'B', msg[1] = 'y';
+    printf(&quot;msg: %s, p: %s, msg2: %s\n&quot;,msg,p,msg2);
+
+    msg = &quot;Goodbye&quot;;
+    printf(&quot;msg: %s, p: %s, msg2: %s\n&quot;,msg,p,msg2);
+}
+</code></pre>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+/**** QUESTIONS/TASKS ********
+ * Compile and execute the code. 
+ * 1. The code of fcuntion 'copy' does not work. Why?
+ * 2. Use now 'copy2()'. Does the copy actually work?
+ * 3. Suggest a valid implementation for a copy
+ * 4. What does function &quot;mod&quot; do? 
+ * 5. Uncomment last line of code (call to mod()). Compile and execute. Why is there an error now?
+ ************** */
+
+void copy2(char* org, char** dst) {
+    *dst = org;
+}
+
+void copy(char* org, char* dst) {
+    dst = org;
+}
+
+void mod(char* org, char* dst) {
+    int i;
+
+    for (i=0;i&lt;strlen(org);i++)
+        dst[i] = org[i] - 32;
+
+}
+
+int main() {
+
+    char* cad1 = &quot;original&quot;;          
+    char* cad2 = &quot;other&quot;;
+    char cad3[32];
+
+    copy(cad1,cad2);
+    //copy2(cad1,&amp;cad2);
+    printf(&quot;cad1 %s cad2 %s\n&quot;, cad1,cad2);
+
+    mod(cad1,cad3);
+    printf(&quot;cad1 %s cad3 %s\n&quot;, cad1,cad3);
+
+    //mod(cad1,cad1);
+}
+</code></pre>
+<h2 id="bitwaise-operations">Bitwaise operations</h2>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+/**** QUESTIONS/TASKS ********
+ * Compile and execute the code. 
+ * Study the syntax of the different bit-level operators
+ * and make sure you understand  the result of every operation
+ ************** */
+
+int a,b,c;
+
+int main() {
+
+    a = 7;
+    b = 9;
+    c = a &amp; b;
+    printf(&quot;%x AND %x = %x\n&quot;,a,b,c);
+
+    c= a | b;
+    printf(&quot;%x OR %x = %x\n&quot;,a,b,c);
+
+    c = a ^ b;
+    printf(&quot;%x XOR %x = %x\n&quot;,a,b,c);
+
+    c = ~a;
+    printf(&quot;NOT %x = %x\n&quot;,a,c);
+
+    c = a &lt;&lt; 2;
+    printf(&quot; %x &lt;&lt; 2 = %x\n&quot;,a,c);
+
+    c = a &gt;&gt; 1;
+    printf(&quot; %x &gt;&gt; 1 = %x\n&quot;,a,c);
+
+    c = a &amp; 0xFB;
+    printf(&quot; %x bit 2 to 0 -&gt; %x\n&quot;,a,c);
+
+    c = a | 0x40;
+    printf(&quot; %x bit 6 to 1 -&gt; %x\n&quot;,a,c);
+
+    c = (a &amp; 0x1C) &gt;&gt; 2;
+    printf(&quot;bits 4-3-2 of %x: %x\n&quot;,a,c);   
+}
+</code></pre>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+/**** QUESTIONS/TASKS ********
+ * Compile and execute the code. 
+ * 1. Why the assignment using pointer 'p' does not overwrite completely 'a'?
+ * 2. How is modified the address pointed by 'p' after the assignment p=p+1
+ * 3. How would it be different if 'p' is declared as 'short *'
+ *
+ ************** */
+int a = 3;
+int b;
+char * p;
+int c;
+int main() {
+
+    printf(&quot;a = %x Address of a: %p \n&quot;,a,&amp;a);
+    p = (char*) &amp;a;
+    p=p+1;
+    *p= 0x1f;
+    printf(&quot;a = %x. Address pointed by p:%p \n&quot;,a,p);
+
+    a = 3;
+    b = 0x00001f00;
+    a= a | b;
+
+    printf(&quot;a = %x. Address pointed by p:%p \n&quot;,a,p);
 }
 </code></pre></div>
             </div>
