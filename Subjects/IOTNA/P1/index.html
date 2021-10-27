@@ -118,6 +118,26 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-level="2"><a href="#project-configuration" class="nav-link">Project configuration</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#including-source-code" class="nav-link">Including source code</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#flashing-the-project" class="nav-link">Flashing the project</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#monitoring-the-project" class="nav-link">Monitoring the project</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#tasks-homework" class="nav-link">Tasks / Homework</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -133,16 +153,86 @@
 <li>Monitor your application using the serial port</li>
 </ul>
 <h2 id="create-a-platformio-project">Create a PlatformIO project</h2>
-<p>Whenever you want to create a new project, you can add it using the PlatformIO interface.  From the "PIO Home" tab:</p>
+<p>Whenever you want to create a new project, you can add it using the PlatformIO interface.  First, click the <em>PlatformIo Home</em> icon:</p>
+<p><img alt="foo" src="img/PlatformIO/1.png" /></p>
+<p>From the "PIO Home" tab, select "New Project" and the <em>Project Wizard</em> window will show up:</p>
+<p><img alt="foo" src="img/PlatformIO/2.png" /></p>
+<p>In that window:</p>
 <ul>
-<li>Select "New Project"</li>
 <li>Write your  project name (do not use white spaces)</li>
 <li>Select <em>Espressif ESP32 Dev Module</em>  as <em>Board</em></li>
 <li>Select <em>Espressif IoT Development framework</em> as <em>Framework</em></li>
 <li>If you want to choose an <em>ad-hoc</em> location for your project, unselect <em>Use default location</em></li>
 <li>Press <em>Finish</em></li>
 </ul>
-<p>You are done! Your first ESP-IDF poject in PlatformIO is already created.</p></div>
+<p>You are done! Your first ESP-IDF project in PlatformIO is already created.</p>
+<div class="admonition danger">
+<p class="admonition-title">Stop and Sync</p>
+<p>If you reach this step, please contact the instructor in the chat to let him/her know. </p>
+</div>
+<h2 id="project-configuration">Project configuration</h2>
+<p>Before proceeding with the application coding, you should configure the project so the framework knows where to find the device and how to communicate with it. There are two main options that we need to specify in the project configuration. Follow the next steps to do it;</p>
+<ul>
+<li>Double click the file <em>platformio.ini</em> to open it in the editor.</li>
+<li>By default it has three options included: <code>platform</code>, <code>board</code>, <code>framework</code>. We are going to include two more below those three:<ul>
+<li><code>monitor_speed = 115200</code></li>
+<li><code>upload_port = /tty/USB1</code></li>
+</ul>
+</li>
+</ul>
+<p>Note that the <code>upload_port</code> specified above is the one used by default in the Virtual Machine provided. If you are not using it, make sure you write the correct port name.</p>
+<h2 id="including-source-code">Including source code</h2>
+<p>The new project will automatically create a <em>src</em> folder, including a default <em>main.c</em> file with the following content:</p>
+<pre><code class="language-c">void app_main()
+{
+}
+</code></pre>
+<p>We are going to write a very simple <em>Hello World</em> application. Write the following code in <em>main.c</em> file:</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &quot;freertos/FreeRTOS.h&quot;
+#include &quot;freertos/task.h&quot;
+
+void app_main(void)
+{
+
+   while (1) {
+    printf(&quot;Hello world!\n&quot;);
+        vTaskDelay(1000 / portTICK_PERIOD_MS);
+  }
+  vTaskDelete(NULL);
+}
+</code></pre>
+<p>Once you have written the source code, you can proceed to build the project.  To do so, you can display the  <em>Project Tasks</em> (<code>View-&gt;Command Palette</code>) and execute  <code>PlatformIO: Build</code>. You could also press the <code>Build</code> button (<em>check</em> button in the bottom pane).</p>
+<p><img alt="foo" src="img/PlatformIO/3.png" /></p>
+<p>If the building process works ok (it may take a few minutes the first time)  you should see a message similar to:</p>
+<p><img alt="foo" src="img/PlatformIO/4.png" /></p>
+<div class="admonition danger">
+<p class="admonition-title">Stop and Sync</p>
+<p>If you reach this step, please contact the instructor in the chat to let him/her know. </p>
+</div>
+<h2 id="flashing-the-project">Flashing the project</h2>
+<p>Once we have our application built (note that our source code is linked with the whole ESP-IDF environment, including <em>FreeRTOS</em>), we are ready to upload it to our ESP32 device (this operation is commonly known as <em>flash</em> because we will be writing the binary file in flash memory). </p>
+<p>First, plug the ESP32 MeshKit to the ESP-Prog board with the provided connection.  Then, connect the microUSB wire to the corresponding ESP-Prog port and plug the USB end of the wire to your computes USB port. If you are using a virtual machine, you will need to claim the device from the virtual machine, as the host will very likely keep the device by default.</p>
+<p>Once you are done physically connecting the devices, you can proceed with the uploading. You can use the  <code>PlatformIO: Upload</code> task from <em>Project Tasks</em> or click in the corresponding button of the bottom pane:</p>
+<p><img alt="foo" src="img/PlatformIO/5.png" /></p>
+<h2 id="monitoring-the-project">Monitoring the project</h2>
+<p>Finally, you can open a serial connection from your computer to the device to monitor the progress.  You can select <code>PlatformIO: Monitor</code> from the <em>Project Tasks</em> or click the <em>plug</em> button in the bottom pane:</p>
+<p><img alt="foo" src="img/PlatformIO/6.png" /></p>
+<p>Once done, you should see the message *Hello World" in your screen once every second.</p>
+<p>Congrats! You have uploaded your first ESP32 project!</p>
+<div class="admonition danger">
+<p class="admonition-title">Stop and Sync</p>
+<p>If you reach this step, please contact the instructor in the chat to let him/her know. </p>
+</div>
+<h2 id="tasks-homework">Tasks / Homework</h2>
+<div class="admonition note">
+<p class="admonition-title">Task</p>
+<p>Keep a snapshot of your screen at the end of every section (i.e. whenever a <em>Stop and Sync</em> message appears in these instructions) and paste them in a PDF file including the information of your group (names of each of the members of the group). Send the PDF file to the instructor (jigomez@ucm.es) <strong>by the end of this session</strong> (just one file per group).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Homework</p>
+<p>Modify the <em>Hello World</em> project so that it prints 10 messages, then it waits for 5 seconds and finally restarts the system. You can find which function you could use for the reset in the <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/system/system.html">official ESP-IDF documentation</a>. Send the modified source code (only the file <em>main.c</em>) to the instructor before the start of next session (just one file per group).</p>
+</div></div>
             </div>
         </div>
 
