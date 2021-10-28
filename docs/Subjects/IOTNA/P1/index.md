@@ -103,7 +103,7 @@ Congrats! You have uploaded your first ESP32 project!
 	If you reach this step, please contact the instructor in the chat to let him/her know. 
 	
 
-## Tasks / Homework
+## Tasks / Homework (28/10/2021)
 
 !!! note "Task"
 	Keep a snapshot of your screen at the end of every section (i.e. whenever a *Stop and Sync* message appears in these instructions) and paste them in a PDF file including the information of your group (names of each of the members of the group). Send the PDF file to the instructor (jigomez@ucm.es) **by the end of this session** (just one file per group).
@@ -111,3 +111,42 @@ Congrats! You have uploaded your first ESP32 project!
 	
 !!! note "Homework"
 	Modify the *Hello World* project so that it prints 10 messages, then it waits for 5 seconds and finally restarts the system. You can find which function you could use for the reset in the [official ESP-IDF documentation](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/system/system.html). Send the modified source code (only the file *main.c*) to the instructor before the start of next session (just one file per group).
+
+
+## Extra (OPTIONAL): Memory Map
+
+Our ESP32 has several memory types (details can be found [in this link](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-guides/memory-types.html) and with more details in the [Technical Reference Manuel (Chapter 1)](https://www.espressif.com/sites/default/files/documentation/esp32_technical_reference_manual_en.pdf#sysmem)
+
+ Most of the code will be placed in the external, flash based memory (SPI flash).  But we can also used some other modules. The most relevant are:
+
+ * **Data RAM**. Global variables (non-constant) are assigned to this SRAM (Static RAM) memory.   Remaining space in this region is used for the runtime heap. This space is mapped to the *Internal SRAM 2* (200KB) starting at address 0x3FFA_E000 and could also use *Internal SRAM 1* (128KB) starting at 0x3FFE_0000. Note that SRAM1 could be also used as instruction memory.
+ 
+  
+ * **DROM** (data stored in Flash). By default, constant data is placed by the linker into a region mapped to the MMU flash cache. 
+ 
+ * **Instruction RAM** ESP-IDF allocates part of Internal SRAM0 region for instruction RAM. It allows us to use the range 0x4008_0000 to 0x400A_0000 to store parts of the application which need to run from RAM instead of Flash (for example, interrupt handlers are good candidates since they need to run as fast as possible). In order to place code in IRAM we may use the `IRAM_ATTR` macro:
+ 
+```c
+ #include "esp_attr.h"
+
+void IRAM_ATTR gpio_isr_handler(void* arg)
+{
+        // ...
+}
+```
+
+ ### Stack and heap memory allocation
+ 
+Since FreeRTOS is mult-threaded, each RTOS task has its own stack. By default, each of these stacks is allocated from the heap when the task is created. 
+
+Since there are multiple types of RAM, there are also several heaps with different capabilities. 
+Most of the time, you can rely in the standard libc calls (`malloc()`, `free()`....). But you may explicitly ask for certain capabilities when allocating memory using `heap_caps_malloc()`. Please check [the documentation in this link for more details](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/system/mem_alloc.html)
+
+
+	
+!!! note "Homework (Optional)"
+	Create a new project to explore the addresses of different variables. Declare different variables: g lobal variables with initial value, global variables without initial value, global `const` variables, local variables (stack), allocate memory in the heap using both `malloc()`and `heap_caps_malloc()` and try to allocate some function in IRAM. Then print the address of all these symbols (variables, functions...) and check in which memories they are actually allocated.
+
+
+
+
