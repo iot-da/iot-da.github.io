@@ -258,7 +258,7 @@ void IRAM_ATTR gpio_isr_handler(void* arg)
         // ...
 }
 </code></pre>
-<p>### Stack and heap memory allocation</p>
+<h3 id="heap-memory-allocation">Heap memory allocation</h3>
 <p>Since FreeRTOS is mult-threaded, each RTOS task has its own stack. By default, each of these stacks is allocated from the heap when the task is created. </p>
 <p>Since there are multiple types of RAM, there are also several heaps with different capabilities. 
 Most of the time, you can rely in the standard libc calls (<code>malloc()</code>, <code>free()</code>....). But you may explicitly ask for certain capabilities when allocating memory using <code>heap_caps_malloc()</code>. Please check <a href="https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/system/mem_alloc.html">the documentation in this link for more details</a></p>
