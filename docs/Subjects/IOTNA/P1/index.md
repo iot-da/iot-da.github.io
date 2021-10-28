@@ -135,7 +135,7 @@ void IRAM_ATTR gpio_isr_handler(void* arg)
 }
 ```
 
- ### Stack and heap memory allocation
+###   Heap memory allocation
  
 Since FreeRTOS is mult-threaded, each RTOS task has its own stack. By default, each of these stacks is allocated from the heap when the task is created. 
 
