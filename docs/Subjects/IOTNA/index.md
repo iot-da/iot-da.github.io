@@ -17,6 +17,10 @@ This subject will cover several topics regarding embedded system programmings. S
 
 Jose Ignacio Gomez (jigomez@ucm.es) and Katzalin Olcoz  (katzalin@ucm.es )
 
+## Work groups
+
+[Here you can find the current work groups](groups.md)
+
 
 ## Schedule
 
