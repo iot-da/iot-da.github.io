@@ -30,3 +30,4 @@ As explained during last lectures, we will be forming stable groups to work duri
 |    Recorder      | Qiuji Chen               |  
 |    Auditor      | Xiangloan Luo                 |  
 |    Contributor      | Jianchuang Zhang             |  
+| Contributor | Gonglu Zou |
