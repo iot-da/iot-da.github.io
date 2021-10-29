@@ -62,13 +62,13 @@ from any of the integrants.
 ## Group 6
 |  Rol         |         Full name            |
 |--------------|------------------------------|
-|    Speaker      |   Ping	Zhou     |  
-|   Recorder | Yan Zhao | 
-|    Auditor      |  Yongtao	He                  |  
-|    Contributor      |      Jiayun	Pan            |  
+|    Speaker      |   ZHOU Ping	     |  
+|    Speaker (2)      |    LIAO  Yinghua	        |  
+|   Recorder | ZHAO Yan  | 
+|    Auditor      |  HE Yongtao	                  |  
+|    Contributor      |      PAN Jiayun	            |  
 |    Contributor      |    Zhao	 Hu         |  
-|    Contributor      |     Yinghua	Liao        |  
-
+|    Contributor      |    ZHANG  Yi	              |  
 
 
 ## Group 7
@@ -80,7 +80,7 @@ from any of the integrants.
 |    Speaker      | WENYAN	LIAO |  
 |    Recorder      |     XIAZU	HU              |  
 |    Auditor      |   XUEQING	ZHAO                  |  
-|    Contributor      |    YI	ZHANG              |  
+
 
 ## Group 8
 |  Rol         |         Full name            |
