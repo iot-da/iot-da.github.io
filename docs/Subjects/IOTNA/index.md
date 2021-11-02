@@ -30,8 +30,8 @@ Jose Ignacio Gomez (jigomez@ucm.es) and Katzalin Olcoz  (katzalin@ucm.es )
 | 21/10  | ESP-IDF environment  | [Online DEMO](demo/index.md)  |          |
 | 27/10  | ESP-IDF   			| [1. Starting ESP-IDF ](P1/index.md)              | |
 | 28/10  | ESP32 Memory map              | [1. Starting ESP-IDF ](P1/index.md)              | |
-|03/11  | ESP-IDF Task Scheduler     | [2. Tasks: matrix multiply ](P2/index.md)              |  |
-|04/11  | Task Communication and synchronisation (I)  | [2. Tasks: matrix multiply ](P2/index.md)    |   |
+|03/11  | [ESP-IDF Tasks Scheduler](slides/tasks.pdf)     | [2. Tasks: matrix multiply ](P2/index.md)              |  |
+|04/11  | [ESP-IDF Tasks Scheduler](slides/tasks.pdf)  | [2. Tasks: matrix multiply ](P2/index.md)    |   |
 |10/11  | Events and task notifications  | [2. Tasks: matrix multiply  ](P2/index.md)    |   |
 |11/11  | Flash and File Systems       |[3. Log in flash](P3/index.md) |   |
 |17/11  | System Log       	|[3. Log in flash](P3/index.md) | |
