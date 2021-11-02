@@ -87,6 +87,6 @@ from any of the integrants.
 |--------------|------------------------------|
 |    Speaker      |  Xiaolan Li         |  
 |    Recorder      | Qiuji Chen               |  
-|    Auditor      | Xiangloan Luo                 |  
+|    Auditor      | Xiongloan Luo                 |  
 |    Contributor      | Jianchuang Zhang             |  
 | Contributor | Gonglu Zou |
