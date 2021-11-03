@@ -24,7 +24,6 @@ from any of the integrants.
 |    Recorder      |      FENGFENG	GU             |  
 |    Auditor      |      GONGLU	ZOU               |  
 |    Contributor      |      HONGBIAO	CAO             |  
-|    Contributor      |       JIALI	GAO           |  
 
 
 ## Group 3
@@ -45,6 +44,9 @@ from any of the integrants.
 |    Recorder      | ShaYuan Shuang                 |  
 |    Auditor      | Junyan Guo                    |  
 |    Contributor      | Zhijun Hao                    |  
+| Contributor |   Xueqing Zhao  |
+|    Contributor      |       Jiali Gao	           |  
+
 
 ## Group 5 
 This group is randomly assigned, since I had no notice
@@ -57,6 +59,7 @@ from any of the integrants.
 |    Auditor      |     SUIZHI	LIU                |  
 |    Contributor      |    TIANFENG	LI              |  
 |    Contributor      |     WEI	 REN             |  
+|    Contributor      |     XIAZU	HU              |  
 
 
 ## Group 6
@@ -78,8 +81,7 @@ from any of the integrants.
 |  Rol         |         Full name            |
 |--------------|------------------------------|
 |    Speaker      | WENYAN	LIAO |  
-|    Recorder      |     XIAZU	HU              |  
-|    Auditor      |   XUEQING	ZHAO                  |  
+
 
 
 ## Group 8
