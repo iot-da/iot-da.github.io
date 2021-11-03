@@ -24,6 +24,7 @@ from any of the integrants.
 |    Recorder      |      FENGFENG	GU             |  
 |    Auditor      |      GONGLU	ZOU               |  
 |    Contributor      |      HONGBIAO	CAO             |  
+|   Contributor      | WENYAN	LIAO |  
 
 
 ## Group 3
@@ -75,12 +76,8 @@ from any of the integrants.
 
 
 ## Group 7
-This group is randomly assigned, since I had no notice
-from any of the integrants.
+This group is canceled. Previous members have been distributed in other groups.
 
-|  Rol         |         Full name            |
-|--------------|------------------------------|
-|    Speaker      | WENYAN	LIAO |  
 
 
 
