@@ -86,6 +86,5 @@ This group is canceled. Previous members have been distributed in other groups.
 |--------------|------------------------------|
 |    Speaker      |  Xiaolan Li         |  
 |    Recorder      | Qiuji Chen               |  
-|    Auditor      | Xiongloan Luo                 |  
+|    Auditor      | Xionglan Luo                 |  
 |    Contributor      | Jianchuang Zhang             |  
-| Contributor | Gonglu Zou |
