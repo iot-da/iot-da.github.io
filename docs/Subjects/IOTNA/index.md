@@ -32,13 +32,13 @@ Jose Ignacio Gomez (jigomez@ucm.es) and Katzalin Olcoz  (katzalin@ucm.es )
 | 28/10  | ESP32 Memory map              | [1. Starting ESP-IDF ](P1/index.md)              | |
 |03/11  | [ESP-IDF Tasks Scheduler](slides/tasks.pdf)     | [2. Tasks: matrix multiply ](P2/index.md)              |  |
 |04/11  | [ESP-IDF Tasks Scheduler](slides/tasks.pdf)  | [2. Tasks: matrix multiply ](P2/index.md)    |   |
-|10/11  | Events and task notifications  | [2. Tasks: matrix multiply  ](P2/index.md)    |   |
-|11/11  | Flash and File Systems       |[3. Log in flash](P3/index.md) |   |
-|17/11  | System Log       	|[3. Log in flash](P3/index.md) | |
-|18/11  | Logging and  debugging     |[3. Log in flash](P3/index.md) |  Lab 2 deadline |
-|24/11  | Input/Output. GPIO. Timers  | [4. Chronometer](P4/index.md)                | | 
-|25/11  | Event based programming | [4. Chronometer](P4/index.md)            |     |
-|01/12  |  Sensors	  		     | [4. Chronometer](P4/index.md)            | Lab 3 deadline    |
+|10/11  | [Events and task notifications](slides/events.pdf) | [2. Tasks: matrix multiply  ](P2/index.md)    |   |
+|11/11  | Input/Output. GPIO. Timers  | [3. Chronometer](P3/index.md)                | | 
+|17/11  | Event based programming | [3. Chronometer](P3/index.md)            |     |
+|18/11  |  Sensors	  		     | [3. Chronometer](P3/index.md)            | Lab 2 deadline    |
+|24/11  | Flash and File Systems       |[4. Log in flash](P3/index.md) |   |
+|25/11  | System Log       	|[3. Log in flash](P4/index.md) | |
+|01/12  | Logging and  debugging     |[4. Log in flash](P4/index.md) |  Lab 3 deadline |
 |02/12  | Serial buses: I2C		    | [5. Built-in sensors](P5/index.md)            |  |
 |08/12  | NO LECTURE (non working day)  | Spain National Holiday   | |
 |09/12  | Serial buses: SPI, UART 	  | [5. Built-in sensors](P5/index.md)                |   |
