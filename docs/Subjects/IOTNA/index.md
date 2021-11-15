@@ -33,9 +33,9 @@ Jose Ignacio Gomez (jigomez@ucm.es) and Katzalin Olcoz  (katzalin@ucm.es )
 |03/11  | [ESP-IDF Tasks Scheduler](slides/tasks.pdf)     | [2. Tasks: matrix multiply ](P2/index.md)              |  |
 |04/11  | [ESP-IDF Tasks Scheduler](slides/tasks.pdf)  | [2. Tasks: matrix multiply ](P2/index.md)    |   |
 |10/11  | [Events and task notifications](slides/events.pdf) | [2. Tasks: matrix multiply  ](P2/index.md)    |   |
-|11/11  | Input/Output. GPIO. Timers  | [3. Chronometer](P3/index.md)                | | 
-|17/11  | Event based programming | [3. Chronometer](P3/index.md)            |     |
-|18/11  |  Sensors	  		     | [3. Chronometer](P3/index.md)            | Lab 2 deadline    |
+|11/11  | [Input/Output](slides/IO.pdf) -  [Polling/Interrupts](slides/interrupts.pdf) -  [GPIO](slides/gpio.pdf)  | [3. Chronometer](P3/index.md)                | | 
+|17/11  | [Timers](slides/timer.pdf)					| 				[3. Chronometer](P3/index.md)            |     |
+|18/11  |  Event based programming . Sensors	  		     | [3. Chronometer](P3/index.md)            | Lab 2 deadline    |
 |24/11  | Flash and File Systems       |[4. Log in flash](P3/index.md) |   |
 |25/11  | System Log       	|[3. Log in flash](P4/index.md) | |
 |01/12  | Logging and  debugging     |[4. Log in flash](P4/index.md) |  Lab 3 deadline |
