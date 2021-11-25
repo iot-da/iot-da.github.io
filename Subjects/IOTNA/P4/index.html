@@ -200,7 +200,19 @@ Follow the example <em>Wear Levelling</em> ( [wear levelling example])https://gi
 </ul>
 </div>
 <h2 id="redirecting-the-log-to-flash-optional">Redirecting the log to FLASH (optional)</h2>
-<p>To be done.</p></div>
+<p>This assignment is optional, but required if you want to obtain more than 6 / 10 in this assignment. </p>
+<p>Starting from your chronometer code (or equivalent), include LOG messages (using ESP_LOG macros) and redirect the log to a file called <em>log.txt</em> that you will create in a FAT partition in SPI FLAG. Use <code>esp_log_set_vprintf()</code> to do the redirection. You should LOG:</p>
+<ul>
+<li>Every 5 seconds of the chronometer running, you must LOG a message.</li>
+<li>Every time the button is pressed</li>
+<li>Every time there is a <em>long</em> press (more than 4 seconds).</li>
+</ul>
+<p>Note that you can still use <code>printf()</code> to write to the terminal.</p>
+<p>Also, after 1 minute of functioning, you will read the first 5 lines of the log file and write them to the terminal (using <code>printf()</code>).</p>
+<div class="admonition note">
+<p class="admonition-title">Homework (Optional)</p>
+<p>Once finished, the <em>Speaker</em> will contact me to <strong>explain (orally) the code developed</strong></p>
+</div></div>
             </div>
         </div>
 
