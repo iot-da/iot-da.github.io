@@ -8,7 +8,7 @@
         
         <link rel="canonical" href="https://iot-da.github.io/Subjects/IOTNA/P4/">
         <link rel="shortcut icon" href="../../../img/favicon.ico">
-        <title>Lab 4. Simple Chronometer - Internet of Things and Data Analytics</title>
+        <title>Logging and flash filesystem - Internet of Things and Data Analytics</title>
         <link href="../../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../../css/base.css" rel="stylesheet">
@@ -108,9 +108,25 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#lab-4-simple-chronometer" class="nav-link">Lab 4. Simple Chronometer</a>
+            <li class="nav-item" data-level="1"><a href="#logging-and-flash-filesystem" class="nav-link">Logging and flash filesystem</a>
               <ul class="nav flex-column">
             <li class="nav-item" data-level="2"><a href="#goals" class="nav-link">Goals</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#documentation" class="nav-link">Documentation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#logging-to-uart" class="nav-link">Logging to UART</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#mounting-fat-filesystem" class="nav-link">Mounting FAT filesystem</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#redirecting-the-log-to-flash-optional" class="nav-link">Redirecting the log to FLASH (optional)</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -121,11 +137,70 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="lab-4-simple-chronometer">Lab 4. Simple Chronometer</h1>
+<h1 id="logging-and-flash-filesystem">Logging and flash filesystem</h1>
 <h2 id="goals">Goals</h2>
-<div class="admonition note">
-<p class="admonition-title">Under construction</p>
-</div></div>
+<ul>
+<li>Learn the logging mechanisms provided by ESP-IDF</li>
+<li>Create your own partitions in SPI FLASH memory</li>
+<li>Mount a filesystem in FLASH memory</li>
+</ul>
+<h2 id="documentation">Documentation</h2>
+<p>To complete this assignment, you may need to check the slides discuss in the lectures and the official API documentation:</p>
+<ul>
+<li><a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/system/log.html">Log</a></li>
+<li><a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/storage/spi_flash.html">SPI Flash and partitions</a></li>
+<li><a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/storage/fatfs.html">FAT filesystem</a></li>
+<li><a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/storage/wear-levelling.html">Wear levelling API</a></li>
+</ul>
+<h2 id="logging-to-uart">Logging to UART</h2>
+<h3 id="basic-logging">Basic logging</h3>
+<p>Start from your basic (single-task) matrix multiply code (Lab 2). Insert <code>ESP_LOG</code> calls at least at 3 levels: ERROR, INFO and VERBOSE. </p>
+<h3 id="modify-logging-level-via-menuconfig">Modify logging level via menuconfig</h3>
+<p>Use <code>menuconfig</code> to select INFO as the minimum log level. Check that the VERBOSE messages are not shown</p>
+<h3 id="multimodule">Multimodule</h3>
+<p>Create a new .c file in your project. Include there a couple of functions from your code. Remind to declare. a new TAG there. Include LOG macros in both files. </p>
+<h3 id="modify-logging-level-at-runtime">Modify logging level at runtime</h3>
+<p>Use <code>esp_log_level_set()</code>to set WARNING as the log level for the main file and VERBOSE for the other file. Check that the log output is correct.</p>
+<div class="admonition danger">
+<p class="admonition-title">Stop and sync </p>
+<p>All previous exercises <strong>must be finished DURING the lecture (not afterwards)</strong> and shown to the teacher during the Zoom meeting. AFTER they are shown to be working during the lecture, the <em>Recorder</em> of the group will send an email with the source code of the last section (<em>Modify logging level at runtime</em>). 
+ Remind that plagiarism is strictly prohibited: the code of each group must be solely developed by members of that group.</p>
+</div>
+<h2 id="mounting-fat-filesystem">Mounting FAT filesystem</h2>
+<p>In this step you will mount a FAT filesystem in a new partition created in the SPI FLASH existing in the board. 
+Follow the example <em>Wear Levelling</em> ( [wear levelling example])https://github.com/espressif/esp-idf/tree/master/examples/storage/wear_levelling) ) and create a PlatformIO project to run it in your board:</p>
+<ul>
+<li>Create the PlatformIO project and copy the source code from the <em>Wear Levelling</em> example.</li>
+<li>Copy the file <code>partitions_example.csv</code> in the root folder of your project. Rename it as <code>partitions.csv</code></li>
+<li>Modify the file <em>platformio.ini</em> to include:<ul>
+<li><code>monitor_port = /dev/ttyUSB1</code></li>
+<li><code>upload_port = /dev/ttyUSB1</code></li>
+<li><code>board_build.partitions = partitions.csv</code></li>
+</ul>
+</li>
+<li>Run <em>menuconfig</em> (type <code>pio run -t menuconfig</code> in a PlatformIO terminal)<ul>
+<li><em>Partition Table</em> --&gt; <em>PartitionTable</em> --&gt; <em>Custom partition table CSV</em></li>
+<li>Check that the name of the <em>Custom parition CSV file</em> in <em>menuconfig</em> is <em>partitions.csv</em></li>
+<li>Save the new configuration (press <code>S</code>) and quit (press <code>Q</code>)</li>
+</ul>
+</li>
+</ul>
+<p>Build, upload and execute. Monitor the output and check that the messages are the ones expected.</p>
+<div class="admonition danger">
+<p class="admonition-title">Questions </p>
+<p>Once you finished the code, try to answer the following questions. Include them in the report of this assignment.</p>
+<ul>
+<li>What is the name of the file you are creating in this example?</li>
+<li>What is the path of the file? Why? When was that <em>folder</em> created?</li>
+<li>What is the difference between <code>printf()</code> and <code>fprintf()</code></li>
+<li>Why there are two calls to `fopen()? What is the difference between them?   </li>
+<li>What is <code>fgets()</code>doing? </li>
+<li>Write a code that creates a new file called <code>timestamp.txt</code> whose content is a timestamp (time elapsed since boot). How can we later modify its content?</li>
+<li>Try to open a file after the call èsp_vfs_fat_spiflash_umount()*. What happens?</li>
+</ul>
+</div>
+<h2 id="redirecting-the-log-to-flash-optional">Redirecting the log to FLASH (optional)</h2>
+<p>To be done.</p></div>
             </div>
         </div>
 
