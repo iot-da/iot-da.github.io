@@ -69,10 +69,21 @@ Build, upload and execute. Monitor the output and check that the messages are th
 
 ## Redirecting the log to FLASH (optional)
 
-To be done.
+This assignment is optional, but required if you want to obtain more than 6 / 10 in this assignment. 
 
+Starting from your chronometer code (or equivalent), include LOG messages (using ESP_LOG macros) and redirect the log to a file called *log.txt* that you will create in a FAT partition in SPI FLAG. Use `esp_log_set_vprintf()` to do the redirection. You should LOG:
+
+* Every 5 seconds of the chronometer running, you must LOG a message.
+* Every time the button is pressed
+* Every time there is a *long* press (more than 4 seconds).
+
+Note that you can still use `printf()` to write to the terminal.
+
+Also, after 1 minute of functioning, you will read the first 5 lines of the log file and write them to the terminal (using ` printf()`).
+
+!!! note "Homework (Optional)"
+	Once finished, the *Speaker* will contact me to **explain (orally) the code developed**
 	
-
 
 
 
