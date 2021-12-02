@@ -21,6 +21,9 @@ Jose Ignacio Gomez (jigomez@ucm.es) and Katzalin Olcoz  (katzalin@ucm.es )
 
 [Here you can find the current work groups](groups.md)
 
+## Personal paper project assignment
+
+[Here you can find  description about this individual assignment](paperProject.md)
 
 ## Schedule
 
