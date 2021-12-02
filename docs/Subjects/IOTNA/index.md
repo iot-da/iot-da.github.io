@@ -42,9 +42,9 @@ Jose Ignacio Gomez (jigomez@ucm.es) and Katzalin Olcoz  (katzalin@ucm.es )
 |24/11  |  Event based programming. [NAND/NOR Flash](slides/storage.pdf)    |[3. Chronometer](P3/index.md) |   |
 |25/11  | [File system](slides/partitions.pdf). [System Log](slides/logging.pdf)       	|[4. Log in flash](P4/index.md) | |
 |01/12  | [Watchdog](slides/watchdog.pdf) | [4. Log in flash](P4/index.md) |  Lab 3 deadline |
-|02/12  | [Sensors](slides/sensors.pdf). Serial buses: I2C		    | [4. Log in flash](P4/index.md)            |  |
+|02/12  | [Sensors](slides/sensors.pdf). 	    | [4. Log in flash](P4/index.md)            |  |
 |08/12  | NO LECTURE (non working day)  | Spain National Holiday   | |
-|09/12  | Serial buses: SPI, UART 	  | [5. Built-in sensors](P5/index.md)                |   |
+|09/12  | Serial buses: I2C, SPI, UART 	  | [5. Built-in sensors](P5/index.md)                |   |
 |15/12  | ADC /DAC reading		  | [5. Built-in sensors](P5/index.md)                |  Lab4 deadline |
 |16/12  | Energy consumption           | [6. Energy modes](P6/index.md) |   |
 |22/12 | Powering the system           | [6. Energy modes](P6/index.md) | |
