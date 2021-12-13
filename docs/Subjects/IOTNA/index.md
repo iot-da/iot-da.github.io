@@ -50,8 +50,8 @@ You MUST enter your name to answer the quizzes.
 |02/12  | [Sensors](slides/sensors.pdf). 	    | [4. Log in flash](P4/index.md)            |  |
 |08/12  | NO LECTURE (non working day)  | Spain National Holiday    | |
 |09/12  | [Serial buses: I2C, SPI, UART](slides/serial.pdf)	  | [4. Log in flash](P4/index.md)                   |   |
-|15/12  | [QUIZZ](https://b.socrative.com/login/student/)  ESP-IDF I2C API		  | [5. Built-in sensors](P5/index.md)                |  Lab4 deadline |
-|16/12  | Energy consumption           | [5. Built-in sensors](P5/index.md)         |   |
+|15/12  | [QUIZ](https://b.socrative.com/login/student/).  [ESP-IDF I2C API](slides/i2c-idf.pdf)	  | [5. Built-in sensors](P5/index.md).   [HTS221 Datasheet](slides/hts221.pdf)               |  Lab4 deadline |
+|16/12  | Energy consumption           | [5. Built-in sensors](P5/index.md) .  [HTS221 Datasheet](slides/hts221.pdf)      |   |
 |22/12 | Powering the system           | [6. Energy modes](P6/index.md) | |
 |23/12 | Firmware update                 | Personal Project definition.   |  Labs 5 and 6 deadline |
 |12/01 | Personal project                  | [7. Final Project](P7/index.md) |   |
