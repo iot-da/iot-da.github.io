@@ -25,6 +25,11 @@ Jose Ignacio Gomez (jigomez@ucm.es) and Katzalin Olcoz  (katzalin@ucm.es )
 
 [Here you can find  description about this individual assignment](paperProject.md)
 
+## Quizzes
+All quizzes will be done in [this link](https://b.socrative.com/login/student/). The name of the room is IOTUCM.
+You MUST enter your name to answer the quizzes.
+
+
 ## Schedule
 
 |    Day      | Topic                    |  Lab instructions   |  Deliverable   |
@@ -45,7 +50,7 @@ Jose Ignacio Gomez (jigomez@ucm.es) and Katzalin Olcoz  (katzalin@ucm.es )
 |02/12  | [Sensors](slides/sensors.pdf). 	    | [4. Log in flash](P4/index.md)            |  |
 |08/12  | NO LECTURE (non working day)  | Spain National Holiday    | |
 |09/12  | [Serial buses: I2C, SPI, UART](slides/serial.pdf)	  | [4. Log in flash](P4/index.md)                   |   |
-|15/12  | ESP-IDF I2C API		  | [5. Built-in sensors](P5/index.md)                |  Lab4 deadline |
+|15/12  | [QUIZZ](https://b.socrative.com/login/student/)  ESP-IDF I2C API		  | [5. Built-in sensors](P5/index.md)                |  Lab4 deadline |
 |16/12  | Energy consumption           | [5. Built-in sensors](P5/index.md)         |   |
 |22/12 | Powering the system           | [6. Energy modes](P6/index.md) | |
 |23/12 | Firmware update                 | Personal Project definition.   |  Labs 5 and 6 deadline |
