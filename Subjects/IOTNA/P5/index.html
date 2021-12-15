@@ -132,11 +132,11 @@
 <h1 id="reading-sensors-using-i2c">Reading sensors using I2C</h1>
 <h2 id="goals">Goals</h2>
 <ul>
-<li>Learn the API provided by ESP-IDF to use the I2C serial buses</li>
+<li>Learn to use the API provided by ESP-IDF for the I2C serial buses</li>
 <li>Read the temperature from sensor HTS221 in the board</li>
 </ul>
 <h2 id="documentation">Documentation</h2>
-<p>To complete this assignment, you may need to check the slides discuss in the lectures and the official API documentation:</p>
+<p>To complete this assignment, you may need to check the slides discussed in the lectures and the official API documentation:</p>
 <ul>
 <li><a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/i2c.html">ESP-IDF API for I2C</a></li>
 <li><a href="https://www.st.com/resource/en/datasheet/hts221.pdf">HTS221 sensor data sheet</a></li>
@@ -144,19 +144,26 @@
 </ul>
 <h2 id="reading-the-temperature-sensor">Reading the temperature sensor</h2>
 <h3 id="obtaining-information-about-the-sensor">Obtaining information about the sensor</h3>
-<p>Using the data sheet, search the infomation required to use the sensor: slave address, addresses of the control registers, how to perform a write and a read through I2C.</p>
+<p>Using the data sheet, search the infomation required to read the sensor using I2C bus: slave address, addresses of the control registers, number of bytes needed to read the temperature.
+Using the information from the SoC and the pin numbers writen in  the lower side of the board, find the information about: gpio pins connected to SDA, SCL and to the sensors VDD.
+Using the API reference, find how to perform a write and a read through I2C.</p>
 <div class="admonition danger">
-<p class="admonition-title">Stop and sync </p>
+<p class="admonition-title">Questions</p>
 <p>All previous exercises <strong>must be finished DURING the lecture (not afterwards)</strong> and shown to the teacher during the Zoom meeting. </p>
 </div>
 <h3 id="reading-the-device-identification">Reading the device identification</h3>
-<p>In this step you will use the I2C bus to read the device identificación of the temperature sensor, that is stored in its WHO_AM_I register</p>
+<p>In this step you will use the I2C bus to read the device identificación of the temperature sensor, that is stored in its WHO_AM_I register.
+Note that you must write a 0 in the GPIO pin that controls the VDD signal of the sensors. If not, the sensors will be in power-off state.</p>
 <div class="admonition danger">
-<p class="admonition-title">Questions </p>
+<p class="admonition-title">Stop and sycn </p>
 <p>Once you finished the code, show it to the teacher</p>
 </div>
 <h3 id="reading-the-temperature-from-the-sensor">Reading the temperature from the sensor</h3>
-<p>In this step you will use the I2C bus to read the raw temperaturefrom the sensor, that is stored in its WHO_AM_I register</p>
+<p>In this step you will use the I2C bus to read the raw temperature from the sensor.</p>
+<div class="admonition danger">
+<p class="admonition-title">Stop and sycn </p>
+<p>Once you finished the code, show it to the teacher</p>
+</div>
 <h3 id="reading-the-temperature-in-celsius-optional">Reading the temperature in celsius (optional)</h3>
 <p>This assignment is optional, but required if you want to obtain more than 6 / 10 in this assignment. </p>
 <p>Use the calibration mechanism to obtain the real value of temperature.</p>
