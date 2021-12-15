@@ -8,7 +8,7 @@
         
         <link rel="canonical" href="https://iot-da.github.io/Subjects/IOTNA/P5/">
         <link rel="shortcut icon" href="../../../img/favicon.ico">
-        <title>Lab 5.Using built-in sensors - Internet of Things and Data Analytics</title>
+        <title>Reading sensors using I2C - Internet of Things and Data Analytics</title>
         <link href="../../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../../css/base.css" rel="stylesheet">
@@ -108,9 +108,17 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#lab-5using-built-in-sensors" class="nav-link">Lab 5.Using built-in sensors</a>
+            <li class="nav-item" data-level="1"><a href="#reading-sensors-using-i2c" class="nav-link">Reading sensors using I2C</a>
               <ul class="nav flex-column">
             <li class="nav-item" data-level="2"><a href="#goals" class="nav-link">Goals</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#documentation" class="nav-link">Documentation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#reading-the-temperature-sensor" class="nav-link">Reading the temperature sensor</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -121,10 +129,40 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="lab-5using-built-in-sensors">Lab 5.Using built-in sensors</h1>
+<h1 id="reading-sensors-using-i2c">Reading sensors using I2C</h1>
 <h2 id="goals">Goals</h2>
+<ul>
+<li>Learn the API provided by ESP-IDF to use the I2C serial buses</li>
+<li>Read the temperature from sensor HTS221 in the board</li>
+</ul>
+<h2 id="documentation">Documentation</h2>
+<p>To complete this assignment, you may need to check the slides discuss in the lectures and the official API documentation:</p>
+<ul>
+<li><a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/i2c.html">ESP-IDF API for I2C</a></li>
+<li><a href="https://www.st.com/resource/en/datasheet/hts221.pdf">HTS221 sensor data sheet</a></li>
+<li><a href="https://docs.espressif.com/projects/espressif-esp-iot-solution/en/latest/hw-reference/ESP32-MeshKit-Sense_guide.html">SoC reference</a></li>
+</ul>
+<h2 id="reading-the-temperature-sensor">Reading the temperature sensor</h2>
+<h3 id="obtaining-information-about-the-sensor">Obtaining information about the sensor</h3>
+<p>Using the data sheet, search the infomation required to use the sensor: slave address, addresses of the control registers, how to perform a write and a read through I2C.</p>
+<div class="admonition danger">
+<p class="admonition-title">Stop and sync </p>
+<p>All previous exercises <strong>must be finished DURING the lecture (not afterwards)</strong> and shown to the teacher during the Zoom meeting. </p>
+</div>
+<h3 id="reading-the-device-identification">Reading the device identification</h3>
+<p>In this step you will use the I2C bus to read the device identificación of the temperature sensor, that is stored in its WHO_AM_I register</p>
+<div class="admonition danger">
+<p class="admonition-title">Questions </p>
+<p>Once you finished the code, show it to the teacher</p>
+</div>
+<h3 id="reading-the-temperature-from-the-sensor">Reading the temperature from the sensor</h3>
+<p>In this step you will use the I2C bus to read the raw temperaturefrom the sensor, that is stored in its WHO_AM_I register</p>
+<h3 id="reading-the-temperature-in-celsius-optional">Reading the temperature in celsius (optional)</h3>
+<p>This assignment is optional, but required if you want to obtain more than 6 / 10 in this assignment. </p>
+<p>Use the calibration mechanism to obtain the real value of temperature.</p>
 <div class="admonition note">
-<p class="admonition-title">Under construction</p>
+<p class="admonition-title">Homework (Optional)</p>
+<p>Once finished, the <em>Speaker</em> will contact me to <strong>explain (orally) the code developed</strong></p>
 </div></div>
             </div>
         </div>
