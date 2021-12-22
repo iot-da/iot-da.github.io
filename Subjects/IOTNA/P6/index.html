@@ -114,6 +114,26 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-level="2"><a href="#documentation" class="nav-link">Documentation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#explicitly-moving-to-low-power-modes" class="nav-link">Explicitly moving to low power modes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#using-the-power-manager" class="nav-link">Using the Power Manager</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#using-high-resolution-timers-optional" class="nav-link">Using High Resolution Timers (OPTIONAL)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#delivering-the-assignment" class="nav-link">Delivering the assignment</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -123,9 +143,90 @@
 
 <h1 id="lab-6-energy-saving-modes">Lab 6. Energy saving modes</h1>
 <h2 id="goals">Goals</h2>
-<div class="admonition note">
-<p class="admonition-title">Under construction</p>
-</div></div>
+<p>Learn the mechanisms provided by ESP-IDF to exploit the different energy modes existing in ESP32 SoCs:</p>
+<ul>
+<li>Explicit moving into <em>light sleep</em> and <em>deep sleep</em> modes</li>
+<li>Discover wakeup reasons.</li>
+<li>Configuring and using the automatic power manager in ESP-IDF.</li>
+</ul>
+<h2 id="documentation">Documentation</h2>
+<p>To complete this assignment, you may need to check the slides discuss in the lectures and the official API documentation:</p>
+<ul>
+<li><a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/system/sleep_modes.html">Sleep modes</a></li>
+<li><a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/system/power_management.html">Power manager</a></li>
+</ul>
+<p>It is also relevant to check the examples provided in GitHub:</p>
+<ul>
+<li><a href="https://github.com/espressif/esp-idf/tree/master/examples/system/light_sleep">Light sleep</a></li>
+<li><a href="https://github.com/espressif/esp-idf/tree/master/examples/system/deep_sleep">Deep sleep</a></li>
+<li><a href="https://github.com/espressif/esp-idf/tree/master/examples/wifi/power_save">Wifi Power save</a></li>
+</ul>
+<h2 id="explicitly-moving-to-low-power-modes">Explicitly moving to low power modes</h2>
+<p>We will start from a basic code monitoring any input device (like the button or the temperature sensor), where the main program is in an endless loop reading, periodically, the device status. The structure of the starting code could be similar to:</p>
+<pre><code class="language-c">while (1) {
+    med = read_device(); // Could be button, sensor...
+    ESP_LOGI(TAG,&quot;Medida: %f&quot;, med);
+    vTaskDelay(pdMS_TO_TICKS(DELAY));
+}
+</code></pre>
+<p>Implement the following modifications:</p>
+<ul>
+<li>Include a explicit call to enter <em>light sleep</em> after 5 iterations. Previously, you will configure the <em>wakeup</em> mechanism to be the <em>timer</em> and instruct it to wake the system up after 10 seconds.</li>
+<li>Repeat the previous point but entering <em>deep sleep</em></li>
+<li>Include code to determine the cause of the <em>wakeup</em> for both previous cases.</li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Questions</p>
+<ul>
+<li>What difference do you observe when entering <em>deep sleep</em> compared with <em>light sleep</em>? What does it happen after 10 seconds in each case?</li>
+<li>Where do you need to include the code to determine the <em>wakeup</em> cause in each of the two cases?</li>
+</ul>
+</div>
+<h2 id="using-the-power-manager">Using the Power Manager</h2>
+<p>Starting from the same simple code of previous section, we will be using the <em>Power Manager</em> provided by ESP-IDF. </p>
+<p>In order to do so, we must enable <em>Dynamic frequency scaling</em> (DFS). We can enable it with <em>menuconfig</em> -&gt; <em>Component config -&gt; Power Management -&gt; Support for Power Management -&gt; Enable DFS at startup</em>.  It is also possible to configure it in our own code using the call <code>esp_pm_configure()</code>. </p>
+<p>You will use this latter method (<code>esp_pm_configure()</code>) and define:
+* Max. frequency of 240MHz
+* Min. frequency of 40MHz
+* Enable automatic entering <em>light sleep mode</em></p>
+<p>To enable automatic entering <em>light sleep mode</em> we must activate the corresponding option in <em>menuconfig</em>:  <em>Component config -&gt; FreeRTOS -&gt; Tickless Idle Support</em> (this option is only visible if the <em>Enable DFS at startup</em> option is also enabled).</p>
+<p>Following the earlier pseudo-code, modify your code in order to guess the <em>wakeup</em> cause. The structure of code could be now similar to:</p>
+<pre><code class="language-c">while (1) {
+    med = read_device(); // Could be button, sensor...
+    ESP_LOGI(TAG,&quot;Medida: %f&quot;, med);
+    vTaskDelay(pdMS_TO_TICKS(DELAY));
+    cause =  get_wakeup_cause();
+}
+</code></pre>
+<div class="admonition danger">
+<p class="admonition-title">Questions</p>
+<ul>
+<li>Which mechanism is waking the system up when using the <em>Power Manager</em>?</li>
+</ul>
+</div>
+<h2 id="using-high-resolution-timers-optional">Using High Resolution Timers (OPTIONAL)</h2>
+<p>Modify your code to monitor the device (sensor, button...) using a <em>High Resolution Timer</em> instead of using the call to <code>vTaskDelay(pdMS_TO_TICKS(DELAY))</code>.  The main task will configure the high resolution timer and then go to sleep for 100 seconds in and endless loop.</p>
+<h3 id="entering-light-sleep-mode-manually">Entering light sleep mode manually</h3>
+<p>Modify your code to enter <em>light sleep mode</em> (calling  <code>esp_light_sleep_start()</code>)   after 3 executions of the <em>high resolution timer</em> callback. Set the high resolution timer to trigger every 3 seconds, and program the system to wake up after 10 seconds. Include a log message in the callback function which prints the number of times the callback function has been called.</p>
+<div class="admonition danger">
+<p class="admonition-title">Questions</p>
+<ul>
+<li>Call  <code>esp_light_sleep_start()</code> outside the callback function of the high resolution timer.  What happens when the system wakes up? Are there log messages lost? Do they happen when they should happen?</li>
+<li>No call  <code>esp_light_sleep_start()</code> inside the callback function of the high resolution timer. Do you observe any difference?</li>
+</ul>
+</div>
+<h3 id="automatically-entering-light-sleep-mode">Automatically entering light sleep mode</h3>
+<p>Repeat previous experiments using the Power Manager. </p>
+<div class="admonition danger">
+<p class="admonition-title">Questions</p>
+<ul>
+<li>Note that, since you do not manually enter the sleep mode, you will not move into <em>light sleep</em> after 3 executions of the high resolution timer. When is the system moving to <em>light sleep</em>?</li>
+<li>What happens with the callback log messages? Do they happen when they should happen?</li>
+</ul>
+</div>
+<h2 id="delivering-the-assignment">Delivering the assignment</h2>
+<p>Once you finish the complete assignment (at least the first two sections), please send an email to Prof. Jose Ignacio (jigomez@ucm.es) with the codes develop for each section and a text file (text or PDF) with your answers to the questions. Please send only one email per group.</p>
+<p><strong>DEADLINE: 12th January 2022</strong></p></div>
             </div>
         </div>
 
