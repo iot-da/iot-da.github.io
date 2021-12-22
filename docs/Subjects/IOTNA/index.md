@@ -17,13 +17,17 @@ This subject will cover several topics regarding embedded system programmings. S
 
 Jose Ignacio Gomez (jigomez@ucm.es) and Katzalin Olcoz  (katzalin@ucm.es )
 
-## Work groups
+## Work groups (for regular lab assignments)
 
 [Here you can find the current work groups](groups.md)
 
 ## Personal paper project assignment
 
 [Here you can find  description about this individual assignment](paperProject.md)
+
+## Final programming project (teams of 2 people)
+[Here you can find  description about this  assignment](P7/index.md)
+
 
 ## Quizzes
 All quizzes will be done in [this link](https://b.socrative.com/login/student/). The name of the room is IOTUCM.
@@ -57,5 +61,5 @@ You MUST enter your name to answer the quizzes.
 |12/01 | Final Programming project  (groups of 2)              | [7. Final Project](P7/index.md) |   Paper project deadline   |
 |13/01 | Final Programming project                  | [7. Final Project](P7/index.md) |  Lab 6 deadline |
 
-*The final, personal project, will be due before 20th Jan. 2022*
+*The final programming project, will be due before 24th Jan. 2022*
 
