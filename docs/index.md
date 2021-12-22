@@ -8,6 +8,7 @@ Looking forward to meet you all!
 
 *Until 31st October, Spanish time is UTC+2, so the FIRST TWO WEEKS courses will be starting at 18:00h in China Standard Time. Starting November, Spanish time will be UTC+1, so courses will be starting at 19:00h in China Standard Time.*
 
+**CHRISTMAS HOLIDAYS: from 24th Dec 2021 to 10th Jan 2022**
 
 | Hours (Spanish time) | Tuesday | Wednesday | Thursday | Zoom Link |
 |-------|---------|-----------|----------|----------|
