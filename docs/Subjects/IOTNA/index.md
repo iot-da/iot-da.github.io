@@ -53,7 +53,7 @@ You MUST enter your name to answer the quizzes.
 |15/12  | [QUIZ](https://b.socrative.com/login/student/).  [ESP-IDF I2C API](slides/i2c-idf.pdf)	  | [5. Built-in sensors](P5/index.md).   [HTS221 Datasheet](slides/hts221.pdf)               |  Lab4 deadline |
 |16/12  |    I2C        | [5. Built-in sensors](P5/index.md) .  [HTS221 Datasheet](slides/hts221.pdf)      |   |
 |22/12 | [Energy consumption](slides/energy.pdf). [Powering the system](slides/espPower.pdf)      | [5. Built-in sensors](P5/index.md) | |
-|23/12 |  [QUIZ](https://b.socrative.com/login/student/). ESP32 power modes             | [6. Low power modes](P6/index.md)  |  Labs 5  deadline |
+|23/12 |  [QUIZ](https://b.socrative.com/login/student/). [ESP32 power modes](slides/lowpower.pdf)             | [6. Low power modes](P6/index.md)  |  Labs 5  deadline |
 |12/01 | Final Programming project  (groups of 2)              | [7. Final Project](P7/index.md) |   Paper project deadline   |
 |13/01 | Final Programming project                  | [7. Final Project](P7/index.md) |  Lab 6 deadline |
 
