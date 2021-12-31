@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://iot-da.github.io/Subjects/NP1/P3/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Lab 3. WiFi. Advanced Concepts (WiFi Mesh, provisioning and low power mode) - Internet of Things and Data Analytics</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Internet of Things and Data Analytics</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../General/" class="nav-link">General info.</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../News/" class="nav-link">News</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../IOTNA/" class="dropdown-item">IOTNA</a>
+</li>
+                                    
+<li>
+    <a href="../../MDM/" class="dropdown-item">MDM</a>
+</li>
+                                    
+<li>
+    <a href="../../SID/" class="dropdown-item">SID</a>
+</li>
+                                    
+<li>
+    <a href="../../IA/" class="dropdown-item">IA</a>
+</li>
+                                    
+<li>
+    <a href="../" class="dropdown-item">NP1</a>
+</li>
+                                    
+<li>
+    <a href="../../NP2/" class="dropdown-item">NP2</a>
+</li>
+                                    
+<li>
+    <a href="../../SEC/" class="dropdown-item">SEC</a>
+</li>
+                                    
+<li>
+    <a href="../../EDGE/" class="dropdown-item">EDGE</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../Contact/" class="nav-link">Contact</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-light">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#lab-3-wifi-advanced-concepts-wifi-mesh-provisioning-and-low-power-mode" class="nav-link">Lab 3. WiFi. Advanced Concepts (WiFi Mesh, provisioning and low power mode)</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#goals" class="nav-link">Goals</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#part-1-wifi-mesh-esp-mesh" class="nav-link">Part 1. WiFi Mesh (ESP MESH)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#part-2-wifi-provisioning" class="nav-link">Part 2. WiFi Provisioning</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#part-3-wifi-power-states" class="nav-link">Part 3. WiFi Power States</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="lab-3-wifi-advanced-concepts-wifi-mesh-provisioning-and-low-power-mode">Lab 3. WiFi. Advanced Concepts (WiFi Mesh, provisioning and low power mode)</h1>
+<h2 id="goals">Goals</h2>
+<p>This lab assignment is divided into three main parts, that address
+three advanced topics related to WiFi. The goals for each of these parts are the
+following:</p>
+<ul>
+<li>
+<p>WiFi MESH</p>
+<ul>
+<li>Review the basic concepts for building a self-managed WiFi Mesh network.</li>
+<li>Present the basic API for creating applications based on the
+  ESP-MESH stack.</li>
+<li>Observe an ESP-MESH network in operation, as well as its capabilities
+  autoconfiguration.</li>
+</ul>
+</li>
+<li>
+<p>Provisioning</p>
+<ul>
+<li>Understand and experiment with different modes of provisioning of WiFi
+  credentials, via <code>BLE</code> and via<code>softAP</code>.</li>
+<li>Check the exchange of keys in clear making provisions from command line,
+  as well as observe the utility (and the necessity) of sending encrypted
+  credentials.</li>
+</ul>
+</li>
+<li>
+<p>Energy saving</p>
+<ul>
+<li>Understand the three power operating modes for the WiFi of the ESP32.</li>
+<li>Observe the influence of these operating modes in the latency of the
+  connection.</li>
+</ul>
+</li>
+</ul>
+<h2 id="part-1-wifi-mesh-esp-mesh">Part 1. WiFi Mesh (ESP MESH)</h2>
+<p>The ESP-MESH stack is built on top of the WiFi driver (that is, it obviously
+makes use of the WiFi services), and in some cases also makes use of IP stack
+services (<em>lwIP</em>), as for example in the root node, which is the only node that
+has IP communication with an edge router . The following diagram shows the Mesh
+stack situation in ESP-IDF:</p>
+<p><img alt="" src="img/mesh-software-stack.png" /></p>
+<p>Like any other ESP-IDF component, ESP-MESH communicates with applications
+through its own events:</p>
+<p><img alt="" src="img/mesh-events-delivery.png" /></p>
+<p>The type <code>mesh_event_id_t</code> defines all the possible events that may arise in the
+different phases of the life cycle of a network (for example, for a given node,
+connection or disconnection from its parent node, or from one of its child
+nodes). Event handlers for the ESP-MESH events are registered with the
+<code>esp_event_handler_register()</code>. Some typical events are for example, the
+connection of a parent node (<code>MESH_EVENT_PARENT_CONNECTED</code>) or of a child
+(<code>MESH_EVENT_CHILD_CONNECTED</code>), indicating, respectively, that a node can start
+emitting upward in the graph, or downward. Similarly, in a root node, the
+reception of the events <code>IP_EVENT_STA_GOT_IP</code> and<code>IP_EVENT_STA_LOST_IP</code>
+indicate that said root node may or may not send data to the external IP
+network.</p>
+<h3 id="events">Events</h3>
+<ul>
+<li><code>MESH_EVENT_STARTED</code>: mesh is started</li>
+<li><code>MESH_EVENT_STOPPED</code>: mesh is stopped</li>
+<li><code>MESH_EVENT_CHANNEL_SWITCH</code>: channel switch</li>
+<li><code>MESH_EVENT_CHILD_CONNECTED</code>: a child is connected on softAP interface</li>
+<li><code>MESH_EVENT_CHILD_DISCONNECTED</code>: a child is disconnected on softAP interface</li>
+<li><code>MESH_EVENT_ROUTING_TABLE_ADD</code>: routing table is changed by adding newly joined children</li>
+<li><code>MESH_EVENT_ROUTING_TABLE_REMOVE</code>: routing table is changed by removing leave children</li>
+<li><code>MESH_EVENT_PARENT_CONNECTED</code>: parent is connected on station interface</li>
+<li><code>MESH_EVENT_PARENT_DISCONNECTED</code>: parent is disconnected on station interface</li>
+<li><code>MESH_EVENT_NO_PARENT_FOUND</code>: no parent found</li>
+<li><code>MESH_EVENT_LAYER_CHANGE</code>: layer changes over the mesh network</li>
+<li><code>MESH_EVENT_TODS_STATE</code>: state represents whether the root is able to access external IP network</li>
+<li><code>MESH_EVENT_VOTE_STARTED</code>: the process of voting a new root is started either by children or by the root</li>
+<li><code>MESH_EVENT_VOTE_STOPPED</code>: the process of voting a new root is stopped</li>
+<li><code>MESH_EVENT_ROOT_ADDRESS</code>: the root address is obtained. It is posted by mesh stack automatically.</li>
+<li><code>MESH_EVENT_ROOT_SWITCH_REQ</code>: root switch request sent from a new voted root candidate</li>
+<li><code>MESH_EVENT_ROOT_SWITCH_ACK</code>: root switch acknowledgment responds the above request sent from current root</li>
+<li><code>MESH_EVENT_ROOT_ASKED_YIELD</code>: the root is asked yield by a more powerful existing root. If self organized is disabled and this device is specified to be a root by users, users should set a new parent for this device. if self organized is enabled, this device will find a new parent by itself, users could ignore this event.</li>
+<li><code>MESH_EVENT_ROOT_FIXED</code>: when devices join a network, if the setting of Fixed Root for one device is different from that of its parent, the device will update the setting the same as its parent’s. Fixed Root Setting of each device is variable as that setting changes of the root.</li>
+<li><code>MESH_EVENT_SCAN_DONE</code>: if self-organized networking is disabled, user can call esp_wifi_scan_start() to trigger this event, and add the corresponding scan done handler in this event.</li>
+<li><code>MESH_EVENT_NETWORK_STATE</code>: network state, such as whether current mesh network has a root.</li>
+<li><code>MESH_EVENT_STOP_RECONNECTION</code>: the root stops reconnecting to the router and non-root devices stop reconnecting to their parents.</li>
+<li><code>MESH_EVENT_FIND_NETWORK</code>: when the channel field in mesh configuration is set to zero, mesh stack will perform a full channel scan to find a mesh network that can join, and return the channel value after finding it.</li>
+<li><code>MESH_EVENT_ROUTER_SWITCH</code>: if users specify BSSID of the router in mesh configuration, when the root connects to another router with the same SSID, this event will be posted and the new router information is attached.</li>
+<li><code>MESH_EVENT_PS_PARENT_DUTY</code>: parent duty</li>
+<li><code>MESH_EVENT_PS_CHILD_DUTY</code>: child duty</li>
+<li><code>MESH_EVENT_PS_DEVICE_DUTY</code>: device duty</li>
+</ul>
+<h3 id="lwip-and-esp-wifi-mesh">LwIP and ESP-WIFI-MESH</h3>
+<p>The application can access the ESP-WIFI-MESH stack directly without having to go
+through the LwIP stack. The LwIP stack is only required by the root node to
+transmit/receive data to/from an external IP network. However, since every node
+can potentially become the root node (due to automatic root node selection),
+each node must still initialize the LwIP stack.</p>
+<p>Each node is required to initialize LwIP by calling <code>tcpip_adapter_init()</code>. In
+order to prevent non-root node access to LwIP, the application should stop the
+following services after LwIP initialization:</p>
+<ul>
+<li>DHCP server service on the softAP interface.</li>
+<li>DHCP client service on the station interface.</li>
+</ul>
+<p>The following code snippet demonstrates how to initialize LwIP for ESP-WIFI-MESH
+applications.</p>
+<pre><code class="language-c">/*  tcpip initialization */
+tcpip_adapter_init();
+/*
+ * for mesh
+ * stop DHCP server on softAP interface by default
+ * stop DHCP client on station interface by default
+ */
+ESP_ERROR_CHECK(tcpip_adapter_dhcps_stop(TCPIP_ADAPTER_IF_AP));
+ESP_ERROR_CHECK(tcpip_adapter_dhcpc_stop(TCPIP_ADAPTER_IF_STA));
+</code></pre>
+<p>ESP-WIFI-MESH requires a root node to be connected with a router. Therefore, in
+the event that a node becomes the root, the corresponding handler must start the
+DHCP client service and immediately obtain an IP address. Doing so will allow
+other nodes to begin transmitting/receiving packets to/from the external IP
+network. However, this step is unnecessary if static IP settings are used.</p>
+<h3 id="writing-an-esp-wifi-mesh-application">Writing an ESP-WIFI-MESH Application</h3>
+<p>The prerequisites for starting ESP-WIFI-MESH is to initialize LwIP and Wi-Fi,
+The following code snippet demonstrates the necessary prerequisite steps before
+ESP-WIFI-MESH itself can be initialized.</p>
+<pre><code class="language-c">tcpip_adapter_init();
+/*
+ * for mesh
+ * stop DHCP server on softAP interface by default
+ * stop DHCP client on station interface by default
+ */
+ESP_ERROR_CHECK(tcpip_adapter_dhcps_stop(TCPIP_ADAPTER_IF_AP));
+ESP_ERROR_CHECK(tcpip_adapter_dhcpc_stop(TCPIP_ADAPTER_IF_STA));
+
+/*  event initialization */
+ESP_ERROR_CHECK(esp_event_loop_create_default());
+
+/*  Wi-Fi initialization */
+wifi_init_config_t config = WIFI_INIT_CONFIG_DEFAULT();
+ESP_ERROR_CHECK(esp_wifi_init(&amp;config));
+/*  register IP events handler */
+ESP_ERROR_CHECK(esp_event_handler_register(IP_EVENT, IP_EVENT_STA_GOT_IP, &amp;ip_event_handler, NULL));
+ESP_ERROR_CHECK(esp_wifi_set_storage(WIFI_STORAGE_FLASH));
+ESP_ERROR_CHECK(esp_wifi_start());
+</code></pre>
+<p>After initializing LwIP and Wi-Fi, the process of getting an ESP-WIFI-MESH
+network up and running can be summarized into the following three steps:</p>
+<ol>
+<li>Initialize Mesh</li>
+<li>Configuring an ESP-WIFI-MESH Network</li>
+<li>Start Mesh</li>
+</ol>
+<h3 id="1-initialize-mesh">1. Initialize Mesh</h3>
+<p>The following code snippet demonstrates how to initialize ESP-WIFI-MESH:</p>
+<pre><code class="language-c">/*  mesh initialization */
+ESP_ERROR_CHECK(esp_mesh_init());
+/*  register mesh events handler */
+ESP_ERROR_CHECK(esp_event_handler_register(MESH_EVENT, ESP_EVENT_ANY_ID, &amp;mesh_event_handler, NULL));
+</code></pre>
+<h3 id="2-configuring-an-esp-wifi-mesh-network">2. Configuring an ESP-WIFI-MESH Network</h3>
+<p>ESP-WIFI-MESH is configured via <code>esp_mesh_set_config()</code> which receives its
+arguments using the <code>mesh_cfg_t</code> structure. The structure contains the following
+parameters used to configure ESP-WIFI-MESH:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Channel</td>
+<td>Range from 1 to 14</td>
+</tr>
+<tr>
+<td>Mesh ID</td>
+<td>ID of ESP-WIFI-MESH Network, see mesh_addr_t</td>
+</tr>
+<tr>
+<td>Router</td>
+<td>Router Configuration, see mesh_router_t</td>
+</tr>
+<tr>
+<td>Mesh AP</td>
+<td>Mesh AP Configuration, see mesh_ap_cfg_t</td>
+</tr>
+<tr>
+<td>Crypto Functions</td>
+<td>Crypto Functions for Mesh IE, see mesh_crypto_funcs_t</td>
+</tr>
+</tbody>
+</table>
+<p>The following code snippet shows an example of how to configure ESP-WIFI-MESH:</p>
+<pre><code class="language-c">/* Mesh ID */
+static const uint8_t MESH_ID = { 0x77, 0x77, 0x77, 0x77, 0x77, 0x77 };
+/* Enable the Mesh IE encryption by default */
+mesh_cfg_t cfg = MESH_INIT_CONFIG_DEFAULT();
+/* mesh ID */
+memcpy((uint8_t *) &amp;cfg.mesh_id, MESH_ID, 6);
+/* channel (must match the router's channel) */
+cfg.channel = CONFIG_MESH_CHANNEL;
+/* router */
+cfg.router.ssid_len = strlen(CONFIG_MESH_ROUTER_SSID);
+memcpy((uint8_t *) &amp;cfg.router.ssid, CONFIG_MESH_ROUTER_SSID, cfg.router.ssid_len);
+memcpy((uint8_t *) &amp;cfg.router.password, CONFIG_MESH_ROUTER_PASSWD,
+       strlen(CONFIG_MESH_ROUTER_PASSWD));
+/* mesh softAP */
+cfg.mesh_ap.max_connection = CONFIG_MESH_AP_CONNECTIONS;
+memcpy((uint8_t *) &amp;cfg.mesh_ap.password, CONFIG_MESH_AP_PASSWD,
+       strlen(CONFIG_MESH_AP_PASSWD));
+ESP_ERROR_CHECK(esp_mesh_set_config(&amp;cfg));
+</code></pre>
+<h3 id="3-start-mesh">3. Start Mesh</h3>
+<p>The following code snippet demonstrates how to start ESP-WIFI-MESH:</p>
+<pre><code class="language-c">/* mesh start */
+ESP_ERROR_CHECK(esp_mesh_start());
+</code></pre>
+<p>After starting ESP-WIFI-MESH, the application should check for ESP-WIFI-MESH
+events to determine when it has connected to the network. After connecting, the
+application can start transmitting and receiving packets over the ESP-WIFI-MESH
+network using <code>esp_mesh_send()</code> and <code>esp_mesh_recv()</code>.</p>
+<div class="admonition danger">
+<p class="admonition-title">Task 3.1</p>
+<p>The most convenient way to observe the behavior of a WiFi network Mesh is to
+deploy an infrastructure with a sufficient number of nodes belonging to to
+the same network. Unfortunately, this requires having of said nodes in a
+close space and given the conditions of this curse that will not be
+possible.</p>
+<p>In this lab experience, each of you will deploy small WiFi Mesh network with
+only two nodes, using your ESP32 nodes as elements of the network. We start
+by copying the example <code>examples/mesh/internal_communication</code> to another
+directory from our home folder. Then we configure the project for:</p>
+<ol>
+<li>Connect to an access point generated with your own smartphone or your
+   home wifi router (<em>Router SSID and Router password</em>).</li>
+<li>Configure the ESP-MESH network to use WPA2_PSK and select as password
+   <code>password</code>.</li>
+</ol>
+<p>At this time, we will not make any changes to the code in the example.
+Compile your code. Flash the two ESP nodes you have and monitor the output
+of both nodes in two different terminals (use the command line toolset here
+for convenience).  If you have the possibility, try to physically arrange
+the nodes in a way that one has better connection with your
+smartphone/router than the other (play with distance or obstacles). For each
+node annotate the following information:</p>
+<ol>
+<li>MAC addresses of the <code>STA</code> and<code>SoftAP</code> interfaces (you will see it in
+   the first outgoing messages).</li>
+<li>Layer of the topology in which your node is located (you will observe it
+   in <code>[L: XX]</code> format for sending and receiving data).</li>
+<li>If the root node has been chosen, also note this circumstance and the IP
+   assigned by the <em>router</em> (see the response to the corresponding event).</li>
+</ol>
+<p>Also, take note of the ID of the Mesh network that was used. Before
+collecting this information make sure that the topology has converged. Draw
+a graph of your small wifi mesh network.</p>
+<p>Next, turn off the root node and wait for the network to converge again.
+Verify that the other node became the new root node.</p>
+<p>Now reconnect the node you disconnected previously, and see how it
+reconnects to the mesh. Is it again the root node? Annotate it and discuss
+why you think it is or is not the root node again.</p>
+</div>
+<h2 id="part-2-wifi-provisioning">Part 2. WiFi Provisioning</h2>
+<p>ESP-IDF provides a specific component that offers a WiFi provisioning service.
+This component provides APIs that control Wi-Fi provisioning service for
+receiving and configuring Wi-Fi credentials over SoftAP or BLE transport via
+secure Protocol Communication (protocomm) sessions. The set of <code>wifi_prov_mgr_</code>
+APIs help in quickly implementing a provisioning service having necessary
+features with minimal amount of code and sufficient flexibility.</p>
+<p>To complete this part of the lab assignment you will have to work with the
+example <code>examples/provisioning/wifi-prov-mgr</code>.</p>
+<h3 id="initialization-of-the-provisioning-service">Initialization of the provisioning service</h3>
+<p>The <code>wifi_prov_mgr_init()</code> function must be called to configure and initialize
+the provisioning manager before any other <code>wifi_prov_mgr_</code> API functions. Note
+that the manager relies on other components of IDF, namely NVS, TCP/IP, Event
+Loop and Wi-Fi (and optionally mDNS), hence these must be initialized
+beforehand. The manager can be de-initialized at any moment by making a call to
+<code>wifi_prov_mgr_deinit()</code>.</p>
+<p>An initialization example could be:</p>
+<pre><code class="language-c">wifi_prov_mgr_config_t config = {
+  .scheme = wifi_prov_scheme_ble,
+  .scheme_event_handler = WIFI_PROV_SCHEME_BLE_EVENT_HANDLER_FREE_BTDM
+};
+
+ESP_ERR_CHECK( wifi_prov_mgr_init(config) );
+</code></pre>
+<p>The configuration structure <code>wifi_prov_mgr_config_t</code> has a few fields to specify
+the behavior desired of the manager. The <code>scheme</code> field is used to specify the
+provisioning scheme. Each scheme corresponds to one of the modes of transport
+supported by protocomm:</p>
+<ul>
+<li><code>wifi_prov_scheme_ble</code>: BLE transport and GATT Server for handling
+  provisioning commands</li>
+<li><code>wifi_prov_scheme_softap</code>: Wi-Fi SoftAP transport and HTTP Server for handling
+  provisioning commands</li>
+<li><code>wifi_prov_scheme_console</code>: Serial transport and console for handling
+  provisioning commands</li>
+</ul>
+<p>We refer you to <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/provisioning/wifi_provisioning.html#initialization">WiFi Provisioning
+Initialization</a> 
+for additional information on the fields of the <code>wifi_prov_mgr_config_t</code>
+structure.</p>
+<h3 id="check-provisioning-state">Check Provisioning State</h3>
+<p>Whether device is provisioned or not can be checked at runtime by calling
+<code>wifi_prov_mgr_is_provisioned()</code>. This internally checks if the Wi-Fi
+credentials are stored in NVS.</p>
+<p>Although there are different methods to delete the provisioning information
+stored in NVS, we will use the mechanism provided by <code>idf.py</code> to
+delete its content. To do this, we will execute:</p>
+<pre><code class="language-sh">idf.py erase_flash
+</code></pre>
+<h3 id="start-provisioning-service">Start Provisioning Service</h3>
+<p>At the time of starting provisioning we need to specify a service name and the
+corresponding key. These translate to :</p>
+<ul>
+<li>Wi-Fi SoftAP SSID and passphrase, respectively, when scheme is
+  <code>wifi_prov_scheme_softap</code></li>
+<li>BLE Device name (service key is ignored) when scheme is <code>wifi_prov_scheme_ble</code></li>
+</ul>
+<p>Also, since internally the manager uses <em>protocomm</em>, we have the option of
+choosing one of the security features provided by it :</p>
+<ul>
+<li>Security 1 is secure communication which consists of a prior handshake
+  involving X25519 key exchange along with authentication using a proof of
+  possession (pop), followed by AES-CTR for encryption/decryption of subsequent
+  messages</li>
+<li>Security 0 is simply plain text communication. In this case the pop is simply
+  ignored</li>
+</ul>
+<p>See
+<a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/provisioning/provisioning.html">Provisioning</a>
+for details about the security features.</p>
+<p>The following code snippet shows an example of Provisioning Service
+initialization:</p>
+<pre><code class="language-c">const char *service_name = &quot;my_device&quot;;
+const char *service_key  = &quot;password&quot;;
+
+wifi_prov_security_t security = WIFI_PROV_SECURITY_1;
+const char *pop = &quot;abcd1234&quot;;
+
+ESP_ERR_CHECK( wifi_prov_mgr_start_provisioning(security, pop, service_name, service_key) );
+</code></pre>
+<p>The provisioning service will automatically finish only if it receives valid
+Wi-Fi AP credentials followed by successfully connection of device to the AP (IP
+obtained). Regardless of that, the provisioning service can be stopped at any
+moment by making a call to <code>wifi_prov_mgr_stop_provisioning()</code>.</p>
+<h3 id="waiting-for-completion">Waiting For Completion</h3>
+<p>Typically, the main application will wait for the provisioning to finish, then
+de-initialize the manager to free up resources and finally start executing its
+own logic.</p>
+<p>There are two ways for making this possible: </p>
+<ul>
+<li>The simpler way is to use a <strong>blocking</strong> call to <code>wifi_prov_mgr_wait()</code>.</li>
+</ul>
+<pre><code class="language-c">// Start provisioning service
+ESP_ERROR_CHECK( wifi_prov_mgr_start_provisioning(security, pop, service_name, service_key) );
+
+// Wait for service to complete
+wifi_prov_mgr_wait();
+
+// Finally de-initialize the manager
+wifi_prov_mgr_deinit();
+
+// From here, the usual application logic would starts
+// ...
+</code></pre>
+<ul>
+<li>The second mechanism is based on events (i.e., is asynchronous/non blocking).
+  The default event loop handler to catch <code>WIFI_PROV_EVENT</code> and call
+  <code>wifi_prov_mgr_deinit()</code> when event ID is <code>WIFI_PROV_END</code>:</li>
+</ul>
+<pre><code class="language-c">static void event_handler(void* arg, esp_event_base_t event_base,
+                          int event_id, void* event_data)
+{
+    if (event_base == WIFI_PROV_EVENT &amp;&amp; event_id == WIFI_PROV_END) {
+        /* De-initialize manager once provisioning is finished */
+        wifi_prov_mgr_deinit();
+    }
+}
+</code></pre>
+<h3 id="provisioning-tools-for-mobile-devices">Provisioning tools for mobile devices</h3>
+<p>There are applications prepared by Espressif to carry out the process
+provisioning over ESP32. These applications are available both for Android
+and IOS devices, for BLE and/or SoftAP transports:</p>
+<ul>
+<li>
+<p>Android:</p>
+<ul>
+<li><a href="https://play.google.com/store/apps/details?id=com.espressif.provble">BLE Transport</a>.</li>
+<li><a href="https://play.google.com/store/apps/details?id=com.espressif.provsoftap">SoftAP Transport</a>.</li>
+</ul>
+</li>
+<li>
+<p>IOS:</p>
+<ul>
+<li><a href="https://apps.apple.com/in/app/esp-ble-provisioning/id1473590141">BLE Transport</a>.</li>
+<li><a href="https://apps.apple.com/in/app/esp-softap-provisioning/id1474040630">SoftAP Transport</a>.</li>
+</ul>
+</li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Task 3.2</p>
+<p>Provision your ESP32 devices using the credentials that correspond to your
+WiFi network (home wifi or smartphone) using the applications corresponding
+to your mobile device, for both BLE and SoftAP transports.  Write down a
+small report (pdf formta) describing the process, including the screenshots
+corresponding to the ESP32 output that show that the provisioning was
+successful.  Remember, before each repetition of the experiment, use the
+command <code>idf.py erase_flash</code> to remove provisioning information from
+previous sessions.  Check the operation of the different security levels.</p>
+</div>
+<p>These applications work by means of a very simple communication with the
+unprovisioned ESP32, whose mechanisms depend on the transport being used.  In
+the case of BLE, a GATT table is created with different characteristics used to
+write (send) data to the device. We will see what a GATT table is in next lab
+assignment. In the case of the <code>softAP</code> transport, a series of <em>endpoints</em> are
+created (HTTP URIs) that allow, in a simple way, to read and write the data that
+we want to communicate to the other end of the communication.</p>
+<p>The following table summarizes the <em>endpoints</em> created by the standard versions
+of the provisioning protocol (they can be adapted to include additional
+information to exchange):</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Endpoint (BLE + GATT Server)</th>
+<th>URI (SoftAP + HTTP)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Session establishment</td>
+<td>prov-session</td>
+<td>http://IP:80/prov-session</td>
+</tr>
+<tr>
+<td>Network scanning available</td>
+<td>prov-scan</td>
+<td>http://IP:80/prov-scan</td>
+</tr>
+<tr>
+<td>Provisioning configuration</td>
+<td>prov-config</td>
+<td>http://IP:80/prov-config</td>
+</tr>
+<tr>
+<td>Protocol version</td>
+<td>proto-ver</td>
+<td>http://IP:80/proto-ver</td>
+</tr>
+</tbody>
+</table>
+<p>The details of this type of provisioning protocol remain as additional exercise
+to the student, and go beyond the goals of the assignment. However, it would be
+advisable to have a mechanism that allows them to be observed, and determine,
+for example in the case of SoftAP, if the exchange of credentials is done as
+plain text (plaintext) or encrypted, which could pose serious security problems
+for the user of a device mobile, since the credentials of connection to the WiFi
+network would be exposed.</p>
+<p>To analyze this security issue, we will use our laptop/pc as provisioning device.
+We ha to connect the laptop/pc to the provisioning SSID of the ESP32 node and
+use a command line tool provided with the ESP-IDF toolset, called <code>esp_prov.py</code>,
+which can be found in the directory <code>tools/esp_prov</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Before using the program, you must install the respective dependencies
+using the commands (from the <code>tools/esp_prov</code> directory):</p>
+<p><code>pip install -r requirements.txt
+pip install -r requirements_linux_extra.txt</code></p>
+</div>
+<p>Its use is simple, and can be consulted by running <code>python esp_prov.py -h</code>.
+Basically a provisioning session using <code>softAP</code> on a device with IP
+<code>192.168.4.1</code>, without layer security (encryption) and providing the SSID and
+key SSID_EXAMPLE/KEY_EXAMPLE would result in:</p>
+<pre><code class="language-sh">python esp_prov.py --transport softap --service_name &quot;192.168.4.1:80&quot; --sec_ver 0 --ssid SSID_EJEMPLO --passphrase CLAVE_EJEMPLO
+</code></pre>
+<div class="admonition danger">
+<p class="admonition-title">Task 3.3</p>
+<p>Perform the provisioning process from the command line using the above
+indications. Use Wireshark to analyze the provisioning traffic and find
+evidences of the clear delivery of the network credentials between the
+provisioner and the device (text mode, without encryption) and the use of
+the <em>endpoints/URIs</em> previously mentioned. Create a small report (pdf
+format) describing the process and showing the evidences you found.  Next,
+try with safe mode (option <code>--sec_ver 1</code>) and see how the keys exchanged are
+now encrypted. Add the corresponding comments to your report.</p>
+</div>
+<h2 id="part-3-wifi-power-states">Part 3. WiFi Power States</h2>
+<h3 id="station-mode">Station mode</h3>
+<p>Currently, ESP32 Wi-Fi supports the Modem-sleep mode which refers to the legacy
+power-saving mode in the IEEE 802.11 protocol. Modem-sleep mode works in
+station-only mode and the station must connect to the AP first. If the
+Modem-sleep mode is enabled, station will switch between active and sleep state
+periodically. In sleep state, RF, PHY and BB are turned off in order to reduce
+power consumption. Station can keep connection with AP in modem-sleep mode.</p>
+<p><code>Modem-sleep</code> mode includes minimum and maximum power save modes. In minimum
+power save mode, station wakes up every DTIM to receive beacon. Broadcast data
+will not be lost because it is transmitted after DTIM. However, it can not save
+much more power if DTIM is short for DTIM is determined by AP.</p>
+<p>In maximum power save mode, station wakes up every listen interval to receive
+beacon. This listen interval can be set longer than the AP DTIM period.
+Broadcast data may be lost because station may be in sleep state at DTIM time.
+If listen interval is longer, more power is saved but broadcast data is more
+easy to lose. Listen interval can be configured by calling API
+<code>esp_wifi_set_config()</code> before connecting to AP.</p>
+<h3 id="ap-mode">AP mode</h3>
+<p>Currently ESP32 AP doesn’t support all of the power save feature defined in
+Wi-Fi specification. To be specific, the AP only caches unicast data for the
+stations connect to this AP, but doesn’t cache the multicast data for the
+stations. If stations connected to the ESP32 AP are power save enabled, they may
+experience multicast packet loss.</p>
+<p>In the future, all power save features will be supported on ESP32 AP.</p>
+<h3 id="example">Example</h3>
+<p>The example <code>examples/wifi/power_save</code> uses a simple code to illustrate
+the configuration of a station in the <code>Modem-sleep</code> mode, and you can select
+between the minimum and maximum submodes. These submodes can be configured
+through the configuration menu. In addition, an option is offered to modify the
+listening time in the case of the <em>maximum</em> submode.</p>
+<div class="admonition danger">
+<p class="admonition-title">Task 3.4</p>
+<p>Compile, flash, and run the sample code using all the three configurations
+available: no savings, minimum savings and maximum savings. In the case of
+maximum savings, vary the listening time so that it takes different values.
+In all cases, connect your ESP32 to an access point and, from a laptop
+connected to the same AP, execute a series of <code>pings</code> towards the station.
+Analyze the relation between the mode, DTIM, listen times and the ping
+response time, showing graphical represntations when possible. Deliver a
+small report in pdf format.</p>
+</div></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

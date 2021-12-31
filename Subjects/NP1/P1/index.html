@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://iot-da.github.io/Subjects/NP1/P1/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Lab 1. Introduction to the ESP-IDF development environment - Internet of Things and Data Analytics</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Internet of Things and Data Analytics</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../General/" class="nav-link">General info.</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../News/" class="nav-link">News</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../IOTNA/" class="dropdown-item">IOTNA</a>
+</li>
+                                    
+<li>
+    <a href="../../MDM/" class="dropdown-item">MDM</a>
+</li>
+                                    
+<li>
+    <a href="../../SID/" class="dropdown-item">SID</a>
+</li>
+                                    
+<li>
+    <a href="../../IA/" class="dropdown-item">IA</a>
+</li>
+                                    
+<li>
+    <a href="../" class="dropdown-item">NP1</a>
+</li>
+                                    
+<li>
+    <a href="../../NP2/" class="dropdown-item">NP2</a>
+</li>
+                                    
+<li>
+    <a href="../../SEC/" class="dropdown-item">SEC</a>
+</li>
+                                    
+<li>
+    <a href="../../EDGE/" class="dropdown-item">EDGE</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../Contact/" class="nav-link">Contact</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-light">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#lab-1-introduction-to-the-esp-idf-development-environment" class="nav-link">Lab 1. Introduction to the ESP-IDF development environment</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#work-flow-commnad-line-toolset" class="nav-link">Work flow. Commnad line toolset</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#work-flow-platformio-and-vscode-ide" class="nav-link">Work flow. PlatformIO and vscode IDE</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#analysis-of-a-simple-project-hello-world-in-esp-idf" class="nav-link">Analysis of a simple project (Hello world) in ESP-IDF</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#project-customization" class="nav-link">Project customization</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#management-of-wifi-networks-example-1-wifi-network-scanning" class="nav-link">Management of WiFi networks. Example 1. WiFi network scanning</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#management-of-wifi-networks-example-2-network-event-management" class="nav-link">Management of WiFi networks. Example 2. Network event management</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="lab-1-introduction-to-the-esp-idf-development-environment">Lab 1. Introduction to the ESP-IDF development environment</h1>
+<p>ESP-IDF (<em>Espressif IoT Development Framework</em>) is the official development
+environment from Espressif for ESP32 and ESP32-S SoCs. It allows to develop
+<em>efficient</em> firmwares for said boards using the WiFi and Bluetooth communication
+interfaces, as well how to manage multiple characteristics of the SoCs that we
+will be covering in future practices.</p>
+<p>ESP-IDF uses <a href="https://freertos.org">FreeRTOS</a> as RTOS for the construction of
+the <em>firmware</em>, although it adds a multitude of components to offer support for
+higher level interaction with communication protocols, both low and high level,
+most of them in the field of the Internet of Things.</p>
+<p>This lab assignment is intended to be a basic introduction to setting up
+running the ESP-IDF development environment on a Linux operating system,
+offering two basic alternatives: command line and a specific plugin
+for VSCode (PlatformIO). In addition, we will see in a superficial way the
+basic structure of a simple program developed using ESP-IDF, as well as examples
+basic for the start-up of the WiFi interface on an ESP32 board.</p>
+<h2 id="work-flow-commnad-line-toolset">Work flow. Commnad line toolset</h2>
+<h3 id="installation-of-prerequisites">Installation of prerequisites</h3>
+<p>ESP-IDF requires certain software packages installed on the system in order to
+develop the codes and download them onto the ESP32. Below we show the
+requirements and installation process for Ubuntu/Debian based machines (like the
+virtual machine used for this course), although the ESP-IDF documentation
+includes instructions for other distributions and operating systems, including
+Windows and MacOS.</p>
+<p>In your virtual machine, install the necessary packages using (like
+Super user):</p>
+<pre><code class="language-sh">sudo apt install git wget flex bison gperf python python3-pip python-setuptools cmake ninja-build ccache libffi-dev libssl-dev dfu-util
+</code></pre>
+<p>In addition, it is necessary for the user to belong to the <code>dialout</code> group (you
+can edit the <code>/etc/group</code> file by adding your user to the line that indicates
+the corresponding group, and starting again your session). Alternativelly you
+can use the <em>adduser</em> command.</p>
+<p>Check the version of python that your system is using:</p>
+<pre><code class="language-sh">python --version
+</code></pre>
+<p>If it is not a version 3 but a version 2, you should install python3 on your
+system and make it the default python. In modern debian based distros python3 is
+already de default and you can install the <em>python-is-python3</em> package to have a
+symbolic link called python pointing to python3.</p>
+<pre><code class="language-sh">sudo apt install python-is-python3
+</code></pre>
+<h3 id="obtaining-esp-idf">Obtaining ESP-IDF</h3>
+<p>We will use the versions of ESP-IDF obtained directly from the
+official Github repository. For it, run from your home directory:</p>
+<pre><code class="language-sh">mkdir -p ~/esp
+cd ~/esp
+git clone --recursive https://github.com/espressif/esp-idf.git
+cd esp-idf
+git submodule update --init --recursive
+</code></pre>
+<h3 id="installation-of-additional-tools">Installation of additional tools</h3>
+<p>From the <code>esp-idf</code> directory, run the <code>install.sh</code> script to install
+the tools (<em>toolchain</em>) specific to your version:</p>
+<pre><code class="language-sh">sh install.sh
+</code></pre>
+<h3 id="environment-preparation">Environment preparation</h3>
+<p>After the start of each session, you will need to set correct values for certain
+environment variables. Fortunately a script is provided (<code>export.sh</code>)
+which will allow you to set them automatically:</p>
+<pre><code class="language-sh">. export.sh
+</code></pre>
+<p>You can add this line to any login file so you don't have I run the command
+every time (for instance to your $HOME/.bashrc).</p>
+<p>In any case, at this point you should have access to a program called
+<code>idf.py</code>, that will be used to manage the workflow. Check it out.</p>
+<h3 id="project-preparation">Project preparation</h3>
+<p>In this first part, we will use a simple code example. The goal is not to
+analyze in detail the the structure of that code (at least not for now), but to
+use it to illustrate the typical workflow in an ESP-IDF project.</p>
+<div class="admonition danger">
+<p class="admonition-title">Remember</p>
+<p>After executing the <code>export.sh</code> script, you will have an environment
+variable defined named <code>IDF_PATH</code>. Check its value and check that it points,
+effectively, to the IDF installation directory. We will use it at from now
+on to refer to it.</p>
+</div>
+<p>To get started, take the <code>hello_world</code> example provided as part of the
+installation IDF basic, and copy it to any directory on the filesystem:</p>
+<pre><code class="language-sh">cp -R $IDF_PATH/examples/get-started/hello_world $HOME/
+cd $HOME/hello_world
+</code></pre>
+<h3 id="build">Build</h3>
+<p>The basic build process uses the <code>idf.py</code> script:</p>
+<pre><code class="language-sh">idf.py build
+</code></pre>
+<p>If everything went well, the object files will have been generated and stored in
+the <code>build</code> directory, and the binaries will be ready to be <em>flashed</em> on the
+ESP32.</p>
+<h3 id="flash">Flash</h3>
+<p>Connect the ESP32 using the microUSB cable, and if you are working in a virtual
+machine, you have to make it visible to the hosted OS (for example, in
+VirtualBox, through the menu <em>Devices-&gt;USB-&gt;Silicon Labs USB to UART Bridge
+Controller</em>).</p>
+<p>In any case, the output of the <code>dmesg</code> command after connecting the device 
+will provide you with information about the PORT that you should use in the
+flash process and subsequent monitoring.</p>
+<p>The basic flash process uses the <code>idf.py</code> script:</p>
+<p><code>`sh
+idf.py -p flash PORT</code> ''</p>
+<h3 id="monitoring">Monitoring</h3>
+<p>If everything went well, the monitoring process will allow you to observe the
+output of the program that is running on the board. For this we use again the
+<code>idf.py</code> script:</p>
+<p><code>`sh
+idf.py -p PORT monitor</code> ''</p>
+<div class="admonition danger">
+<p class="admonition-title">Note</p>
+<p>Check that, you can indeed carry out the compilation process, flash and
+monitoring the program on the ESP32 board. Remember that the <code>EN</code> button,
+right next to the microUSB connector, will force a resetting it.</p>
+</div>
+<h2 id="work-flow-platformio-and-vscode-ide">Work flow. PlatformIO and vscode IDE</h2>
+<p>The above workflow can also be developed from other development environments.
+In our case, the main steps are shown below for ESP-IDF integration with VSCode,
+using <a href="http://platformio.org">PlatformIO</a>. The virtual machines provided in the
+course already have the latest version of PlatformIO and ESP-IDF installed, so
+we refer the reader to the official PlatformIO documentation to perform such
+installation on other operating systems.</p>
+<h3 id="setting-up-a-project">Setting up a project</h3>
+<p>The easiest way to create a new project is to press the button
+<em>PlatformIO Home</em> located at the bottom of the screen:</p>
+<p><img alt="foo" src="img/PlatformIO/1.png" /></p>
+<p>Next, click on <em>New Project</em> and select as development board
+<em>ESP DevkitC</em> or <em>Espressif ESP32 Dev Module</em>. Select <em>ESP-IDF</em>
+as a development <em>framework</em> for the project:</p>
+<p><img alt="foo" src="img/PlatformIO/2.png" /></p>
+<h3 id="adding-files-to-a-project">Adding files to a project</h3>
+<p>Create a new <code>main.c</code> file in the<code>src</code> directory of your project, or modify the
+one that already exists using, for example, the following code:</p>
+<pre><code class="language-c">#include &lt;string.h&gt;
+#include &quot;freertos/FreeRTOS.h&quot;
+#include &quot;freertos/task.h&quot;
+#include &quot;esp_system.h&quot;
+#include &quot;esp_wifi.h&quot;
+#include &quot;esp_event.h&quot;
+#include &quot;esp_log.h&quot;
+#include &quot;nvs_flash.h&quot;
+
+#include &quot;lwip/err.h&quot;
+#include &quot;lwip/sys.h&quot;
+
+#define EXAMPLE_ESP_WIFI_SSID      &quot;mywifissid&quot;
+#define EXAMPLE_ESP_WIFI_PASS      &quot;mywifipass&quot;
+#define EXAMPLE_MAX_STA_CONN       (3)
+
+static const char *TAG = &quot;wifi softAP&quot;;
+
+static void wifi_event_handler(void* arg, esp_event_base_t event_base,
+                                    int32_t event_id, void* event_data)
+{
+    if (event_id == WIFI_EVENT_AP_STACONNECTED) {
+        wifi_event_ap_staconnected_t* event = (wifi_event_ap_staconnected_t*) event_data;
+        ESP_LOGI(TAG, &quot;station &quot;MACSTR&quot; join, AID=%d&quot;,
+                 MAC2STR(event-&gt;mac), event-&gt;aid);
+    } else if (event_id == WIFI_EVENT_AP_STADISCONNECTED) {
+        wifi_event_ap_stadisconnected_t* event = (wifi_event_ap_stadisconnected_t*) event_data;
+        ESP_LOGI(TAG, &quot;station &quot;MACSTR&quot; leave, AID=%d&quot;,
+                 MAC2STR(event-&gt;mac), event-&gt;aid);
+    }
+}
+
+void wifi_init_softap()
+{
+    tcpip_adapter_init();
+    ESP_ERROR_CHECK(esp_event_loop_create_default());
+
+    wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+    ESP_ERROR_CHECK(esp_wifi_init(&amp;cfg));
+
+    ESP_ERROR_CHECK(esp_event_handler_register(WIFI_EVENT, ESP_EVENT_ANY_ID, &amp;wifi_event_handler, NULL));
+
+    wifi_config_t wifi_config = {
+        .ap = {
+            .ssid = EXAMPLE_ESP_WIFI_SSID,
+            .ssid_len = strlen(EXAMPLE_ESP_WIFI_SSID),
+            .password = EXAMPLE_ESP_WIFI_PASS,
+            .max_connection = EXAMPLE_MAX_STA_CONN,
+            .authmode = WIFI_AUTH_WPA_WPA2_PSK
+        },
+    };
+    if (strlen(EXAMPLE_ESP_WIFI_PASS) == 0) {
+        wifi_config.ap.authmode = WIFI_AUTH_OPEN;
+    }
+
+    ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_AP));
+    ESP_ERROR_CHECK(esp_wifi_set_config(ESP_IF_WIFI_AP, &amp;wifi_config));
+    ESP_ERROR_CHECK(esp_wifi_start());
+
+    ESP_LOGI(TAG, &quot;wifi_init_softap finished. SSID:%s password:%s&quot;,
+             EXAMPLE_ESP_WIFI_SSID, EXAMPLE_ESP_WIFI_PASS);
+}
+
+void app_main()
+{
+    //Initialize NVS
+    esp_err_t ret = nvs_flash_init();
+    if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
+      ESP_ERROR_CHECK(nvs_flash_erase());
+      ret = nvs_flash_init();
+    }
+    ESP_ERROR_CHECK(ret);
+
+    ESP_LOGI(TAG, &quot;ESP_WIFI_MODE_AP&quot;);
+    wifi_init_softap();
+}
+</code></pre>
+<p>We will not analyze for the moment the operation of the code (we will do that
+later), it basically it establishes a wireless Access Point open to connections
+authenticated via WPA2.</p>
+<h3 id="project-build">Project Build</h3>
+<p>To build the project, display the Command Palette (menu <code>View-&gt;Command Palette</code>)
+and run the <code>PlatformIO: Build</code> command from it. You can also press the <code>Build</code>
+button (in the form of <em>check</em>) in the bottom bar of PlatformIO:</p>
+<p><img alt="foo" src="img/PlatformIO/3.png" /></p>
+<p>If all went well, you should see a final message similar to the following in the
+system terminal:</p>
+<p><img alt="foo" src="img/PlatformIO/4.png" /></p>
+<h3 id="project-flashing">Project flashing</h3>
+<p>To upload the project to the board, we can use the command <code>PlatformIO: Upload</code>
+through the command palette, or press the corresponding button on the bottom bar
+(with a symbol left arrow):</p>
+<p><img alt="foo" src="img/PlatformIO/5.png" /></p>
+<h3 id="project-monitoring">Project monitoring</h3>
+<p>Finally, we can monitor the project using the command <code>PlatformIO: Monitor</code>
+from the command palette or through the bottom bar, using the button with
+a plug as a symbol:</p>
+<p><img alt="foo" src="img/PlatformIO/6.png" /></p>
+<h2 id="analysis-of-a-simple-project-hello-world-in-esp-idf">Analysis of a simple project (<em>Hello world</em>) in ESP-IDF</h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The following tasks can be performed from the command line or by using
+PlatformIO. We nevertheless suggest you to use the lower level command line
+toolset to become familiar with it.</p>
+</div>
+<p>Look at the general structure of the <code>hello_world</code> directory that you compiled
+previously. Specifically, we will be interested in inspecting the basic
+structure of a main program for ESP-IDF, in this case <code>hello_world_main.c</code>.</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &quot;sdkconfig.h&quot;
+#include &quot;freertos/FreeRTOS.h&quot;
+#include &quot;freertos/task.h&quot;
+#include &quot;esp_system.h&quot;
+#include &quot;esp_spi_flash.h&quot;
+
+void app_main(void)
+{
+    printf(&quot;Hello world!\n&quot;);
+
+    /* Print chip information */
+    esp_chip_info_t chip_info;
+    esp_chip_info(&amp;chip_info);
+    printf(&quot;This is %s chip with %d CPU cores, WiFi%s%s, &quot;,
+            CONFIG_IDF_TARGET,
+            chip_info.cores,
+            (chip_info.features &amp; CHIP_FEATURE_BT) ? &quot;/BT&quot; : &quot;&quot;,
+            (chip_info.features &amp; CHIP_FEATURE_BLE) ? &quot;/BLE&quot; : &quot;&quot;);
+
+    printf(&quot;silicon revision %d, &quot;, chip_info.revision);
+
+    printf(&quot;%dMB %s flash\n&quot;, spi_flash_get_chip_size() / (1024 * 1024),
+            (chip_info.features &amp; CHIP_FEATURE_EMB_FLASH) ? &quot;embedded&quot; : &quot;external&quot;);
+
+    printf(&quot;Minimum free heap size: %d bytes\n&quot;, esp_get_minimum_free_heap_size());
+
+    for (int i = 10; i &gt;= 0; i--) {
+        printf(&quot;Restarting in %d seconds...\n&quot;, i);
+        vTaskDelay(1000 / portTICK_PERIOD_MS);
+    }
+    printf(&quot;Restarting now.\n&quot;);
+    fflush(stdout);
+    esp_restart();
+}
+</code></pre>
+<p>At a high level, the <code>app_main</code> function is the entry point to every program
+developed using ESP-IDF. More specifically, after the
+<a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/general-notes.html">system load</a>,
+the so called <em>main task</em> runs the code provided by the user and implemented in
+the <code>app_main</code> function. Both the amount of its stack and its priority can be
+configured by the developer through the ESP-IDF configuration system (as we will
+see later). Typically this function is used to carry out initial configuration
+tasks or to create and launch other tasks. Anyhow, as in this case, any
+functionality can be implemented inside the <code>app_main</code> function.</p>
+<p>In this example, some generic information about the SoC that is running the
+<em>firmware</em> is shown in first place:</p>
+<pre><code class="language-c">/* Print chip information */
+    esp_chip_info_t chip_info;
+    esp_chip_info(&amp;chip_info);
+    printf(&quot;This is %s chip with %d CPU cores, WiFi%s%s, &quot;,
+            CONFIG_IDF_TARGET,
+            chip_info.cores,
+            (chip_info.features &amp; CHIP_FEATURE_BT) ? &quot;/BT&quot; : &quot;&quot;,
+            (chip_info.features &amp; CHIP_FEATURE_BLE) ? &quot;/BLE&quot; : &quot;&quot;);
+
+    printf(&quot;silicon revision %d, &quot;, chip_info.revision);
+
+    printf(&quot;%dMB %s flash\n&quot;, spi_flash_get_chip_size() / (1024 * 1024),
+            (chip_info.features &amp; CHIP_FEATURE_EMB_FLASH) ? &quot;embedded&quot; : &quot;external&quot;);
+
+    printf(&quot;Minimum free heap size: %d bytes\n&quot;, esp_get_minimum_free_heap_size());
+</code></pre>
+<p>Then, within a simple loop, the system displays a message and defers the
+execution of the task for a specified period of time using the
+<a href="https://www.freertos.org/a00127.html">vTaskDelay</a> function from FreeRTOS. This
+function receives the number of <em>clock ticks</em> you want to delay. The example
+uses the constant <code>portTIC_PERIOD_MS</code> to compute the number of ticks for 1000
+ms:</p>
+<pre><code class="language-c">    for (int i = 10; i &gt;= 0; i--) {
+        printf(&quot;Restarting in %d seconds...\n&quot;, i);
+        vTaskDelay(1000 / portTICK_PERIOD_MS);
+    }
+</code></pre>
+<p>Finally, the task reboots the system after the completion of the main task:</p>
+<pre><code class="language-c">    printf(&quot;Restarting now.\n&quot;);
+    fflush(stdout);
+    esp_restart();
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Task 1.1</p>
+<p>Modify the suspension period of the task so that it is larger or smaller,
+and check that this effectively modifies the behavior of the
+loaded <em>firmware</em>. Modify the program so that it is also showd on the
+screen wether the SoC has WiFi capabilities and includes FLASH memory (you
+can refer to
+<a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/system/system.html#_CPPv415esp_chip_info_t">the following page</a>).</p>
+</div>
+<h3 id="task-creation">Task creation</h3>
+<p>The previous project can be redesigned to create an additiona task to execute
+the logic of the program instead of having the main FreeRTOS task executing it.
+To do this, we need to briefly introduce the basic FreeRTOS API for task
+management.</p>
+<p>The <code>xTaskCreate</code> function (included in<code>task.h</code>) creates a new task:</p>
+<pre><code class="language-c"> BaseType_t xTaskCreate( TaskFunction_t pvTaskCode,
+                         const char * const pcName,
+                         configSTACK_DEPTH_TYPE usStackDepth,
+                         void *pvParameters,
+                         UBaseType_t uxPriority,
+                         TaskHandle_t *pxCreatedTask
+                        );
+</code></pre>
+<p>Specifically, it creates a new task and adds it to the list of ready to run
+tasks, receiving as parameters:</p>
+<ul>
+<li><code>pvTaskCode</code>: a pointer to the input function for the task. Tasks are usually
+  implemented as an infinite loop, and should not return or end abruptly. A task
+  can be externally destroyed via its handler (last parameter in the creation),
+  or internally (from the task code itself), as as shown in the following
+  example taken directly from the FreeRTOS documentation:</li>
+</ul>
+<pre><code class="language-c"> void vATaskFunction( void *pvParameters )
+    {
+        for( ;; )
+        {
+            -- Task application code here. --
+        }
+
+        /* Tasks must not attempt to return from their implementing
+        function or otherwise exit.  In newer FreeRTOS port
+        attempting to do so will result in an configASSERT() being
+        called if it is defined.  If it is necessary for a task to
+        exit then have the task call vTaskDelete( NULL ) to ensure
+        its exit is clean. */
+        vTaskDelete( NULL );
+    }
+</code></pre>
+<ul>
+<li>
+<p><code>pcName</code>: Descriptive name (in string form) of the task to be executed,
+    helpfull for debugging purposes.</p>
+</li>
+<li>
+<p><code>usStackDepth</code>: size in words of the stack for the task.</p>
+</li>
+<li>
+<p><code>pvParameters</code>: parameters to the entry function of the task.</p>
+</li>
+<li>
+<p><code>uxPriority</code>: priority assigned to the task.</p>
+</li>
+<li>
+<p><code>pxCreatedTask</code>: optional handle for the task.</p>
+</li>
+</ul>
+<p>Thus, the functionality of the <code>Hello, world</code> program that we analyzed above
+could be restructured using a single task:</p>
+<pre><code class="language-c">void hello_task(void *pvParameter)
+{
+    printf(&quot;Hello world!\n&quot;);
+    for (int i = 10; i &gt;= 0; i--) {
+        printf(&quot;Restarting in %d seconds...\n&quot;, i);
+        vTaskDelay(1000 / portTICK_RATE_MS);
+    }
+    printf(&quot;Restarting now.\n&quot;);
+    fflush(stdout);
+    esp_restart();
+}
+</code></pre>
+<p>And the task could be created from the main task:</p>
+<pre><code class="language-c">void app_main()
+{
+    nvs_flash_init();
+    xTaskCreate( &amp;hello_task, &quot;hello_task&quot;, 2048, NULL, 5, NULL );
+}
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Task 1.2</p>
+<p>Implement a modification of the <code>hello_world</code> program that uses two
+independent tasks with different functionality (in this case it is
+enough to only show a different messaga on the screen) and different
+suspension times. Check that, indeed, both tasks are run concurrently.</p>
+</div>
+<h2 id="project-customization">Project customization</h2>
+<p>ESP-IDF uses the <code>kconfiglib</code> library to provide a system of Simple and
+extensible compile-time project setup. To illustrate its operation, we will
+use the <code>blink</code> example, that can be found in the ESP-IDF distribution that you
+cloned earlier (copy the example to any point in your directory hierarchy before
+you begin).</p>
+<p>To configure the ESP-IDF project, simply use the following command:</p>
+<pre><code class="language-sh">idf.py menuconfig
+</code></pre>
+<p>Executing the above command will allow you to browse a set of general options,
+which will allow you to configure the characteristics specific to the project
+(for example, selecting the components that you want to enable in its build).</p>
+<div class="admonition note">
+<p class="admonition-title">Task</p>
+<p>Navigate through the options that appear in the setup menus to
+familiarize yourself with them. You will use them in future practices.</p>
+</div>
+<p>In the <code>blink</code> project, notice that one of the menu options,
+called <em>Example configuration</em>, includes an option called <em>Blink GPIO number</em>.
+Beyond its functionality (it defines the number of GPIO pin to enable/disable),
+it is of interest to us that this configuration option will define at compile
+time the value of a constant (a C preprocessor macro, in this case
+<code>CONFIG_BLINK_GPIO</code>) that can be used in any file of our project.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Observe how the <code>CONFIG_BLINK_GPIO</code> constant is used in the code of the
+<code>blink</code> project.</p>
+</div>
+<p>This configuration option is not part of the default options of ESP-IDF, but has
+been added by the developers of the <code>blink</code> project.  Observe and study the
+format and content of the file <code>main/Kconfig.projbuild</code>, provided as part of the
+project. It defines the characteristics (name, range, default value and
+description) of the new configuration option.</p>
+<div class="admonition note">
+<p class="admonition-title">Task 1.3</p>
+<p>Modify the <code>hello_world</code> project so that it defines two configuration
+options, that will allow to specify the wait time for each of the two tasks
+that you have defined in your previous solution (Task 1.2). Make use of them
+in your code and verify that indeed its modification through the menu
+system allows a customization of the behavior of your codes.</p>
+</div>
+<h2 id="management-of-wifi-networks-example-1-wifi-network-scanning">Management of WiFi networks. Example 1. WiFi network scanning</h2>
+<p>As an example, and in preparation for the codes with which we will work in
+future lab assignments, we are going to analyze a concrete example of a
+<em>firmware</em> that scans the available wireless networks within the reach of the
+ESP32 node, and reports them through the serial port (we will seem them printed
+on the screen if we monitor the node). It will report their main characteristics
+for each of the networks detected.</p>
+<div class="admonition note">
+<p class="admonition-title">Task 1.4</p>
+<p>Copy the  example located in the directory <code>examples/wifi/scan</code> to other
+directory from your <em>home</em> folder. Before compiling it, change the maximum
+number of networks to scan through in the example setup menu to 20. Create a
+WiFi access point with your smartphone. Compile the code, flash it and
+monitor the output, and verify that your network is correctly scanned.</p>
+</div>
+<p>Observe its operation. Actually, the <em>firmware</em> just scans a subset of the
+available networks, reporting some of their characteristics (for example, SSID,
+Authentication Mode, or Primary Channel).</p>
+<div class="admonition note">
+<p class="admonition-title">Task 1.5</p>
+<p>Analyze the code for the <code>wifi_scan</code> function (main task). Specifically,
+focus on the lines that enable and configure scanning of
+networks. Try to understand the general operation of the program, consulting
+and pointing out the role of each line, with special interest to those
+functions prefixed with <code>esp_wifi_ *</code>. Write down in a text file
+the role of each of them, consulting the <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/network/esp_wifi.html">official documentation</a>.</p>
+</div>
+<h2 id="management-of-wifi-networks-example-2-network-event-management">Management of WiFi networks. Example 2. Network event management</h2>
+<p>In this second example you will create a <em>firmware</em> that connects the ESP32 as a
+station to an existing access point. This example will allow you to observe,
+broadly speaking, the event management system in FreeRTOS/ESP-IDF, that we use
+to respond to the network events such as obtaining an IP address or successfully
+connect to an access point.</p>
+<div class="admonition note">
+<p class="admonition-title">Task</p>
+<p>Copy the <code>station</code> example located in the directory
+<code>examples/wifi/getting_started</code> to another folder in your <em>home</em> directory.
+Before compiling it, modify the SSID of the network to which it will try to
+connect, as well as the chosen password through the system setup menus (you
+can use the same access point you created before with your smartphone).</p>
+</div>
+<p>Observe its operation. The <em>firmware</em> just initializes the device in <em>station</em>
+mode (as opposed to the <em>Access Point</em> mode), making a connection to the
+preconfigured access point through the setup menu.</p>
+<p>Analyze the code for the <code>wifi_init_sta</code> function. This function, which
+implements the main task, is basically divided into two parts:</p>
+<ul>
+<li>
+<p><strong>Event management</strong>. Observe the mechanism by which the reception of an event
+  is associated with the execution of a specific handler function previously
+  registered.</p>
+</li>
+<li>
+<p><strong>Configuration of the connection to an access point</strong>. The connection
+  configuration is made through the corresponding fields of a <code>wifi_config_t</code>
+  structure. Look at the basic fields you need, how the use of WPA2 is enforced
+  and how it collects connection data (SSID and password) through the
+  configuration system. Observe also how the wireless communication system is
+  initialized by the <code>esp_wifi_start()</code> call.</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Task 1.6</p>
+<p>Modify the <em>firmware</em> so that it can use a different <em>handler</em> for the event
+of acquiring an IP address and the rest of the events of the WiFi system
+that are already being handled. Check that, the output associated with said
+event continues to be observed, even when both functions are different.</p>
+</div></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

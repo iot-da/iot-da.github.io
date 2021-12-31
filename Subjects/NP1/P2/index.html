@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://iot-da.github.io/Subjects/NP1/P2/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Lab 2. WiFi in ESP32 - Internet of Things and Data Analytics</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Internet of Things and Data Analytics</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../General/" class="nav-link">General info.</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../News/" class="nav-link">News</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../IOTNA/" class="dropdown-item">IOTNA</a>
+</li>
+                                    
+<li>
+    <a href="../../MDM/" class="dropdown-item">MDM</a>
+</li>
+                                    
+<li>
+    <a href="../../SID/" class="dropdown-item">SID</a>
+</li>
+                                    
+<li>
+    <a href="../../IA/" class="dropdown-item">IA</a>
+</li>
+                                    
+<li>
+    <a href="../" class="dropdown-item">NP1</a>
+</li>
+                                    
+<li>
+    <a href="../../NP2/" class="dropdown-item">NP2</a>
+</li>
+                                    
+<li>
+    <a href="../../SEC/" class="dropdown-item">SEC</a>
+</li>
+                                    
+<li>
+    <a href="../../EDGE/" class="dropdown-item">EDGE</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../Contact/" class="nav-link">Contact</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-light">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#lab-2-wifi-in-esp32" class="nav-link">Lab 2. WiFi in ESP32</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#goals" class="nav-link">Goals</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#introduction" class="nav-link">Introduction</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#station-mode" class="nav-link">Station Mode</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#access-point-mode" class="nav-link">Access Point Mode</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#combined-sta-and-ap-mode" class="nav-link">Combined STA and AP Mode</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#scanning-wifi-networks" class="nav-link">Scanning WiFi networks</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="lab-2-wifi-in-esp32">Lab 2. WiFi in ESP32</h1>
+<h2 id="goals">Goals</h2>
+<ul>
+<li>Familiarize yourself with the workflow of the WiFi driver in ESP-IDF.</li>
+<li>Understand the difference between <em>station</em> and <em>AP</em> modes.</li>
+<li>Develop <em>firmware</em> that can work as AP for others and as <em>station</em> to connect
+  to another AP.</li>
+<li>Understand the network scanning mechanisms in ESP-IDF.</li>
+</ul>
+<h2 id="introduction">Introduction</h2>
+<p>The ESP-IDF WiFi libraries and components provide support to configure and
+monitor 802.11 connections on ESP32 boards. This includes settings for:</p>
+<ul>
+<li>
+<p><code>Station</code> mode (WiFi client mode, or <em>STA</em>).
+  In this case, the ESP32 connects to a preconfigured access point.</p>
+</li>
+<li>
+<p><code>AP</code> mode (also called <em>softAP</em> or <em>Access Point</em> mode). In this case, other
+  stations can connect to the ESP32.</p>
+</li>
+<li>
+<p>AP-STA combined mode, where ESP32 is concurrently acting as an access point
+  and a station connected to another access point.</p>
+</li>
+<li>
+<p>Various security modes in both client mode and AP mode (WPA, WPA2, WEP, etc.)</p>
+</li>
+<li>
+<p>Access point scanning (active and passive).</p>
+</li>
+<li>
+<p>Key provisioning and WPS mode.</p>
+</li>
+<li>
+<p>Promiscuous mode for IEEE 802.11 packet monitoring.</p>
+</li>
+</ul>
+<p>In the present lab we will study through basic examples the main features
+supported by the WiFi driver. All these characteristics can be used later for
+the development of codes and more complex projects with minimal modifications.</p>
+<h3 id="esp32-wi-fi-programming-model">ESP32 Wi-Fi Programming Model</h3>
+<p>The ESP32 Wi-Fi programming model can be described with the following figure:</p>
+<p><img alt="" src="img/blockdiag.png" /></p>
+<p>The Wi-Fi driver can be considered a black box that knows nothing about
+high-layer code, such as the TCP/IP stack, application task, event task, etc.
+The application task (code) generally calls Wi-Fi driver APIs to initialize
+Wi-Fi and handles Wi-Fi events when necessary. Wi-Fi driver receives API calls,
+handles them, and post events to the application.</p>
+<p>Wi-Fi event handling is based on the <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/system/esp_event.html">esp_event
+library</a>.
+Events are sent by the Wi-Fi driver to the <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/system/esp_event.html#esp-event-default-loops">default event
+loop</a>.
+Application may handle these events in <em>callbacks</em> registered using
+<code>esp_event_handler_register()</code>. Wi-Fi events are also handled by esp_netif
+component to provide a set of default behaviors. For example, when Wi-Fi station
+connects to an AP, esp_netif will automatically start the DHCP client by default
+(even though this Default behavior can be customized to, for example, assign an
+IP address statically).</p>
+<div class="admonition danger">
+<p class="admonition-title">Note</p>
+<p>All the API mentioned below is described in depth in
+this <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/network/esp_wifi.html">link</a>. It is advisable to have this information during the process
+as well as in this lab document.</p>
+</div>
+<h3 id="wifi-events">WiFi events</h3>
+<p>The following list shows the description of the wifi events that are handled in
+the example codes we work through in this lab assignment.</p>
+<ul>
+<li>
+<p><code>WIFI_EVENT_SCAN_DONE</code></p>
+<p>The scan-done event is triggered by <code>esp_wifi_scan_start()</code> and will arise
+in the following scenarios:
+- The scan is completed, e.g., the target AP is found successfully, or all
+  channels have been scanned.
+- The scan is stopped by <code>esp_wifi_scan_stop()</code>.
+- The <code>esp_wifi_scan_start()</code> is called before the scan is completed. A new
+  scan will override the current scan and a scan-done event will be
+  generated.</p>
+<p>The scan-done event will not arise in the following scenarios:
+- It is a blocked scan.
+- The scan is caused by <code>esp_wifi_connect()</code>.</p>
+<p>Upon receiving this event, the event task does nothing. The application
+event callback needs to call <code>esp_wifi_scan_get_ap_num()</code> and
+<code>esp_wifi_scan_get_ap_records()</code> to fetch the scanned AP list and trigger
+the Wi-Fi driver to free the internal memory which is allocated during the
+scan (do not forget to do this!). Refer to ESP32 Wi-Fi Scan for a more
+detailed description.</p>
+</li>
+<li>
+<p><code>WIFI_EVENT_STA_START</code></p>
+<p>If <code>esp_wifi_start()</code> returns ESP_OK and the current Wi-Fi mode is station
+or station/AP, then this event will arise. Upon receiving this event, the
+event task will initialize the LwIP network interface (netif). Generally,
+the application event callback needs to call <code>esp_wifi_connect()</code> to connect
+to the configured AP.</p>
+</li>
+<li>
+<p><code>WIFI_EVENT_STA_STOP</code></p>
+<p>If <code>esp_wifi_stop()</code> returns ESP_OK and the current Wi-Fi mode is station or
+station/AP, then this event will arise. Upon receiving this event, the event
+task will release the station’s IP address, stop the DHCP client, remove
+TCP/UDP-related connections and clear the LwIP station netif, etc. The
+application event callback generally does not need to do anything.</p>
+</li>
+<li>
+<p><code>WIFI_EVENT_STA_CONNECTED</code></p>
+<p>If <code>esp_wifi_connect()</code> returns ESP_OK and the station successfully connects
+to the target AP, the connection event will arise. Upon receiving this
+event, the event task starts the DHCP client and begins the DHCP process of
+getting the IP address. Then, the Wi-Fi driver is ready for sending and
+receiving data.</p>
+<p>This moment is good for beginning the application work, provided that the
+application does not depend on LwIP, namely the IP address. However, if the
+application is LwIP-based, then you need to wait until the got ip event
+<code>WIFI_EVENT_STA_GOT_IP</code> comes in.</p>
+</li>
+<li>
+<p><code>WIFI_EVENT_STA_DISCONNECTED</code></p>
+<p>This event can be generated in the following scenarios:</p>
+<ul>
+<li>
+<p>When <code>esp_wifi_disconnect()</code>, or <code>esp_wifi_stop()</code> is called and the
+  station is already connected to the AP.</p>
+</li>
+<li>
+<p>When <code>esp_wifi_connect()</code> is called, but the Wi-Fi driver fails to set up
+  a connection with the AP due to certain reasons, e.g. the scan fails to
+  find the target AP, authentication times out, etc. If there are more
+  than one AP with the same SSID, the disconnected event is raised after
+  the station fails to connect all of the found APs.</p>
+</li>
+<li>
+<p>When the Wi-Fi connection is disrupted because of specific reasons,
+  e.g., the station continuously loses N beacons, the AP kicks off the
+  station, the AP’s authentication mode is changed, etc.</p>
+</li>
+</ul>
+<p>Upon receiving this event, the default behavior of the event task is to:
+- Shut down the station’s LwIP netif.</p>
+<ul>
+<li>Notify the LwIP task to clear the UDP/TCP connections which cause the
+  wrong status to all sockets. For socket-based applications, the
+  application callback can choose to close all sockets and re-create them,
+  if necessary, upon receiving this event.</li>
+</ul>
+<p>The most common event handle code for this event in application is to call
+<code>esp_wifi_connect()</code> to reconnect the Wi-Fi. However, if the event is raised
+because <code>esp_wifi_disconnect()</code> is called, the application should not call
+esp_wifi_connect() to reconnect. It’s application’s responsibility to
+distinguish whether the event is caused by <code>esp_wifi_disconnect()</code> or other
+reasons.</p>
+</li>
+<li>
+<p><code>IP_EVENT_STA_GOT_IP</code> (was <code>WIFI_EVENT_STA_GOT_IP</code>)</p>
+<p>This event arises when the DHCP client successfully gets the IPV4 address
+from the DHCP server, or when the IPV4 address is changed. The event means
+that everything is ready and the application can begin its tasks (e.g.,
+creating sockets).</p>
+<p>The IPV4 may be changed because of the following reasons:
+- The DHCP client fails to renew/rebind the IPV4 address, and the station’s
+  IPV4 is reset to 0.
+- The DHCP client rebinds to a different address.
+- The static-configured IPV4 address is changed.</p>
+<p>Whether the IPV4 address is changed or NOT is indicated by field ip_change
+of ip_event_got_ip_t.</p>
+<p>The socket is based on the IPV4 address, which means that, if the IPV4
+changes, all sockets relating to this IPV4 will become abnormal. Upon
+receiving this event, the application needs to close all sockets and
+recreate the application when the IPV4 changes to a valid one.</p>
+</li>
+<li>
+<p><code>IP_STA_LOST_IP</code> (was <code>WIFI_EVENT_STA_LOST_IP</code>)</p>
+<p>This event arises when the IPV4 address become invalid.</p>
+<p>IP_STA_LOST_IP doesn’t arise immediately after the Wi-Fi disconnects,
+instead it starts an IPV4 address lost timer, if the IPV4 address is got
+before ip lost timer expires, IP_EVENT_STA_LOST_IP doesn’t happen.
+Otherwise, the event arises when IPV4 address lost timer expires.</p>
+<p>Generally the application don’t need to care about this event, it is just a
+debug event to let the application know that the IPV4 address is lost.</p>
+</li>
+<li>
+<p><code>WIFI_EVENT_STA_START</code></p>
+<p>If <code>esp_wifi_start()</code> returns ESP_OK and the current Wi-Fi mode is station or
+station/AP, then this event will arise. Upon receiving this event, the event
+task will initialize the LwIP network interface (netif). Generally, the
+application event callback needs to call esp_wifi_connect() to connect to
+the configured AP.</p>
+</li>
+<li>
+<p><code>WIFI_EVENT_AP_START</code></p>
+<p>Similar to <code>WIFI_EVENT_STA_START</code></p>
+</li>
+<li>
+<p><code>WIFI_EVENT_AP_STACONNECTED</code></p>
+<p>Every time a station is connected to ESP32 AP, the
+<code>WIFI_EVENT_AP_STACONNECTED</code> will arise. Upon receiving this event, the
+event task will do nothing, and the application callback can also ignore it.
+However, you may want to do something, for example, to get the info of the
+connected STA, etc.</p>
+</li>
+<li>
+<p><code>WIFI_EVENT_AP_STADISCONNECTED</code></p>
+<p>This event can happen in the following scenarios:
+- The application calls <code>esp_wifi_disconnect()</code>, or <code>esp_wifi_deauth_sta()</code>,
+  to manually disconnect the station.
+- The Wi-Fi driver kicks off the station, e.g. because the AP has not
+  received any packets in the past five minutes, etc. The time can be
+  modified by <code>esp_wifi_set_inactive_time()</code>.
+- The station kicks off the AP.</p>
+<p>When this event happens, the event task will do nothing, but the application
+event callback needs to do something, e.g., close the socket which is
+related to this station, etc.</p>
+</li>
+</ul>
+<h2 id="station-mode">Station Mode</h2>
+<p>The figure describes some usual scenarios in station mode:</p>
+<p><img alt="" src="img/stadiag.png" /></p>
+<p>The main phases in this mode are analyzed below (not all of them have to be
+present necessarily in all settings).</p>
+<p><strong>1. WiFi/LwIP Init Phase</strong></p>
+<p>The following 1-5 steps are the recommended sequence to initialize a
+Wi-Fi-/LwIP-based application:</p>
+<ol>
+<li>The main task calls <code>esp_netif_init()</code> to create an LwIP core task and
+   initialize LwIP-related work.</li>
+<li>The main task calls <code>esp_event_loop_create()</code> to create a system Event
+   task and initialize an application event’s callback function. In the
+   scenario above, the application event’s callback function does nothing
+   but relaying the event to the application task.</li>
+<li>The main task calls <code>esp_netif_create_default_wifi_ap()</code> or
+   <code>esp_netif_create_default_wifi_sta()</code> to create default network interface
+   instance binding station or AP with TCP/IP stack.</li>
+<li>The main task calls <code>esp_wifi_init()</code> to create the Wi-Fi driver task and
+   initialize the Wi-Fi driver.</li>
+<li>The main task calls OS API to create the application task.</li>
+</ol>
+<p>However, it is NOT a must-follow sequence, which means that you can create
+the application task in step 1 and put all other initializations in the
+application task. Moreover, you may not want to create the application task
+in the initialization phase if the application task depends on the sockets.
+Rather, you can defer the task creation until the IP is obtained.</p>
+<p><strong>2. WiFi Configuración Phase</strong></p>
+<p>Once the Wi-Fi driver is initialized, you can start configuring the Wi-Fi
+driver. In this scenario, the mode is station, so you may need to call
+<code>esp_wifi_set_mode()</code> (<code>WIFI_MODE_STA</code>) to configure the Wi-Fi mode as station.
+You can call other <code>esp_wifi_set_xxx</code> APIs to configure more settings, such as
+the protocol mode, country code, bandwidth, etc. Refer to <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/wifi.html#esp32-wi-fi-configuration">ESP32 Wi-Fi
+Configuration</a>
+for more information on the operation modes.</p>
+<p>Generally, we configure the Wi-Fi driver before setting up the Wi-Fi connection,
+but this is NOT mandatory, which means that you can configure the Wi-Fi
+connection anytime, provided that the Wi-Fi driver is initialized successfully.
+However, if the configuration does not need to change after the Wi-Fi connection
+is set up, you should configure the Wi-Fi driver at this stage, because the
+configuration APIs (such as <code>esp_wifi_set_protocol()</code>) will cause the Wi-Fi to
+reconnect, which may not be desirable.</p>
+<p>The routine <code>esp_wifi_set_config ()</code> allows you to configure the basic aspects
+of the WiFi connection. For example, the following code performs a basic WiFi
+setup by providing SSID, password, and authentication mode before configuring
+the connection:</p>
+<pre><code class="language-c">    wifi_config_t wifi_config = {
+        .sta = {
+            .ssid = EXAMPLE_ESP_WIFI_SSID,
+            .password = EXAMPLE_ESP_WIFI_PASS,
+            .threshold.authmode = WIFI_AUTH_WPA2_PSK,
+
+            .pmf_cfg = {
+                .capable = true,
+                .required = false
+            },
+        },
+    };
+    ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA) );
+    ESP_ERROR_CHECK(esp_wifi_set_config(ESP_IF_WIFI_STA, &amp;wifi_config) );
+</code></pre>
+<p><strong>3. WiFi Start Phase</strong></p>
+<ol>
+<li>Call <code>esp_wifi_start()</code> to start the Wi-Fi driver.</li>
+<li>The Wi-Fi driver posts <code>WIFI_EVENT_STA_START</code> to the event task; then,
+   the event task will do some common things and will call the application
+   event callback function.</li>
+<li>The application event callback function relays the <code>WIFI_EVENT_STA_START</code>
+   to the application task. We recommend that you call <code>esp_wifi_connect()</code>.
+   However, you can also call <code>esp_wifi_connect()</code> in other phrases after
+   the <code>WIFI_EVENT_STA_START</code> arises.</li>
+</ol>
+<p><strong>4. WiFi Connect Phase</strong></p>
+<ol>
+<li>Once <code>esp_wifi_connect()</code> is called, the Wi-Fi driver will start the
+   internal scan/connection process.</li>
+<li>If the internal scan/connection process is successful, the
+   <code>WIFI_EVENT_STA_CONNECTED</code> will be generated. In the event task, it
+   starts the DHCP client, which will finally trigger the DHCP process.</li>
+<li>In the above-mentioned scenario, the application event callback will
+   relay the event to the application task. Generally, the application needs
+   to do nothing, and you can do whatever you want, e.g., print a log, etc.</li>
+</ol>
+<p>In step 2, the Wi-Fi connection may fail because, for example, the password is
+wrong, the AP is not found, etc. In a case like this,
+<code>WIFI_EVENT_STA_DISCONNECTED</code> will arise and the reason for such a failure will
+be provided. For handling events that disrupt Wi-Fi connection, please refer to
+phase 6.</p>
+<p><strong>5. Wi-Fi <code>Got IP</code> Phase</strong></p>
+<ol>
+<li>Once the DHCP client is initialized in step 4.2, the got IP phase will
+   begin.</li>
+<li>If the IP address is successfully received from the DHCP server, then
+   <code>IP_EVENT_STA_GOT_IP</code> will arise and the event task will perform common
+   handling.</li>
+<li>In the application event callback, <code>IP_EVENT_STA_GOT_IP</code> is relayed to
+   the application task. For LwIP-based applications, this event is very
+   special and means that everything is ready for the application to begin
+   its tasks, e.g. creating the TCP/UDP socket, etc. A very common mistake
+   is to initialize the socket before <code>IP_EVENT_STA_GOT_IP</code> is received. DO
+   NOT start the socket-related work before the IP is received.</li>
+</ol>
+<p><strong>6. WiFi Disconnect Phase</strong></p>
+<ol>
+<li>When the Wi-Fi connection is disrupted, e.g. because the AP is powered
+   off, the RSSI is poor, etc., <code>WIFI_EVENT_STA_DISCONNECTED</code> will arise.</li>
+<li>In the scenario described above, the application event callback function
+   relays <code>WIFI_EVENT_STA_DISCONNECTED</code> to the application task. We
+   recommend that <code>esp_wifi_connect()</code> be called to reconnect the Wi-Fi,
+   close all sockets and re-create them if necessary.</li>
+</ol>
+<p><strong>7. WiFi IP Change Phase</strong></p>
+<ol>
+<li>
+<p>If the IP address is changed, the <code>IP_EVENT_STA_GOT_IP</code> will arise with
+   <code>ip_change</code> field set to true in the <code>ip_event_got_ip_t</code> structure passed
+   to the event handler.</p>
+</li>
+<li>
+<p>This event is important to the application. When it occurs, the timing is
+   good for closing all created sockets and recreating them.</p>
+</li>
+</ol>
+<p><strong>8. WiFi Deinit Phase</strong></p>
+<ol>
+<li>Call <code>esp_wifi_disconnect()</code> to disconnect the Wi-Fi connectivity.</li>
+<li>Call <code>esp_wifi_stop()</code> to stop the Wi-Fi driver.</li>
+<li>Call <code>esp_wifi_deinit()</code> to unload the Wi-Fi driver.</li>
+</ol>
+<h3 id="analysis-of-an-example-wifigetting_startedstation">Analysis of an example (<code>wifi/getting_started/station</code>)</h3>
+<div class="admonition danger">
+<p class="admonition-title">Task 2.1</p>
+<p>Analyze the <code>station</code> example, compile it and flash it. Study the treatment
+of events that it carries out, and how these are emitted for real cases. To
+do this, try the following things:
+- connect your ESP32 with an existing access point
+- connect your ESP32 with a non-existent access point
+- turn off the access point while the IP is granted
+Do it while you monitor the ESP32 to see the screen messages of the events
+handlers. If there is no message for one of them modify the code to handle
+it. Deliver the code and a brief report commenting your observations (pdf
+format).</p>
+</div>
+<h2 id="access-point-mode">Access Point Mode</h2>
+<p>The following figure roughly describes some of the main scenarios
+that can occur in <em>AP (access point)</em> mode:</p>
+<p><img alt="" src="img/apdiag.png" /></p>
+<p>The workflow is very similar to that of <em>station</em> mode, with the difference
+basic type of WiFi configuration to perform (<code>WIFI_MODE_AP</code>) and obviously
+configuration parameters. Take a look at the following configuration example:</p>
+<pre><code class="language-c">    wifi_config_t wifi_config = {
+        .ap = {
+            .ssid = EXAMPLE_ESP_WIFI_SSID,
+            .ssid_len = strlen(EXAMPLE_ESP_WIFI_SSID),
+            .channel = EXAMPLE_ESP_WIFI_CHANNEL,
+            .password = EXAMPLE_ESP_WIFI_PASS,
+            .max_connection = EXAMPLE_MAX_STA_CONN,
+            .authmode = WIFI_AUTH_WPA_WPA2_PSK
+        },
+    };
+    if (strlen(EXAMPLE_ESP_WIFI_PASS) == 0) {
+        wifi_config.ap.authmode = WIFI_AUTH_OPEN;
+    }
+
+    ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_AP));
+    ESP_ERROR_CHECK(esp_wifi_set_config(ESP_IF_WIFI_AP, &amp;wifi_config));
+</code></pre>
+<p>For more information on the configuration parameters of an Access Point, check
+<a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/wifi.html#ap-basic-configuration">AP Basic Configuration</a>.</p>
+<h3 id="analysis-of-an-example-wifigetting_startedsoftap">Analysis of an example (<code>wifi/getting_started/softAP</code>)</h3>
+<div class="admonition danger">
+<p class="admonition-title">Task 2.2</p>
+<p>Analyze the <code>softAP</code> example, compile it and flash it. Study the treatment
+of events that it carries out, and how these are emitted for real cases. To
+do it, connect different clients (<em>stations</em>), either ESP32 or any another
+device, and analyze the generated events and their response. If there is no
+message printed for any of them, add the corresponding handling code.
+Deliver the code and a small report documenting your observations (pdf
+format).</p>
+</div>
+<h2 id="combined-sta-and-ap-mode">Combined STA and AP Mode</h2>
+<p>ESP-IDF supports a mixed mode of connection, in which the ESP32 is both
+an access point (AP) and a station (<em>station</em>). This mode is configured
+using the <code>ESP_MODE_APSTA</code> parameter in the invocation of the routine
+<code>esp_wifi_set_mode()</code>.</p>
+<p>Obviously, the code will require two independent <code>wifi_config_t</code> structures, one
+with the data associated with the point access (field <code>.ap</code>) mode and another
+with the fields associated with the <em>station</em> mode (<code>.sta</code> field). In addition,
+it will be necessary to invoke the configuration routine (<code>esp_wifi_set_config</code>)
+with each of these structures. And finally, you also need to invoke the
+initialization of <code>netif</code> both in <em>station</em> mode
+(<code>esp_netif_create_default_wifi_sta()</code>) an in <em>AP</em> mode
+(<code>esp_netif_create_default_wifi_ap()</code>).</p>
+<h3 id="exercise-develop-a-stationap-mixed-node">Exercise: develop a <em>station/AP</em> mixed node</h3>
+<div class="admonition danger">
+<p class="admonition-title">Task 2.3</p>
+<p>Modify the <code>station</code> example so that the ESP32 behaves at the same time
+as a station and as an access point. Add the necessary configuration options
+to be able to set all the parameters via <code>menuconfig</code>. Check that the ESP32
+actually connects to the point access and that at the same time it is
+possible to connect another device to it as a station (for example, your
+mobile phone). Deliver the developed code.</p>
+</div>
+<h2 id="scanning-wifi-networks">Scanning WiFi networks</h2>
+<h3 id="wifi-scanning-modes">WiFi Scanning Modes</h3>
+<p>The WiFi network scanning mode (i.e. invoking the routine
+<code>esp_wifi_scan_start()</code>) is only supported currently in <em>station</em> or
+<em>station/AP</em> modes. The different types of network scanning modes are:</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Active Scan</td>
+<td>Scan by sending a probe request. The default scan is an active scan.</td>
+</tr>
+<tr>
+<td>Passive Scan</td>
+<td>No probe request is sent out. Just switch to the specific channel and wait for a beacon. Application can enable it via the scan_type field of wifi_scan_config_t.</td>
+</tr>
+<tr>
+<td>Foreground Scan</td>
+<td>This scan is applicable when there is no Wi-Fi connection in station mode. Foreground or background scanning is controlled by the Wi-Fi driver and cannot be configured by the application.</td>
+</tr>
+<tr>
+<td>Background Scan</td>
+<td>This scan is applicable when there is a Wi-Fi connection in station mode or in station/AP mode. Whether it is a foreground scan or background scan depends on the Wi-Fi driver and cannot be configured by the application.</td>
+</tr>
+<tr>
+<td>All-Channel Scan</td>
+<td>It scans all of the channels. If the channel field of wifi_scan_config_t is set to 0, it is an all-channel scan.</td>
+</tr>
+<tr>
+<td>Specific Channel Scan</td>
+<td>It scans specific channels only. If the channel field of wifi_scan_config_t set to 1-14, it is a specific-channel scan.</td>
+</tr>
+</tbody>
+</table>
+<p>The scan modes in above table can be combined arbitrarily, so we totally have 8
+different scans:</p>
+<ol>
+<li><em>All-Channel Background Active Scan</em></li>
+<li><em>All-Channel Background Passive Scan</em></li>
+<li><em>All-Channel Foreground Active Scan</em></li>
+<li><em>All-Channel Foreground Passive Scan</em></li>
+<li><em>Specific-Channel Background Active Scan</em></li>
+<li><em>Specific-Channel Background Passive Scan</em></li>
+<li><em>Specific-Channel Foreground Active Scan</em></li>
+<li><em>Specific-Channel Foreground Passive Scan</em></li>
+</ol>
+<h3 id="scan-configuration">Scan Configuration</h3>
+<p>The scan type and other per-scan attributes are configured by
+<code>esp_wifi_scan_start()</code>. The table below provides a detailed description of
+<em>wifi_scan_config_t</em>.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ssid</td>
+<td>If the SSID is not NULL it is only the AP with the same SSID that can be scanned.</td>
+</tr>
+<tr>
+<td>bssid</td>
+<td>If the BSSID is not NULL it is only the AP with the same BSSID that can be scanned.</td>
+</tr>
+<tr>
+<td>channel</td>
+<td>If <code>channel</code> is 0 there will be an all-channel scan; otherwise there will be a specific-channel scan.</td>
+</tr>
+<tr>
+<td>show_hidden</td>
+<td>If <code>show_hidden</code> is 0 the scan ignores the AP with a hidden SSID; otherwise the scan considers the hidden AP a normal one.</td>
+</tr>
+<tr>
+<td>scan_type</td>
+<td>If <code>scan_type</code> is <code>WIFI_SCAN_TYPE_ACTIVE</code> the scan is <code>active</code>; otherwise it is a <code>passive</code> one.</td>
+</tr>
+<tr>
+<td>scan_time</td>
+<td>This field is used to control how long the scan dwells on each channel. See <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/wifi.html#scan-configuration">Scan Configuration</a> for more details</td>
+</tr>
+</tbody>
+</table>
+<h3 id="scan-all-aps-on-all-channels-foreground">Scan All APs on All Channels (Foreground)</h3>
+<p>The following figure describes a basic scan over all channels in foreground
+(remember that it can only occur in <em>station</em> mode when it is not yet connected
+to an AP).</p>
+<p><img alt="" src="img/scan_all_diag.png" /></p>
+<p><strong>1. Scan Configuration Phase</strong></p>
+<ol>
+<li>Call esp_wifi_set_country() to set the country info if the default
+   country info is not what you want, refer to Wi-Fi Country Code.</li>
+<li>Call esp_wifi_scan_start() to configure the scan. To do so, you can refer to
+   Scan Configuration. Since this is an all-channel scan, just set the
+   SSID/BSSID/channel to 0.</li>
+</ol>
+<p><strong>2. WiFi Driver's Internal Scan Phase</strong></p>
+<ol>
+<li>The Wi-Fi driver switches to channel 1, in case the scan type is
+   <code>WIFI_SCAN_TYPE_ACTIVE</code>, and broadcasts a probe request. Otherwise, the Wi-Fi
+   will wait for a beacon from the APs. The Wi-Fi driver will stay in channel 1
+   for some time. The dwell time is configured in min/max time, with default
+   value being 120 ms.</li>
+<li>The Wi-Fi driver switches to channel 2 and performs the same operation as in
+   step 2.1.</li>
+<li>The Wi-Fi driver scans the last channel N, where N is determined by the
+   country code which is configured in step 1.1.</li>
+</ol>
+<p><strong>3. Scan-Done Event Handling Phase</strong></p>
+<ol>
+<li>When all channels are scanned, WIFI_EVENT_SCAN_DONE will arise.</li>
+<li>The application’s event callback function notifies the application task that
+   <code>WIFI_EVENT_SCAN_DONE</code> is received. <code>esp_wifi_scan_get_ap_num()</code> is called to
+   get the number of APs that have been found in this scan. Then, it allocates
+   enough entries and calls <code>esp_wifi_scan_get_ap_records()</code> to get the AP
+   records. Please note that the AP records in the Wi-Fi driver will be freed,
+   once <code>esp_wifi_scan_get_ap_records()</code> is called. Do not call
+   <code>esp_wifi_scan_get_ap_records()</code> twice for a single scan-done event. If
+   <code>esp_wifi_scan_get_ap_records()</code> is not called when the scan-done event
+   occurs, the AP records allocated by the Wi-Fi driver will not be freed. So,
+   make sure you call <code>esp_wifi_scan_get_ap_records()</code>, yet only once.</li>
+</ol>
+<h3 id="analysis-of-an-example-wifiscan">Analysis of an example (<code>wifi/scan</code>)</h3>
+<p>Analyze the scan example, and try to observe the flow detailed above.</p>
+<div class="admonition danger">
+<p class="admonition-title">Task 2.4</p>
+<p>Compile, flash and run the scan sample. See if the results are what you
+expected in your home environment. Study and modify the waiting times in the
+scan and see the effect on the scan time. Deliver a brief report with your
+observations (pdf format).</p>
+</div></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
