@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://iot-da.github.io/Subjects/NP1/P5/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Lab 5. Bluetooth Mesh (BLE MESH) - Internet of Things and Data Analytics</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Internet of Things and Data Analytics</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../General/" class="nav-link">General info.</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../News/" class="nav-link">News</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../IOTNA/" class="dropdown-item">IOTNA</a>
+</li>
+                                    
+<li>
+    <a href="../../MDM/" class="dropdown-item">MDM</a>
+</li>
+                                    
+<li>
+    <a href="../../SID/" class="dropdown-item">SID</a>
+</li>
+                                    
+<li>
+    <a href="../../IA/" class="dropdown-item">IA</a>
+</li>
+                                    
+<li>
+    <a href="../" class="dropdown-item">NP1</a>
+</li>
+                                    
+<li>
+    <a href="../../NP2/" class="dropdown-item">NP2</a>
+</li>
+                                    
+<li>
+    <a href="../../SEC/" class="dropdown-item">SEC</a>
+</li>
+                                    
+<li>
+    <a href="../../EDGE/" class="dropdown-item">EDGE</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../Contact/" class="nav-link">Contact</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-light">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#lab-5-bluetooth-mesh-ble-mesh" class="nav-link">Lab 5. Bluetooth Mesh (BLE MESH)</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#goals" class="nav-link">Goals</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#example-for-the-on-off-model" class="nav-link">Example for the ON-OFF MODEL</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#example-for-the-sensor-model" class="nav-link">Example for the SENSOR MODEL</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="lab-5-bluetooth-mesh-ble-mesh">Lab 5. Bluetooth Mesh (BLE MESH)</h1>
+<h2 id="goals">Goals</h2>
+<ul>
+<li>
+<p>Put into practice the concepts studied in theory in relation to BLE MESH,
+  specifically the provisioning and client/server models.</p>
+</li>
+<li>
+<p>Deploy a provisioning infrastructure for an ONOFF GENERIC model SERVER with
+  provisioning from mobile application for remote control of on/off LEDs.</p>
+</li>
+<li>
+<p>Deploy a provisioning infrastructure of a GENERIC SENSOR model provisioned
+  from ESP32.</p>
+</li>
+</ul>
+<h2 id="example-for-the-on-off-model">Example for the ON-OFF MODEL</h2>
+<p>The codes that we will study in this lab assignment are in
+<code>examples/bluetooth/esp_ble_mesh/ble_mesh_node</code> in the system case <em>OnOff</em>
+(first part of the assignment) and <code>ble_mesh_sensor_model</code> for the
+sensor model (second part).</p>
+<p>In addition, download and install on your smartphone the application <code>nRF Mesh</code>
+(available both for Android and IOS). You will use this application to provision
+the devices and interact with the mesh.</p>
+<h3 id="the-on-off-server">The ON-OFF server</h3>
+<p>This server implements only one element with two models:</p>
+<ul>
+<li>
+<p><strong>Configuration Server model</strong>: The role of this model is mainly to configure
+  Provisioner device’s AppKey and set up its relay function, TTL size,
+  subscription, etc.</p>
+</li>
+<li>
+<p><strong>Generic OnOff Server model</strong>: This model implements the most basic function
+  of turning the lights on and off.</p>
+</li>
+</ul>
+<p>The code in <code>ble_mesh_demo_main.c</code> contains the following main application
+codes, that we can summarize as:
+* Initialize Bluetooth Controller stack and Host stack (bluedroid)
+* Initialize BLE Mesh stack
+* Register the callback function of BLE Mesh provision and BLE Mesh model
+* Implement and initialize BLE Mesh element
+* Implement and initialize BLE Mesh Configuration Server model and Generic OnOff
+  Server model
+* Function as BLE Mesh Configuration Server Model Get Opcode and BLE Mesh
+  Configuration Server Model Set Opcode
+* Declare and define the RGB LED structure.</p>
+<p>For better understanding of the code, the following sections provide a detailed
+analysis the file <code>ble_mesh_demo_main.c</code>.</p>
+<h4 id="1-initializing-and-enabling-ble-mesh">1. Initializing and Enabling BLE Mesh</h4>
+<p>When ESP32 system initialization is completed, <code>app_main</code> is called. The
+code block below demonstrates the implementation of the functions in
+<code>app_main</code>.</p>
+<pre><code class="language-c">void app_main(void)
+{
+    int err;
+
+    ESP_LOGI(TAG, &quot;Initializing...&quot;);
+
+    board_init();
+
+    err = bluetooth_init();
+
+    if (err) {
+        ESP_LOGE(TAG, &quot;esp32_bluetooth_init failed (err %d)&quot;, err);
+        return;
+    }
+
+    /* Initializes the Bluetooth Mesh Subsystem */
+    err = ble_mesh_init();
+    if (err) {
+        ESP_LOGE(TAG, &quot;Bluetooth mesh init failed (err %d)&quot;, err);
+    }
+}
+</code></pre>
+<p>In particular, the code includes:
+- <code>err = bluetooth_init()</code>: initialization related to the Bluetooth protocol
+  stack (including Controller and Host)
+- <code>err = ble_mesh_init()</code>: initialization related to BLE Mesh</p>
+<p>Further, the code for initialization of the BLE Mesh protocol stack is
+introduced, together with the description of the required actions to
+initialize BLE Mesh.</p>
+<pre><code class="language-c">static esp_err_t ble_mesh_init(void)
+{
+    int err = 0;
+
+    memcpy(dev_uuid + 2, esp_bt_dev_get_address(), BLE_MESH_ADDR_LEN);
+
+    // See comment 1
+     esp_ble_mesh_register_prov_callback(esp_ble_mesh_prov_cb);
+    esp_ble_mesh_register_custom_model_callback(esp_ble_mesh_model_cb);
+
+    err = esp_ble_mesh_init(&amp;provision, &amp;composition);
+    if (err) {
+        ESP_LOGE(TAG, &quot;Initializing mesh failed (err %d)&quot;, err);
+        return err;
+    }
+
+    esp_ble_mesh_node_prov_enable(ESP_BLE_MESH_PROV_ADV | ESP_BLE_MESH_PROV_GATT);
+
+    ESP_LOGI(TAG, &quot;BLE Mesh Node initialized&quot;);
+
+    board_led_operation(LED_G, LED_ON);
+
+    return err;
+}
+</code></pre>
+<p>Observet that the code includes the following funtionality:</p>
+<ul>
+<li>
+<p><code>esp_ble_mesh_register_prov_callback(esp_ble_mesh_prov_cb)</code>: registers the
+  provisioning callback function in the BLE Mesh stack. This callback function
+  gets executed during the BLE Mesh network configuration process. It allows the
+  BLE Mesh stack to generate events and notify the application layer about
+  important network configuration processes. This callback function mainly
+  implements the following events:</p>
+</li>
+<li>
+<p><code>ESP_BLE_MESH_PROVISION_REG_EVT</code>: Generated when the BLE Mesh initialization
+    process is completed after calling the API function <code>esp_ble_mesh_init</code>. It
+    returns the initialization status of the BLE Mesh application.</p>
+</li>
+<li>
+<p><code>ESP_BLE_MESH_NODE_PROV_LINK_OPEN_EVT</code>: Generated when a Provisioner and an
+    unprovisioned device establish a link.</p>
+</li>
+<li>
+<p><code>ESP_BLE_MESH_NODE_PROV_LINK_CLOSE_EVT</code>: Generated to notify the application
+    layer that a link has been broken after BLE Mesh bottom-layer protocol sends
+    or receives the message <code>The Link Broken</code>.</p>
+</li>
+<li>
+<p><code>ESP_BLE_MESH_NODE_PROV_OUTPUT_NUMBER_EVT</code>: Received by the application
+    layer if during the configuration process <code>output_actions</code> is set as
+    <code>ESP_BLE_MESH_DISPLAY_NUMBER</code>, and the target peer <code>input_actions</code> is set as
+    <code>ESP_BLE_MESH_ENTER_NUMBER</code>.</p>
+</li>
+<li>
+<p><code>ESP_BLE_MESH_NODE_PROV_OUTPUT_STRING_EVT</code>: Received by the application
+    layer if during the configuration process <code>output_actions</code> is set as
+    <code>ESP_BLE_MESH_DISPLAY_STRING</code>, and the target peer <code>input_actions</code> is set as
+    <code>ESP_BLE_MESH_ENTER_STRING</code>.</p>
+</li>
+<li>
+<p><code>ESP_BLE_MESH_NODE_PROV_INPUT_EVT</code>: Received by the application layer if
+    during the configuration process <code>input_actions</code> is set as anything but
+    <code>ESP_BLE_MESH_NO_INPUT</code>.</p>
+</li>
+<li>
+<p><code>ESP_BLE_MESH_NODE_PROV_COMPLETE_EVT</code>: Received by the application layer
+    when the provisioning is completed.</p>
+</li>
+<li>
+<p><code>ESP_BLE_MESH_NODE_PROV_RESET_EVT</code>: Received by the application layer when
+    the network reset is completed.</p>
+</li>
+<li>
+<p><code>esp_ble_mesh_register_custom_model_callback(esp_ble_mesh_model_cb)</code>:
+  registers the model operation callback function. This callback function is
+  used when the target peer operates the model state of the source peer after
+  BLE Mesh has completed network configuration. This callback function mainly
+  implements the following events:</p>
+<ul>
+<li>
+<p><code>ESP_BLE_MESH_MODEL_OPERATION_EVT</code>: Can be triggered by the two scenarios
+  below:</p>
+<ul>
+<li>Server model receives <code>Get Status</code> or <code>Set Status</code> from Client model.</li>
+<li>Client model receives <code>Status state</code> from Server model.</li>
+</ul>
+</li>
+<li>
+<p><code>ESP_BLE_MESH_MODEL_SEND_COMP_EVT</code>: Generated after the Server model sends
+  <code>Status state</code> by calling the API function
+  <code>esp_ble_mesh_server_model_send_msg</code>.</p>
+</li>
+<li>
+<p><code>ESP_BLE_MESH_MODEL_PUBLISH_COMP_EVT</code>: Generated after the application has
+  completed calling the API <code>esp_ble_mesh_model_publish_msg</code> to publish
+  messages</p>
+</li>
+<li>
+<p><code>ESP_BLE_MESH_CLIENT_MODEL_SEND_TIMEOUT_EVT</code>: Generated when the Client
+  model calls the API function <code>esp_ble_mesh_client_model_send_msg</code>, but
+  fails to receive ACK from the target peer due to timeout</p>
+</li>
+<li>
+<p><code>ESP_BLE_MESH_MODEL_PUBLISH_UPDATE_EVT</code>: Generated after the application
+  sets up the publish function to regularly send messages to the target
+  peer.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>esp_ble_mesh_node_prov_enable(ESP_BLE_MESH_PROV_ADV |
+  ESP_BLE_MESH_PROV_GATT)</code>: enables the Advertising and Scan functions when the
+  BLE Mesh initialization is completed. It makes the devices visible to
+  Provisioners for network provisioning.</p>
+</li>
+<li>
+<p><code>board_led_operation(LED_G, LED_ON)</code>: initializes the RGB LED.</p>
+</li>
+</ul>
+<p>At this point, initialization and enabling of BLE Mesh as a node port is
+completed, which means a Provisioner can identify devices for network
+provisioning and data transmission.</p>
+<h4 id="2-implementation-of-ble-mesh-element-structure">2 Implementation of BLE Mesh Element Structure</h4>
+<p>In this section we shows:
+- Things that have to be done before the initialization of the previous section
+- How to add an element and a model to ESP BLE Mesh stack
+- How to choose a different encryption approach
+- How to declare the features of Proxy, Relay, Low Power and Friend</p>
+<p>First of all, before calling the API <code>esp_ble_mesh_init</code> to initialize BLE Mesh,
+an element and a model need to be declared and defined. The code block below
+shows the declaration of an element structure.</p>
+<pre><code class="language-c">/*!&lt; Abstraction that describes a BLE Mesh Element.
+    This structure is associated with bt_mesh_elem in mesh_access.h */
+typedef struct {
+    /* Element Address, it is assigned during provisioning. */
+    uint16_t element_addr;
+
+    /* Location Descriptor (GATT Bluetooth Namespace Descriptors) */
+    const uint16_t location;
+
+    /* Model count */
+    const uint8_t sig_model_count;
+    const uint8_t vnd_model_count;
+
+    /* Models */
+    esp_ble_mesh_model_t *sig_models;
+    esp_ble_mesh_model_t *vnd_models;
+} esp_ble_mesh_elem_t;
+</code></pre>
+<p>The next code block shows the definition of an element structure, build from the
+<code>ESP_BLE_MESH_ELEMENT</code> macro.</p>
+<pre><code class="language-c">static esp_ble_mesh_elem_t elements[] = {
+    ESP_BLE_MESH_ELEMENT(0, root_models, ESP_BLE_MESH_MODEL_NONE),
+};
+</code></pre>
+<p>Another code block provides the codes needed to implement the macro
+<code>ESP_BLE_MESH_ELEMENT</code>.</p>
+<pre><code class="language-c">#define ESP_BLE_MESH_ELEMENT(_loc, _mods, _vnd_mods)    \
+{                                                       \
+    .location         = (_loc),                         \
+    .sig_model_count  = ARRAY_SIZE(_mods),              \
+    .sig_models       = (_mods),                        \
+    .vnd_model_count  = ARRAY_SIZE(_vnd_mods),          \
+    .vnd_models       = (_vnd_mods),                    \
+}
+</code></pre>
+<p>The variables of the element structure are as follows:</p>
+<ul>
+<li><code>addr</code>: stores the element primary address, used by Mesh Stack during the
+  configuration process. It can be ignored for the higher level applications.</li>
+<li><code>loc</code>: location descriptor defined by SIG. For this demo, set its value to
+  <code>0</code>.</li>
+<li><code>model_count</code>: number of SIG models supported in this element.</li>
+<li><code>vnd_model_count</code>: number of the Vendor model supported in this element.</li>
+<li><code>models</code>: pointer to the SIG Models that have already been defined.</li>
+<li><code>vnd_models</code>: pointer to the Vendor Model that has already been defined.</li>
+</ul>
+<h4 id="3-implementation-of-ble-mesh-model-structure">3 Implementation of BLE Mesh Model Structure</h4>
+<p>The preceding section has introduced the specific ways to implement and define
+an element by passing specific model pointers to it. This section explains how
+to implement and define a Model structure, which is shown in the code blocks
+below.</p>
+<pre><code class="language-c">/** Abstraction that describes a Mesh Model instance.
+ *  This structure is associated with bt_mesh_model in mesh_access.h
+ */
+struct esp_ble_mesh_model {
+    /* Model ID */
+    union {
+        const uint16_t model_id;
+        struct {
+            uint16_t company_id;
+            uint16_t model_id;
+        } vnd;
+    };
+
+    /* The Element to which this Model belongs */
+    esp_ble_mesh_elem_t *element;
+
+    /* Model Publication */
+    esp_ble_mesh_model_pub_t *const pub;
+
+    /* AppKey List */
+    uint16_t keys[CONFIG_BLE_MESH_MODEL_KEY_COUNT];
+
+    /* Subscription List (group or virtual addresses) */
+    uint16_t groups[CONFIG_BLE_MESH_MODEL_GROUP_COUNT];
+
+    /* Model operation context */
+    esp_ble_mesh_model_op_t *op;
+
+    /* Model-specific user data */
+    void *user_data;
+};
+</code></pre>
+<p>The block above shows a specific implementation of the model structure. Although
+this structure has many variables, only the following four ones are used for
+applications:</p>
+<ul>
+<li>
+<p><code>id</code> and <code>vnd</code>: union variables, defining the SIG Model and the Vendor Model
+  respectively.</p>
+</li>
+<li>
+<p><code>op</code>: structure with a set of variables for the Model Operation, declaring the
+  opcode that corresponds to Get, Set, or Status State, as well as the minimum
+  value lengths that are supported in this module.</p>
+</li>
+<li>
+<p><code>pub</code>: structure that needs to be defined if the Model structure supports the
+  Publish function.</p>
+</li>
+<li>
+<p><code>user_data</code>: optional variable for storing the application layer data.</p>
+</li>
+</ul>
+<p>The other structures and variables (keys, group, element) get their values
+through the BLE Mesh stack during the initialization or configuration stages.
+You are not required to initialize them.</p>
+<p>The next code block presents the definition of the model structure, and the
+<code>root_models[]</code> array. This array is used for indicating the number of the
+existing model structures. A model is implemented by using a macro.</p>
+<pre><code class="language-c">static esp_ble_mesh_model_t root_models[] = {
+    ESP_BLE_MESH_MODEL_CFG_SRV(&amp;config_server),
+    ESP_BLE_MESH_SIG_MODEL(ESP_BLE_MESH_MODEL_ID_GEN_ONOFF_SRV, onoff_op,
+    &amp;onoff_pub, &amp;led_state[0]),
+};
+</code></pre>
+<p>Different models require different macros. The existing types of models and
+their respective macros needed for implementation are given in the table below
+(as we are implementing a Generic OnOff Server model, we use the
+<code>ESP_BLE_MESH_MODEL_ID_GEN_ONOFF_SRV</code> macro).</p>
+<table>
+<thead>
+<tr>
+<th>Model Name</th>
+<th>Macro Required for its Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Configuration Server Model</td>
+<td><code>ESP_BLE_MESH_MODEL_CFG_SRV</code></td>
+</tr>
+<tr>
+<td>Configuration Client Model</td>
+<td><code>ESP_BLE_MESH_MODEL_CFG_CLI</code></td>
+</tr>
+<tr>
+<td>Generic OnOff Client Model</td>
+<td><code>ESP_BLE_MESH_MODEL_GEN_ONOFF_CLI</code></td>
+</tr>
+<tr>
+<td>Generic Level Client Model</td>
+<td><code>ESP_BLE_MESH_MODEL_GEN_LEVEL_CLI</code></td>
+</tr>
+<tr>
+<td>Generic Default Transition Time Client Model</td>
+<td><code>ESP_BLE_MESH_MODEL_GEN_DEF_TRANS_TIME_CLI</code></td>
+</tr>
+<tr>
+<td>Generic Power OnOff Client Model</td>
+<td><code>ESP_BLE_MESH_MODEL_GEN_POWER_ONOFF_CLI</code></td>
+</tr>
+<tr>
+<td>Generic Power Level Client Model</td>
+<td><code>ESP_BLE_MESH_MODEL_GEN_POWER_LEVEL_CLI</code></td>
+</tr>
+<tr>
+<td>Generic Battery Client Model</td>
+<td><code>ESP_BLE_MESH_MODEL_GEN_BATTERY_CLI</code></td>
+</tr>
+<tr>
+<td>Generic Location Client Model</td>
+<td><code>ESP_BLE_MESH_MODEL_GEN_LOCATION_CLI</code></td>
+</tr>
+<tr>
+<td>Generic Property Client Model</td>
+<td><code>ESP_BLE_MESH_MODEL_GEN_PROPERTY_CLI</code></td>
+</tr>
+<tr>
+<td>Light Lightness Client Model</td>
+<td><code>ESP_BLE_MESH_MODEL_LIGHT_LIGHTNESS_CLI</code></td>
+</tr>
+<tr>
+<td>Light CTL Client Model</td>
+<td><code>ESP_BLE_MESH_MODEL_LIGHT_CTL_CLI</code></td>
+</tr>
+<tr>
+<td>Light HSL Client Model</td>
+<td><code>ESP_BLE_MESH_MODEL_LIGHT_HSL_CLI</code></td>
+</tr>
+<tr>
+<td>Sensor Client Model</td>
+<td><code>ESP_BLE_MESH_MODEL_SENSOR_CLI</code></td>
+</tr>
+<tr>
+<td>Scene Client Model</td>
+<td><code>ESP_BLE_MESH_MODEL_SCENE_CLI</code></td>
+</tr>
+</tbody>
+</table>
+<p>Another important structure in a model is the <code>esp_ble_mesh_model_op_t *op</code>
+pointer. This structure points to the operation structure that defines the
+Model state. Generally, there are two types of models in BLE Mesh:</p>
+<ul>
+<li><strong>Server Model</strong>:<ul>
+<li>Consists of one or multiple states that can exist across different elements</li>
+<li>Defines the messages sent/received by the model, along with the element's
+  behavior.<ul>
+<li>Example：On/Off switch --- Indicates the On/Off status.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Client Model</strong>:<ul>
+<li>Defines the messages used by the client to request, change or use the
+  relevant state of the server.<ul>
+<li>Example：On/Off switch --- Indicates the On or Off message sent by the
+  Client.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>The following code block shows the declaration of the Model operation structure.</p>
+<pre><code class="language-c">/*!&lt; Model operation context.
+    This structure is associated with bt_mesh_model_op in mesh_access.h */
+typedef struct {
+    const uint32_t    opcode;   /* Opcode encoded with the ESP_BLE_MESH_MODEL_OP_* macro */
+    const size_t      min_len;  /* Minimum required message length */
+    esp_ble_mesh_cb_t param_cb; /* The callback is only used for the BLE Mesh stack, not for the app layer. */
+} esp_ble_mesh_model_op_t;
+</code></pre>
+<p>There are three variables in the declaration of the operation structure:</p>
+<ul>
+<li><code>opcode</code>: opcode corresponding to a state. As specified in BLE Mesh, the SIG
+  Model opcode should be 1~2 bytes, and the Vendor Model opcode should be 3
+  bytes.</li>
+<li><code>min_len</code>: min length of the messages received by the state. For example,
+  OnOff Get state is 0 bytes, and OnOff Set State is 2 bytes.</li>
+<li><code>param_cb</code>: used for the BLE Mesh protocol only. Applications need to set its
+  value to <code>0</code>.</li>
+</ul>
+<p>The definition for our OnOff Server code is:</p>
+<pre><code class="language-c">static esp_ble_mesh_model_op_t onoff_op[] = {
+    { ESP_BLE_MESH_MODEL_OP_GEN_ONOFF_GET, 0, 0},
+    { ESP_BLE_MESH_MODEL_OP_GEN_ONOFF_SET, 2, 0},
+    { ESP_BLE_MESH_MODEL_OP_GEN_ONOFF_SET_UNACK, 2, 0},
+    /* Each model operation struct array must use this terminator
+     * as the end tag of the operation uint. */
+    ESP_BLE_MESH_MODEL_OP_END,
+};
+</code></pre>
+<h3 id="the-onoff-client">The OnOff Client</h3>
+<p>The design of the client is much easier. In a generic way, it just defines an
+ON/OFF Client model and waits to be provisioned. Once the provisioning process
+is completed, every time one of the buttons on the board (RESET) is pressed, it
+sends a request for a change in the status of the lights to all the nodes in its
+mesh network. This behaviour is coded in the following functions defined in the
+<code>board.c</code> file:</p>
+<pre><code class="language-c">static void button_tap_cb(void* arg)
+{
+    ESP_LOGI(TAG, &quot;tap cb (%s)&quot;, (char *)arg);
+
+    example_ble_mesh_send_gen_onoff_set();
+}
+
+static void board_button_init(void)
+{
+    button_handle_t btn_handle = iot_button_create(BUTTON_IO_NUM, BUTTON_ACTIVE_LEVEL);
+    if (btn_handle) {
+        iot_button_set_evt_cb(btn_handle, BUTTON_CB_RELEASE, button_tap_cb, &quot;RELEASE&quot;);
+    }
+}
+
+void board_init(void)
+{
+    board_led_init();
+    board_button_init();
+}
+</code></pre>
+<p>The invoked function, <code>example_ble_mesh_send_gen_onoff_set</code>, sends a <code>SET</code>
+operation to all network members:</p>
+<pre><code class="language-c">void example_ble_mesh_send_gen_onoff_set(void)
+{
+    esp_ble_mesh_generic_client_set_state_t set = {0};
+    esp_ble_mesh_client_common_param_t common = {0};
+    esp_err_t err = ESP_OK;
+
+    common.opcode = ESP_BLE_MESH_MODEL_OP_GEN_ONOFF_SET_UNACK;
+    common.model = onoff_client.model;
+    common.ctx.net_idx = store.net_idx;
+    common.ctx.app_idx = store.app_idx;
+    common.ctx.addr = 0xFFFF;   /* to all nodes */
+    common.ctx.send_ttl = 3;
+    common.ctx.send_rel = false;
+    common.msg_timeout = 0;     /* 0 indicates that timeout value from menuconfig will be used */
+    common.msg_role = ROLE_NODE;
+
+    set.onoff_set.op_en = false;
+    set.onoff_set.onoff = store.onoff;
+    set.onoff_set.tid = store.tid++;
+
+    err = esp_ble_mesh_generic_client_set_state(&amp;common, &amp;set);
+    if (err) {
+        ESP_LOGE(TAG, &quot;Send Generic OnOff Set Unack failed&quot;);
+        return;
+    }
+
+    store.onoff = !store.onoff;
+    mesh_example_info_store(); /* Store proper mesh example info */
+}
+</code></pre>
+<p>Observe that the destination address is for all nodes in the network
+(<code>common.ctx.addr = 0xFFFF;</code>).</p>
+<h3 id="provisioning-and-control-from-a-mobile-application">Provisioning and control from a mobile application</h3>
+<p>You will use the two ESP nodes you have, one programmed as an OnOff Server and
+the other programmed as an OnOff Client. If you have three LEDs available, you
+can place the server node on a breadboard and connect the anodes of the LEDs to
+the pins where the server node expects the lights to be connected (you can find
+those in the <code>board.h</code> file, mainly the pins 25, 26 and 27). It is convenient
+that you also place in series a current limmitng resistor, a 220 ohm resistor
+should be fine.</p>
+<p>You can run the two nodes and monitor its output (use the idf.py command). Once
+both are up and running you will use the <em>nRF Mesh</em> app on your smartphone to
+complete the provisioning of both nodes, creating a ble mesh for thme. To
+complete the provisioning you have to proceed as follows:</p>
+<ul>
+<li><em>STEP 1</em>: the initial screen will show you the nodes that are already
+  provisioned (initially none).</li>
+</ul>
+<p><img alt="" src="img/APP/00_pantalla_inicial.png" /></p>
+<ul>
+<li><em>STEP 2</em>: you will click on <em>ADD NODE</em> and provision (one by one) your two
+  nodes:</li>
+</ul>
+<p><img alt="" src="img/APP/01_provisionamiento_inicial.png" /></p>
+<ul>
+<li><em>STEP 3</em>: you have to generate the network information for the new node
+  (<em>identify</em> it), pressing <em>IDENTIFY</em>:</li>
+</ul>
+<p><img alt="" src="img/APP/02_provisionando_nodo.png" /></p>
+<ul>
+<li><em>STEP 4</em>: once the network information has been generated, you can provision
+  the node (pressing <em>PROVISION</em>):</li>
+</ul>
+<p><img alt="" src="img/APP/03_provisionando_nodo2.png" /></p>
+<ul>
+<li><em>STEP 5</em>: if everything went well, a success message like the following one
+  will be shown:</li>
+</ul>
+<p><img alt="" src="img/APP/04_nodo_provisionado.png" /></p>
+<ul>
+<li><em>STEP 6</em>: after repeating this step with the two nodes in our group, you will
+  see a screen like the following. Observe and write down the unicast addresses
+  of each node. The node with one item is the OnOff Client; the node with three
+  elements is the OnOff Server.</li>
+</ul>
+<p><img alt="" src="img/APP/05_nodos_provisionados.png" /></p>
+<p>Next, you will generate a group of nodes. This will allow you to subscribe the
+  models to it, and publish messages that will be broadcasted to all models in
+  the group.</p>
+<ul>
+<li><em>STEP 7</em>: Create a new group by pressing the <code>+</code> button. Give it the name and
+  address you want, for example, <em>Living Room</em>, <code>0xC000</code>. If everything went
+  well, you will see a single valid group with no nodes associated/subscribed to it.</li>
+</ul>
+<p><img alt="" src="img/APP/06_grupos.png" /></p>
+<ul>
+<li><em>STEP 8</em>: Next, you will subscribe each <em>Generic On Off Server</em> and <em>Generic
+  On Off Client</em> models to the group you just created. You have to do it node by
+  node, first by clicking on the concrete model:</li>
+</ul>
+<p><img alt="" src="img/APP/07_anadiendo_grupo.png" /></p>
+<p>And then associate an application key (<em>BIND KEY</em>) and subscribe (<em>SUBSCRIBE</em>)
+  to the desired group:</p>
+<p><img alt="" src="img/APP/08_generic_onoff_client.png" />
+<img alt="" src="img/APP/09_generic_onoff_client_bindkey.png" />
+<img alt="" src="img/APP/10_suscrito_sala_estar.png" /></p>
+<p>Now, if all went well, if you go to the group description tab, you will see an
+icon with a picture for the lights, and another icon for the client (a swithc).</p>
+<p><img alt="" src="img/APP/11_estado_sala_estar.png" /></p>
+<p>At this point, if you are monitoring the output of all ESP32s, you will see that
+the state of the LED changes at the request of the application (pressing the
+light icon). In addition, you will see that it also changes if you press the
+corresponding button of the switch (<em>RESET</em>) on the board. If you did connect
+the LEDs to the server board as mentioned above, you will see how they change
+their on/off state when you press the light icon in the smartphone or the button
+in the client board.</p>
+<div class="admonition danger">
+<p class="admonition-title">Task 5.1</p>
+<p>The client sends, after pressing the button, the message of type <code>SET</code> to
+all the nodes of the network. Modify it so that it is only sent to the nodes
+that belong to its group. Try to subscribe/unsubscribe a model from the
+group, and you will see how it no longer receives the status change request
+messages. Deliver the modified code.</p>
+</div>
+<h2 id="example-for-the-sensor-model">Example for the SENSOR MODEL</h2>
+<p>In this part of the assignment, we implement a sensor model client that is also
+a provisioner, and a configurable sensor model server. We will work with the
+code in <code>examples/bluetooth/esp_ble_mesh/ble_mesh_sensor_model</code>.</p>
+<p>The <em>Sensor Server</em> model is a model that allows exposing series of
+sensorization data.</p>
+<p>The <em>Sensor Client</em> model is used to consume sensorization values (<em>Sensor states</em>)
+exposed by the server.</p>
+<p>These models are made up of the following parts:</p>
+<ul>
+<li>Status <em>Sensor Descriptor</em>. It describes the sensor data, and is immutable
+  throughout its life.</li>
+<li>Status <em>Sensor Setting</em>. Controls the sensor parameters. For example, it could
+  indicate its sensitivity, that could be remotely adjusted to prevent a motion
+  sensor from tripping on small movements.</li>
+<li>Status <em>Sensor Cadence</em>. Controls the cadence of sensing.</li>
+<li>Status <em>Sensor Data</em>. It contains the sensed values. It is actually
+  represented by one or more <em>Property ID</em> - <em>Value</em> pairs.</li>
+<li>Status <em>Sensor Series Column</em>. Only used if each of the values is considered
+  as belonging to a data series.</li>
+</ul>
+<p>In the <em>client</em> example, the device is both a provisioner and a client. Once the
+server device is provisioned and configured, users can press the button on the
+board to send requests to the server that, successively, will return the next
+status of the sensor in order (<em>Descriptor</em>, <em>Setting</em>, <em>Cadence</em>, ...).</p>
+<p>In the <em>server</em> example, the non-provisioned device implements a <em>Sensor Server</em>
+model. The server supports two state instances: the first (<em>Property ID 0x0056</em>)
+would represent <em>Indoor</em> temperature; the second (<em>Property ID 0x005B</em>) would
+represent the <em>Outdoor</em> temperature. All data, in these examples, is
+pre-initialized.</p>
+<h3 id="running-the-example">Running the example</h3>
+<p>First, start the client/provider node and monitor its output. Then stat the
+server node, you will see that it is provisioned by your client, granting it a
+unicast address. Write it down.</p>
+<p>The general operation of the system is:</p>
+<ol>
+<li>Device A runs the <em>client</em> example, and device B runs the <em>server</em> example.</li>
+<li>A acts as a provider. After receiving a request from B, he provisions it and
+   stores his address. You will see the MAC BLE (UUID) of B in the provisioning
+   process from A.</li>
+<li>In A, each press of the button will make a request to node B.</li>
+<li>Successively, these requests will be, in order and for each press:<ul>
+<li><em>Sensor Descriptor</em>.</li>
+<li><em>Sensor Cadence</em>.</li>
+<li><em>Sensor Settings</em>.</li>
+<li><em>Sensor Data</em>.</li>
+<li><em>Sensor Series</em>.</li>
+</ul>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Task</p>
+<p>Study the client and server code, and see to which node is the client
+sending the requests, what operations are requested on each button press,
+and what data the returns the server in each case.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Task 5.2</p>
+<p>Modify the client and/or server code so that insted of requesting
+iteratively <strong>all</strong> the values from the <strong>last</strong> provided node, it request
+only the sensor data (<em>Sensor Data State</em>) of <strong>all</strong> the provisioned nodes.
+So if there are three provisioned nodes, each press would return the
+sensorization value of one of them, in the provisioning order.  You will
+find the <code>esp_ble_mesh_provisioner_get_node_table_entry</code> function usefull
+to get a list/table of all connected nodes.</p>
+<p>As an additional functionality, modify the code so that only those
+authorized nodes will be automatically provisioned (those that belong to
+your room, for example).</p>
+<p>A final <strong>optional</strong> modification would be to periodically change randombly
+the sensed data on the server, with a predetermined cadence (remote
+modification of the cadence remains an advanced exercise).</p>
+<p>Deliver the resulting code.</p>
+</div></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
