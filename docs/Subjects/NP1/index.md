@@ -53,4 +53,9 @@ You MUST enter your name to answer the quizzes.
 | 10/02 |                                             |                                    |               |
 | 16/02 | Lab 3. Wifi mesh and provisioning           | [Lab 3. instructions](P3/index.md) | Tasks 3.3-3.4 |
 | 17/02 |                                             |                                    |               |
-| 23/02 | Lab 4. Bluetooth Low Energy                 | [Lab 4. instructions](P4/index.md) |               |
+| 23/02 | Lab 4. Bluetooth Low Energy                 | [Lab 4. instructions](P4/index.md) | Task 4.1      |
+| 24/02 | Lab 4. Bluetooth Low Energy                 | [Lab 4. instructions](P4/index.md) | Task 4.2      |
+| 02/03 |                                             |                                    |               |
+| 03/03 | Lab 5. Bluetooth Mesh                       | [Lab 5. instructions](P5/index.md) | Task 5.1      |
+| 09/03 | Lab 5. Bluetooth Mesh                       | [Lab 5. instructions](P5/index.md) | Task 5.2      |
+| 10/03 |                                             |                                    |               |
