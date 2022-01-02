@@ -60,7 +60,7 @@ You MUST enter your name to answer the quizzes.
 |   09/03   | Lab 5. Bluetooth Mesh                       | [Lab 5. instructions](P5/index.md) | Task 5.2      |
 |   10/03   | [802.15.4](802_15_4.pdf)                    |                                    | Quiz          |
 |   16/03   | [6LoWPAN](slides/6LoWPAN.pdf)               |                                    | Quiz          |
-|   17/03   |                                             |                                    |               |
+|   17/03   | [6LoWPAN-RPL](slides/6LoWPAN-RPL.pdf)       |                                    | Quiz          |
 |   23/03   | Lab 6. 6LoWPAN, RPL                         | [Lab 6. instructions](P6/index.md) |               |
 |   24/03   |                                             |                                    |               |
 |   30/03   | Work on Final Project                       |                                    |               |
