@@ -58,7 +58,7 @@ You MUST enter your name to answer the quizzes.
 |   02/03   | [BLE-Mesh](slides/BLE-Mesh.pdf)             |                                    | Quiz          |
 |   03/03   | Lab 5. Bluetooth Mesh                       | [Lab 5. instructions](P5/index.md) | Task 5.1      |
 |   09/03   | Lab 5. Bluetooth Mesh                       | [Lab 5. instructions](P5/index.md) | Task 5.2      |
-|   10/03   |                                             |                                    |               |
+|   10/03   | [802.15.4](802_15_4.pdf)                    |                                    | Quiz          |
 |   16/03   |                                             |                                    |               |
 |   17/03   |                                             |                                    |               |
 |   23/03   | Lab 6. 6LoWPAN, RPL                         | [Lab 6. instructions](P6/index.md) |               |
