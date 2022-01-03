@@ -62,7 +62,7 @@ You MUST enter your name to answer the quizzes.
 |   16/03   | [6LoWPAN](slides/6LoWPAN.pdf)               |                                    | Quiz          |
 |   17/03   | [6LoWPAN-RPL](slides/6LoWPAN-RPL.pdf)       |                                    | Quiz          |
 |   23/03   | Lab 6. 6LoWPAN, RPL                         | [Lab 6. instructions](P6/index.md) |               |
-|   24/03   |                                             |                                    |               |
+|   24/03   | [LPWAN](slides/LPWAN.pdf)                   |                                    | Quiz          |
 |   30/03   | Work on Final Project                       |                                    |               |
 |   31/03   | Work on Final Project                       |                                    |               |
 |   06/04   | Work on Final Project                       |                                    |               |
