@@ -539,7 +539,7 @@ complete the provisioning you have to proceed as follows:
   On Off Client* models to the group you just created. You have to do it node by
   node, first by clicking on the concrete model:
 
-![](img/APP/07_anadiendo_grupo.png)
+![](img/APP/07_anyadiendo_grupo.png)
 
   And then associate an application key (*BIND KEY*) and subscribe (*SUBSCRIBE*)
   to the desired group:
