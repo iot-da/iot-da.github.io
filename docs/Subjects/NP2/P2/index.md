@@ -1,17 +1,15 @@
-# Práctica 2. Sockets TCP y UDP en ESP-IDF
+# Laboratory 2. TCP and UDP Sockets in ESP-IDF
 
-## Objetivos
+## Goals
 
-* Familiarizarse con la API de *sockets* en C.
-* Desarrollar esquemas básicos de sistemas cliente/servidor TCP y UDP
-  utilizando C.
-* Ser capaces de analizar el tráfico generado en una conexión TCP y UDP a 
-  través de Wireshark.
-* Diseñar un protocolo de capa de aplicación para simular una aplicación
-  cliente/servidor utilizando TCP y UDP para interactuar entre un host y 
-  la placa ESP32
+* To familiarize with the sockets API in C.   
+* To develop basic schemas for client/server systems based con TCP and UDP using C.
+* To be ablo to analyze generated traffic in a TCP and UDP connection via Wireshark.
+* To design a an application-layer protocol to simulate an application based on
+  the client/server paradigm using TCP and UDP to interact between a host and the
+  ESP32 board.
 
-## Introducción
+## Introduction
 
 En la práctica anterior, vimos cómo desarrollar sistemas cliente/servidor
 sencillos utilizando Python, tanto en sus variantes TCP como UDP.

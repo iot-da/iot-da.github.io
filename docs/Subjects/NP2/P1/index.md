@@ -1,4 +1,4 @@
-# Práctica 1. Python socket programming
+# Laboratory 1. Python socket programming
 
 ## Goals
 
