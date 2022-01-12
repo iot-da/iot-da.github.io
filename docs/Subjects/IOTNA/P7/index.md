@@ -49,6 +49,14 @@ You must send your code (.c and .h files) to Prof. Jose Ignacio by email (jigome
 | 11 	| GUANJIE	XIAO     | YUANSHUANG 	SHA |
 |12	| Dongyang 	Xu        | XUEQING	ZHAO |
 | 13	| WEI 	REN           | SUIZHI 	LIU |
+|14   | YOURAN	TIAN		|	JUN 	SHOU |
+|15   |  TIANFENG	LI		|	YI	ZHANG |
+|16   | Fengfen	GU		|	Wenyan	Liao |
+|17  | Bin 	Zhang             | YINGHUA	 LIAO |
+
+Group 18 will have 3 members: JIEPING YOU, QINGHONG YUHUAN and XIAZU HU
+
+
 
 
 
