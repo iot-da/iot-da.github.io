@@ -31,7 +31,7 @@ Jose Ignacio Gomez (jigomez@ucm.es) and Katzalin Olcoz  (katzalin@ucm.es )
 
 ## Quizzes
 All quizzes will be done in [this link](https://b.socrative.com/login/student/). The name of the room is IOTUCM.
-You MUST enter your name to answer the quizzes.
+You MUST enter your email to answer the quizzes (the email address where you received mails from me).
 
 
 ## Schedule
