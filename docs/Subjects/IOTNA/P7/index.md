@@ -32,6 +32,43 @@ OPTIONALLY you could include all/some of the  following features:
 ### Delivery instructions
 You must send your code (.c and .h files) to Prof. Jose Ignacio by email (jigomez@ucm.es) before the deadline expires.
 
+### Groups for the final project
+
+|    Group      |  Name 1                   |  Name   2 |  
+|--------------|------------------------|-------------------------|
+| 1	| SHUISHI	ZHOU   | YANG	 CHU |
+| 2	| YANG 	ZHAO | HU	ZHAO | 
+| 3	| XIAOLAN	LI   | QIUJI	CHEN |
+| 4	| XIONGLAN	LUO.  | JIANCHUANG	ZHANG |
+| 5	| WEILIN	ZHANG. | YONGTAO	HE |
+| 6	|  JUNYAN	GUO | ZHIJUN	HAO |
+| 7	| GONGLU	ZOU. | HONGBIAO	CAO |
+| 8	| JIAYUN 	PAN         | JIALI	GAO  |
+| 9	| Liu 	JINHUA           | HUANG	YUJUAN |
+| 10	| DUAN 	ZHEN       | HU	HAO |
+| 11 	| GUANJIE	XIAO     | YUANSHUANG 	SHA |
+|12	| Dongyang 	Xu        | XUEQING	ZHAO |
+| 13	| WEI 	REN           | SUIZHI 	LIU |
+|14   | YOURAN	TIAN		|	JUN 	SHOU |
+|15   |  TIANFENG	LI		|	YI	ZHANG |
+|16   | Fengfen	GU		|	Wenyan	Liao |
+|17  | Bin 	Zhang             | YINGHUA	 LIAO |
+
+Group 18 will have 3 members: JIEPING YOU, QINGHONG YUHUAN and XIAZU HU
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

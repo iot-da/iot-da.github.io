@@ -31,7 +31,7 @@ Jose Ignacio Gomez (jigomez@ucm.es) and Katzalin Olcoz  (katzalin@ucm.es )
 
 ## Quizzes
 All quizzes will be done in [this link](https://b.socrative.com/login/student/). The name of the room is IOTUCM.
-You MUST enter your name to answer the quizzes.
+You MUST enter your email to answer the quizzes (the email address where you received mails from me).
 
 
 ## Schedule
@@ -59,7 +59,7 @@ You MUST enter your name to answer the quizzes.
 |22/12 | [Energy consumption](slides/energy.pdf). [Powering the system](slides/espPower.pdf)      | [5. Built-in sensors](P5/index.md) | |
 |23/12 |  [QUIZ](https://b.socrative.com/login/student/). [ESP32 power modes](slides/lowpower.pdf)             | [6. Low power modes](P6/index.md)  |  Labs 5  deadline |
 |12/01 | Final Programming project  (groups of 2)              | [7. Final Project](P7/index.md) |   Paper project deadline   |
-|13/01 | Final Programming project                  | [7. Final Project](P7/index.md) |  Lab 6 deadline |
+|13/01 |  [QUIZ](https://b.socrative.com/login/student/). Final Programming project                  | [7. Final Project](P7/index.md) |  Lab 6 deadline |
 
 *The final programming project, will be due before 24th Jan. 2022*
 
