@@ -48,8 +48,8 @@ link](https://api.socrative.com/rc/Yu9Dxn).
 |   20/01   | [Wifi-1](slides/Wifi-1.pdf)                                                                           |                                    | [Quiz](https://api.socrative.com/rc/Yu9Dxn) |
 |   26/01   | Lab 1. Introduction to ESP-IDF                                                                        | [Lab 1. instructions](P1/index.md) | Tasks 1.1-1.3                               |
 |   27/01   | Lab 1. Introduction to ESP-IDF                                                                        | [Lab 1. instructions](P1/index.md) | Tasks 1.4-1.6                               |
-|   02/02   | Week of (Chinese new year)                                                                            |                                    |                                             |
-|   03/02   | Week of (Chinese new year)                                                                            |                                    |                                             |
+|   02/02   | Week off (Chinese new year)                                                                           |                                    |                                             |
+|   03/02   | Week off (Chinese new year)                                                                           |                                    |                                             |
 |   09/02   | [Wifi-2](slides/Wifi-2.pdf)                                                                           |                                    | [Quiz](https://api.socrative.com/rc/Yu9Dxn) |
 |   10/02   | Lab 2. Wifi in ESP-IDF                                                                                | [Lab 2. instructions](P2/index.md) | Tasks 2.1-2.4                               |
 |   16/02   | Lab 3. Wifi mesh and provisioning                                                                     | [Lab 3. instructions](P3/index.md) | Tasks 3.1-3.2                               |
