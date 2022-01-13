@@ -1,4 +1,4 @@
-# IoT Node Architecture
+# Networks and Protocols 1
 
 ## General information
 
