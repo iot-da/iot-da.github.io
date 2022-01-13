@@ -8,7 +8,7 @@
         
         <link rel="canonical" href="https://iot-da.github.io/Subjects/NP2/P2/">
         <link rel="shortcut icon" href="../../../img/favicon.ico">
-        <title>Práctica 2. Sockets TCP y UDP en ESP-IDF - Internet of Things and Data Analytics</title>
+        <title>Laboratory 2. TCP and UDP Sockets in ESP-IDF - Internet of Things and Data Analytics</title>
         <link href="../../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../../css/base.css" rel="stylesheet">
@@ -108,13 +108,13 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-light">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#practica-2-sockets-tcp-y-udp-en-esp-idf" class="nav-link">Práctica 2. Sockets TCP y UDP en ESP-IDF</a>
+            <li class="nav-item" data-level="1"><a href="#laboratory-2-tcp-and-udp-sockets-in-esp-idf" class="nav-link">Laboratory 2. TCP and UDP Sockets in ESP-IDF</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#objetivos" class="nav-link">Objetivos</a>
+            <li class="nav-item" data-level="2"><a href="#goals" class="nav-link">Goals</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#introduccion" class="nav-link">Introducción</a>
+            <li class="nav-item" data-level="2"><a href="#introduction" class="nav-link">Introduction</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -145,19 +145,17 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="practica-2-sockets-tcp-y-udp-en-esp-idf">Práctica 2. Sockets TCP y UDP en ESP-IDF</h1>
-<h2 id="objetivos">Objetivos</h2>
+<h1 id="laboratory-2-tcp-and-udp-sockets-in-esp-idf">Laboratory 2. TCP and UDP Sockets in ESP-IDF</h1>
+<h2 id="goals">Goals</h2>
 <ul>
-<li>Familiarizarse con la API de <em>sockets</em> en C.</li>
-<li>Desarrollar esquemas básicos de sistemas cliente/servidor TCP y UDP
-  utilizando C.</li>
-<li>Ser capaces de analizar el tráfico generado en una conexión TCP y UDP a 
-  través de Wireshark.</li>
-<li>Diseñar un protocolo de capa de aplicación para simular una aplicación
-  cliente/servidor utilizando TCP y UDP para interactuar entre un host y 
-  la placa ESP32</li>
+<li>To familiarize with the sockets API in C.   </li>
+<li>To develop basic schemas for client/server systems based con TCP and UDP using C.</li>
+<li>To be ablo to analyze generated traffic in a TCP and UDP connection via Wireshark.</li>
+<li>To design a an application-layer protocol to simulate an application based on
+  the client/server paradigm using TCP and UDP to interact between a host and the
+  ESP32 board.</li>
 </ul>
-<h2 id="introduccion">Introducción</h2>
+<h2 id="introduction">Introduction</h2>
 <p>En la práctica anterior, vimos cómo desarrollar sistemas cliente/servidor
 sencillos utilizando Python, tanto en sus variantes TCP como UDP.
 El objetivo de la presente práctica es estudiar y desarrollar componentes
