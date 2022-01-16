@@ -1,1 +1,44 @@
-IA
+# ARTIFICIAL INTELLIGENCE
+
+## General Information
+
+This subject will introduce you to artificial intelligence techniques, mostly from a practical point of view.
+
+### Subject program and evaluation methodology
+
+## Professor
+
+Hector Garcia de Marina (hgarciad@ucm.es)
+
+## Evaluation
+
+The final grade will consist of a number of quizzes during the the course, and a final project during the last two weeks of the course.
+
+## Work groups
+
+## Schedule
+
+| Day/Month | Topic                                                                      | Deliverable                        | Quizz                                       |
+|:---------:|----------------------------------------------------------------------------|------------------------------------|---------------------------------------------|
+|   18/01   | Introduction / Setting up Jupyter / Basics Python                          |                                    |                                             |
+|   19/01   | Math recap for AI and NumPy                                                |                                    |                                             |
+|   25/01   | Neural Networks 1                                                          |                                    |                                             |
+|   26/01   | Neutal Networks 2                                                          |                                    |                                             |
+|   08/02   |                                                                            |                                    |                                             |
+|   09/02   |                                                                            |                                    |                                             |
+|   15/02   |                                                                            |                                    |                                             |
+|   16/02   |                                                                            |                                    |                                             |
+|   22/02   |                                                                            |                                    |                                             |
+|   23/02   |                                                                            |                                    |                                             |
+|   01/03   |                                                                            |                                    |                                             |
+|   02/03   |                                                                            |                                    |                                             |
+|   08/03   |                                                                            |                                    |                                             |
+|   09/03   |                                                                            |                                    |                                             |
+|   15/03   |                                                                            |                                    |                                             |
+|   16/03   |                                                                            |                                    |                                             |
+|   22/03   |                                                                            |                                    |                                             |
+|   23/03   |                                                                            |                                    |                                             |
+|   29/03   | Work on Final Project                                                      |                                    |                                             |
+|   30/03   | Work on Final Project                                                      |                                    |                                             |
+|   05/03   | Work on Final Project                                                      |                                    |                                             |
+|   06/03   | Work on Final Project                                                      |                                    |                                             |
