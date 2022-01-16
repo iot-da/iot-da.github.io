@@ -39,7 +39,7 @@ Looking forward to meet you all!
 | [SID](Subjects/MDM/index.md)     | Iván García        | igarciam@ucm.es | -      |
 | [NP1](Subjects/MDM/index.md)     | Christian Tenllado | tenllado@ucm.es | -      |
 | [NP2](Subjects/MDM/index.md)     | Francisco Igual    | figual@ucm.es   | -      |
-| [AI](Subjects/MDM/index.md)      | Héctor García      | hgarciad@ucm.es | -      |
+| [AI](Subjects/MDM/index.md)      | Héctor García de Marina     | hgarciad@ucm.es | -      |
 | [SEC](Subjects/MDM/index.md)     | Joaquín Recas      | recas@ucm.es    | -      |
 | [SEC](Subjects/MDM/index.md)     | Guillermo Botella      | gbotella@ucm.es    | -      |
 | [EDGE](Subjects/MDM/index.md)    | Carlos García      | garsanca@ucm.es | -      |
