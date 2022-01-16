@@ -4,8 +4,6 @@
 
 This subject will introduce you to artificial intelligence techniques, mostly from a practical point of view.
 
-### Subject program and evaluation methodology
-
 ## Professor
 
 Hector Garcia de Marina (hgarciad@ucm.es)
@@ -13,6 +11,10 @@ Hector Garcia de Marina (hgarciad@ucm.es)
 ## Evaluation
 
 The final grade will consist of a number of quizzes during the the course, and a final project during the last two weeks of the course.
+
+## Requirements
+
+Ubntu 20.04 and Jupyter Notebook
 
 ## Work groups
 
