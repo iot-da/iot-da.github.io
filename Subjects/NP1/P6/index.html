@@ -4,97 +4,89 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="None">
+        
         
         <link rel="canonical" href="https://iot-da.github.io/Subjects/NP1/P6/">
         <link rel="shortcut icon" href="../../../img/favicon.ico">
-        <title>Internet of Things and Data Analytics</title>
-        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <title>Lab 6. 6LowPAN and RPL - Internet of Things and Data Analytics</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
 
         <script src="../../../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../../../js/bootstrap-3.0.3.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
-    <body class="homepage">
-
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-
-                <!-- Collapsed navigation -->
-                <div class="navbar-header">
-                    <!-- Expander button -->
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="../../..">Internet of Things and Data Analytics</a>
-                </div>
+                <a class="navbar-brand" href="../../..">Internet of Things and Data Analytics</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
                 <!-- Expanded navigation -->
-                <div class="navbar-collapse collapse">
+                <div id="navbar-collapse" class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li >
-                                <a href="../../..">Home</a>
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Home</a>
                             </li>
-                            <li >
-                                <a href="../../../General/">General info.</a>
+                            <li class="navitem">
+                                <a href="../../../General/" class="nav-link">General info.</a>
                             </li>
-                            <li >
-                                <a href="../../../News/">News</a>
+                            <li class="navitem">
+                                <a href="../../../News/" class="nav-link">News</a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
-<li >
-    <a href="../../IOTNA/">IOTNA</a>
+<li>
+    <a href="../../IOTNA/" class="dropdown-item">IOTNA</a>
 </li>
                                     
-<li >
-    <a href="../../MDM/">MDM</a>
+<li>
+    <a href="../../MDM/" class="dropdown-item">MDM</a>
 </li>
                                     
-<li >
-    <a href="../../SID/">SID</a>
+<li>
+    <a href="../../SID/" class="dropdown-item">SID</a>
 </li>
                                     
-<li >
-    <a href="../../IA/">IA</a>
+<li>
+    <a href="../../IA/" class="dropdown-item">IA</a>
 </li>
                                     
-<li >
-    <a href="../">NP1</a>
+<li>
+    <a href="../" class="dropdown-item">NP1</a>
 </li>
                                     
-<li >
-    <a href="../../NP2/">NP2</a>
+<li>
+    <a href="../../NP2/" class="dropdown-item">NP2</a>
 </li>
                                     
-<li >
-    <a href="../../SEC/">SEC</a>
+<li>
+    <a href="../../SEC/" class="dropdown-item">SEC</a>
 </li>
                                     
-<li >
-    <a href="../../EDGE/">EDGE</a>
+<li>
+    <a href="../../EDGE/" class="dropdown-item">EDGE</a>
 </li>
                                 </ul>
                             </li>
-                            <li >
-                                <a href="../../../Contact/">Contact</a>
+                            <li class="navitem">
+                                <a href="../../../Contact/" class="nav-link">Contact</a>
                             </li>
                         </ul>
 
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
@@ -104,19 +96,54 @@
         </div>
 
         <div class="container">
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#lab-6-6lowpan-and-rpl">Lab 6. 6LowPAN and RPL</a></li>
-            <li><a href="#introduction-and-goals">Introduction and goals</a></li>
-            <li><a href="#installation-of-software-requirements">Installation of software requirements</a></li>
-            <li><a href="#contiki-code">Contiki Code</a></li>
-            <li><a href="#code-compilation">Code compilation</a></li>
-            <li><a href="#simulation-with-cooja">Simulation with Cooja</a></li>
-            <li><a href="#the-tunslip-tool">The tunslip tool</a></li>
-            <li><a href="#simulation-analysis">Simulation analysis</a></li>
-    </ul>
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#lab-6-6lowpan-and-rpl" class="nav-link">Lab 6. 6LowPAN and RPL</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#introduction-and-goals" class="nav-link">Introduction and goals</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#installation-of-software-requirements" class="nav-link">Installation of software requirements</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#contiki-code" class="nav-link">Contiki Code</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#code-compilation" class="nav-link">Code compilation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#simulation-with-cooja" class="nav-link">Simulation with Cooja</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#the-tunslip-tool" class="nav-link">The tunslip tool</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#simulation-analysis" class="nav-link">Simulation analysis</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
 </div></div>
-                <div class="col-md-9" role="main">
+                    <div class="col-md-9" role="main">
 
 <h1 id="lab-6-6lowpan-and-rpl">Lab 6. 6LowPAN and RPL</h1>
 <h2 id="introduction-and-goals">Introduction and goals</h2>
@@ -136,20 +163,17 @@ a second real external network using the tool <code>tunslip</code>.</p>
 <p>The basic installation of Contiki (in its version 2.7) is in the
 <code>/home/ubuntu/contiki</code> directory of your virtual machine.</p>
 <p>Before you begin, you will need to install some support software:</p>
-<pre><code class="sh">sudo apt install -y openjdk-8-jdk openjdk-8-jre
+<pre><code class="language-sh">sudo apt install -y openjdk-8-jdk openjdk-8-jre
 </code></pre>
-
 <p>Next, be sure to select Java version 8 for a correct functioning of the Cooja
 compilation process, run the following command and make sure that the option
 <code>/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java</code> is selected:</p>
-<pre><code class="sh">ubuntu@ubuntu2004:~/contiki/tools/cooja$ sudo update-alternatives --config java
+<pre><code class="language-sh">ubuntu@ubuntu2004:~/contiki/tools/cooja$ sudo update-alternatives --config java
 </code></pre>
-
 <p>Finally, you will need to install the compiler that will allow you to generate
 the images for the simulated nodes:</p>
-<pre><code class="sh">sudo apt install gcc-msp430 gdb-msp430
+<pre><code class="language-sh">sudo apt install gcc-msp430 gdb-msp430
 </code></pre>
-
 <h2 id="contiki-code">Contiki Code</h2>
 <p>In the development of the lab assignment, we will use the following files, all
 located in the <code>examples/ipv6/rpl-border-router</code> subdirectory of the Contiki
@@ -172,7 +196,7 @@ build their corresponding global IPv6 addresses.</p>
 <p>The following code snippets, taken from the edge router, show the point where it
 waits for the network prefix. Once received, the edge router is configured as
 the root of the DAG and sends the prefix to all other nodes of the network:</p>
-<pre><code class="c">/* Request prefix until it has been received */ 
+<pre><code class="language-c">/* Request prefix until it has been received */ 
  while(!prefix_set) { 
    etimer_set(&amp;et, CLOCK_SECOND); 
    request_prefix(); 
@@ -186,13 +210,12 @@ the root of the DAG and sends the prefix to all other nodes of the network:</p>
    PRINTF(&quot;created a new RPL dag\n&quot;); 
  }
 </code></pre>
-
 <p>By default, the edge router hosts a simple web page that will allows us to check
 the status of its routing table. This page will be displayed by introducing in a
 web browser of the virtual machine the IPv6 address of the edge router. The use
 or not of this page is controlled with the macro <code>WEBSERVER</code> in the
 <code>http-simple.c</code> file:</p>
-<pre><code class="c">PROCESS(border_router_process, &quot;Border router process&quot;);
+<pre><code class="language-c">PROCESS(border_router_process, &quot;Border router process&quot;);
 #if WEBSERVER==0
 /* No webserver */
 AUTOSTART_PROCESSES(&amp;border_router_process);
@@ -201,15 +224,13 @@ AUTOSTART_PROCESSES(&amp;border_router_process);
 #include &quot;webserver-nogui.h&quot;
 AUTOSTART_PROCESSES(&amp;border_router_process,&amp;webserver_nogui_process); 
 </code></pre>
-
 <h2 id="code-compilation">Code compilation</h2>
 <p>The code for the edge router can be found in the path
 <code>examples/ipv6/rpl-border-router</code>. In a terminal, use the following command to
 perform the compilation:</p>
-<pre><code class="sh">cd examples/ipv6/rpl-border-router
+<pre><code class="language-sh">cd examples/ipv6/rpl-border-router
 make TARGET=z1
 </code></pre>
-
 <p>Once executed, a file called <code>border-router.z1</code> will be created, which will be
 used to program the mote (simulated device) for the edge router in the cooja
 simulator.</p>
@@ -217,19 +238,17 @@ simulator.</p>
 nodes with the edge router as root. For the rest of the nodes, we will use
 UDP client code, implemented in the file <code>udp-client.c</code>. Prepare images for
 these motes as follows:</p>
-<pre><code class="sh">cd examples/ipv6/rpl-udp
+<pre><code class="language-sh">cd examples/ipv6/rpl-udp
 make TARGET=z1
 </code></pre>
-
 <p>As before, you will obtain a file named <code>udp-client.z1</code>, that will that shall be
 used to program the rest of the motes of the DAG.</p>
 <h2 id="simulation-with-cooja">Simulation with Cooja</h2>
 <p>After compiling the images, it is time to configure the complete simulation in
 Cooja. Start the simulator using the following command:</p>
-<pre><code class="sh">cd tools/cooja
+<pre><code class="language-sh">cd tools/cooja
 ant run
 </code></pre>
-
 <p>Once cooja starts follow these steps to create a new simulation:</p>
 <ol>
 <li>Select the <code>File-&gt;New Simulation</code> option. Then the <code>UDGM</code> option and enter
@@ -266,17 +285,15 @@ network. To do this, we use the tunslip utility provided with Contiki. It will
 create a bridge between the RPL network and the local machine.</p>
 <p>The code <code>tunslip6.c</code> is located in the<code>tools</code> directory of the contiki
 installation path, and it can be compiled with the following command:</p>
-<pre><code class="sh">make tunslip6
+<pre><code class="language-sh">make tunslip6
 </code></pre>
-
 <p>Then we can establish a connection between the RPL network and the local
 machine by running the following command:</p>
-<pre><code class="sh">sudo ./tunslip6 -a 127.0.0.1 aaaa::1/64
+<pre><code class="language-sh">sudo ./tunslip6 -a 127.0.0.1 aaaa::1/64
 </code></pre>
-
 <p>If the execution was correct, you will see an output in the terminal similar to
 this one:</p>
-<pre><code class="sh">ubuntu@ubuntu2004:~/contiki/tools$ sudo ./tunslip6 -a 127.0.0.1 aaaa::1/64
+<pre><code class="language-sh">ubuntu@ubuntu2004:~/contiki/tools$ sudo ./tunslip6 -a 127.0.0.1 aaaa::1/64
 slip connected to ``127.0.0.1:60001''
 opened tun device ``/dev/tun0''
 ifconfig tun0 inet `hostname` mtu 1500 up
@@ -302,7 +319,6 @@ Server IPv6 addresses:
  aaaa::c30c:0:0:1
  fe80::c30c:0:0:1
 </code></pre>
-
 <p>The program has created a bridge interface <code>tun0</code> with IPv4 127.0.1.1, and has
 sent, via serial, a configuration message to the edge router indicating the
 desired IPv6 prefix for the RPL network nodes (<code>aaaa</code>). The last two lines are
@@ -313,7 +329,7 @@ the reception of the prefix.</p>
 <h2 id="simulation-analysis">Simulation analysis</h2>
 <p>It is possible to verify the address of the edge router through a command
 ping from your virtual machine:</p>
-<pre><code class="sh">ubuntu@ubuntu2004:~/contiki/tools$ ping aaaa::c30c:0:0:1
+<pre><code class="language-sh">ubuntu@ubuntu2004:~/contiki/tools$ ping aaaa::c30c:0:0:1
 PING aaaa::c30c:0:0:1(aaaa::c30c:0:0:1) 56 data bytes
 64 bytes from aaaa::c30c:0:0:1: icmp_seq=1 ttl=64 time=21.5 ms
 64 bytes from aaaa::c30c:0:0:1: icmp_seq=2 ttl=64 time=7.44 ms
@@ -324,9 +340,8 @@ PING aaaa::c30c:0:0:1(aaaa::c30c:0:0:1) 56 data bytes
 5 packets transmitted, 5 received, 0% packet loss, time 4015ms
 rtt min/avg/max/mdev = 7.442/23.066/62.661/20.427 ms
 </code></pre>
-
 <p>So as with any other node in the RPL network, for instance with node 4:</p>
-<pre><code class="sh">ubuntu@ubuntu2004:~/contiki/tools$ ping aaaa::c30c:0:0:4
+<pre><code class="language-sh">ubuntu@ubuntu2004:~/contiki/tools$ ping aaaa::c30c:0:0:4
 PING aaaa::c30c:0:0:4(aaaa::c30c:0:0:4) 56 data bytes
 64 bytes from aaaa::c30c:0:0:4: icmp_seq=1 ttl=62 time=116 ms
 64 bytes from aaaa::c30c:0:0:4: icmp_seq=2 ttl=62 time=106 ms
@@ -338,7 +353,6 @@ PING aaaa::c30c:0:0:4(aaaa::c30c:0:0:4) 56 data bytes
 5 packets transmitted, 5 received, 0% packet loss, time 4016ms
 rtt min/avg/max/mdev = 79.002/104.028/115.794/12.937 ms
 </code></pre>
-
 <p>The address of each node can be obtained by filtering the log screen
 based on the destination node (mote) ID.</p>
 <p>In addition you can open a web browser on the virtual machine and browse the IP
@@ -369,6 +383,7 @@ node and generate a figure that represent the topology of the network.</p>
 <p>The student should prepare a small pdf report documenting all these analysis
 and observations, showing all the experiments conducted on the network.</p>
 </div></div>
+            </div>
         </div>
 
         <footer class="col-md-12">
@@ -382,35 +397,32 @@ and observations, showing all the experiments conducted on the network.</p>
         <script src="../../../js/base.js" defer></script>
         <script src="../../../search/main.js" defer></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-    <div class="modal-dialog">
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
             </div>
             <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
-                <form role="form">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
                     </div>
                 </form>
-                <div id="mkdocs-search-results"></div>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
             </div>
             <div class="modal-footer">
             </div>
         </div>
     </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
             </div>
             <div class="modal-body">
               <table class="table">
@@ -448,8 +460,3 @@ and observations, showing all the experiments conducted on the network.</p>
 
     </body>
 </html>
-
-<!--
-MkDocs version : 1.0.4
-Build Date UTC : 2022-01-16 13:48:47
--->

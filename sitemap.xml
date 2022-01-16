@@ -1,63 +1,223 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-     <loc>https://iot-da.github.io/</loc>
-     <lastmod>2022-01-16</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://iot-da.github.io/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://iot-da.github.io/General/</loc>
-     <lastmod>2022-01-16</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://iot-da.github.io/Contact/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://iot-da.github.io/News/</loc>
-     <lastmod>2022-01-16</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://iot-da.github.io/General/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://iot-da.github.io/Subjects/IOTNA/</loc>
-     <lastmod>2022-01-16</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://iot-da.github.io/News/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://iot-da.github.io/Subjects/MDM/</loc>
-     <lastmod>2022-01-16</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://iot-da.github.io/Subjects/EDGE/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://iot-da.github.io/Subjects/SID/</loc>
-     <lastmod>2022-01-16</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://iot-da.github.io/Subjects/IA/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://iot-da.github.io/Subjects/IA/</loc>
-     <lastmod>2022-01-16</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://iot-da.github.io/Subjects/IOTNA/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://iot-da.github.io/Subjects/NP1/</loc>
-     <lastmod>2022-01-16</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://iot-da.github.io/Subjects/IOTNA/groups/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://iot-da.github.io/Subjects/NP2/</loc>
-     <lastmod>2022-01-16</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://iot-da.github.io/Subjects/IOTNA/paperProject/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://iot-da.github.io/Subjects/SEC/</loc>
-     <lastmod>2022-01-16</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://iot-da.github.io/Subjects/IOTNA/P1/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://iot-da.github.io/Subjects/EDGE/</loc>
-     <lastmod>2022-01-16</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://iot-da.github.io/Subjects/IOTNA/P2/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://iot-da.github.io/Contact/</loc>
-     <lastmod>2022-01-16</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://iot-da.github.io/Subjects/IOTNA/P3/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://iot-da.github.io/Subjects/IOTNA/P4/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://iot-da.github.io/Subjects/IOTNA/P5/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://iot-da.github.io/Subjects/IOTNA/P6/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://iot-da.github.io/Subjects/IOTNA/P7/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://iot-da.github.io/Subjects/IOTNA/ctutorial/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://iot-da.github.io/Subjects/IOTNA/demo/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://iot-da.github.io/Subjects/MDM/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://iot-da.github.io/Subjects/NP1/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://iot-da.github.io/Subjects/NP1/FinalProject/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://iot-da.github.io/Subjects/NP1/groups/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://iot-da.github.io/Subjects/NP1/paperProject/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://iot-da.github.io/Subjects/NP1/P1/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://iot-da.github.io/Subjects/NP1/P2/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://iot-da.github.io/Subjects/NP1/P3/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://iot-da.github.io/Subjects/NP1/P4/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://iot-da.github.io/Subjects/NP1/P5/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://iot-da.github.io/Subjects/NP1/P6/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://iot-da.github.io/Subjects/NP2/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://iot-da.github.io/Subjects/NP2/P1/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://iot-da.github.io/Subjects/NP2/P10/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://iot-da.github.io/Subjects/NP2/P2/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://iot-da.github.io/Subjects/NP2/P3/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://iot-da.github.io/Subjects/NP2/P4/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://iot-da.github.io/Subjects/NP2/P5/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://iot-da.github.io/Subjects/NP2/P5/notas/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://iot-da.github.io/Subjects/NP2/P6/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://iot-da.github.io/Subjects/NP2/P6-II/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://iot-da.github.io/Subjects/NP2/P7/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://iot-da.github.io/Subjects/NP2/P8/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://iot-da.github.io/Subjects/NP2/P9/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://iot-da.github.io/Subjects/SEC/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://iot-da.github.io/Subjects/SID/</loc>
+         <lastmod>2022-01-16</lastmod>
+         <changefreq>daily</changefreq>
     </url>
 </urlset>
