@@ -5,8 +5,9 @@
 This subject will cover different topics about application-level
 communication APIs, standard and interfaces, with special emphasis
 on Internet of Things inter-communication. Specifically, we will
-cover both Linux and [ESP-IDF](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/index.html) programming on the ESP32, to fulfill the following
-specific goals:
+cover both Linux and 
+[ESP-IDF](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/index.html) 
+programming on the ESP32, to fulfill the following specific goals:
 
 * Get a global overview of the necessities and particularities of
 IoT from the application communication perspective.
