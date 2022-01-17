@@ -109,7 +109,7 @@
         <li class="main active"><a href="#laboratory-2-tcp-and-udp-sockets-in-esp-idf">Laboratory 2. TCP and UDP Sockets in ESP-IDF</a></li>
             <li><a href="#goals">Goals</a></li>
             <li><a href="#introduction">Introduction</a></li>
-            <li><a href="#la-api-de-sockets-en-c">La API de sockets en C</a></li>
+            <li><a href="#the-c-sockets-api">The C sockets API</a></li>
             <li><a href="#ejemplos">Ejemplos</a></li>
             <li><a href="#sistemas-clienteservidor-en-el-esp32">Sistemas cliente/servidor en el ESP32</a></li>
             <li><a href="#clienteservidor-udp-en-el-esp32">Cliente/servidor UDP en el ESP32</a></li>
@@ -129,35 +129,37 @@
   ESP32 board.</li>
 </ul>
 <h2 id="introduction">Introduction</h2>
-<p>En la práctica anterior, vimos cómo desarrollar sistemas cliente/servidor
-sencillos utilizando Python, tanto en sus variantes TCP como UDP.
-El objetivo de la presente práctica es estudiar y desarrollar componentes
-de red (clientes y servidores TCP y UDP) que puedan ejecutarse sobre el 
-ESP32 haciendo uso de las facilidades propuestas por ESP-IDF. Además, 
-demostraremos que es posible hacer interactuar clientes y servidores ejecutándose
-indistintamente en la máquina virtual (programados vía Python) y en la propia
-placa (utilizando la API de sockets de C).</p>
-<h2 id="la-api-de-sockets-en-c">La API de sockets en C</h2>
-<h3 id="funciones-para-ordenacion-de-bytes">Funciones para ordenacion de bytes</h3>
-<p>Como TCP/IP es un estándar universal, y permite comunicaciones entre cualquier
-plataforma y arquitectura, es necesario disponer de un método de ordenación
-de los bytes para que máquinas <em>big-endian</em> y <em>little-endian</em> puedan comunicarse
-de forma transparente y correcta. Para ello, se suelen proporcionar rutinas
-de reordenación de bytes. En plataformas donde los datos ya están correctamente
-ordenados, estas funciones no tienen ninguna funcionalidad especial, pero en
-cualquier caso, es necesario utilizarlas siempre para que la comunicación
-entre pares sea correcta. Las funciones típicas de reordenación de datos
-son cuatro: <code>htons</code>, <code>htonl</code>, <code>ntohs</code> y <code>ntohl</code>. Su nombre explica correctamente
-su semántica: <em>host to network (short)</em>
-<em>host to network (long)</em>, <em>network to host (short)</em> y <em>network to host (long)</em>,
-convirtiendo tipos de datos <em>short</em> y <em>long</em> desde el formato utilizado en
-transmisiones de red (<em>network</em>) a representación en el <em>host</em>. Así, siempre
-que enviemos un dato binario por la red, deberá ser transformado utilizando 
-<code>hton*</code> y cuando lo recibamos y debamos procesarlo, utilizando <code>ntoh*</code>.</p>
-<h3 id="estructuras-de-datos">Estructuras de datos</h3>
-<p>Antes de estudiar la API de <em>sockets</em> básica, es necesario mostrar el cometido
-de un conjunto de estructuras de datos utilizadas comunmente en todas ellas. La
-más importante es <code>sockaddr_in</code>, que se define como sigue:</p>
+<p>In the previous laboratory, we studied how to develop simple client/server
+systems using Python, both for TCP and for UDP.
+In this lab, we will study and develop network components (TCP and UDP 
+clients and servers) that can execute on the ESP32 leveraging the facilities
+offered by ESP-IDF. Also, we will demonstrate that it is possible to interact
+clients and servers executing on the virtual machine (programmed via Python) and
+on the board (using the C sockets API).</p>
+<h2 id="the-c-sockets-api">The C sockets API</h2>
+<h3 id="funtions-for-byte-ordering">Funtions for byte ordering</h3>
+<p>As TCP/IP is a universal standard, and it allows for communicating across virtually
+any platform and architecture, it is necessary to get a byte ordering method so that
+big-endian and little-endian machines can communicate in a transparent and correct way.
+To accomplish this requirement, routines are usually provided to reorder and adapt
+byte ordering. In platforms in which data are already correctly ordered, these functions 
+do not present any special functionality, but anyway, its usage is necessary so that the 
+communication among pairs is correct.</p>
+<p>Typical functions for data reordering are:
+<code>htons</code>, <code>htonl</code>, <code>ntohs</code> y <code>ntohl</code>. 
+Their name explains their semantics: 
+<em>host to network (short)</em>
+<em>host to network (long)</em>, 
+<em>network to host (short)</em> and 
+<em>network to host (long)</em>,
+converting datatypes <em>short</em> and <em>long</em> from the format used in network
+transmissions (<em>network</em>) to a <em>host</em> representation. 
+Hence, when we send binary data over the network, it will need to be transformed using 
+<code>hton*</code> and upon receiving it, using <code>ntoh*</code>.</p>
+<h3 id="data-structures">Data structures</h3>
+<p>Before studyin the sockets API, it is necessary to show the goal of a set of data 
+structures used in all of them. The most important is 
+<code>sockaddr_in</code>, defined as follows:</p>
 <pre><code class="c">struct sockaddr_in
 {
     short          sin_family;
@@ -167,185 +169,176 @@ más importante es <code>sockaddr_in</code>, que se define como sigue:</p>
 };
 </code></pre>
 
-<p>La estructura <code>in_addr</code> utilizada en <code>sockaddr_in</code> se define como:</p>
+<p>The structure <code>in_addr</code> used in <code>sockaddr_in</code> is defined as:</p>
 <pre><code class="c">struct in_addr
 {
     u_long s_addr;
 };
 </code></pre>
 
-<p>Ésta consiste en un campo de tipo <code>unsigned long int</code> que contiene la 
-dirección IP que se asociará con el socket. </p>
-<p>La estructura <code>sockaddr_in</code> contiene dos campos importantes: </p>
+<p>This one consists on a field of type <code>unsigned long int</code> that contains the 
+IP address associated with the socket.</p>
+<p>The structure <code>sockaddr_in</code> contains two important fields:</p>
 <ul>
-<li><code>sin_family</code>: que indica al socket qué familia de protocolos se utiliarán 
-  (usaremos la constante <code>AF_INET</code> para IPv4).</li>
-<li><code>sin_port</code>: que indica el puerto asociado al socket.</li>
+<li><code>sin_family</code>: indicating that the socket belongs to a specific family of protocols
+  (we will use the constant <code>AF_INET</code> for IPv4).</li>
+<li><code>sin_port</code>: the port associated to the socket.</li>
 </ul>
-<h3 id="api-basica">API básica</h3>
+<h3 id="basic-api">Basic API</h3>
 <h4 id="socket"><code>socket()</code></h4>
 <ul>
-<li>Prototipo:</li>
+<li>Prototype:</li>
 </ul>
 <pre><code class="c">int socket(int family, int type, int protocol);
 </code></pre>
 
 <ul>
 <li>
-<p>Descripción: Crea un <em>endpoint</em> de comunicación y devuelve un descriptor 
-  de fichero para manejarlo.</p>
+<p>Description: Creates a communication <em>endpoint</em> and returs a file descriptor to handle it. </p>
 </li>
 <li>
-<p>Parámetros: </p>
+<p>Parameters: </p>
 <ul>
 <li><code>family</code>:  <code>AF_INET</code> (IPv4), <code>AF_INET6</code> (IPv6).</li>
 <li><code>type</code>: <code>SOCK_DGRAM</code> (UDP), <code>SOCK_STREAM</code> (TCP), <code>SOCK_RAW</code>.</li>
-<li><code>protocol</code>: Típicamente 0 (no usado en sockets de Internet).</li>
+<li><code>protocol</code>: Typically 0 (not used in Internet sorckets).</li>
 </ul>
 </li>
 <li>
-<p>Valor de retorno: Si tiene éxito, devuelve el descriptor de <em>socket</em>.
-                    Devuelve <code>-1</code> si se produce un error.</p>
+<p>Return value: On success, returns a socket descriptor. 
+                    Returns <code>-1</code> if error.</p>
 </li>
 <li>
-<p>Detalles: consultad la página de manual de <code>socket</code> (<code>man socket</code>).</p>
+<p>Details: <code>man socket</code>.</p>
 </li>
 </ul>
 <h4 id="bind"><code>bind()</code></h4>
 <ul>
-<li>Prototipo:</li>
+<li>Prototype:</li>
 </ul>
 <pre><code class="c">int bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen);
 </code></pre>
 
 <ul>
 <li>
-<p>Descripción: Asocia un <em>socket</em> a una dirección especificada por <code>addr</code>.
-  Normalmente, es necesario asignar una dirección local vía esta función
-  antes de que un socket TCP pueda recibir conexiones.</p>
+<p>Description: Binds a <em>socket</em> to an address specified by <code>addr</code>.
+  Usually, it is necessary to assign a local addres via this function before
+  a TCP socket can receive connections.</p>
 </li>
 <li>
-<p>Parámetros: </p>
+<p>Parameters: </p>
 <ul>
-<li><code>sockfd</code>:  descriptor de <em>socket</em> (devuelto por <code>socket</code>).</li>
-<li><code>addr</code>: dirección a asociar (véase estructura en sección anterior).</li>
-<li><code>addrlen</code>: longitud (en bytes) de la anterior estructura.</li>
+<li><code>sockfd</code>:  <em>socket</em> descriptor (returned by <code>socket</code>).</li>
+<li><code>addr</code>: address to bind (see structure in previous section).</li>
+<li><code>addrlen</code>: length (in bytes) of the previous structure.</li>
 </ul>
 </li>
 <li>
-<p>Valor de retorno: Si tiene éxito, devuelve 0.
-                    Devuelve <code>-1</code> si se produce un error.</p>
+<p>Return value: On success, returns 0.  Returns <code>-1</code> if error.</p>
 </li>
 <li>
-<p>Detalles: consultad la página de manual de <code>bind</code> (<code>man bind</code>).</p>
+<p>Details: <code>man bind</code>.</p>
 </li>
 </ul>
 <h4 id="listen"><code>listen()</code></h4>
 <ul>
-<li>Prototipo:</li>
+<li>Prototype:</li>
 </ul>
 <pre><code class="c">int listen(int sockfd, int backlog);
 </code></pre>
 
 <ul>
 <li>
-<p>Descripción: Marca el <em>socket</em> proporcionado como <em>pasivo</em>, esto es, 
-  un <em>socket</em> que podrá ser utilizado para aceptar conexiones entrantes
-  usando la llamada <code>accept</code>.</p>
+<p>Description: Marks the <em>socket</em> as <em>passive</em>, that is, 
+  a <em>socket</em> that will be used to accept incoming connections using <code>accept</code>.</p>
 </li>
 <li>
-<p>Parámetros: </p>
+<p>Parameters: </p>
 <ul>
-<li><code>sockfd</code>:  descriptor de <em>socket</em> (devuelto por <code>socket</code>).</li>
-<li><code>backlog</code>: longitud máxima que podrá tener la cola de conexiones pendientes
-para el <em>socket</em>. Si se sobrepasa, el cliente recibirá un error en su
-intento de conexión.</li>
+<li><code>sockfd</code>:  <em>socket</em> descriptor (returned by <code>socket</code>).</li>
+<li><code>backlog</code>: maximum length for the pending connections queue for the socket.</li>
 </ul>
 </li>
 <li>
-<p>Valor de retorno: Si tiene éxito, devuelve 0.
-                    Devuelve <code>-1</code> si se produce un error.</p>
+<p>Return value: On success, returns 0.  Returns <code>-1</code> if error.</p>
 </li>
 <li>
-<p>Detalles: consultad la página de manual de <code>listen</code> (<code>man listen</code>).</p>
+<p>Details: <code>man listen</code>.</p>
 </li>
 </ul>
 <h4 id="accept"><code>accept()</code></h4>
 <ul>
-<li>Prototipo:</li>
+<li>Prototype:</li>
 </ul>
 <pre><code class="c">int accept(int sockfd, struct sockaddr *addr, socklen_t *addrlen);
 </code></pre>
 
 <ul>
 <li>
-<p>Descripción: En <em>sockets</em> orientados a conexión, extrae la primera solicitud
-  de conexión de la cola de conexiones pendientes para el <em>socket</em> proporcionado,
-  crea un nuevo <em>socket conectado</em> y devuelve su descriptor. </p>
+<p>Description: In connection-oriented <em>sockets</em>, extracts the first request for connection 
+  from the pending connection queue for the <em>socket</em>,
+  creates a new <em>connected socket</em> and returns its descriptor. </p>
 </li>
 <li>
-<p>Parámetros: </p>
+<p>Parameters: </p>
 <ul>
-<li><code>sockfd</code>:  descriptor de <em>socket</em> (devuelto por <code>socket</code>).</li>
-<li><code>addr</code>:  es un puntero a una estructura de tipo <code>sockaddr</code>, cuyos campos
-  serán rellenados con los datos de dirección del socket remoto.</li>
-<li><code>addrlen</code>: tamaño de la estructura <code>addr</code>.</li>
+<li><code>sockfd</code>: <em>socket</em> descriptor (returned by <code>socket</code>).</li>
+<li><code>addr</code>:  pointer to a structure of type <code>sockaddr</code>, whose fields
+  will be filled with the date of the remote socket address.</li>
+<li><code>addrlen</code>: size fo the <code>addr</code> structure.</li>
 </ul>
 </li>
 <li>
-<p>Valor de retorno: Si tiene éxito, devuelve el descriptor de socket.
-                    Devuelve <code>-1</code> si se produce un error.</p>
+<p>Return value: On success, returns 0.  Returns <code>-1</code> if error.</p>
 </li>
 <li>
-<p>Detalles: consultad la página de manual de <code>accept</code> (<code>man accept</code>).</p>
+<p>Details: <code>man accept</code>.</p>
 </li>
 </ul>
 <h4 id="connect"><code>connect()</code></h4>
 <ul>
-<li>Prototipo:</li>
+<li>Prototype:</li>
 </ul>
 <pre><code class="c">int connect(int sockfd, const struct sockaddr *addr, socklen_t addrlen);
 </code></pre>
 
 <ul>
 <li>
-<p>Descripción: Conecta el <em>socket</em> proporcionada a la dirección específicada por
-  <code>addr</code>. Si el <em>socket</em> es UDP, <code>addr</code> será la dirección a la que se enviarán
-  los datagramas por defecto, y la única desde la que se recibirán datagramas.
-  En caso de TCP, esta llamada inicia el proceso de conexión a la dirección
-  especificada.</p>
+<p>Description: Connects the <em>socket</em> to the address specified by 
+  <code>addr</code>. If the <em>socket</em> is UDP, <code>addr</code> will be the only addres to which data will be sent
+  by default, and the only one from which datagrams will be received.
+  For TCP, this call intiates the connection procedure to the specified address.</p>
 </li>
 <li>
-<p>Parámetros: </p>
+<p>Parameters: </p>
 <ul>
-<li><code>sockfd</code>:  descriptor de <em>socket</em> (devuelto por <code>socket</code>).</li>
-<li><code>addr</code>:  es un puntero a una estructura de tipo <code>sockaddr</code>, cuyos campos
-  indican la dirección de conexión destino.</li>
-<li><code>addrlen</code>: tamaño de la estructura <code>addr</code>.</li>
+<li><code>sockfd</code>:  <em>socket</em> descriptor (returned by <code>socket</code>).</li>
+<li><code>addr</code>:  pointer to a <code>sockaddr</code> structure, whose fields
+  indicate the address of the destination connection.</li>
+<li><code>addrlen</code>: size of the <code>addr</code> structure.</li>
 </ul>
 </li>
 <li>
-<p>Valor de retorno: Si tiene éxito, devuelve el descriptor de socket.
-                    Devuelve <code>-1</code> si se produce un error.</p>
+<p>Return value: On success, returns 0.  Returns <code>-1</code> if error.</p>
 </li>
 <li>
-<p>Detalles: consultad la página de manual de <code>connect</code> (<code>man connect</code>).</p>
+<p>Details: <code>man connect</code>.</p>
 </li>
 </ul>
 <h4 id="send"><code>send()</code></h4>
 <ul>
-<li>Prototipo:</li>
+<li>Prototype:</li>
 </ul>
 <pre><code class="c">ssize_t send(int sockfd, const void *buf, size_t len, int flags);
 </code></pre>
 
 <ul>
 <li>
-<p>Descripción: En un <em>socket</em> en estado <em>conectado</em> (con receptor conocido)
+<p>Description: En un <em>socket</em> en estado <em>conectado</em> (con receptor conocido)
   transmite mensajes a un socket remoto.</p>
 </li>
 <li>
-<p>Parámetros: </p>
+<p>Parameters: </p>
 <ul>
 <li><code>sockfd</code>:  descriptor de <em>socket</em> de envío.</li>
 <li><code>buf</code>:  <em>buffer</em> de envío donde se almacena el mensaje a enviar.</li>
@@ -357,12 +350,12 @@ intento de conexión.</li>
                     Devuelve <code>-1</code> si se produce un error.</p>
 </li>
 <li>
-<p>Detalles: consultad la página de manual de <code>send</code> (<code>man send</code>).</p>
+<p>Details: consultad la página de manual de <code>send</code> (<code>man send</code>).</p>
 </li>
 </ul>
 <h4 id="recvrecvfrom"><code>recv()</code>/<code>recvfrom()</code></h4>
 <ul>
-<li>Prototipos:</li>
+<li>Prototype:</li>
 </ul>
 <pre><code class="c">ssize_t recv(int sockfd, void *buf, size_t len, int flags);
 
@@ -373,13 +366,13 @@ ssize_t recvfrom(int sockfd, void *buf, size_t len, int flags,
 
 <ul>
 <li>
-<p>Descripción: Reciben mensajes desde un  <em>socket</em>, tanto en sockets orientados
+<p>Description: Reciben mensajes desde un  <em>socket</em>, tanto en sockets orientados
   como no orientados a conexión. <code>recvfrom</code>, a diferencia de <code>recv</code>, recibe
   parámetrosd de salida adicionales que almacenan información sobre la dirección
   origen del mensaje.</p>
 </li>
 <li>
-<p>Parámetros: </p>
+<p>Parameters: </p>
 <ul>
 <li><code>sockfd</code>:  descriptor de <em>socket</em> de recepción.</li>
 <li><code>buf</code>:  <em>buffer</em> de recepción donde se almacena el mensaje a recibir.</li>
@@ -393,29 +386,29 @@ ssize_t recvfrom(int sockfd, void *buf, size_t len, int flags,
                     Devuelve <code>-1</code> si se produce un error.</p>
 </li>
 <li>
-<p>Detalles: consultad las páginas de manual de <code>recv</code> y <code>recv_from</code> (<code>man recv</code> y 
+<p>Details: consultad las páginas de manual de <code>recv</code> y <code>recv_from</code> (<code>man recv</code> y 
   <code>man recv_from</code>).</p>
 </li>
 </ul>
 <h4 id="close"><code>close()</code></h4>
 <ul>
-<li>Prototipo:</li>
+<li>Prototype:</li>
 </ul>
 <pre><code class="c">int close(int fd);
 </code></pre>
 
 <ul>
 <li>
-<p>Descripción: Cierra un socket.</p>
+<p>Description: Cierra un socket.</p>
 </li>
 <li>
-<p>Parámetros: </p>
+<p>Parameters: </p>
 <ul>
 <li><code>fd</code>:  descriptor de <em>socket</em>.</li>
 </ul>
 </li>
 <li>
-<p>Detalles: consultad la página de manual de <code>close</code> (<code>man close</code>).</p>
+<p>Details: consultad la página de manual de <code>close</code> (<code>man close</code>).</p>
 </li>
 </ul>
 <h2 id="ejemplos">Ejemplos</h2>
@@ -842,5 +835,5 @@ de tráfico que demuestren el correcto funcionamiento del sistema.</p>
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2022-01-17 13:41:08
+Build Date UTC : 2022-01-17 14:59:58
 -->
