@@ -4,20 +4,20 @@ Welcome to the Master Propio on IoT and Data Analytics. Lectures are starting th
 
 Looking forward to meet you all!
 
-## **1st term** - 19th Oct. till 13th Jan. 2022
+## **2nd term** - 18th Jan. 2022 till 7th Apr. 2022
 
-*Until 31st October, Spanish time is UTC+2, so the FIRST TWO WEEKS courses will be starting at 18:00h in China Standard Time. Starting November, Spanish time will be UTC+1, so courses will be starting at 19:00h in China Standard Time.*
+*From 28th March, Spanish time will become UTC+2 again. Most of the courses of this term will take place at 19:00h  in China Standard Time.  But, the LAST WEEK will  be starting at 18:00h in China Standard Time.*
 
-**CHRISTMAS HOLIDAYS: from 24th Dec 2021 to 10th Jan 2022**
+**CHINESE NEW YEAR HOLIDAYS: from 31st Jan  to 7th Feb 2022**
 
 | Hours (Spanish time) | Tuesday | Wednesday | Thursday | Zoom Link |
 |-------|---------|-----------|----------|----------|
-| 12:00-13:55 | [MDM](Subjects/MDM/index.md)     | [IOTNA](Subjects/IOTNA/index.md)     | [MDM](Subjects/MDM/index.md)      | [Zoom link](https://us02web.zoom.us/j/88542365522?pwd=ZVVjZzV2eFNBWkM3VGlDakI0enlmQT09)  Meeting number: 885 4236 5522.   Passcode: 641877 |
-| 14:05-16:00 | [SID](Subjects/SID/index.md)     | [SID](Subjects/SID/index.md)       | [IOTNA](Subjects/IOTNA/index.md)    | [Zoom link](https://us02web.zoom.us/j/89284664167?pwd=ZGwxQzg4OXEyY0EydUd5RXNUenZ6Zz09)   Meeting number: 892 8466 4167 Passcode: 477109 |
+| 12:00-13:55 |  [NP2](../Subjects/NP2/index.md)     | [IA](../Subjects/IA/index.md)        | [NP1](../Subjects/NP1/index.md)      |[Zoom link](https://us02web.zoom.us/j/88542365522?pwd=ZVVjZzV2eFNBWkM3VGlDakI0enlmQT09)  Meeting number: 885 4236 5522.   Passcode: 641877 |
+| 14:05-16:00  | [IA](../Subjects/IA/index.md)      | [NP1](../Subjects/NP1/index.md)       | [NP2](../Subjects/NP2/index.md)      | [Zoom link](https://us02web.zoom.us/j/89284664167?pwd=ZGwxQzg4OXEyY0EydUd5RXNUenZ6Zz09)   Meeting number: 892 8466 4167 Passcode: 477109 |
 
-* **MDM**: *Massive Data Management*.
-* **SID**: *Smart Infrastructures Design*. 
-* **IOTNA**: *IoT Node Architecture*.
+* **NP1**: *Networks and Protocols I*.
+* **NP2**: *Networks and Protocols II*.
+* **IA**: *Artificial Intelligence*.
 
 ## Subjects
 
