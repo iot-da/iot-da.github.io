@@ -12,9 +12,13 @@ Hector Garcia de Marina (hgarciad@ucm.es)
 
 The final grade will consist of a number of quizzes during the the course, and a final project during the last two weeks of the course.
 
-## Requirements
+## Software requirements
 
-Ubntu 20.04 and Jupyter Notebook
+Ubuntu 20.04 & Python
+
+[Instructions to set up the required software](slides/instructions.pdf)
+
+[requirements.txt](misc/requirements.txt)
 
 ## Work groups
 
@@ -22,7 +26,7 @@ Ubntu 20.04 and Jupyter Notebook
 
 | Day/Month | Topic                                                                      | Deliverable                        | Quizz                                       |
 |:---------:|----------------------------------------------------------------------------|------------------------------------|---------------------------------------------|
-|   18/01   | Introduction / Setting up Jupyter / Basics Python                          |                                    |                                             |
+|   18/01   | [Introduction](slides/Intro.pdf)     |                                    |                                             |
 |   19/01   | Math recap for AI and NumPy                                                |                                    |                                             |
 |   25/01   | Neural Networks 1                                                          |                                    |                                             |
 |   26/01   | Neutal Networks 2                                                          |                                    |                                             |
