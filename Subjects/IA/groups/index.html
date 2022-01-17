@@ -4,11 +4,11 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="None">
         
-        <link rel="canonical" href="https://iot-da.github.io/Subjects/IOTNA/P5/">
+        
+        <link rel="canonical" href="https://iot-da.github.io/Subjects/IA/groups/">
         <link rel="shortcut icon" href="../../../img/favicon.ico">
-        <title>Internet of Things and Data Analytics</title>
+        <title>Groups for lecture assignments - Internet of Things and Data Analytics</title>
         <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../../css/base.css" rel="stylesheet">
@@ -20,7 +20,7 @@
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
-    <body class="homepage">
+    <body>
 
         <div class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
@@ -55,7 +55,7 @@
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../">IOTNA</a>
+    <a href="../../IOTNA/">IOTNA</a>
 </li>
                                     
 <li >
@@ -67,7 +67,7 @@
 </li>
                                     
 <li >
-    <a href="../../IA/">IA</a>
+    <a href="../">IA</a>
 </li>
                                     
 <li >
@@ -106,56 +106,264 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#reading-sensors-using-i2c">Reading sensors using I2C</a></li>
-            <li><a href="#goals">Goals</a></li>
-            <li><a href="#documentation">Documentation</a></li>
-            <li><a href="#reading-the-temperature-sensor">Reading the temperature sensor</a></li>
+        <li class="main active"><a href="#groups-for-lecture-assignments">Groups for lecture assignments</a></li>
+            <li><a href="#group-1">Group 1</a></li>
+            <li><a href="#group-2">Group 2</a></li>
+            <li><a href="#group-3">Group 3</a></li>
+            <li><a href="#group-4">Group 4</a></li>
+            <li><a href="#group-5">Group 5</a></li>
+            <li><a href="#group-6">Group 6</a></li>
+            <li><a href="#group-7">Group 7</a></li>
+            <li><a href="#group-8">Group 8</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="reading-sensors-using-i2c">Reading sensors using I2C</h1>
-<h2 id="goals">Goals</h2>
-<ul>
-<li>Learn to use the API provided by ESP-IDF for the I2C serial buses</li>
-<li>Read the temperature from sensor HTS221 in the board</li>
-</ul>
-<h2 id="documentation">Documentation</h2>
-<p>To complete this assignment, you may need to check the slides discussed in the lectures and the official API documentation:</p>
-<ul>
-<li><a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/i2c.html">ESP-IDF API for I2C</a></li>
-<li><a href="https://www.st.com/resource/en/datasheet/hts221.pdf">HTS221 sensor data sheet</a></li>
-<li><a href="https://docs.espressif.com/projects/espressif-esp-iot-solution/en/latest/hw-reference/ESP32-MeshKit-Sense_guide.html">SoC reference</a></li>
-</ul>
-<h2 id="reading-the-temperature-sensor">Reading the temperature sensor</h2>
-<h3 id="obtaining-information-about-the-sensor">Obtaining information about the sensor</h3>
-<p>Using the data sheet, search the infomation required to read the sensor using I2C bus: slave address, addresses of the control registers, number of bytes needed to read the temperature.
-Using the information from the SoC and the pin numbers writen in  the lower side of the board, find the information about: gpio pins connected to SDA, SCL and to the sensors VDD.
-Using the API reference, find how to perform a write and a read through I2C.</p>
-<div class="admonition danger">
-<p class="admonition-title">Questions</p>
-<p>All previous exercises <strong>must be finished DURING the lecture (not afterwards)</strong> and shown to the teacher during the Zoom meeting. </p>
-</div>
-<h3 id="reading-the-device-identification">Reading the device identification</h3>
-<p>In this step you will use the I2C bus to read the device identificación of the temperature sensor, that is stored in its WHO_AM_I register.
-Note that you must write a 0 in the GPIO pin that controls the VDD signal of the sensors. If not, the sensors will be in power-off state.</p>
-<div class="admonition danger">
-<p class="admonition-title">Stop and sycn </p>
-<p>Once you finished the code, show it to the teacher</p>
-</div>
-<h3 id="reading-the-temperature-from-the-sensor">Reading the temperature from the sensor</h3>
-<p>In this step you will use the I2C bus to read the raw temperature from the sensor.</p>
-<div class="admonition danger">
-<p class="admonition-title">Stop and sycn </p>
-<p>Once you finished the code, show it to the teacher</p>
-</div>
-<h3 id="reading-the-temperature-in-celsius-optional">Reading the temperature in celsius (optional)</h3>
-<p>This assignment is optional, but required if you want to obtain more than 6 / 10 in this assignment. </p>
-<p>Use the calibration mechanism to obtain the real value of temperature.</p>
-<div class="admonition note">
-<p class="admonition-title">Homework (Optional)</p>
-<p>Once finished, the <em>Speaker</em> will contact me to <strong>explain (orally) the code developed</strong></p>
-</div></div>
+<h1 id="groups-for-lecture-assignments">Groups for lecture assignments</h1>
+<p>As explained during last lectures, we will be forming stable groups to work during lectures (and after class).</p>
+<h2 id="group-1">Group 1</h2>
+<table>
+<thead>
+<tr>
+<th>Rol</th>
+<th>Full name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Speaker</td>
+<td>Ayiqiqieke    Kaisaier</td>
+</tr>
+<tr>
+<td>Speaker (2)</td>
+<td>Youran Tian</td>
+</tr>
+<tr>
+<td>Recorder</td>
+<td>Jun Shou</td>
+</tr>
+<tr>
+<td>Auditor</td>
+<td>TangRenJie</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>Yang Chu</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>Shuishi Zhou</td>
+</tr>
+</tbody>
+</table>
+<h2 id="group-2">Group 2</h2>
+<p>This group is randomly assigned, since I had no notice
+from any of the integrants.</p>
+<table>
+<thead>
+<tr>
+<th>Rol</th>
+<th>Full name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Speaker</td>
+<td>BIN     ZHANG</td>
+</tr>
+<tr>
+<td>Recorder</td>
+<td>FENGFENG  GU</td>
+</tr>
+<tr>
+<td>Auditor</td>
+<td>GONGLU ZOU</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>HONGBIAO   CAO</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>WENYAN   LIAO</td>
+</tr>
+</tbody>
+</table>
+<h2 id="group-3">Group 3</h2>
+<table>
+<thead>
+<tr>
+<th>Rol</th>
+<th>Full name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Speaker</td>
+<td>Duan     Zhen</td>
+</tr>
+<tr>
+<td>Recorder</td>
+<td>Hu Haho</td>
+</tr>
+<tr>
+<td>Auditor</td>
+<td>Liu  Jinhua</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>Weilin  Zhang</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>Huang    Yujuan</td>
+</tr>
+</tbody>
+</table>
+<h2 id="group-4">Group 4</h2>
+<table>
+<thead>
+<tr>
+<th>Rol</th>
+<th>Full name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Speaker</td>
+<td>GuanJIE Xiao</td>
+</tr>
+<tr>
+<td>Speaker (2)</td>
+<td>DongYang Xu</td>
+</tr>
+<tr>
+<td>Recorder</td>
+<td>ShaYuan Shuang</td>
+</tr>
+<tr>
+<td>Auditor</td>
+<td>Junyan Guo</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>Zhijun Hao</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>Xueqing Zhao</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>Jiali Gao</td>
+</tr>
+</tbody>
+</table>
+<h2 id="group-5">Group 5</h2>
+<p>This group is randomly assigned, since I had no notice
+from any of the integrants.</p>
+<table>
+<thead>
+<tr>
+<th>Rol</th>
+<th>Full name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Speaker</td>
+<td>JIEPING YOU</td>
+</tr>
+<tr>
+<td>Recorder</td>
+<td>QINGHONG  YU</td>
+</tr>
+<tr>
+<td>Auditor</td>
+<td>SUIZHI  LIU</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>TIANFENG LI</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>WEI  REN</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>XIAZU   HU</td>
+</tr>
+</tbody>
+</table>
+<h2 id="group-6">Group 6</h2>
+<table>
+<thead>
+<tr>
+<th>Rol</th>
+<th>Full name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Speaker</td>
+<td>ZHOU Ping</td>
+</tr>
+<tr>
+<td>Speaker (2)</td>
+<td>LIAO  Yinghua</td>
+</tr>
+<tr>
+<td>Recorder</td>
+<td> ZHAO Yan</td>
+</tr>
+<tr>
+<td>Auditor</td>
+<td>HE Yongtao</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>PAN Jiayun</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>Zhao  Hu</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>ZHANG  Yi</td>
+</tr>
+</tbody>
+</table>
+<h2 id="group-7">Group 7</h2>
+<p>This group is canceled. Previous members have been distributed in other groups.</p>
+<h2 id="group-8">Group 8</h2>
+<table>
+<thead>
+<tr>
+<th>Rol</th>
+<th>Full name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Speaker</td>
+<td>Xiaolan Li</td>
+</tr>
+<tr>
+<td>Recorder</td>
+<td>Qiuji Chen</td>
+</tr>
+<tr>
+<td>Auditor</td>
+<td>Xionglan Luo</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>Jianchuang Zhang</td>
+</tr>
+</tbody>
+</table></div>
         </div>
 
         <footer class="col-md-12">
@@ -235,8 +443,3 @@ Note that you must write a 0 in the GPIO pin that controls the VDD signal of the
 
     </body>
 </html>
-
-<!--
-MkDocs version : 1.0.4
-Build Date UTC : 2022-01-17 13:41:08
--->
