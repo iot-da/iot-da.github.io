@@ -16,23 +16,59 @@ ported to different APIs and languages.
 * Introduce different techniques for information representation.
 * Study a number of IoT frameworks and stream processing platforms.
 
-## Professors
+
+### Subject program and evaluation methodology
+
+[Program and evaluation](slides/Presentation.pdf)
+
+## Professor
 
 Francisco Igual (figual@ucm.es)
 
+## Work paper work assignment
+
+[Here you can find description about this individual assignment](paperProject.md)
+
+## Final programming project (teams of 2 people), shared with NP1
+
+Once ready you will find [here](FinalProject.md) the details on the final project for this
+course.
+
+## Work groups (for regular lab assignments)
+
+[Here you can find the current work groups](groups.md)
+
+## Quizzes
+
+For all quizzes will you are requested to use your e-mail address as name. All
+of them can be accessed directly from [this
+link](https://api.socrative.com/rc/Yu9Dx).
+
+
 ## Schedule
 
-| Lab | Day | Topic                                        |
-|-----|-----|----------------------------------------------|
-| 1   |XX/XX|[TCP/UDP Sockets (Linux)](P1/index.md) |
-| 2   |XX/XX|[TCP/UDP Sockets (ESP32)](P2/index.md) |
-| 3   |XX/XX|[TLS and DTLS](P3/index.md)              |
-| 4   |XX/XX|[Websockets](P4/index.md)              |
-| 5   |XX/XX|[REST servers and information representation (JSON and CBOR)](P5/index.md)       |
-| 6   |XX/XX|[MQTT (I)](P6/index.md)                |
-| 6   |XX/XX|[MQTT (II)](P6-II/index.md)            |
-| 7   |XX/XX|[CoAP](P7/index.md)                    |
-| 8   |XX/XX|[LWM2M (I)](P8/index.md)               |
-| 8   |XX/XX|LWM2M (II)                                    |
-| 9   |XX/XX|[Node-RED](P9/index.md)                |
-| 10  |XX/XX|[Cloud environments/IoT Frameworks](P10/index.md) |
+| Day/Month | Topic                                                                                                 | Lab instructions                   | Deliverable                                 |
+|:---------:|-------------------------------------------------------------------------------------------------------|------------------------------------|---------------------------------------------|
+|   18/01   | [Basic Concepts (I)](slides/Intro1.pdf)                                                               |                                    | [Assignment 1](Assignments/1.md)            |
+|   20/01   | [Basic Concepts (II)](slides/Intro2.pdf), [TCP/UDP](slides/TCPUDP.pdf)                                |                                    | [Quiz](https://api.socrative.com/rc/Yu9Dx)  |
+|   25/01   | Lab 1. TCP/UDP sockets (Linux)                                                                        | [Lab 1. instructions](P1/index.md) | [Assignment 2](Assignments/2.md)            |
+|   27/01   | Lab 1. TCP/UDP sockets (Linux)                                                                        | [Lab 1. instructions](P1/index.md) | [Quiz](https://api.socrative.com/rc/Yu9Dx)  |
+|   01/02   | Week off (Chinese new year)                                                                           |                                    |                                             |
+|   03/02   | Week off (Chinese new year)                                                                           |                                    |                                             |
+|   08/02   | [TLS and DTLS](slides/TLSDTLS.pdf), [Websockets](slides/Websockets.pdf)                               |                                    | [Quiz](https://api.socrative.com/rc/Yu9Dx)  |
+|   10/02   | Lab 2. TCP/UDP sockets (ESP32)                                                                        | [Lab 2. instructions](P2/index.md) |                                             |
+|   15/02   | Lab 2. TCP/UDP sockets (ESP32)                                                                        | [Lab 2. instructions](P2/index.md) |                                             |
+|   17/02   | [REST servers. Information representation](slides/REST.pdf)                                           |                                    | [Quiz](https://api.socrative.com/rc/Yu9Dx)  |
+|   22/02   | Lab 3. Websockets                                                                                     | [Lab 3. instructions](P3/index.md) |                                             |
+|   24/02   | [MQTT](slides/MQTT.pdf)                                                                               |                                    | [Quiz](https://api.socrative.com/rc/Yu9Dx)  |
+|   01/03   | Lab 4. MQTT                                                                                           | [Lab 4. instructions](P6/index.md) |                                             | 
+|   03/03   | Lab 4. MQTT                                                                                           | [Lab 4. instructions](P6-II/index.md) |                                             |
+|   08/03   | [CoAP and LWM2M](slides/COAP.pdf)                                                                     |                                    | [Quiz](https://api.socrative.com/rc/Yu9Dx)  |
+|   10/03   | Lab 5. CoAP                                                                                           | [Lab 5. instructions](P5/index.md) |                                             |
+|   15/03   | Lab 5. CoAP                                                                                           | [Lab 5. instructions](P5/index.md) |                                             |
+|   17/03   | Lab 6. Node-RED                                                                                       | [Lab 6. instructions](P9/index.md) |                                             |
+|   22/03   | [IoT Frameworks](slides/Frameworks.pdf)                                                               |                                    | [Quiz](https://api.socrative.com/rc/Yu9Dx)  |
+|   24/03   | Work on Final Project                                                                                 |                                    |                                             |
+|   29/03   | Work on Final Project                                                                                 |                                    |                                             |
+|   31/04   | Work on Final Project                                                                                 |                                    |                                             |
+|   05/04   | Work on Final Project                                                                                 |                                    |                                             |
