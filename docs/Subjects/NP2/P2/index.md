@@ -11,40 +11,43 @@
 
 ## Introduction
 
-En la práctica anterior, vimos cómo desarrollar sistemas cliente/servidor
-sencillos utilizando Python, tanto en sus variantes TCP como UDP.
-El objetivo de la presente práctica es estudiar y desarrollar componentes
-de red (clientes y servidores TCP y UDP) que puedan ejecutarse sobre el 
-ESP32 haciendo uso de las facilidades propuestas por ESP-IDF. Además, 
-demostraremos que es posible hacer interactuar clientes y servidores ejecutándose
-indistintamente en la máquina virtual (programados vía Python) y en la propia
-placa (utilizando la API de sockets de C).
+In the previous laboratory, we studied how to develop simple client/server
+systems using Python, both for TCP and for UDP.
+In this lab, we will study and develop network components (TCP and UDP 
+clients and servers) that can execute on the ESP32 leveraging the facilities
+offered by ESP-IDF. Also, we will demonstrate that it is possible to interact
+clients and servers executing on the virtual machine (programmed via Python) and
+on the board (using the C sockets API).
 
-## La API de sockets en C
+## The C sockets API      
 
-### Funciones para ordenacion de bytes
+### Funtions for byte ordering
 
-Como TCP/IP es un estándar universal, y permite comunicaciones entre cualquier
-plataforma y arquitectura, es necesario disponer de un método de ordenación
-de los bytes para que máquinas *big-endian* y *little-endian* puedan comunicarse
-de forma transparente y correcta. Para ello, se suelen proporcionar rutinas
-de reordenación de bytes. En plataformas donde los datos ya están correctamente
-ordenados, estas funciones no tienen ninguna funcionalidad especial, pero en
-cualquier caso, es necesario utilizarlas siempre para que la comunicación
-entre pares sea correcta. Las funciones típicas de reordenación de datos
-son cuatro: `htons`, `htonl`, `ntohs` y `ntohl`. Su nombre explica correctamente
-su semántica: *host to network (short)*
-*host to network (long)*, *network to host (short)* y *network to host (long)*,
-convirtiendo tipos de datos *short* y *long* desde el formato utilizado en
-transmisiones de red (*network*) a representación en el *host*. Así, siempre
-que enviemos un dato binario por la red, deberá ser transformado utilizando 
-`hton*` y cuando lo recibamos y debamos procesarlo, utilizando `ntoh*`.
+As TCP/IP is a universal standard, and it allows for communicating across virtually
+any platform and architecture, it is necessary to get a byte ordering method so that
+big-endian and little-endian machines can communicate in a transparent and correct way.
+To accomplish this requirement, routines are usually provided to reorder and adapt
+byte ordering. In platforms in which data are already correctly ordered, these functions 
+do not present any special functionality, but anyway, its usage is necessary so that the 
+communication among pairs is correct.
 
-### Estructuras de datos
+Typical functions for data reordering are:
+`htons`, `htonl`, `ntohs` y `ntohl`. 
+Their name explains their semantics: 
+*host to network (short)*
+*host to network (long)*, 
+*network to host (short)* and 
+*network to host (long)*,
+converting datatypes *short* and *long* from the format used in network
+transmissions (*network*) to a *host* representation. 
+Hence, when we send binary data over the network, it will need to be transformed using 
+`hton*` and upon receiving it, using `ntoh*`.
 
-Antes de estudiar la API de *sockets* básica, es necesario mostrar el cometido
-de un conjunto de estructuras de datos utilizadas comunmente en todas ellas. La
-más importante es `sockaddr_in`, que se define como sigue:
+### Data structures
+
+Before studyin the sockets API, it is necessary to show the goal of a set of data 
+structures used in all of them. The most important is 
+`sockaddr_in`, defined as follows:
 
 ```c
 struct sockaddr_in
@@ -56,7 +59,7 @@ struct sockaddr_in
 };
 ```
 
-La estructura `in_addr` utilizada en `sockaddr_in` se define como:
+The structure `in_addr` used in `sockaddr_in` is defined as:
 
 ```c
 struct in_addr
@@ -65,146 +68,135 @@ struct in_addr
 };
 ```
 
-Ésta consiste en un campo de tipo `unsigned long int` que contiene la 
-dirección IP que se asociará con el socket. 
+This one consists on a field of type `unsigned long int` that contains the 
+IP address associated with the socket.
 
-La estructura `sockaddr_in` contiene dos campos importantes: 
+The structure `sockaddr_in` contains two important fields:
 
-* `sin_family`: que indica al socket qué familia de protocolos se utiliarán 
-  (usaremos la constante `AF_INET` para IPv4).
-* `sin_port`: que indica el puerto asociado al socket.
+* `sin_family`: indicating that the socket belongs to a specific family of protocols
+  (we will use the constant `AF_INET` for IPv4).
+* `sin_port`: the port associated to the socket.
 
-### API básica
-
+### Basic API
 
 #### `socket()`
 
-* Prototipo:
+* Prototype:
 
 ```c
 int socket(int family, int type, int protocol);
 ```
 
-* Descripción: Crea un *endpoint* de comunicación y devuelve un descriptor 
-  de fichero para manejarlo.
+* Description: Creates a communication *endpoint* and returs a file descriptor to handle it. 
 
-* Parámetros: 
+* Parameters: 
     - `family`:  `AF_INET` (IPv4), `AF_INET6` (IPv6).
     - `type`: `SOCK_DGRAM` (UDP), `SOCK_STREAM` (TCP), `SOCK_RAW`.
-    - `protocol`: Típicamente 0 (no usado en sockets de Internet).
+    - `protocol`: Typically 0 (not used in Internet sorckets).
 
-* Valor de retorno: Si tiene éxito, devuelve el descriptor de *socket*.
-                    Devuelve `-1` si se produce un error.
+* Return value: On success, returns a socket descriptor. 
+                    Returns `-1` if error.
 
-* Detalles: consultad la página de manual de `socket` (`man socket`).
+* Details: `man socket`.
 
 #### `bind()`
 
-* Prototipo:
+* Prototype:
 
 ```c
 int bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen);
 ```
 
-* Descripción: Asocia un *socket* a una dirección especificada por `addr`.
-  Normalmente, es necesario asignar una dirección local vía esta función
-  antes de que un socket TCP pueda recibir conexiones.
+* Description: Binds a *socket* to an address specified by `addr`.
+  Usually, it is necessary to assign a local addres via this function before
+  a TCP socket can receive connections.
 
-* Parámetros: 
-    - `sockfd`:  descriptor de *socket* (devuelto por `socket`).
-    - `addr`: dirección a asociar (véase estructura en sección anterior).
-    - `addrlen`: longitud (en bytes) de la anterior estructura.
+* Parameters: 
+    - `sockfd`:  *socket* descriptor (returned by `socket`).
+    - `addr`: address to bind (see structure in previous section).
+    - `addrlen`: length (in bytes) of the previous structure.
 
-* Valor de retorno: Si tiene éxito, devuelve 0.
-                    Devuelve `-1` si se produce un error.
+* Return value: On success, returns 0.  Returns `-1` if error.
 
-* Detalles: consultad la página de manual de `bind` (`man bind`).
+* Details: `man bind`.
 
 
 #### `listen()`
 
-* Prototipo:
+* Prototype:
 
 ```c
 int listen(int sockfd, int backlog);
 ```
 
-* Descripción: Marca el *socket* proporcionado como *pasivo*, esto es, 
-  un *socket* que podrá ser utilizado para aceptar conexiones entrantes
-  usando la llamada `accept`.
+* Description: Marks the *socket* as *passive*, that is, 
+  a *socket* that will be used to accept incoming connections using `accept`.
 
-* Parámetros: 
-    - `sockfd`:  descriptor de *socket* (devuelto por `socket`).
-    - `backlog`: longitud máxima que podrá tener la cola de conexiones pendientes
-    para el *socket*. Si se sobrepasa, el cliente recibirá un error en su
-    intento de conexión.
+* Parameters: 
+    - `sockfd`:  *socket* descriptor (returned by `socket`).
+    - `backlog`: maximum length for the pending connections queue for the socket.
 
-* Valor de retorno: Si tiene éxito, devuelve 0.
-                    Devuelve `-1` si se produce un error.
+* Return value: On success, returns 0.  Returns `-1` if error.
 
-* Detalles: consultad la página de manual de `listen` (`man listen`).
+* Details: `man listen`.
 
 #### `accept()`
 
-* Prototipo:
+* Prototype:
 
 ```c
 int accept(int sockfd, struct sockaddr *addr, socklen_t *addrlen);
 ```
 
-* Descripción: En *sockets* orientados a conexión, extrae la primera solicitud
-  de conexión de la cola de conexiones pendientes para el *socket* proporcionado,
-  crea un nuevo *socket conectado* y devuelve su descriptor. 
+* Description: In connection-oriented *sockets*, extracts the first request for connection 
+  from the pending connection queue for the *socket*,
+  creates a new *connected socket* and returns its descriptor. 
 
-* Parámetros: 
-    - `sockfd`:  descriptor de *socket* (devuelto por `socket`).
-    - `addr`:  es un puntero a una estructura de tipo `sockaddr`, cuyos campos
-      serán rellenados con los datos de dirección del socket remoto.
-    - `addrlen`: tamaño de la estructura `addr`.
+* Parameters: 
+    - `sockfd`: *socket* descriptor (returned by `socket`).
+    - `addr`:  pointer to a structure of type `sockaddr`, whose fields
+      will be filled with the date of the remote socket address.
+    - `addrlen`: size fo the `addr` structure.
 
-* Valor de retorno: Si tiene éxito, devuelve el descriptor de socket.
-                    Devuelve `-1` si se produce un error.
+* Return value: On success, returns 0.  Returns `-1` if error.
 
-* Detalles: consultad la página de manual de `accept` (`man accept`).
+* Details: `man accept`.
 
 #### `connect()`
 
-* Prototipo:
+* Prototype:
 
 ```c
 int connect(int sockfd, const struct sockaddr *addr, socklen_t addrlen);
 ```
 
-* Descripción: Conecta el *socket* proporcionada a la dirección específicada por
-  `addr`. Si el *socket* es UDP, `addr` será la dirección a la que se enviarán
-  los datagramas por defecto, y la única desde la que se recibirán datagramas.
-  En caso de TCP, esta llamada inicia el proceso de conexión a la dirección
-  especificada.
+* Description: Connects the *socket* to the address specified by 
+  `addr`. If the *socket* is UDP, `addr` will be the only addres to which data will be sent
+  by default, and the only one from which datagrams will be received.
+  For TCP, this call intiates the connection procedure to the specified address.
 
-* Parámetros: 
-    - `sockfd`:  descriptor de *socket* (devuelto por `socket`).
-    - `addr`:  es un puntero a una estructura de tipo `sockaddr`, cuyos campos
-      indican la dirección de conexión destino.
-    - `addrlen`: tamaño de la estructura `addr`.
+* Parameters: 
+    - `sockfd`:  *socket* descriptor (returned by `socket`).
+    - `addr`:  pointer to a `sockaddr` structure, whose fields
+      indicate the address of the destination connection.
+    - `addrlen`: size of the `addr` structure.
 
-* Valor de retorno: Si tiene éxito, devuelve el descriptor de socket.
-                    Devuelve `-1` si se produce un error.
+* Return value: On success, returns 0.  Returns `-1` if error.
 
-* Detalles: consultad la página de manual de `connect` (`man connect`).
-
+* Details: `man connect`.
 
 #### `send()`
 
-* Prototipo:
+* Prototype:
 
 ```c
 ssize_t send(int sockfd, const void *buf, size_t len, int flags);
 ```
 
-* Descripción: En un *socket* en estado *conectado* (con receptor conocido)
+* Description: En un *socket* en estado *conectado* (con receptor conocido)
   transmite mensajes a un socket remoto.
 
-* Parámetros: 
+* Parameters: 
     - `sockfd`:  descriptor de *socket* de envío.
     - `buf`:  *buffer* de envío donde se almacena el mensaje a enviar.
     - `len`: número de bytes a enviar.
@@ -212,12 +204,12 @@ ssize_t send(int sockfd, const void *buf, size_t len, int flags);
 * Valor de retorno: Si tiene éxito, devuelve el número de bytes enviados.
                     Devuelve `-1` si se produce un error.
 
-* Detalles: consultad la página de manual de `send` (`man send`).
+* Details: consultad la página de manual de `send` (`man send`).
 
 
 #### `recv()`/`recvfrom()`
 
-* Prototipos:
+* Prototype:
 
 ```c
 ssize_t recv(int sockfd, void *buf, size_t len, int flags);
@@ -227,12 +219,12 @@ ssize_t recvfrom(int sockfd, void *buf, size_t len, int flags,
 
 ```
 
-* Descripción: Reciben mensajes desde un  *socket*, tanto en sockets orientados
+* Description: Reciben mensajes desde un  *socket*, tanto en sockets orientados
   como no orientados a conexión. `recvfrom`, a diferencia de `recv`, recibe
   parámetrosd de salida adicionales que almacenan información sobre la dirección
   origen del mensaje.
 
-* Parámetros: 
+* Parameters: 
     - `sockfd`:  descriptor de *socket* de recepción.
     - `buf`:  *buffer* de recepción donde se almacena el mensaje a recibir.
     - `len`: número de bytes a recibir.
@@ -242,24 +234,24 @@ ssize_t recvfrom(int sockfd, void *buf, size_t len, int flags,
 * Valor de retorno: Si tiene éxito, devuelve el número de bytes recibidos.
                     Devuelve `-1` si se produce un error.
 
-* Detalles: consultad las páginas de manual de `recv` y `recv_from` (`man recv` y 
+* Details: consultad las páginas de manual de `recv` y `recv_from` (`man recv` y 
   `man recv_from`).
 
 
 #### `close()`
 
-* Prototipo:
+* Prototype:
 
 ```c
 int close(int fd);
 ```
 
-* Descripción: Cierra un socket.
+* Description: Cierra un socket.
 
-* Parámetros: 
+* Parameters: 
     - `fd`:  descriptor de *socket*.
 
-* Detalles: consultad la página de manual de `close` (`man close`).
+* Details: consultad la página de manual de `close` (`man close`).
 
 
 ## Ejemplos

@@ -1,6 +1,6 @@
 # Groups for lecture assignments
 
-We will be using the stable groups from NP1 to work during lectures (and after
+We will be using the stable groups from NP2 to work during lectures (and after
 class).
 
 
