@@ -5,27 +5,17 @@ class).
 
 
 ## Group 1
-| Rol         | Full name            |
-|-------------|----------------------|
-| Speaker     | Ayiqiqieke	Kaisaier |
-| Speaker (2) | Youran Tian          |
-| Recorder    | Jun Shou             |
-| Auditor     | TangRenJie           |
-| Contributor | Yang Chu             |
-| Contributor | Shuishi Zhou         |
-
-
-## Group 2
 | Rol         | Full name    |
 |-------------|--------------|
 | Speaker     | BIN	ZHANG    |
+| Speaker (2) | Youran Tian          |
 | Recorder    | FENGFENG GU  |
 | Auditor     | GONGLU ZOU   |
 | Contributor | HONGBIAO CAO |
 | Contributor | WENYAN LIAO  |
 
 
-## Group 3
+## Group 2
 | Rol         | Full name    |
 |-------------|--------------|
 | Speaker     | Duan Zhen    |
@@ -33,9 +23,10 @@ class).
 | Auditor     | Liu Jinhua   |
 | Contributor | Weilin Zhang |
 | Contributor | Huang Yujuan |
+| Contributor | Jun Shou             |
 
 
-## Group 4
+## Group 3
 | Rol         | Full name      |
 |-------------|----------------|
 | Speaker     | GuanJIE Xiao   |
@@ -47,7 +38,7 @@ class).
 | Contributor | Jiali Gao      |
 
 
-## Group 5
+## Group 4
 | Rol         | Full name   |
 |-------------|-------------|
 | Speaker     | JIEPING	YOU |
@@ -58,7 +49,7 @@ class).
 | Contributor | XIAZU HU    |
 
 
-## Group 6
+## Group 5
 | Rol         | Full name     |
 |-------------|---------------|
 | Speaker     | ZHOU Ping     |
@@ -70,10 +61,12 @@ class).
 | Contributor | ZHANG  Yi     |
 
 
-## Group 7
+## Group 6
 | Rol         | Full name        |
 |-------------|------------------|
 | Speaker     | Xiaolan Li       |
 | Recorder    | Qiuji Chen       |
 | Auditor     | Xionglan Luo     |
 | Contributor | Jianchuang Zhang |
+| Contributor | Shuishi Zhou         |
+| Contributor | Yang Chu             |
