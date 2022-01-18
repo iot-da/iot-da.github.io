@@ -22,6 +22,8 @@ Ubuntu 20.04 & Python
 
 ## Work groups
 
+The groups are the same as for NP1, please check them [here](groups.md)
+
 ## Schedule
 
 | Day/Month | Topic                                                                      | Deliverable                        | Quizz                                       |
