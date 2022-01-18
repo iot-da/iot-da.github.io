@@ -12,8 +12,8 @@ Looking forward to meet you all!
 
 | Hours (Spanish time) | Tuesday | Wednesday | Thursday | Zoom Link |
 |-------|---------|-----------|----------|----------|
-| 12:00-13:55 |  [NP2](../Subjects/NP2/index.md)     | [IA](../Subjects/IA/index.md)        | [NP1](../Subjects/NP1/index.md)      |[Zoom link](https://us02web.zoom.us/j/88542365522?pwd=ZVVjZzV2eFNBWkM3VGlDakI0enlmQT09)  Meeting number: 885 4236 5522.   Passcode: 641877 |
-| 14:05-16:00  | [IA](../Subjects/IA/index.md)      | [NP1](../Subjects/NP1/index.md)       | [NP2](../Subjects/NP2/index.md)      | [Zoom link](https://us02web.zoom.us/j/89284664167?pwd=ZGwxQzg4OXEyY0EydUd5RXNUenZ6Zz09)   Meeting number: 892 8466 4167 Passcode: 477109 |
+| 12:00-13:55 |  [NP2](./Subjects/NP2/index.md)     | [IA](./Subjects/IA/index.md)        | [NP1](./Subjects/NP1/index.md)      |[Zoom link](https://us02web.zoom.us/j/88542365522?pwd=ZVVjZzV2eFNBWkM3VGlDakI0enlmQT09)  Meeting number: 885 4236 5522.   Passcode: 641877 |
+| 14:05-16:00  | [IA](./Subjects/IA/index.md)      | [NP1](./Subjects/NP1/index.md)       | [NP2](./Subjects/NP2/index.md)      | [Zoom link](https://us02web.zoom.us/j/89284664167?pwd=ZGwxQzg4OXEyY0EydUd5RXNUenZ6Zz09)   Meeting number: 892 8466 4167 Passcode: 477109 |
 
 * **NP1**: *Networks and Protocols I*.
 * **NP2**: *Networks and Protocols II*.
