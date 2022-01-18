@@ -4,89 +4,97 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+        <meta name="description" content="None">
         
         <link rel="canonical" href="https://iot-da.github.io/Subjects/IOTNA/ctutorial/">
         <link rel="shortcut icon" href="../../../img/favicon.ico">
-        <title>C programming. Exercises - Internet of Things and Data Analytics</title>
-        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <title>Internet of Things and Data Analytics</title>
+        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
 
         <script src="../../../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../../../js/bootstrap.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+    <body class="homepage">
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
-                <a class="navbar-brand" href="../../..">Internet of Things and Data Analytics</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../../..">Internet of Things and Data Analytics</a>
+                </div>
 
                 <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
+                <div class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li class="navitem">
-                                <a href="../../.." class="nav-link">Home</a>
+                            <li >
+                                <a href="../../..">Home</a>
                             </li>
-                            <li class="navitem">
-                                <a href="../../../General/" class="nav-link">General info.</a>
+                            <li >
+                                <a href="../../../General/">General info.</a>
                             </li>
-                            <li class="navitem">
-                                <a href="../../../News/" class="nav-link">News</a>
+                            <li >
+                                <a href="../../../News/">News</a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
-<li>
-    <a href="../" class="dropdown-item">IOTNA</a>
+<li >
+    <a href="../">IOTNA</a>
 </li>
                                     
-<li>
-    <a href="../../MDM/" class="dropdown-item">MDM</a>
+<li >
+    <a href="../../MDM/">MDM</a>
 </li>
                                     
-<li>
-    <a href="../../SID/" class="dropdown-item">SID</a>
+<li >
+    <a href="../../SID/">SID</a>
 </li>
                                     
-<li>
-    <a href="../../IA/" class="dropdown-item">IA</a>
+<li >
+    <a href="../../IA/">IA</a>
 </li>
                                     
-<li>
-    <a href="../../NP1/" class="dropdown-item">NP1</a>
+<li >
+    <a href="../../NP1/">NP1</a>
 </li>
                                     
-<li>
-    <a href="../../NP2/" class="dropdown-item">NP2</a>
+<li >
+    <a href="../../NP2/">NP2</a>
 </li>
                                     
-<li>
-    <a href="../../SEC/" class="dropdown-item">SEC</a>
+<li >
+    <a href="../../SEC/">SEC</a>
 </li>
                                     
-<li>
-    <a href="../../EDGE/" class="dropdown-item">EDGE</a>
+<li >
+    <a href="../../EDGE/">EDGE</a>
 </li>
                                 </ul>
                             </li>
-                            <li class="navitem">
-                                <a href="../../../Contact/" class="nav-link">Contact</a>
+                            <li >
+                                <a href="../../../Contact/">Contact</a>
                             </li>
                         </ul>
 
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
@@ -96,61 +104,26 @@
         </div>
 
         <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
-
-    
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-level="1"><a href="#c-programming-exercises" class="nav-link">C programming. Exercises</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#compilation-headers-macros" class="nav-link">Compilation (headers, macros...)</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#data-types-sizes" class="nav-link">Data types. Sizes</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#using-arrays" class="nav-link">Using Arrays.</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#pointers" class="nav-link">Pointers</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#arguments" class="nav-link">Arguments</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#strings" class="nav-link">Strings</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#bitwaise-operations" class="nav-link">Bitwaise operations</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-        </ul>
-    </div>
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#c-programming-exercises">C programming. Exercises</a></li>
+            <li><a href="#compilation-headers-macros">Compilation (headers, macros...)</a></li>
+            <li><a href="#data-types-sizes">Data types. Sizes</a></li>
+            <li><a href="#using-arrays">Using Arrays.</a></li>
+            <li><a href="#pointers">Pointers</a></li>
+            <li><a href="#arguments">Arguments</a></li>
+            <li><a href="#strings">Strings</a></li>
+            <li><a href="#bitwaise-operations">Bitwaise operations</a></li>
+    </ul>
 </div></div>
-                    <div class="col-md-9" role="main">
+                <div class="col-md-9" role="main">
 
 <h1 id="c-programming-exercises">C programming. Exercises</h1>
 <p>There are many good C/C++ tutorials online. You can find one in <a href="https://www.cprogramming.com/tutorial/c-tutorial.html">this link</a>.</p>
 <p>Next, there are several examples that we will use during the lectures to talk about different aspects of C language.</p>
 <p>You can <a href="C-Example.zip">download a ZIP with the examples here</a></p>
 <h2 id="compilation-headers-macros">Compilation (headers, macros...)</h2>
-<pre><code class="language-c">#include &lt;stdio.h&gt;
+<pre><code class="c">#include &lt;stdio.h&gt;
 
 /******** QUESTIONS/TASKS *****
 * 1. Compile and execute the code
@@ -177,8 +150,9 @@ int main() {
  return 0;
 }
 </code></pre>
+
 <h2 id="data-types-sizes">Data types. Sizes</h2>
-<pre><code class="language-c">#include &lt;stdio.h&gt;
+<pre><code class="c">#include &lt;stdio.h&gt;
 /**** QUESTIONS/TASKS ********
  * Compile and execute the code. 
  * 1. Why the first &quot;printf&quot; prints different values for the same variable 'a'?
@@ -203,7 +177,8 @@ int main() {
 
 }
 </code></pre>
-<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+<pre><code class="c">#include &lt;stdio.h&gt;
 
 
 /**** QUESTIONS/TASKS ********
@@ -245,8 +220,9 @@ int main() {
 return 0;
 }
 </code></pre>
+
 <h2 id="using-arrays">Using Arrays.</h2>
-<pre><code class="language-c">#include &lt;stdio.h&gt;
+<pre><code class="c">#include &lt;stdio.h&gt;
 
 /**** QUESTIONS/TASKS ********
  * Compile and execute the code. 
@@ -294,7 +270,8 @@ void init_array2(int array[N]) {
     printf(&quot;Array initialized\n\n&quot;);
 }
 </code></pre>
-<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+<pre><code class="c">#include &lt;stdio.h&gt;
 
 /**** QUESTIONS/TASKS ********
  * Compile and execute the code. 
@@ -347,8 +324,9 @@ int main() {
 
 }
 </code></pre>
+
 <h2 id="pointers">Pointers</h2>
-<pre><code class="language-c">
+<pre><code class="c">
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 
@@ -381,7 +359,8 @@ return 0;
 
 }
 </code></pre>
-<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+<pre><code class="c">#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 
 /**** QUESTIONS/TASKS ********
@@ -420,7 +399,8 @@ int main(void) {
     printf(&quot;Address pointed by ptr %p. Content of that address: %d \n&quot;,ptr,*ptr);   
 }
 </code></pre>
-<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+<pre><code class="c">#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 /**** QUESTIONS/TASKS ********
  * Compile and execute the code. 
@@ -448,7 +428,8 @@ int main(void) {
     free(ptr);
 }
 </code></pre>
-<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+<pre><code class="c">#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 /**** QUESTIONS/TASKS ********
  * Compile and execute the code. 
@@ -492,8 +473,9 @@ int main(void) {
     printf(&quot;c = %d d= %d \n&quot;,c,d);
 }
 </code></pre>
+
 <h2 id="arguments">Arguments</h2>
-<pre><code class="language-c">#include &lt;stdio.h&gt;
+<pre><code class="c">#include &lt;stdio.h&gt;
 /**** QUESTIONS/TASKS ********
  * Compile and execute the code. 
  * 1. Why the value of 'xc' is not changed after the call to sumC()? 
@@ -545,7 +527,8 @@ struct _complex_  sumC( struct _complex_ a,  struct _complex_ b) {
         return r;
 }
 </code></pre>
-<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+<pre><code class="c">#include &lt;stdio.h&gt;
 /**** QUESTIONS/TASKS ********
  * Compile and execute the code. 
  * 1. Why does the value of 'y' changes after the call to sum()?
@@ -599,8 +582,9 @@ struct _complex_ * sumC( struct _complex_* a,  struct _complex_* b) {
         return &amp;r;
 }
 </code></pre>
+
 <h2 id="strings">Strings</h2>
-<pre><code class="language-c">#include &lt;stdio.h&gt;
+<pre><code class="c">#include &lt;stdio.h&gt;
 #include &lt;string.h&gt;
 
 /**** QUESTIONS/TASKS ********
@@ -641,7 +625,8 @@ char msg2[28]=&quot;Hello&quot;;  /* msg2 = 'H' 'e' 'l' 'l' 'o' '\0' */
     printf(&quot;msg: %s, p: %s, msg2: %s\n&quot;,msg,p,msg2);
 }
 </code></pre>
-<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+<pre><code class="c">#include &lt;stdio.h&gt;
 #include &lt;string.h&gt;
 
 /**** QUESTIONS/TASKS ********
@@ -685,8 +670,9 @@ int main() {
     //mod(cad1,cad1);
 }
 </code></pre>
+
 <h2 id="bitwaise-operations">Bitwaise operations</h2>
-<pre><code class="language-c">#include &lt;stdio.h&gt;
+<pre><code class="c">#include &lt;stdio.h&gt;
 
 /**** QUESTIONS/TASKS ********
  * Compile and execute the code. 
@@ -728,7 +714,8 @@ int main() {
     printf(&quot;bits 4-3-2 of %x: %x\n&quot;,a,c);   
 }
 </code></pre>
-<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+<pre><code class="c">#include &lt;stdio.h&gt;
 
 /**** QUESTIONS/TASKS ********
  * Compile and execute the code. 
@@ -756,7 +743,6 @@ int main() {
     printf(&quot;a = %x. Address pointed by p:%p \n&quot;,a,p);
 }
 </code></pre></div>
-            </div>
         </div>
 
         <footer class="col-md-12">
@@ -770,32 +756,35 @@ int main() {
         <script src="../../../js/base.js" defer></script>
         <script src="../../../search/main.js" defer></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
             </div>
             <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
                     <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
                     </div>
                 </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+                <div id="mkdocs-search-results"></div>
             </div>
             <div class="modal-footer">
             </div>
         </div>
     </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
             </div>
             <div class="modal-body">
               <table class="table">
@@ -833,3 +822,8 @@ int main() {
 
     </body>
 </html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2022-01-18 12:48:24
+-->
