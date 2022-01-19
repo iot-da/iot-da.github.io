@@ -50,12 +50,12 @@ link](https://api.socrative.com/rc/Yu9Dx).
 
 | Day/Month | Topic                                                                                                 | Lab instructions                   | Deliverable                                 |
 |:---------:|-------------------------------------------------------------------------------------------------------|------------------------------------|---------------------------------------------|
-|   18/01   | [Basic Concepts (I)](slides/Intro1.pdf)                                                               |                                    | [Assignment 1](Assignments/1.md)            |
-|   20/01   | [Basic Concepts (II)](slides/Intro2.pdf), [TCP/UDP](slides/TCPUDP.pdf)                                |                                    | [Quiz](https://api.socrative.com/rc/Yu9Dx)  |
-|   25/01   | Lab 1. TCP/UDP sockets (Linux)                                                                        | [Lab 1. instructions](P1/index.md) | [Assignment 2](Assignments/2.md)            |
+|   18/01   | [Basic Concepts (I)](slides/Intro1.pdf)                                                               |                                    |                                             |
+|   20/01   | [Basic Concepts (II)](slides/Intro2.pdf)                                                              |                                    | [Assignment 1](Assignments/1.md)            |
+|   25/01   | [TCP/UDP](slides/TCPUDP.pdf), Lab 1. TCP/UDP sockets (Linux)                                          | [Lab 1. instructions](P1/index.md) |                                             |
 |   27/01   | Lab 1. TCP/UDP sockets (Linux)                                                                        | [Lab 1. instructions](P1/index.md) | [Quiz](https://api.socrative.com/rc/Yu9Dx)  |
-|   01/02   | Week off (Chinese new year)                                                                           |                                    |                                             |
-|   03/02   | Week off (Chinese new year)                                                                           |                                    |                                             |
+|   01/02   | *Week off (Chinese new year)*                                                                         |                                    |                                             |
+|   03/02   | *Week off (Chinese new year)*                                                                         |                                    |                                             |
 |   08/02   | [TLS and DTLS](slides/TLSDTLS.pdf), [Websockets](slides/Websockets.pdf)                               |                                    | [Quiz](https://api.socrative.com/rc/Yu9Dx)  |
 |   10/02   | Lab 2. TCP/UDP sockets (ESP32)                                                                        | [Lab 2. instructions](P2/index.md) |                                             |
 |   15/02   | Lab 2. TCP/UDP sockets (ESP32)                                                                        | [Lab 2. instructions](P2/index.md) |                                             |
