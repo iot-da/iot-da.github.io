@@ -2,7 +2,54 @@
 
 ## Description and rules
 
-TODO.
+The Final Project is an individual work that aims at demonstrating
+that the student has acquired the necessary knowledge and skills 
+associated to the Master's Degree, and it will be developed 
+**individually** under the supervision of one or more professors.
+
+The content proposal of each project will depend on the specific
+selected topic, and they will range from designing and developing
+a specific IoT application/deployment, service or system within
+the field of Internet of Things, specifically targeting in depth 
+one or more of the topics studied in the subjects of the course.
+The works will cover in detail topics related with hardware and
+software integration for IoT, data analysis, or theoretical studies
+of the state-of-the-art in the IoT field.
+
+The project will allow the student to relate practical aspects
+and professional issues with the topics covered within the development
+of one or more of the subjects covered in the Master, adapted to the
+interests of the student. 
+
+The Advisor will define the topic and tasks to fulfill, and will guide
+the student throughout the development of the work and the goals to
+achieve. He/she will organize activities to control the correct
+development of the work.
+
+The evaluation of the Project will be carried out by a Committee that
+will be composed by professors of the different subjects. In order
+to defend the work, the student will need to pass all the subjects in
+the Master, and he/she will need a signed agreement from the Advisor
+stating his/her consent to proceed with the defense. This consent report
+will include all the considerations necessary to help the Committee
+evaluating the developed work. 
+
+The students will present a report written in English, that will include,
+at least, an Introduction, Goal description and Work Plan, together
+with a critical discussion of the develped work and results, conclusions
+and related bibliography. The defense of the work will be carried out
+through an online presentation, and the Committee will evaluate the 
+quality of the report and the defense to obtain the final grade of the
+work.
+
+In the following, we propose a number of topics proposed by professors
+covering topics of interest. Even though several students can share 
+a common proposal, the work need to be original and developed individually.
+Plagiarism (from other students or third parties) will determine a fail
+in the final grade of the work.
+
+The dates and mechanisms to deliver the final report and to proceed with
+the defense will be announced with enough time before the deadline.
 
 ## Proposals
 
@@ -25,7 +72,7 @@ The goal is to predict the pollution in a particular point of a city for the nex
 
 ### Proposal 2
 
-* Title: Machine Learning Ensamble Methods
+* Title: *Machine Learning Ensamble Methods*
 * Description:
 
 The ensemble Methods combine several "weak learners" to build a more efficient method. The main goal is to implement in Spark the three main Methods (bagging, stacking and Boosting). On particular the project will include:
