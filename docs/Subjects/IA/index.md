@@ -29,7 +29,7 @@ The groups are the same as for NP1, please check them [here](groups.md)
 | Day/Month | Topic                                                                      | Deliverable                        | Quizz                                       |
 |:---------:|----------------------------------------------------------------------------|------------------------------------|---------------------------------------------|
 |   18/01   | [Introduction](slides/Intro.pdf)     |                                    |                                             |
-|   19/01   | Math recap for AI and NumPy, [Jupyter notebook](jupyter/01_numpy.ipynb), [Sample image](misc/Sample_abc.jpg)|                                             |
+|   19/01   | Math recap for AI and NumPy, [Jupyter excercises](jupyter/01_numpy.ipynb), [Sample image](misc/Sample_abc.jpg), [Jupyter classroom notes](jupyter/01_classroom.ipynb)|                                             |
 |   25/01   | Neural Networks 1                                                          |                                    |                                             |
 |   26/01   | Neutal Networks 2                                                          |                                    |                                             |
 |   08/02   |                                                                            |                                    |                                             |
