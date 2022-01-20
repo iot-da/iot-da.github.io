@@ -132,3 +132,16 @@ help in some aspect of healthcare.
 * Professor: Iván García-Magariño García 
 
 * Available slots: 6
+
+### Proposal 5
+
+* Title: *OpenData iniciatives in China: situation, perspectives and use cases*
+* Description:
+
+OpenData initiatives pursue offering data sources in an open, royalty-free and accessible manner. It follows a similar philosophy as that of Open Source or Open Hardware, and aims at facilitating data analysis to the community taken from official channels, both from Local or National Goverments, or from companies.
+
+The goal of the project is two-fold: first, to provide a global, in-depth study and discussion of the OpenData initiatives in China, both from the Government and from Private Companies; second, to select a set of realistic use cases to perform specific data analysis oriented to real-world applications, mainly based on or with appication to the IoT paradigm. 
+
+* Professors: Francisco Igual and J. Ignacio Gómez
+
+* Available slots: 6
