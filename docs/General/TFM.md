@@ -1,5 +1,11 @@
 # Final project proposals
 
+## Important dates
+
+- Deadline for topic selection: XX/XX.
+- Deadline for advisor agreement for defense: XX/XX.
+- Final defense: XX/XX.
+
 ## Description and rules
 
 The Final Project is an individual work that aims at demonstrating
@@ -51,6 +57,10 @@ in the final grade of the work.
 The dates and mechanisms to deliver the final report and to proceed with
 the defense will be announced with enough time before the deadline.
 
+Each student will contact the advisor stating his/her interest in a 
+specific proposal with free student slots before the deadline stated
+at the beginning of this page.
+
 ## Proposals
 
 ### Proposal 1
@@ -59,12 +69,12 @@ the defense will be announced with enough time before the deadline.
 * Description:
 
 The goal is to predict the pollution in a particular point of a city for the next few hours. The prediction will take as input from the data collected by sensors of air pollution and number of vehicles. We will train different models and evaluate the results to choose the best predictions in each case. The project includes:
-  - Basic data management to prepare the data
-  - Basic statistics to understand the data and detect outliers
-  - Clustering for selecting days with similar pollution/traffic conditions
-  - Feature selection
-  - Hiperparameter tunning
-  - Model Selection
+    - Basic data management to prepare the data
+    - Basic statistics to understand the data and detect outliers
+    - Clustering for selecting days with similar pollution/traffic conditions
+    - Feature selection
+    - Hiperparameter tunning
+    - Model Selection
 
 * Requirements: good programming skills.
 * Professor: Rafael Caballero Roldán.
@@ -76,9 +86,10 @@ The goal is to predict the pollution in a particular point of a city for the nex
 * Description:
 
 The ensemble Methods combine several "weak learners" to build a more efficient method. The main goal is to implement in Spark the three main Methods (bagging, stacking and Boosting). On particular the project will include:
-  - A complete description of the tecniques
-  - A Spark function implementing then
-  - A benchmark using some datasets of the course to compare their efficiency
+
+    - A complete description of the tecniques
+    - A Spark function implementing then
+    - A benchmark using some datasets of the course to compare their efficiency
 
 * Requirements: good programming skills.
 * Professor: Rafael Caballero Roldán.
