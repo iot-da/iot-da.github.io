@@ -1,6 +1,6 @@
 # Groups for lecture assignments
 
-We will be using the stable groups from NP2 to work during lectures (and after
+We will be using the stable groups from NP1 to work during lectures (and after
 class).
 
 
@@ -54,19 +54,20 @@ class).
 |-------------|---------------|
 | Speaker     | ZHOU Ping     |
 | Speaker (2) | LIAO  Yinghua |
-| Recorder    | ZHAO Yan      |
-| Auditor     | HE Yongtao    |
-| Contributor | PAN Jiayun    |
-| Contributor | Zhao	 Hu   |
-| Contributor | ZHANG  Yi     |
+| Recorder    | PAN Jiayun    |
+| Auditor     | ZHANG  Yi     |
+| Contributor | Shuishi Zhou  |
+| Contributor | Yang Chu      |
 
 
 ## Group 6
 | Rol         | Full name        |
 |-------------|------------------|
 | Speaker     | Xiaolan Li       |
-| Recorder    | Qiuji Chen       |
-| Auditor     | Xionglan Luo     |
+| Recorder    | Xionglan Luo     |
+| Auditor     | Qiuji Chen       |
 | Contributor | Jianchuang Zhang |
-| Contributor | Shuishi Zhou         |
-| Contributor | Yang Chu             |
+| Contributor | Yan Zhao         |
+| Contributor | Yongtao He       |
+| Contributor | Zhao Hu          |
+

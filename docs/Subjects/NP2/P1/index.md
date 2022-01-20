@@ -338,12 +338,12 @@ interface we need to intercept. In our case, as we are communicating
 two processes on the same machine, we will choose the  
 *Loopback* (lo) interface and we will start the capture.
 
-!!! note "Task"
+!!! note "Task 1.1"
     Start wireshark and prepare a capture on the *loopback* interface. 
     Execute the TCP *echo* server and the corresponding client, and analyze
     the generated traffic. Specifically, observe the connection establishment
     procedure, use of ACK packages and, in general any other aspect that is of
-    your interest.
+    your interest. **Write a short report with screenshots of your observations.**
 
 ## UDP sockets
 
@@ -393,8 +393,9 @@ destination address. Data sent through the socket must be part of a bytes array
 de un *array de bytes* (hence, the string to submit needs to be preceeded by
 the character `b`).
 
-!!! note "Task"
+!!! note "Task 1.2"
     Check that the codes for sending and receiving via UDP work as expected.
+    **Write a short report with your observations**
 
 !!! warning "Note"
     From version 3 on, strings in Python are coded using UNICODE.
@@ -422,7 +423,7 @@ Up to this point, the UDP programs have been completely unidirectional in the
 submission/reception of data, but obviously, a UDP socket is a bi-directional
 communication channel.
 
-!!! note "Task"
+!!! note "Task 1.3"
     Implement a similar functionality than that of the *echo* that we 
     studied for TCP, but using UDP. Provide a traffic capture via Wireshark
     and observe the differences between the data transmission in TCP and UDP.
@@ -530,14 +531,14 @@ while True:
         connection.close()
 ```
 
-!!! note "Task"
+!!! note "Task 1.4"
     Execute the client/server system and analyze the generated traffic. Look for 
     the binary packed data. Experiment with other types of data and *endianness*
     and observe the differences.
 
 ## Deliverable task
 
-!!! danger "Deliverable task"
+!!! danger "Deliverable task 1"
     Design a client/server system and implement it using Python. The system
     will simulate a client sending a number of pieces of data sensed to a server.
     The protocol to use (format of each packet sent to the server at the application
@@ -547,9 +548,9 @@ while True:
     both in ths sent data and responses from the server. 
     The student will develop a TCP and a UDP version of the solution. The client will submit data in a periodic fashion, and data will be generated randomly.
 
-    The deliverable will include the developed codes, and an analysis of the generated
+    **The deliverable will include the developed codes, and an analysis of the generated
     traffic, with comments about the overhead (in bytes) introduced by each protocol
-    of the transport layer.
+    of the transport layer.**
 
 ## Multi-threaded client/server example
 
@@ -627,21 +628,21 @@ while True:
 client.close()
 ```
 
-!!! note "Task"
+!!! note "Task 1.5"
     Study the codes for the concurrent server and observe how it manages
     the creaton of threads to handle an incoming request. Connect simultaneously
     multiple clients and observe the status of the sockets using the corresponding 
-    tools.
+    tools. **Write a short report with your observations**.
 
 ## Optional deliverable
 
-!!! danger "Optional deliverable task"
+!!! danger "Optional deliverable task 1"
     Modify your first deliverable to consider a multi-threaded implmentation
     of the TCP server, following the guidelines of the example codes.
 
 ## Optional deliverable
 
-!!! danger "Tarea entregable opcional"
+!!! danger "Optional deliverable task 1"
     Modify the sending protocol so that your UDP applications guarantees
     as much as possible the reception of UDP packages sent from the client,
     and an in-order reception.
