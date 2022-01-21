@@ -2,64 +2,80 @@
 
 ## Important dates
 
-- Deadline for topic selection: XX/XX.
-- Deadline for advisor agreement for defense: XX/XX.
-- Final defense: XX/XX.
+- Deadline for proposal selection: TBD.
+- Deadline for advisor agreement for defense: TBD.
+- Deadline for final deliverables: TBD.
+- Final defense: TBD.
 
 ## Description and rules
 
-The Final Project is an individual work that aims at demonstrating
+The Final Project is a research or development work that aims at demonstrating
 that the student has acquired the necessary knowledge and skills 
 associated to the Master's Degree, and it will be developed 
-**individually** under the supervision of one or more professors.
+**in groups of two/three students** under the supervision of one 
+or more professors.
 
-The content proposal of each project will depend on the specific
+The contents to develop for each project proposal will depend on the specific
 selected topic, and they will range from designing and developing
 a specific IoT application/deployment, service or system within
-the field of Internet of Things, specifically targeting in depth 
-one or more of the topics studied in the subjects of the course.
-The works will cover in detail topics related with hardware and
-software integration for IoT, data analysis, or theoretical studies
-of the state-of-the-art in the IoT field.
+the field of Internet of Things, or theoretical in-depth 
+studies of state-of-the-art topics related with IoT. 
+In all cases, the contents will extend and integrate knowledge 
+and skills studied throughout the different subjects.
 
-The project will allow the student to relate practical aspects
+The project will allow the students to relate practical aspects
 and professional issues with the topics covered within the development
 of one or more of the subjects covered in the Master, adapted to the
 interests of the student. 
 
 The Advisor will define the topic and tasks to fulfill, and will guide
-the student throughout the development of the work and the goals to
+the students throughout the development of the work and the goals to
 achieve. He/she will organize activities to control the correct
 development of the work.
 
+### Evaluation
+
 The evaluation of the Project will be carried out by a Committee that
 will be composed by professors of the different subjects. In order
-to defend the work, the student will need to pass all the subjects in
+to defend the work, the students will need to pass all the subjects in
 the Master, and he/she will need a signed agreement from the Advisor
 stating his/her consent to proceed with the defense. This consent report
-will include all the considerations necessary to help the Committee
-evaluating the developed work. 
+will include all the considerations necessary to assist the Committee
+in the evaluation of the work. 
 
 The students will present a report written in English, that will include,
-at least, an Introduction, Goal description and Work Plan, together
+at least, an introduction, goal description and work plan (including a
+task distribution among members of the group), together
 with a critical discussion of the develped work and results, conclusions
 and related bibliography. The defense of the work will be carried out
-through an online presentation, and the Committee will evaluate the 
-quality of the report and the defense to obtain the final grade of the
-work.
+in two stages:
+
+1. Video presentation delivered before the final deadline.
+2. Public live session in which the members of the Committe will share with 
+the students the necessary questions and comments that help evaluating the 
+developed work.
 
 In the following, we propose a number of topics proposed by professors
-covering topics of interest. Even though several students can share 
-a common proposal, the work need to be original and developed individually.
+covering topics of interest. Up to two groups of 2/3 students can select
+each project. This selection will be communicated to the professor in charge
+copying José Ignacio Gómez (jigomez@ucm.es) and Francisco Igual (figual@ucm.es).
+
+The work needs to be original and developed in groups of 2/3 students, clearly
+defining the tasks to develop by each member of the group, in a balanced fashion.
 Plagiarism (from other students or third parties) will determine a fail
 in the final grade of the work.
 
+### Deliverables
+
+Each group will deliver three evidences of the developed work before the final
+deadline:
+
+- Report in PDF format.
+- Presentation video of up to 30 mins. of duration.
+- Developed code (if applicable).
+
 The dates and mechanisms to deliver the final report and to proceed with
 the defense will be announced with enough time before the deadline.
-
-Each student will contact the advisor stating his/her interest in a 
-specific proposal with free student slots before the deadline stated
-at the beginning of this page.
 
 ## Proposals
 
@@ -69,16 +85,17 @@ at the beginning of this page.
 * Description:
 
 The goal is to predict the pollution in a particular point of a city for the next few hours. The prediction will take as input from the data collected by sensors of air pollution and number of vehicles. We will train different models and evaluate the results to choose the best predictions in each case. The project includes:
-    - Basic data management to prepare the data
-    - Basic statistics to understand the data and detect outliers
-    - Clustering for selecting days with similar pollution/traffic conditions
-    - Feature selection
-    - Hiperparameter tunning
-    - Model Selection
+
+    * Basic data management to prepare the data
+    * Basic statistics to understand the data and detect outliers
+    * Clustering for selecting days with similar pollution/traffic conditions
+    * Feature selection
+    * Hiperparameter tunning
+    * Model Selection
 
 * Requirements: good programming skills.
 * Professor: Rafael Caballero Roldán.
-* Available slots: 6
+* Available slots: 2 groups
 
 ### Proposal 2
 
@@ -87,13 +104,13 @@ The goal is to predict the pollution in a particular point of a city for the nex
 
 The ensemble Methods combine several "weak learners" to build a more efficient method. The main goal is to implement in Spark the three main Methods (bagging, stacking and Boosting). On particular the project will include:
 
-    - A complete description of the tecniques
-    - A Spark function implementing then
-    - A benchmark using some datasets of the course to compare their efficiency
+    * A complete description of the tecniques
+    * A Spark function implementing then
+    * A benchmark using some datasets of the course to compare their efficiency
 
 * Requirements: good programming skills.
 * Professor: Rafael Caballero Roldán.
-* Available slots: 6
+* Available slots: 2 groups
 
 ### Proposal 3
 
@@ -114,7 +131,7 @@ being advices based on information from IoT devices.
 
 * Professor: Iván García-Magariño García 
 
-* Available slots: 6
+* Available slots: 2 groups
 
 ### Proposal 4
 
@@ -131,7 +148,7 @@ help in some aspect of healthcare.
 
 * Professor: Iván García-Magariño García 
 
-* Available slots: 6
+* Available slots: 2 groups
 
 ### Proposal 5
 
@@ -144,11 +161,14 @@ The goal of the project is two-fold: first, to provide a global, in-depth study 
 
 * Professors: Francisco Igual and J. Ignacio Gómez
 
-* Available slots: 6
+* Requirements: recommended, but not mandatory, basic programming skills.
+
+* Available slots: 2 groups
 
 ### Proposal 6
 
 * Title: *SmartCities: requirements, infrastructure and use cases*
+
 * Description:
 
 We have been using the term *Smart Cities* for many years now, but it still looks like a *to be defined* concept. There are many flavours in Smart Cities initiatives and many actors that play different roles in the process of implementing them.  Focusing on IoT, there is always a need to deploy an infrastructure that may represent a huge economical investment with some return expected (economic, social...).
@@ -157,7 +177,9 @@ The goal of this project is to deep into the idea of Smart Cities, starting with
 
 * Professors: Francisco Igual and J. Ignacio Gómez
 
-* Available slots: 6
+* Requirements: no programming skills necessary.
+
+* Available slots: 2 groups
 
 
 ### Proposal 7
@@ -180,7 +202,9 @@ The study should compare both implementations, trying to figure out the overhead
  
 * Professors: Francisco Igual and J. Ignacio Gómez
 
-* Available slots: 6
+* Requirements: good programming skills necessary.
+
+* Available slots: 2 groups
 
 
 
