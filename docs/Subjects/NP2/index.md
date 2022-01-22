@@ -53,7 +53,7 @@ link](https://api.socrative.com/rc/Yu9Dx).
 |   18/01   | [Basic Concepts (I)](slides/Intro1.pdf)                                                               |                                    |                                             |
 |   20/01   | [Basic Concepts (II)](slides/Intro1.pdf)                                                              |                                    | [Assignment 1](Assignments/1.md)            |
 |   25/01   | [IP and TCP/UDP](slides/Intro2.pdf), Lab 1. TCP/UDP sockets (Linux)                                   | [Lab 1. instructions](P1/index.md) |                                             |
-|   27/01   | Lab 1. TCP/UDP sockets (Linux)                                                                        | [Lab 1. instructions](P1/index.md) | [Quiz](https://api.socrative.com/rc/Yu9Dx)  |
+|   27/01   | Lab 1. TCP/UDP sockets (Linux)                                                                        | [Lab 1. instructions](P1/index.md) |                                             |
 |   01/02   | *Week off (Chinese new year)*                                                                         |                                    |                                             |
 |   03/02   | *Week off (Chinese new year)*                                                                         |                                    |                                             |
 |   08/02   | [TLS and DTLS](slides/TLSDTLS.pdf), [Websockets](slides/Websockets.pdf)                               |                                    | [Quiz](https://api.socrative.com/rc/Yu9Dx)  |
