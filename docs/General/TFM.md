@@ -2,17 +2,17 @@
 
 ## Important dates
 
-- Deadline for proposal selection: TBD.
-- Deadline for advisor agreement for defense: TBD.
-- Deadline for final deliverables: TBD.
-- Final defense: TBD.
+- Deadline for proposal selection: **February 10**
+- Deadline for proposal notifications: **February 17**
+- Deadline for final deliverables (PDF report, video presentation and supplementary material): **June 27**
+- Final defenses: **July 11-15**
 
 ## Description and rules
 
 The Final Project is a research or development work that aims at demonstrating
 that the student has acquired the necessary knowledge and skills 
 associated to the Master's Degree, and it will be developed 
-**in groups of two/three students** under the supervision of one 
+**in groups of three students** under the supervision of one 
 or more professors.
 
 The contents to develop for each project proposal will depend on the specific
@@ -33,6 +33,8 @@ the students throughout the development of the work and the goals to
 achieve. He/she will organize activities to control the correct
 development of the work.
 
+The estimated amount of time for each student is **300 hours of personal work**.
+
 ### Evaluation
 
 The evaluation of the Project will be carried out by a Committee that
@@ -47,23 +49,27 @@ The students will present a report written in English, that will include,
 at least, an introduction, goal description and work plan (including a
 task distribution among members of the group), together
 with a critical discussion of the develped work and results, conclusions
-and related bibliography. The defense of the work will be carried out
-in two stages:
+and related bibliography. The suggested length of the report is
+**50 pages**.
+
+The defense of the work will be carried out in two stages:
 
 1. Video presentation delivered before the final deadline.
 2. Public live session in which the members of the Committe will share with 
 the students the necessary questions and comments that help evaluating the 
-developed work.
+developed work. Questions will be addressed in general to all members of 
+the group, and also specifically to each member of the group.
 
 In the following, we propose a number of topics proposed by professors
-covering topics of interest. Up to two groups of 2/3 students can select
-each project. This selection will be communicated to the professor in charge
-copying José Ignacio Gómez (jigomez@ucm.es) and Francisco Igual (figual@ucm.es).
+covering topics of interest. Up to two groups of 3 students can select
+each project. This selection will be communicated to 
+José Ignacio Gómez (jigomez@ucm.es) and Francisco Igual (figual@ucm.es) by mail
+**before February 10**.
 
-The work needs to be original and developed in groups of 2/3 students, clearly
+The work needs to be original and developed in groups of 3 students, clearly
 defining the tasks to develop by each member of the group, in a balanced fashion.
 Plagiarism (from other students or third parties) will determine a fail
-in the final grade of the work.
+in the final grade of the work for all members of the group.
 
 ### Deliverables
 
