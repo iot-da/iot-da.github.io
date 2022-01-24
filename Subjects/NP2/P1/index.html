@@ -4,89 +4,97 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+        <meta name="description" content="None">
         
         <link rel="canonical" href="https://iot-da.github.io/Subjects/NP2/P1/">
         <link rel="shortcut icon" href="../../../img/favicon.ico">
-        <title>Laboratory 1. Python socket programming - Internet of Things and Data Analytics</title>
-        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <title>Internet of Things and Data Analytics</title>
+        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../../css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
 
         <script src="../../../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+    <body class="homepage">
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
-                <a class="navbar-brand" href="../../..">Internet of Things and Data Analytics</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../../..">Internet of Things and Data Analytics</a>
+                </div>
 
                 <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
+                <div class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li class="navitem">
-                                <a href="../../.." class="nav-link">Home</a>
+                            <li >
+                                <a href="../../..">Home</a>
                             </li>
-                            <li class="navitem">
-                                <a href="../../../General/" class="nav-link">General info.</a>
+                            <li >
+                                <a href="../../../General/">General info.</a>
                             </li>
-                            <li class="navitem">
-                                <a href="../../../News/" class="nav-link">News</a>
+                            <li >
+                                <a href="../../../News/">News</a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
-<li>
-    <a href="../../IOTNA/" class="dropdown-item">IOTNA</a>
+<li >
+    <a href="../../IOTNA/">IOTNA</a>
 </li>
                                     
-<li>
-    <a href="../../MDM/" class="dropdown-item">MDM</a>
+<li >
+    <a href="../../MDM/">MDM</a>
 </li>
                                     
-<li>
-    <a href="../../SID/" class="dropdown-item">SID</a>
+<li >
+    <a href="../../SID/">SID</a>
 </li>
                                     
-<li>
-    <a href="../../IA/" class="dropdown-item">IA</a>
+<li >
+    <a href="../../IA/">IA</a>
 </li>
                                     
-<li>
-    <a href="../../NP1/" class="dropdown-item">NP1</a>
+<li >
+    <a href="../../NP1/">NP1</a>
 </li>
                                     
-<li>
-    <a href="../" class="dropdown-item">NP2</a>
+<li >
+    <a href="../">NP2</a>
 </li>
                                     
-<li>
-    <a href="../../SEC/" class="dropdown-item">SEC</a>
+<li >
+    <a href="../../SEC/">SEC</a>
 </li>
                                     
-<li>
-    <a href="../../EDGE/" class="dropdown-item">EDGE</a>
+<li >
+    <a href="../../EDGE/">EDGE</a>
 </li>
                                 </ul>
                             </li>
-                            <li class="navitem">
-                                <a href="../../../Contact/" class="nav-link">Contact</a>
+                            <li >
+                                <a href="../../../Contact/">Contact</a>
                             </li>
                         </ul>
 
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
@@ -96,82 +104,26 @@
         </div>
 
         <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
-
-    
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-light">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-level="1"><a href="#laboratory-1-python-socket-programming" class="nav-link">Laboratory 1. Python socket programming</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#goals" class="nav-link">Goals</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#introduction" class="nav-link">Introduction</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#the-python-sockets-api" class="nav-link">The Python sockets API</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#tcp-sockets" class="nav-link">TCP sockets</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#tcp-clientserver-echo-example" class="nav-link">TCP client/server echo example</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#echo-client-and-server-execution" class="nav-link">Echo client and server execution</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#tools-to-analyze-the-socket-status" class="nav-link">Tools to analyze the socket status</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#capturing-network-traffic-via-wireshark" class="nav-link">Capturing network traffic via Wireshark</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#udp-sockets" class="nav-link">UDP sockets</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#sending-binary-data-via-sockets" class="nav-link">Sending binary data via sockets</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#deliverable-task" class="nav-link">Deliverable task</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#multi-threaded-clientserver-example" class="nav-link">Multi-threaded client/server example</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#optional-deliverable" class="nav-link">Optional deliverable</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#optional-deliverable_1" class="nav-link">Optional deliverable</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-        </ul>
-    </div>
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#laboratory-1-python-socket-programming">Laboratory 1. Python socket programming</a></li>
+            <li><a href="#goals">Goals</a></li>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#the-python-sockets-api">The Python sockets API</a></li>
+            <li><a href="#tcp-sockets">TCP sockets</a></li>
+            <li><a href="#tcp-clientserver-echo-example">TCP client/server echo example</a></li>
+            <li><a href="#echo-client-and-server-execution">Echo client and server execution</a></li>
+            <li><a href="#tools-to-analyze-the-socket-status">Tools to analyze the socket status</a></li>
+            <li><a href="#capturing-network-traffic-via-wireshark">Capturing network traffic via Wireshark</a></li>
+            <li><a href="#udp-sockets">UDP sockets</a></li>
+            <li><a href="#sending-binary-data-via-sockets">Sending binary data via sockets</a></li>
+            <li><a href="#deliverable-task">Deliverable task</a></li>
+            <li><a href="#multi-threaded-clientserver-example">Multi-threaded client/server example</a></li>
+            <li><a href="#optional-deliverable">Optional deliverable</a></li>
+            <li><a href="#optional-deliverable_1">Optional deliverable</a></li>
+    </ul>
 </div></div>
-                    <div class="col-md-9" role="main">
+                <div class="col-md-9" role="main">
 
 <h1 id="laboratory-1-python-socket-programming">Laboratory 1. Python socket programming</h1>
 <h2 id="goals">Goals</h2>
@@ -271,7 +223,7 @@ the <em>three-way handshaking</em> protocol to establish the connection.</p>
 the server just responds to the client with the same string as that received
 from the client.</p>
 <h3 id="echo-server"><em>echo</em> server</h3>
-<pre><code class="language-python">#!/usr/bin/env python3
+<pre><code class="python">#!/usr/bin/env python3
 
 #### server_echo.py
 
@@ -292,6 +244,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 break
             conn.sendall(data)
 </code></pre>
+
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>By now, do not worry if you do not understand all lines in the code. This
@@ -304,22 +257,24 @@ afterwards.</p>
 via a <code>with</code> construction, it is not necessary to explicitly invoke
 to <code>s.close()</code>, even though you need to realize that the object is destroyed
 after the construction:</p>
-<pre><code class="language-python">with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+<pre><code class="python">with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     pass
 </code></pre>
+
 <p>The arguments provided to <code>socket()</code> specify the address family 
 (<code>AF_INET</code>) 
 and socket type (<code>SOCK_STREAM</code>). 
 <code>AF_INET</code> is the address family of the Internet for IPv4. 
 <code>SOCK_STREAM</code> is the type of socket that allows for the creation of TCP connections.</p>
 <p><code>bind()</code> is used to associate the socket to a network interface and port number:</p>
-<pre><code class="language-python">HOST = '127.0.0.1'  # Loopback interface (localhost)
+<pre><code class="python">HOST = '127.0.0.1'  # Loopback interface (localhost)
 PORT = 65432        # Listen port
 
 # ...
 
 s.bind((HOST, PORT))
 </code></pre>
+
 <p>The values proviede to <code>bind()</code> depend on the address family selected for the
 socket. In the example, as <code>AF_INET</code> is used, the routine
 expects a tuple with just two values <em>(host, port)</em>.</p>
@@ -336,9 +291,10 @@ ports (with values between 1 and 1023).</p>
 <p>Following with the example, <code>listen()</code> allows for a server to accept, in the future,
 incoming connections via <code>accept()</code>. In other words, it transforms the socket into a
 listening socket:</p>
-<pre><code class="language-python">s.listen()
+<pre><code class="python">s.listen()
 conn, addr = s.accept()
 </code></pre>
+
 <p>Invoking <code>accept()</code> <strong>blocks</strong> the process and waits for an incoming connection.
 Upon a client connection, it returns a <code>socket</code> object that represents
 the connection, and a tupple (<code>addr</code>) that contains the address of the client.
@@ -346,7 +302,7 @@ This tuple contains the values <code>(host, port)</code> that store the
 IPv4 adress and client port that requests for the connection.</p>
 <p>Note that, in the example, <code>conn</code>  is the <em>socket</em> object that we will 
 use to communicate with the client:</p>
-<pre><code class="language-python">conn, addr = s.accept()
+<pre><code class="python">conn, addr = s.accept()
 with conn:
     print('Connected ', addr)
     while True:
@@ -355,6 +311,7 @@ with conn:
             break
         conn.sendall(data)
 </code></pre>
+
 <p>After obtaining the object returned by <code>accept()</code>, 
 we design the server as an infinite loop that repeatedly invokes
 to <strong>blocking</strong> <code>conn.recv()</code>. 
@@ -366,7 +323,7 @@ the socket after the <code>with</code> construction.</p>
 <h3 id="echo-client"><em>echo</em> client</h3>
 <p>Let us observe the general structure of the client (you can use, for example
 <code>client_echo.py</code> as a name for the file):</p>
-<pre><code class="language-python">#!/usr/bin/env python3
+<pre><code class="python">#!/usr/bin/env python3
 
 ### client_echo.py
 
@@ -382,6 +339,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 
 print('Received ', repr(data))
 </code></pre>
+
 <p>Compared with the server, the client structure is simpler; it just
 creates a new socket object, connects with the server and invokes 
 <code>s.sendall()</code> to send the message. Finally, it waits for the
@@ -390,21 +348,25 @@ response using <code>s.recv()</code> and prints it on screen.</p>
 <p>Next, we will execute the client and server programs to observe the
 status of the connection troughout their life cycle.</p>
 <p>Execute in a terminal the server:</p>
-<pre><code class="language-bash">$ python3 ./server-echo.py
+<pre><code class="bash">$ python3 ./server-echo.py
 </code></pre>
+
 <p>You will see that the terminal blocks (actually, the server process remains in 
 a blocked state) in the invocation:</p>
-<pre><code class="language-python">conn, addr = s.accept()
+<pre><code class="python">conn, addr = s.accept()
 </code></pre>
+
 <p>Actually, the server is waiting for incoming connections from a client. Open
 a sencond terminal and execute the client:</p>
-<pre><code class="language-bash">$ python3 client-echo.py
+<pre><code class="bash">$ python3 client-echo.py
 Received 'Hello, world'
 </code></pre>
+
 <p>On the server screen, you should see something similar to:</p>
-<pre><code class="language-bash">$ python3 ./server-echo.py
+<pre><code class="bash">$ python3 ./server-echo.py
 Connected ('127.0.0.1, 61234')
 </code></pre>
+
 <p>In this output, the server reports the tuple returned by 
 <code>s.accept()</code>, that includes the IP address and the TCP port. 
 That port number (in the example, 61234) is seleted randomly 
@@ -414,11 +376,12 @@ by the operating system and can vary in your execution.</p>
 sockets in any OS (macOS, Linux and even Windows). 
 For example, this would be the output of <code>netstat</code> in Linux
 after executing the server:</p>
-<pre><code class="language-bash">netstat -an | grep 65432
+<pre><code class="bash">netstat -an | grep 65432
 Active connections
 Proto  Recv  Sent   Local address           Remote address         Status
 tcp        0      0 127.0.0.1:65432         0.0.0.0:*              LISTEN
 </code></pre>
+
 <p>Note that we have filtered the output of the <code>netcat</code> command
 to match the used port. 
 Also observe the value of all columns, and try to understand if it makes sense
@@ -436,8 +399,9 @@ captures. However, in our case, it will not be necessary to use advanced
 filters.</p>
 <p>To execute the took in the virtual machine (or in any basic Linux setup), 
 just type in your terminal:</p>
-<pre><code class="language-bash">$ sudo wireshark
+<pre><code class="bash">$ sudo wireshark
 </code></pre>
+
 <p>Upon booting, we can start a new traffic capture via the 
 menu <code>Capture</code>, option <code>Start</code>. 
 The interface selection screen allows for the definition of the 
@@ -455,7 +419,7 @@ your interest. <strong>Write a short report with screenshots of your observation
 <h2 id="udp-sockets">UDP sockets</h2>
 <p>The creation and management of UDP sockets in Python is even simpler. Observe the
 following code, that creates a UDP server using the Python sockets API:</p>
-<pre><code class="language-python">import socket
+<pre><code class="python">import socket
 
 udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 udp_socket.bind((&quot;localhost&quot;, 5005))
@@ -463,6 +427,7 @@ udp_socket.bind((&quot;localhost&quot;, 5005))
 data = udp_socket.recv(512)
 print(data)
 </code></pre>
+
 <p>First, we import the <code>socket</code> module, as for TCP. Obviously, in this case
 the socket type is of type 
 <code>socket.DOCK_DGRAM</code>, to indicate that we need to use UDP in the communication.</p>
@@ -472,7 +437,7 @@ we would like to receive.</p>
 <p>When a packet arrives to the socket, the <code>recv</code> method will return 
 a byte <em>array</em>, that will be stored in the desired variable.</p>
 <p>The submission of data is also simple:</p>
-<pre><code class="language-python">import socket
+<pre><code class="python">import socket
 
 udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 udp_socket.bind((&quot;localhost&quot;, 0))
@@ -480,6 +445,7 @@ udp_socket.bind((&quot;localhost&quot;, 0))
 data = b&quot;Hello, world!&quot;
 udp_socket.sendto(data,(&quot;localhost&quot;, 5005))
 </code></pre>
+
 <p>Note how, in this case, we associate (<em>bind</em>) the socket to a port specifyed 
 as 0. This special value indicates to the OS that it needs to choos for the 
 transmission a random source port between those available in the system.</p>
@@ -535,8 +501,9 @@ other side of the communication channel.</p>
 </div>
 <p>The <code>struct</code> module provides two interesting methods: <code>pack</code> and <code>unpack</code>.</p>
 <p>The following sentence:</p>
-<pre><code class="language-python">struct.pack(&quot;&gt;iii&quot;, 1, 2, 3)
+<pre><code class="python">struct.pack(&quot;&gt;iii&quot;, 1, 2, 3)
 </code></pre>
+
 <p>uses the <code>pack</code> method to perform data packing. 
 Specifically, observe how the method receives two parameters:</p>
 <ul>
@@ -553,12 +520,13 @@ Specifically, observe how the method receives two parameters:</p>
 <p>Note that the format, in addition, includes the number and type of data to pack
 (in this case three integer values). For other data types, check the module's documentation.</p>
 <p>Unpacking data on the other side of the cahnnel is intuitive:</p>
-<pre><code class="language-python">a, b, c = struct.unpack( &quot;&gt;iii&quot; )
+<pre><code class="python">a, b, c = struct.unpack( &quot;&gt;iii&quot; )
 </code></pre>
+
 <p>Next, we show an example of a client/server TCP setup that leverages the
 <code>struct</code> to send two integer numbers and a floating point number between a client
 and a server:</p>
-<pre><code class="language-python">
+<pre><code class="python">
 # Client
 
 import binascii                                                                             
@@ -582,7 +550,8 @@ finally:
     print('Closing socket')                                                                
     sock.close()                                                                            
 </code></pre>
-<pre><code class="language-python">
+
+<pre><code class="python">
 # Server
 
 import binascii                                                                             
@@ -609,6 +578,7 @@ while True:
     finally:                                                                                
         connection.close()
 </code></pre>
+
 <div class="admonition note">
 <p class="admonition-title">Task 1.4</p>
 <p>Execute the client/server system and analyze the generated traffic. Look for 
@@ -635,7 +605,7 @@ of the transport layer.</strong></p>
 of a basic functionality: the server stops attending new incoming requests while
 a request from a client is processed. The following examples show simple implementations
 with multi-threaded support for a client/server system written in Python.</p>
-<pre><code class="language-python"># Concurrent TCP server
+<pre><code class="python"># Concurrent TCP server
 
 import socket, threading
 
@@ -677,7 +647,8 @@ while True:
     newthread = ClientThread(clientAddress, clientsock)
     newthread.start()
 </code></pre>
-<pre><code class="language-python"># TCP client. The string *end* indicates disonnection request.
+
+<pre><code class="python"># TCP client. The string *end* indicates disonnection request.
 
 import socket
 
@@ -700,6 +671,7 @@ while True:
 
 client.close()
 </code></pre>
+
 <div class="admonition note">
 <p class="admonition-title">Task 1.5</p>
 <p>Study the codes for the concurrent server and observe how it manages
@@ -722,7 +694,6 @@ and an in-order reception.
 Analyze again the necessary network traffic in this case compared with a
 TCP scheme.</p>
 </div></div>
-            </div>
         </div>
 
         <footer class="col-md-12">
@@ -736,21 +707,21 @@ TCP scheme.</p>
         <script src="../../../js/base.js" defer></script>
         <script src="../../../search/main.js" defer></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
             </div>
             <div class="modal-body">
                 <p>
                     From here you can search these documents. Enter
                     your search terms below.
                 </p>
-                <form>
+                <form role="form">
                     <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
                     </div>
                 </form>
                 <div id="mkdocs-search-results"></div>
@@ -759,12 +730,12 @@ TCP scheme.</p>
             </div>
         </div>
     </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
             </div>
             <div class="modal-body">
               <table class="table">
@@ -802,3 +773,8 @@ TCP scheme.</p>
 
     </body>
 </html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2022-01-24 00:18:12
+-->
