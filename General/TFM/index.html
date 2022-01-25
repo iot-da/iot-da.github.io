@@ -9,92 +9,84 @@
         <link rel="canonical" href="https://iot-da.github.io/General/TFM/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
         <title>Final project proposals - Internet of Things and Data Analytics</title>
-        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
 
         <script src="../../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
     <body>
-
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-
-                <!-- Collapsed navigation -->
-                <div class="navbar-header">
-                    <!-- Expander button -->
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="../..">Internet of Things and Data Analytics</a>
-                </div>
+                <a class="navbar-brand" href="../..">Internet of Things and Data Analytics</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
                 <!-- Expanded navigation -->
-                <div class="navbar-collapse collapse">
+                <div id="navbar-collapse" class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li >
-                                <a href="../..">Home</a>
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
                             </li>
-                            <li >
-                                <a href="../">General info.</a>
+                            <li class="navitem">
+                                <a href="../" class="nav-link">General info.</a>
                             </li>
-                            <li >
-                                <a href="../../News/">News</a>
+                            <li class="navitem">
+                                <a href="../../News/" class="nav-link">News</a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
-<li >
-    <a href="../../Subjects/IOTNA/">IOTNA</a>
+<li>
+    <a href="../../Subjects/IOTNA/" class="dropdown-item">IOTNA</a>
 </li>
                                     
-<li >
-    <a href="../../Subjects/MDM/">MDM</a>
+<li>
+    <a href="../../Subjects/MDM/" class="dropdown-item">MDM</a>
 </li>
                                     
-<li >
-    <a href="../../Subjects/SID/">SID</a>
+<li>
+    <a href="../../Subjects/SID/" class="dropdown-item">SID</a>
 </li>
                                     
-<li >
-    <a href="../../Subjects/IA/">IA</a>
+<li>
+    <a href="../../Subjects/IA/" class="dropdown-item">IA</a>
 </li>
                                     
-<li >
-    <a href="../../Subjects/NP1/">NP1</a>
+<li>
+    <a href="../../Subjects/NP1/" class="dropdown-item">NP1</a>
 </li>
                                     
-<li >
-    <a href="../../Subjects/NP2/">NP2</a>
+<li>
+    <a href="../../Subjects/NP2/" class="dropdown-item">NP2</a>
 </li>
                                     
-<li >
-    <a href="../../Subjects/SEC/">SEC</a>
+<li>
+    <a href="../../Subjects/SEC/" class="dropdown-item">SEC</a>
 </li>
                                     
-<li >
-    <a href="../../Subjects/EDGE/">EDGE</a>
+<li>
+    <a href="../../Subjects/EDGE/" class="dropdown-item">EDGE</a>
 </li>
                                 </ul>
                             </li>
-                            <li >
-                                <a href="../../Contact/">Contact</a>
+                            <li class="navitem">
+                                <a href="../../Contact/" class="nav-link">Contact</a>
                             </li>
                         </ul>
 
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
@@ -104,15 +96,38 @@
         </div>
 
         <div class="container">
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#final-project-proposals">Final project proposals</a></li>
-            <li><a href="#important-dates">Important dates</a></li>
-            <li><a href="#description-and-rules">Description and rules</a></li>
-            <li><a href="#proposals">Proposals</a></li>
-    </ul>
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#final-project-proposals" class="nav-link">Final project proposals</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#important-dates" class="nav-link">Important dates</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#description-and-rules" class="nav-link">Description and rules</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#proposals" class="nav-link">Proposals</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
 </div></div>
-                <div class="col-md-9" role="main">
+                    <div class="col-md-9" role="main">
 
 <h1 id="final-project-proposals">Final project proposals</h1>
 <h2 id="important-dates">Important dates</h2>
@@ -252,7 +267,41 @@ help in some aspect of healthcare.</p>
 <li>Description:</li>
 </ul>
 <p>OpenData initiatives pursue offering data sources in an open, royalty-free and accessible manner. It follows a similar philosophy as that of Open Source or Open Hardware, and aims at facilitating data analysis to the community taken from official channels, both from Local or National Goverments, or from companies.</p>
-<p>The goal of the project is two-fold: first, to provide a global, in-depth study and discussion of the OpenData initiatives in China, both from the Government and from Private Companies; second, to select a set of realistic use cases to perform specific data analysis oriented to real-world applications, mainly based on or with appication to the IoT paradigm. </p>
+<p>The goal of the project is two-fold: first, to provide a global, in-depth study and discussion of the OpenData initiatives in China, both from the Government and from Private Companies; second, to select a set of realistic use cases to perform specific data analysis oriented to real-world applications, mainly based on or with application to the IoT paradigm. </p>
+<ul>
+<li>
+<p>Professors: Francisco Igual and J. Ignacio Gómez</p>
+</li>
+<li>
+<p>Available slots: 6</p>
+</li>
+</ul>
+<h3 id="proposal-6">Proposal 6</h3>
+<ul>
+<li>Title: <em>SmartCities: requirements, infrastructure and use cases</em></li>
+<li>Description:</li>
+</ul>
+<p>We have been using the term <em>Smart Cities</em> for many years now, but it still looks like a <em>to be defined</em> concept. There are many flavours in Smart Cities initiatives and many actors that play different roles in the process of implementing them.  Focusing on IoT, there is always a need to deploy an infrastructure that may represent a huge economical investment with some return expected (economic, social...).</p>
+<p>The goal of this project is to deep into the idea of Smart Cities, starting with a general description of its typical topics: smart mobility, smart buildings, smart grid (energy distribution and savings), smart health, water supply, waste disposal facilities...  The students will choose two of those topic and provide an in-depth study of the requirements (sensors, nodes, edge computing, servers...) including the deployment and maintenance process.  The study must include at least two examples of existing cities implementing initiatives in the topics chosen (one Chinese and one European city, if possible). There are many questions this study may answer: how is a given project improving the quality of life of the citizens? Who is paying the cost of the infrastructure? What is the expected "Return Of Investment" (ROI)? Will there be shared infrastructures? (i.e. companies that deploy a sensor network and rent it to other companies/public organisations as a "service")</p>
+<ul>
+<li>
+<p>Professors: Francisco Igual and J. Ignacio Gómez</p>
+</li>
+<li>
+<p>Available slots: 6</p>
+</li>
+</ul>
+<h3 id="proposal-7">Proposal 7</h3>
+<ul>
+<li>Title: <em>Building meshes with WiFi</em></li>
+<li>Description:</li>
+</ul>
+<p>ESP-IDF provides a proprietary protocol, called <em>ESP-WIFI-MESH</em>, that allows  numerous devices spread over a large physical area (both indoors and outdoors) to be interconnected under a single WLAN (Wireless Local-Area Network). ESP-WIFI-MESH is self-organizing and self-healing meaning the network can be built and maintained autonomously. <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/esp-wifi-mesh.html">You can find information about ESP-WIFI-MESH in this link</a>.</p>
+<p>Some of those nodes (but not necessarily all of them) may have access to a router (border router) that provides access to the internet. The far-away nodes (those outside the range of the router) may still connect to the internet asking the intermediate nodes to relay their transmissions.</p>
+<p>ESP-IDF also provides an API to access <em>Thread</em>, an IPv6-based mesh networking technology for IoT. Once again, it allows a mesh of nodes to gain access to the internet even if they are not close to a border router. <a href="https://openthread.io/">More information about Thread can be found in this link</a>.</p>
+<p>The goal of this project is to build a mesh of ESP32 nodes using both technologies to comparte their APIs, capabilities and performance. The nodes will run simple applications (sensing temperature, for example) and will try to send the information to an external server using MQTT. Some of the nodes will be close to a router providing access to the internet (and thus, to the external server), while some others will be out of the range of the router signal.</p>
+<p>The study should compare both implementations, trying to figure out the overheads of each implementation, relative performance, ease of use...</p>
+<p><strong>IMPORTANT</strong>: to perform this project, you will need more than 2 ESP32 boards, so the team partners should live close enough to physically meet to make tests.</p>
 <ul>
 <li>
 <p>Professors: Francisco Igual and J. Ignacio Gómez</p>
@@ -261,6 +310,7 @@ help in some aspect of healthcare.</p>
 <p>Available slots: 6</p>
 </li>
 </ul></div>
+            </div>
         </div>
 
         <footer class="col-md-12">
@@ -274,35 +324,32 @@ help in some aspect of healthcare.</p>
         <script src="../../js/base.js" defer></script>
         <script src="../../search/main.js" defer></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-    <div class="modal-dialog">
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
             </div>
             <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
-                <form role="form">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
                     </div>
                 </form>
-                <div id="mkdocs-search-results"></div>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
             </div>
             <div class="modal-footer">
             </div>
         </div>
     </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
             </div>
             <div class="modal-body">
               <table class="table">
