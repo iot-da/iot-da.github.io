@@ -140,8 +140,47 @@ help in some aspect of healthcare.
 
 OpenData initiatives pursue offering data sources in an open, royalty-free and accessible manner. It follows a similar philosophy as that of Open Source or Open Hardware, and aims at facilitating data analysis to the community taken from official channels, both from Local or National Goverments, or from companies.
 
-The goal of the project is two-fold: first, to provide a global, in-depth study and discussion of the OpenData initiatives in China, both from the Government and from Private Companies; second, to select a set of realistic use cases to perform specific data analysis oriented to real-world applications, mainly based on or with appication to the IoT paradigm. 
+The goal of the project is two-fold: first, to provide a global, in-depth study and discussion of the OpenData initiatives in China, both from the Government and from Private Companies; second, to select a set of realistic use cases to perform specific data analysis oriented to real-world applications, mainly based on or with application to the IoT paradigm. 
 
 * Professors: Francisco Igual and J. Ignacio Gómez
 
 * Available slots: 6
+
+### Proposal 6
+
+* Title: *SmartCities: requirements, infrastructure and use cases*
+* Description:
+
+We have been using the term *Smart Cities* for many years now, but it still looks like a *to be defined* concept. There are many flavours in Smart Cities initiatives and many actors that play different roles in the process of implementing them.  Focusing on IoT, there is always a need to deploy an infrastructure that may represent a huge economical investment with some return expected (economic, social...).
+
+The goal of this project is to deep into the idea of Smart Cities, starting with a general description of its typical topics: smart mobility, smart buildings, smart grid (energy distribution and savings), smart health, water supply, waste disposal facilities...  The students will choose two of those topic and provide an in-depth study of the requirements (sensors, nodes, edge computing, servers...) including the deployment and maintenance process.  The study must include at least two examples of existing cities implementing initiatives in the topics chosen (one Chinese and one European city, if possible). There are many questions this study may answer: how is a given project improving the quality of life of the citizens? Who is paying the cost of the infrastructure? What is the expected "Return Of Investment" (ROI)? Will there be shared infrastructures? (i.e. companies that deploy a sensor network and rent it to other companies/public organisations as a "service")
+
+* Professors: Francisco Igual and J. Ignacio Gómez
+
+* Available slots: 6
+
+
+### Proposal 7
+
+* Title: *Building meshes with WiFi*
+* Description:
+
+ESP-IDF provides a proprietary protocol, called *ESP-WIFI-MESH*, that allows  numerous devices spread over a large physical area (both indoors and outdoors) to be interconnected under a single WLAN (Wireless Local-Area Network). ESP-WIFI-MESH is self-organizing and self-healing meaning the network can be built and maintained autonomously. [You can find information about ESP-WIFI-MESH in this link](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/esp-wifi-mesh.html).
+
+Some of those nodes (but not necessarily all of them) may have access to a router (border router) that provides access to the internet. The far-away nodes (those outside the range of the router) may still connect to the internet asking the intermediate nodes to relay their transmissions.
+
+ESP-IDF also provides an API to access *Thread*, an IPv6-based mesh networking technology for IoT. Once again, it allows a mesh of nodes to gain access to the internet even if they are not close to a border router. [More information about Thread can be found in this link](https://openthread.io/).
+
+The goal of this project is to build a mesh of ESP32 nodes using both technologies to comparte their APIs, capabilities and performance. The nodes will run simple applications (sensing temperature, for example) and will try to send the information to an external server using MQTT. Some of the nodes will be close to a router providing access to the internet (and thus, to the external server), while some others will be out of the range of the router signal.
+
+The study should compare both implementations, trying to figure out the overheads of each implementation, relative performance, ease of use...
+
+**IMPORTANT**: to perform this project, you will need more than 2 ESP32 boards, so the team partners should live close enough to physically meet to make tests.
+
+ 
+* Professors: Francisco Igual and J. Ignacio Gómez
+
+* Available slots: 6
+
+
+
