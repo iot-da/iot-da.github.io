@@ -10,7 +10,6 @@ class).
 | Speaker     | BIN	ZHANG    |
 | Recorder    | FENGFENG GU  |
 | Auditor     | GONGLU ZOU   |
-| Contributor | HONGBIAO CAO |
 | Contributor | WENYAN LIAO  |
 
 
@@ -20,10 +19,10 @@ class).
 | Speaker     | Duan Zhen    |
 | Recorder    | Hu Haho      |
 | Auditor     | Liu Jinhua   |
-| Contributor | Youran Tian          |
+| Contributor | Youran Tian  |
 | Contributor | Weilin Zhang |
 | Contributor | Huang Yujuan |
-| Contributor | Jun Shou             |
+| Contributor | Jun Shou     |
 
 
 ## Group 3
@@ -53,11 +52,12 @@ class).
 | Rol         | Full name     |
 |-------------|---------------|
 | Speaker     | ZHOU Ping     |
-| Speaker (2) | LIAO  Yinghua |
+| Speaker (2) | LIAO Yinghua |
 | Recorder    | PAN Jiayun    |
 | Auditor     | ZHANG  Yi     |
 | Contributor | Shuishi Zhou  |
 | Contributor | Yang Chu      |
+| Contributor | Hongbiao Cao  |
 
 
 ## Group 6
