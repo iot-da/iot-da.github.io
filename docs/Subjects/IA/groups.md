@@ -8,7 +8,6 @@ class).
 | Rol         | Full name    |
 |-------------|--------------|
 | Speaker     | BIN	ZHANG    |
-| Speaker (2) | Youran Tian          |
 | Recorder    | FENGFENG GU  |
 | Auditor     | GONGLU ZOU   |
 | Contributor | HONGBIAO CAO |
@@ -21,6 +20,7 @@ class).
 | Speaker     | Duan Zhen    |
 | Recorder    | Hu Haho      |
 | Auditor     | Liu Jinhua   |
+| Contributor | Youran Tian          |
 | Contributor | Weilin Zhang |
 | Contributor | Huang Yujuan |
 | Contributor | Jun Shou             |
