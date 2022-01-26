@@ -30,9 +30,9 @@ The groups are the same as for NP1, please check them [here](groups.md)
 |:---------:|----------------------------------------------------------------------------|------------------------------------|---------------------------------------------|
 |   18/01   | [Introduction](slides/Intro.pdf)     |                                    |                                             |
 |   19/01   | Math recap for AI and NumPy, [Jupyter excercises](jupyter/01_numpy.ipynb), [Sample image](misc/Sample_abc.jpg), [Jupyter classroom notes](jupyter/01_classroom.ipynb)|                                             |
-|   25/01   | [Neural Networks from scrath](jupyter/w02_nn.zip)                                 |                                    |                                             |
-|   26/01   | Neutal Networks 2                                                          |                                    |                                             |
-|   08/02   |                                                                            |                                    |                                             |
+|   25/01   | [Neural Networks from scratch](jupyter/w02_nn.zip)                                 |                                    |                                             |
+|   26/01   | Neural Networks from scratch 2                                                         |                                    |                                             |
+|   08/02   | Neural Networks with pyTorch and TensorFlow                                | Exercise on Neural Networks on Scratch                                   |  Quizz on Neural Networks from scratch                                           |
 |   09/02   |                                                                            |                                    |                                             |
 |   15/02   |                                                                            |                                    |                                             |
 |   16/02   |                                                                            |                                    |                                             |
