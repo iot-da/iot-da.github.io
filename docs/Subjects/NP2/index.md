@@ -57,9 +57,9 @@ link](https://api.socrative.com/rc/Yu9Dx).
 |   01/02   | *Week off (Chinese new year)*                                                                         |                                    |                                             |
 |   03/02   | *Week off (Chinese new year)*                                                                         |                                    |                                             |
 |   08/02   | [Transport layer](slides/transport.pdf),                                                              | [Lab 1. instructions](P1/index.md) |                                             |
-|   10/02   | Lab 2. TCP/UDP sockets (ESP32)                                                                        | [Lab 2. instructions](P1/index.md) | [Quiz](https://api.socrative.com/rc/Yu9Dx) |
-|   15/02   | [Websockets](slides/Websockets.pdf), Lab 2. TCP/UDP sockets (ESP32)                                   | [Lab 2. instructions](P1/index.md) |                                             |
-|   17/02   | [REST servers. Information representation](slides/REST.pdf)                                           |                                    | [Quiz](https://api.socrative.com/rc/Yu9Dx)  |
+|   10/02   | Lab 1. TCP/UDP sockets (Linux)                                                                        | [Lab 1. instructions](P1/index.md) |                                             |
+|   15/02   | [Websockets](slides/Websockets.pdf), Lab 2. TCP/UDP sockets (ESP32)                                   | [Lab 2. instructions](P2/index.md) | All tasks from Lab1.                        |
+|   17/02   | [REST servers. Information representation](slides/REST.pdf), Lab2. TCP/UDP sockets (ESP32)            | [Lab 2. instructions](P2/index.md) | [Quiz](https://api.socrative.com/rc/Yu9Dx)  |
 |   22/02   | Lab 3. Websockets                                                                                     | [Lab 3. instructions](P1/index.md) |                                             |
 |   24/02   | [MQTT](slides/MQTT.pdf)                                                                               |                                    | [Quiz](https://api.socrative.com/rc/Yu9Dx)  |
 |   01/03   | Lab 4. MQTT                                                                                           | [Lab 4. instructions](P1/index.md) |                                             | 
