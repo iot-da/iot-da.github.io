@@ -33,7 +33,7 @@ The groups are the same as for NP1, please check them [here](groups.md)
 |   25/01   | [Neural Networks from scratch](jupyter/w02_nn.zip)                                 |                                    |                                             |
 |   26/01   | Neural Networks from scratch 2                                                         |                                    |                                             |
 |   08/02   | [Neural Networks with pyTorch](jupyter/nn_mnist.ipynb)                                | Exercise on Neural Networks from Scratch                                   |  [Quizz on Neural Networks from scratch](https://api.socrative.com/rc/v6iD9x)                                           |
-|   09/02   |                                                                            |                                    |                                             |
+|   09/02   | [Neural Network exercise with pyTorch](jupyter/03_exercise.ipynb)                                                                          |                                    |                                             |
 |   15/02   |                                                                            |                                    |                                             |
 |   16/02   |                                                                            |                                    |                                             |
 |   22/02   |                                                                            |                                    |                                             |
