@@ -223,3 +223,29 @@ The objective of this project is to test different publicly accessible encryptio
 
 Wireless communications still keep growing, becoming part of our daily lives with the aim of making it easier. For example through the use of wireless devices, home automation, industrial environments, among others that make up the Internet of Things. Sometimes, manufacturers of IoT devices focus to improve their functionality and make them more competitive in the market and do not pay sufficient attention to the security issue. Normally, the common user is not aware of the vulnerabilities of communications that are propagated by the air as used by IoT devices.
 This work pretends to show the use of SDR and GNU Radio as tools to study and analyzing vulnerabilities over IoT communications through Radio Frequencies protocols (RF), getting interesting information such as operation frequency, modulation, applying reverse engineering and replay attack.
+
+
+## Proposal 10
+
+* **Title:** *Exploring Open Source IoT frameworks: Eclipse IoT and Zephyr OS*
+* **Professors:** Christian Tenllado (tenllado@ucm.es)
+* **Requirements:** no programming skills necessary.
+* **Available slots:** 2 groups
+* **Description:**
+
+The fast growth of IoT in recent years has lead to massive publications of tools and frameworks developed to work at different levels of the IoT ecosystem. A relevant part of them have ben released as Open Source, so they are specially interesting for small companies and start-ups wanting to contribute in this domain. [Eclipse IoT](https://iot.eclipse.org/) is an initiative to gather a huge plethora of IoT technologies, backed up by the most relevant companies in this sector.  [Zephyr](https://www.zephyrproject.org/) is  a Linux Foundation project releasing an open-source, product-ready RTOS (real-time operating system) for embedded systems (sensor nodes). 
+
+This project will extensively document the Eclipse IoT project, enumerating the existing projects and locating them in their target IoT system level: sensor node, gateway, edge, fog or cloud. Zephyr will be also considered in the studay, to explore how it fits the other existing projects. Once the most relevant  are described, several use cases will be considered, illustrating how a combination of different projects may help to develop a full IoT application, from sensor node programming, deployment, management, data collection  and processing.
+
+
+## Proposal 11
+
+* **Title:** *Accelerators in Edge Computing*
+* **Professors:** Carlos García (cgarcia@ucm.es)
+* **Requirements:** no programming skills necessary.
+* **Available slots:** 2 groups
+* **Description:**
+
+On one hand, the use of accelerators has been gaining importance in the context of the High Performance Computing arena to improve workload performance. On the other hand, with the exponential growth of data generation joint to the irruption of IoT devices at the edge, has meant the consideration of the use of accelerators in another context where accelerators were not initially designed. The future of computing is driven by the need to process data cost-effectively close to the data production. A single example of this tendency is the design and commercialization of specific ASICs to process powerful IA algorithms to speedup the response times with less power requirements.
+
+This project proposal will research the use of accelerators such as GPUs, FPGAs, SMART-NICs in an IoT ecosystem. The project will not only focus on the diversity of hardware devices but also deepen on other aspects such as programmability, efficient execution workloads, real cases adoptions, and infrastructure integration among others. Software aspects as frameworks and toolchain infrastructure for deploying a solution should be also evaluated, as well as the integration on the IoT dashboards for collection and analyzing
