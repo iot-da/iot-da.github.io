@@ -199,4 +199,27 @@ The study should compare both implementations, trying to figure out the overhead
 **IMPORTANT**: to perform this project, you will need more than 2 ESP32 boards, so the team partners should live close enough to physically meet to make tests.
 
 
+## Proposal 8
 
+* **Title:** *Lightweight Cryptography Applicable to IoT Devices*
+* **Professors:** Joaquin Recas (recas@ucm.es) and Guillermo Botella (gbotella@ucm.es)
+* **Requirements:** good programming skills necessary.
+* **Available slots:** 2 groups
+* **Description:**
+
+Cryptography in IoT requires a compromise between security, performance and cost. Performance refers to power consumption, latency, and throughput; the cost, to memory and CPU. The more secure an algorithm or protocol is, the more negative impact it will have on cost and performance. Similarly, if you want to improve performance or lower cost, you will have a negative impact on security.
+
+The objective of this project is to test different publicly accessible encryption implementations that can be used in IoT systems and to make a comparative study on the three factors described above: security, performance and cost.
+
+
+
+## Proposal 9
+
+* **Title:** *SDR and GNU Radio to explore IoT vulnerabilities*
+* **Professors:** Joaquin Recas (recas@ucm.es) and Guillermo Botella (gbotella@ucm.es)
+* **Requirements:** good programming skills necessary.
+* **Available slots:** 2 groups
+* **Description:**
+
+Wireless communications still keep growing, becoming part of our daily lives with the aim of making it easier. For example through the use of wireless devices, home automation, industrial environments, among others that make up the Internet of Things. Sometimes, manufacturers of IoT devices focus to improve their functionality and make them more competitive in the market and do not pay sufficient attention to the security issue. Normally, the common user is not aware of the vulnerabilities of communications that are propagated by the air as used by IoT devices.
+This work pretends to show the use of SDR and GNU Radio as tools to study and analyzing vulnerabilities over IoT communications through Radio Frequencies protocols (RF), getting interesting information such as operation frequency, modulation, applying reverse engineering and replay attack.
