@@ -12,11 +12,11 @@
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
 
         <script src="../../js/jquery-1.10.2.min.js" defer></script>
         <script src="../../js/bootstrap.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
@@ -105,7 +105,7 @@
     </div>
 
     
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-light">
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
             <li class="nav-item" data-level="1"><a href="#final-project-proposals" class="nav-link">Final project proposals</a>
@@ -127,6 +127,14 @@
               </ul>
             </li>
             <li class="nav-item" data-level="2"><a href="#proposal-9" class="nav-link">Proposal 9</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#proposal-10" class="nav-link">Proposal 10</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#proposal-11" class="nav-link">Proposal 11</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -324,7 +332,27 @@ help in some aspect of healthcare.</p>
 <li><strong>Description:</strong></li>
 </ul>
 <p>Wireless communications still keep growing, becoming part of our daily lives with the aim of making it easier. For example through the use of wireless devices, home automation, industrial environments, among others that make up the Internet of Things. Sometimes, manufacturers of IoT devices focus to improve their functionality and make them more competitive in the market and do not pay sufficient attention to the security issue. Normally, the common user is not aware of the vulnerabilities of communications that are propagated by the air as used by IoT devices.
-This work pretends to show the use of SDR and GNU Radio as tools to study and analyzing vulnerabilities over IoT communications through Radio Frequencies protocols (RF), getting interesting information such as operation frequency, modulation, applying reverse engineering and replay attack.</p></div>
+This work pretends to show the use of SDR and GNU Radio as tools to study and analyzing vulnerabilities over IoT communications through Radio Frequencies protocols (RF), getting interesting information such as operation frequency, modulation, applying reverse engineering and replay attack.</p>
+<h2 id="proposal-10">Proposal 10</h2>
+<ul>
+<li><strong>Title:</strong> <em>Exploring Open Source IoT frameworks: Eclipse IoT and Zephyr OS</em></li>
+<li><strong>Professors:</strong> Christian Tenllado (tenllado@ucm.es)</li>
+<li><strong>Requirements:</strong> no programming skills necessary.</li>
+<li><strong>Available slots:</strong> 2 groups</li>
+<li><strong>Description:</strong></li>
+</ul>
+<p>The fast growth of IoT in recent years has lead to massive publications of tools and frameworks developed to work at different levels of the IoT ecosystem. A relevant part of them have ben released as Open Source, so they are specially interesting for small companies and start-ups wanting to contribute in this domain. <a href="https://iot.eclipse.org/">Eclipse IoT</a> is an initiative to gather a huge plethora of IoT technologies, backed up by the most relevant companies in this sector.  <a href="https://www.zephyrproject.org/">Zephyr</a> is  a Linux Foundation project releasing an open-source, product-ready RTOS (real-time operating system) for embedded systems (sensor nodes). </p>
+<p>This project will extensively document the Eclipse IoT project, enumerating the existing projects and locating them in their target IoT system level: sensor node, gateway, edge, fog or cloud. Zephyr will be also considered in the studay, to explore how it fits the other existing projects. Once the most relevant  are described, several use cases will be considered, illustrating how a combination of different projects may help to develop a full IoT application, from sensor node programming, deployment, management, data collection  and processing.</p>
+<h2 id="proposal-11">Proposal 11</h2>
+<ul>
+<li><strong>Title:</strong> <em>Accelerators in Edge Computing</em></li>
+<li><strong>Professors:</strong> Carlos García (cgarcia@ucm.es)</li>
+<li><strong>Requirements:</strong> no programming skills necessary.</li>
+<li><strong>Available slots:</strong> 2 groups</li>
+<li><strong>Description:</strong></li>
+</ul>
+<p>On one hand, the use of accelerators has been gaining importance in the context of the High Performance Computing arena to improve workload performance. On the other hand, with the exponential growth of data generation joint to the irruption of IoT devices at the edge, has meant the consideration of the use of accelerators in another context where accelerators were not initially designed. The future of computing is driven by the need to process data cost-effectively close to the data production. A single example of this tendency is the design and commercialization of specific ASICs to process powerful IA algorithms to speedup the response times with less power requirements.</p>
+<p>This project proposal will research the use of accelerators such as GPUs, FPGAs, SMART-NICs in an IoT ecosystem. The project will not only focus on the diversity of hardware devices but also deepen on other aspects such as programmability, efficient execution workloads, real cases adoptions, and infrastructure integration among others. Software aspects as frameworks and toolchain infrastructure for deploying a solution should be also evaluated, as well as the integration on the IoT dashboards for collection and analyzing</p></div>
             </div>
         </div>
 
@@ -347,16 +375,13 @@ This work pretends to show the use of SDR and GNU Radio as tools to study and an
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
             </div>
             <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
+                <p>From here you can search these documents. Enter your search terms below.</p>
                 <form>
                     <div class="form-group">
                         <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
                     </div>
                 </form>
-                <div id="mkdocs-search-results"></div>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
             </div>
             <div class="modal-footer">
             </div>
