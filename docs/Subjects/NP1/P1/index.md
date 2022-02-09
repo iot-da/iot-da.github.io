@@ -137,9 +137,9 @@ flash process and subsequent monitoring.
 
 The basic flash process uses the `idf.py` script:
 
-`` `sh
+```sh
 idf.py -p flash PORT
-`` ''
+```
 
 ### Monitoring
 
@@ -147,9 +147,9 @@ If everything went well, the monitoring process will allow you to observe the
 output of the program that is running on the board. For this we use again the
 `idf.py` script:
 
-`` `sh
+```sh
 idf.py -p PORT monitor
-`` ''
+```
 
 !!! danger "Note"
 	Check that, you can indeed carry out the compilation process, flash and
