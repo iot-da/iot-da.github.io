@@ -239,7 +239,7 @@ The study should compare both implementations, trying to figure out the overhead
 **IMPORTANT**: to perform this project, you will need more than 2 ESP32 boards, so the team partners should live close enough to physically meet to make tests.
 
 
-## Proposal 8
+### Proposal 8
 
 * **Title:** *Lightweight Cryptography Applicable to IoT Devices*
 * **Professors:** Joaquin Recas (recas@ucm.es) and Guillermo Botella (gbotella@ucm.es)
@@ -253,7 +253,7 @@ The objective of this project is to test different publicly accessible encryptio
 
 
 
-## Proposal 9
+### Proposal 9
 
 * **Title:** *SDR and GNU Radio to explore IoT vulnerabilities*
 * **Professors:** Joaquin Recas (recas@ucm.es) and Guillermo Botella (gbotella@ucm.es)
@@ -265,7 +265,7 @@ Wireless communications still keep growing, becoming part of our daily lives wit
 This work pretends to show the use of SDR and GNU Radio as tools to study and analyzing vulnerabilities over IoT communications through Radio Frequencies protocols (RF), getting interesting information such as operation frequency, modulation, applying reverse engineering and replay attack.
 
 
-## Proposal 10
+### Proposal 10
 
 * **Title:** *Exploring Open Source IoT frameworks: Eclipse IoT and Zephyr OS*
 * **Professors:** Christian Tenllado (tenllado@ucm.es)
@@ -285,7 +285,7 @@ This project will extensively document the Eclipse IoT project, enumerating the 
 | 2     | Xiazu Hu | Qinghong Yu | Suishi Liu |
 
 
-## Proposal 11
+### Proposal 11
 
 * **Title:** *Accelerators in Edge Computing*
 * **Professors:** Carlos García (cgarcia@ucm.es)
