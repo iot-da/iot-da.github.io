@@ -102,6 +102,12 @@ The goal is to predict the pollution in a particular point of a city for the nex
    * Hiperparameter tunning
    * Model Selection
 
+**Assigned groups:**
+
+| Group | Member 1 | Member 2 | Member 3 |
+|-------|----------|----------|----------|
+| 1     | Qiuji Chen      | Xiaolan Li      | Zhao Hu      |
+
 ### Proposal 2
 
 * **Title:** *Machine Learning Ensamble Methods*
@@ -115,6 +121,13 @@ The ensemble Methods combine several *weak learners* to build a more efficient m
    * A complete description of the tecniques
    * A Spark function implementing them
    * A benchmark using some datasets of the course to compare their efficiency
+
+**Assigned groups:**
+
+| Group | Member 1 | Member 2 | Member 3 |
+|-------|----------|----------|----------|
+| 1     | Yan Zhao | JiePing You|              |
+
 
 ### Proposal 3
 
@@ -134,6 +147,12 @@ perspective being relevant the analysis of existing works in this topic and the 
 or (2) from a technical perspective addressing to program some intelligent system for providing well-
 being advices based on information from IoT devices.
 
+**Assigned groups:**
+
+| Group | Member 1 | Member 2 | Member 3 |
+|-------|----------|----------|----------|
+| 1     | Liu Jinhua| Duan Zhen |  Hu Hao      |
+
 
 ### Proposal 4
 
@@ -150,6 +169,12 @@ topic and the proposal of novel ideas, or (2) from a technical perspective addre
 certain IoT device or service and program the necessary software for providing a system that could
 help in some aspect of healthcare.
 
+**Assigned groups:**
+
+| Group | Member 1 | Member 2 | Member 3 |
+|-------|----------|----------|----------|
+| 1     | Shuishi Zhou | Yang Chu |  Wenyan Liao      |
+| 2     | Dongyang Xu | Xueqing Zhao|  Yujuan Huang|
 
 ### Proposal 5
 
@@ -163,6 +188,14 @@ OpenData initiatives pursue offering data sources in an open, royalty-free and a
 
 The goal of the project is two-fold: first, to provide a global, in-depth study and discussion of the OpenData initiatives in China, both from the Government and from Private Companies; second, to select a set of realistic use cases to perform specific data analysis oriented to real-world applications, mainly based on or with application to the IoT paradigm. 
 
+**Assigned groups:**
+
+| Group | Member 1 | Member 2 | Member 3 |
+|-------|----------|----------|----------|
+| 1     | Junyan Guo | Jianchuang Zhang | Guanjie Xiao |
+| 2     | Yinghua Liao | Jiali Gao | Xionglan Luo |
+
+
 
 ### Proposal 6
 
@@ -175,6 +208,13 @@ The goal of the project is two-fold: first, to provide a global, in-depth study 
 We have been using the term *Smart Cities* for many years now, but it still looks like a *to be defined* concept. There are many flavours in Smart Cities initiatives and many actors that play different roles in the process of implementing them.  Focusing on IoT, there is always a need to deploy an infrastructure that may represent a huge economical investment with some return expected (economic, social...).
 
 The goal of this project is to deep into the idea of Smart Cities, starting with a general description of its typical topics: smart mobility, smart buildings, smart grid (energy distribution and savings), smart health, water supply, waste disposal facilities...  The students will choose two of those topic and provide an in-depth study of the requirements (sensors, nodes, edge computing, servers...) including the deployment and maintenance process.  The study must include at least two examples of existing cities implementing initiatives in the topics chosen (one Chinese and one European city, if possible). There are many questions this study may answer: how is a given project improving the quality of life of the citizens? Who is paying the cost of the infrastructure? What is the expected "Return Of Investment" (ROI)? Will there be shared infrastructures? (i.e. companies that deploy a sensor network and rent it to other companies/public organisations as a "service")
+
+**Assigned groups:**
+
+| Group | Member 1 | Member 2 | Member 3 |
+|-------|----------|----------|----------|
+| 1     | Zhijun Hao | Hongbia Cao | Yuanshuang Sha|
+| 2     | Jiayun Pan | WeiLin Zhang| YongTao He|
 
 
 
@@ -237,6 +277,13 @@ The fast growth of IoT in recent years has lead to massive publications of tools
 
 This project will extensively document the Eclipse IoT project, enumerating the existing projects and locating them in their target IoT system level: sensor node, gateway, edge, fog or cloud. Zephyr will be also considered in the studay, to explore how it fits the other existing projects. Once the most relevant  are described, several use cases will be considered, illustrating how a combination of different projects may help to develop a full IoT application, from sensor node programming, deployment, management, data collection  and processing.
 
+**Assigned groups:**
+
+| Group | Member 1 | Member 2 | Member 3 |
+|-------|----------|----------|----------|
+| 1     | Zhang Yi | Li Tianfeng | Re Wei |
+| 2     | Xiazu Hu | Qinghong Yu | Suishi Liu |
+
 
 ## Proposal 11
 
@@ -249,3 +296,13 @@ This project will extensively document the Eclipse IoT project, enumerating the 
 On one hand, the use of accelerators has been gaining importance in the context of the High Performance Computing arena to improve workload performance. On the other hand, with the exponential growth of data generation joint to the irruption of IoT devices at the edge, has meant the consideration of the use of accelerators in another context where accelerators were not initially designed. The future of computing is driven by the need to process data cost-effectively close to the data production. A single example of this tendency is the design and commercialization of specific ASICs to process powerful IA algorithms to speedup the response times with less power requirements.
 
 This project proposal will research the use of accelerators such as GPUs, FPGAs, SMART-NICs in an IoT ecosystem. The project will not only focus on the diversity of hardware devices but also deepen on other aspects such as programmability, efficient execution workloads, real cases adoptions, and infrastructure integration among others. Software aspects as frameworks and toolchain infrastructure for deploying a solution should be also evaluated, as well as the integration on the IoT dashboards for collection and analyzing
+
+**Assigned groups:**
+
+| Group | Member 1 | Member 2 | Member 3 |
+|-------|----------|----------|----------|
+| 1     | GongLu Zou | Fengfeng Gu | Binz Zhang |
+| 2     | Youran Tian | Jun Shou | |
+
+
+
