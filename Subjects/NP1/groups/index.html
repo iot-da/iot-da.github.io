@@ -9,92 +9,84 @@
         <link rel="canonical" href="https://iot-da.github.io/Subjects/NP1/groups/">
         <link rel="shortcut icon" href="../../../img/favicon.ico">
         <title>Groups for lecture assignments - Internet of Things and Data Analytics</title>
-        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../../css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
 
         <script src="../../../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
     <body>
-
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-
-                <!-- Collapsed navigation -->
-                <div class="navbar-header">
-                    <!-- Expander button -->
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="../../..">Internet of Things and Data Analytics</a>
-                </div>
+                <a class="navbar-brand" href="../../..">Internet of Things and Data Analytics</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
                 <!-- Expanded navigation -->
-                <div class="navbar-collapse collapse">
+                <div id="navbar-collapse" class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li >
-                                <a href="../../..">Home</a>
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Home</a>
                             </li>
-                            <li >
-                                <a href="../../../General/">General info.</a>
+                            <li class="navitem">
+                                <a href="../../../General/" class="nav-link">General info.</a>
                             </li>
-                            <li >
-                                <a href="../../../News/">News</a>
+                            <li class="navitem">
+                                <a href="../../../News/" class="nav-link">News</a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
-<li >
-    <a href="../../IOTNA/">IOTNA</a>
+<li>
+    <a href="../../IOTNA/" class="dropdown-item">IOTNA</a>
 </li>
                                     
-<li >
-    <a href="../../MDM/">MDM</a>
+<li>
+    <a href="../../MDM/" class="dropdown-item">MDM</a>
 </li>
                                     
-<li >
-    <a href="../../SID/">SID</a>
+<li>
+    <a href="../../SID/" class="dropdown-item">SID</a>
 </li>
                                     
-<li >
-    <a href="../../IA/">IA</a>
+<li>
+    <a href="../../IA/" class="dropdown-item">IA</a>
 </li>
                                     
-<li >
-    <a href="../">NP1</a>
+<li>
+    <a href="../" class="dropdown-item">NP1</a>
 </li>
                                     
-<li >
-    <a href="../../NP2/">NP2</a>
+<li>
+    <a href="../../NP2/" class="dropdown-item">NP2</a>
 </li>
                                     
-<li >
-    <a href="../../SEC/">SEC</a>
+<li>
+    <a href="../../SEC/" class="dropdown-item">SEC</a>
 </li>
                                     
-<li >
-    <a href="../../EDGE/">EDGE</a>
+<li>
+    <a href="../../EDGE/" class="dropdown-item">EDGE</a>
 </li>
                                 </ul>
                             </li>
-                            <li >
-                                <a href="../../../Contact/">Contact</a>
+                            <li class="navitem">
+                                <a href="../../../Contact/" class="nav-link">Contact</a>
                             </li>
                         </ul>
 
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
@@ -104,18 +96,50 @@
         </div>
 
         <div class="container">
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#groups-for-lecture-assignments">Groups for lecture assignments</a></li>
-            <li><a href="#group-1">Group 1</a></li>
-            <li><a href="#group-2">Group 2</a></li>
-            <li><a href="#group-3">Group 3</a></li>
-            <li><a href="#group-4">Group 4</a></li>
-            <li><a href="#group-5">Group 5</a></li>
-            <li><a href="#group-6">Group 6</a></li>
-    </ul>
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-light">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#groups-for-lecture-assignments" class="nav-link">Groups for lecture assignments</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#group-1" class="nav-link">Group 1</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#group-2" class="nav-link">Group 2</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#group-3" class="nav-link">Group 3</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#group-4" class="nav-link">Group 4</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#group-5" class="nav-link">Group 5</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#group-6" class="nav-link">Group 6</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
 </div></div>
-                <div class="col-md-9" role="main">
+                    <div class="col-md-9" role="main">
 
 <h1 id="groups-for-lecture-assignments">Groups for lecture assignments</h1>
 <p>We will be using the stable groups from NP1 to work during lectures (and after
@@ -130,28 +154,16 @@ class).</p>
 </thead>
 <tbody>
 <tr>
-<td>Speaker</td>
-<td>BIN ZHANG</td>
-</tr>
-<tr>
-<td>Speaker (2)</td>
-<td>Youran Tian</td>
-</tr>
-<tr>
-<td>Recorder</td>
-<td>FENGFENG GU</td>
-</tr>
-<tr>
 <td>Auditor</td>
 <td>GONGLU ZOU</td>
 </tr>
 <tr>
-<td>Contributor</td>
-<td>HONGBIAO CAO</td>
+<td>Speaker</td>
+<td>ZHOU Ping</td>
 </tr>
 <tr>
-<td>Contributor</td>
-<td>WENYAN LIAO</td>
+<td>Auditor</td>
+<td>ZHANG  Yi</td>
 </tr>
 </tbody>
 </table>
@@ -166,7 +178,7 @@ class).</p>
 <tbody>
 <tr>
 <td>Speaker</td>
-<td>Duan Zhen</td>
+<td>Liu Jinhua</td>
 </tr>
 <tr>
 <td>Recorder</td>
@@ -174,11 +186,15 @@ class).</p>
 </tr>
 <tr>
 <td>Auditor</td>
-<td>Liu Jinhua</td>
+<td>Weilin Zhang</td>
 </tr>
 <tr>
 <td>Contributor</td>
-<td>Weilin Zhang</td>
+<td>Duan Zhen</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>Youran Tian</td>
 </tr>
 <tr>
 <td>Contributor</td>
@@ -209,7 +225,7 @@ class).</p>
 </tr>
 <tr>
 <td>Recorder</td>
-<td>ShaYuan Shuang</td>
+<td>YuanShuang Sha</td>
 </tr>
 <tr>
 <td>Auditor</td>
@@ -226,6 +242,14 @@ class).</p>
 <tr>
 <td>Contributor</td>
 <td>Jiali Gao</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>LIAO  Yinghua</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>PAN Jiayun</td>
 </tr>
 </tbody>
 </table>
@@ -275,27 +299,27 @@ class).</p>
 <tbody>
 <tr>
 <td>Speaker</td>
-<td>ZHOU Ping</td>
-</tr>
-<tr>
-<td>Speaker (2)</td>
-<td>LIAO  Yinghua</td>
-</tr>
-<tr>
-<td>Recorder</td>
-<td>PAN Jiayun</td>
-</tr>
-<tr>
-<td>Auditor</td>
-<td>ZHANG  Yi</td>
-</tr>
-<tr>
-<td>Contributor</td>
 <td>Shuishi Zhou</td>
 </tr>
 <tr>
 <td>Contributor</td>
 <td>Yang Chu</td>
+</tr>
+<tr>
+<td>Auditor</td>
+<td>WENYAN LIAO</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>FENGFENG GU</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>BIN ZHANG</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>HONGBIAO CAO</td>
 </tr>
 </tbody>
 </table>
@@ -338,6 +362,7 @@ class).</p>
 </tr>
 </tbody>
 </table></div>
+            </div>
         </div>
 
         <footer class="col-md-12">
@@ -351,21 +376,21 @@ class).</p>
         <script src="../../../js/base.js" defer></script>
         <script src="../../../search/main.js" defer></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-    <div class="modal-dialog">
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
             </div>
             <div class="modal-body">
                 <p>
                     From here you can search these documents. Enter
                     your search terms below.
                 </p>
-                <form role="form">
+                <form>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
                     </div>
                 </form>
                 <div id="mkdocs-search-results"></div>
@@ -374,12 +399,12 @@ class).</p>
             </div>
         </div>
     </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
             </div>
             <div class="modal-body">
               <table class="table">
