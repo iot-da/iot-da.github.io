@@ -193,18 +193,17 @@ int connect(int sockfd, const struct sockaddr *addr, socklen_t addrlen);
 ssize_t send(int sockfd, const void *buf, size_t len, int flags);
 ```
 
-* Description: En un *socket* en estado *conectado* (con receptor conocido)
-  transmite mensajes a un socket remoto.
+* Description: In a connected *socket* (that is, with a known recepient)
+  transmits messages to a remote socket.
 
 * Parameters: 
-    - `sockfd`:  descriptor de *socket* de envío.
-    - `buf`:  *buffer* de envío donde se almacena el mensaje a enviar.
-    - `len`: número de bytes a enviar.
+    - `sockfd`:  sending socket descriptor.
+    - `buf`:  sending *buffer* where message is stored.
+    - `len`: number of bytes to send.
 
-* Valor de retorno: Si tiene éxito, devuelve el número de bytes enviados.
-                    Devuelve `-1` si se produce un error.
+* Return value: On success, returns the amount of bytes sent. `-1` if error.
 
-* Details: consultad la página de manual de `send` (`man send`).
+* Details: `man send`.
 
 
 #### `recv()`/`recvfrom()`
@@ -219,23 +218,20 @@ ssize_t recvfrom(int sockfd, void *buf, size_t len, int flags,
 
 ```
 
-* Description: Reciben mensajes desde un  *socket*, tanto en sockets orientados
-  como no orientados a conexión. `recvfrom`, a diferencia de `recv`, recibe
-  parámetrosd de salida adicionales que almacenan información sobre la dirección
-  origen del mensaje.
+* Description: Receive messages from a *socket*, both in connection-oriented and 
+  connectionless sockets. `recvfrom` receives output parameters that store information 
+  about the origin of the message.
 
 * Parameters: 
-    - `sockfd`:  descriptor de *socket* de recepción.
-    - `buf`:  *buffer* de recepción donde se almacena el mensaje a recibir.
-    - `len`: número de bytes a recibir.
-    - `src_addr`: dirección del extremo remoto del socket (origen de la comunicación).
-    - `addrlen`: tamaño de la estructura `src_addr`.
+    - `sockfd`:  socket descriptor.
+    - `buf`:  reception *buffer* where the received message will be stored.
+    - `len`: number of bytes to receive.
+    - `src_addr`: address of the remote end of th socket (communication origin).
+    - `addrlen`: `src_addr` structure size.
 
-* Valor de retorno: Si tiene éxito, devuelve el número de bytes recibidos.
-                    Devuelve `-1` si se produce un error.
+* Valor de retorno: If success, number of received bytes. `-1` if error.
 
-* Details: consultad las páginas de manual de `recv` y `recv_from` (`man recv` y 
-  `man recv_from`).
+* Details: (`man recv` and `man recv_from`).
 
 
 #### `close()`
@@ -246,30 +242,29 @@ ssize_t recvfrom(int sockfd, void *buf, size_t len, int flags,
 int close(int fd);
 ```
 
-* Description: Cierra un socket.
+* Description: Closes a socket.
 
 * Parameters: 
-    - `fd`:  descriptor de *socket*.
+    - `fd`:  *socket* descriptor.
 
-* Details: consultad la página de manual de `close` (`man close`).
+* Details: `man close`.
 
 
-## Ejemplos
+## Examples
 
-Se proporcionan a continuación ejemplos completos de uso de la API de *sockets*
-en C para el desarrollo de sistemas cliente/servidor sencillos. Para cada 
-uno de ellos, comprueba que, efectivamente, el uso y secuencia de aplicación
-de cada llamada sigue las directivas de la figura:
+In the following, we propose a number of complete examples that illustrate the
+use of the sockets API in C for the development of client/server systems. For each
+one, check that, effectively, the use and sequence of application of each call follows
+the directives in the figure:
 
 ![flow](img/flow.png)
 
-!!! note "Tarea"
-    Compila (`gcc ejemplo.c -o ejemplo.x`) y ejecuta (`./ejemplo.x`) cada par
-    de códigos y comprueba su funcionamiento. Estudia con detenimiento el uso
-    de cada rutina y como efectivamente siguen las directivas marcadas 
-    anteriormente.
+!!! note "Task 1.1"
+    Compile (`gcc example.c -o example.x`) and execute (`./example.x`) each pair
+    of codes and check its correct functionality. Study carefully the use of each
+    routine and how the previous directives are followed.
 
-### Ejemplo: un cliente TCP
+### Example: a TCP client
 
 ```c
 #include <arpa/inet.h>
@@ -292,17 +287,17 @@ int main() {
 
         int sock;
         if ((sock = socket(PF_INET, SOCK_STREAM, 0)) < 0) {
-                printf("Error en socket\n");
+                printf("Error in socket\n");
                 return 1;
         }
 
         if (connect(sock, (struct sockaddr*)&server_address,
                     sizeof(server_address)) < 0) {
-                printf("Error en connect\n");
+                printf("Error in connect\n");
                 return 1;
         }
 
-        const char* data_to_send = "Hola, RPI!!";
+        const char* data_to_send = "Hello, NP2!!";
         send(sock, data_to_send, strlen(data_to_send), 0);
 
         int n = 0;
@@ -316,7 +311,7 @@ int main() {
                 len += n;
 
                 buffer[len] = '\0';
-                printf("Recibido: '%s'\n", buffer);
+                printf("Received: '%s'\n", buffer);
         }
 
         close(sock);
@@ -324,7 +319,7 @@ int main() {
 }
 ```
 
-### Ejemplo: un servidor TCP
+### Example: a TCP server
 
 ```c
 #include <arpa/inet.h>
@@ -347,20 +342,20 @@ int main(int argc, char *argv[]) {
 
         int listen_sock;
         if ((listen_sock = socket(PF_INET, SOCK_STREAM, 0)) < 0) {
-                printf("Error en socket\n");
+                printf("Error in socket\n");
                 return 1;
         }
 
         if ((bind(listen_sock, (struct sockaddr *)&server_address,
                   sizeof(server_address))) < 0) {
-                printf("Error en bind\n");
+                printf("Error in bind\n");
                 return 1;
         }
 
         int wait_size = 16;  
 
         if (listen(listen_sock, wait_size) < 0) {
-                printf("Error en listen\n");
+                printf("Error in listen\n");
                 return 1;
         }
 
@@ -372,7 +367,7 @@ int main(int argc, char *argv[]) {
                 if ((sock =
                          accept(listen_sock, (struct sockaddr *)&client_address,
                                 &client_address_len)) < 0) {
-                        printf("Error en accept\n");
+                        printf("Error in accept\n");
                         return 1;
                 }
 
@@ -389,7 +384,7 @@ int main(int argc, char *argv[]) {
                         maxlen -= n;
                         len += n;
 
-                        printf("Recibido: '%s'\n", buffer);
+                        printf("Received: '%s'\n", buffer);
 
                         send(sock, buffer, len, 0);
                 }
@@ -402,205 +397,173 @@ int main(int argc, char *argv[]) {
 }
 ```
 
-!!! note "Tarea"
-    Reproduce el funcionamiento del anterior sistema cliente/servidor *echo*
-    utilizando UDP.
+!!! note "Task 1.2"
+    Reproduce the logic of the previous client/server *echo* system using UDP.
 
-### Construcción de mensajes
+### Message construction
 
-Para enviar mensajes que encapsulen distintos tipos de datos en una sola
-invocación, puedes definir un mensaje como el siguiente:
+In order to send messages that encapsulate different types of data in 
+one invocation, you can define a message as follows:
 
 ```c
 typedef struct {
   int x;
   int y;
-} mensaje;
+} message;
 ```
 
-Dando valor a cada campo y a continuación enviándolo proporcionando la dirección
-de inicio de la estructura, del siguiente modo:
+Giving value to each field and sending the structure offering the address of the
+structure:
 
 ```c
-mensaje.x = x; mensaje.y = y;
-send( socketfd, &mensaje, sizeof( mensaje ), 0 );
+message.x = x; message.y = y;
+send( socketfd, &message, sizeof( message ), 0 );
 ```
 
-!!! note "Tarea"
-    Modifica el cliente UDP para que encapsule y envíe una estructura con 
-    distintos campos (por ejemplo, dos enteros),
-    que sea recibida por un servidor Python siguiendo las
-    directivas de la anterior práctica. En este caso, no utilices campos
-    de tipo flotante (veremos cómo hacerlo más adelante). El objetivo del
-    ejercicio es simplemente comprobar que la comunicación entre un cliente
-    programado en C y un servidor programado en Python es posible. No se 
-    pretende que desarrolles un sistema complejo.
+!!! note "Task 1.3"
+    Modify the UDP client to encapsulate and send a structure with different
+    fields (for example, two integers), that will be received by a Python server 
+    following the directives of Lab 1. In this case, do not use fields of 
+    floating point type (we will see how to do it in the future). The goal of the
+    Task is to demonstrate that a client programmed in C and a server programmed
+    in Python can communicate transparently. Hence, it is not expected from you to
+    develop a complex system.
 
-## Sistemas cliente/servidor en el ESP32
+## Client/server systems on the ESP32
 
-La razón por la que hemos ejercitado el uso de la API de sockets desde C
-en Linux es que la implementación de la pila TCP/IP en ESP-IDF 
-(llamada [Lightweight TCP/IP (lwIP)](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/lwip.html)) implementa al 100% dicha API. Por tanto, tanto
-la estructura básica de un *firmware* que implemente un cliente o servidor
-como la API utilizada permanece inalterada. 
+The reason behind the previous exercises lies on the fact that the TCP/IP
+stack implemented in ESP-IDF ([Lightweight TCP/IP (lwIP)](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/lwip.html)) 
+implements almost at 100% that API. Hence, the basic
+firmware structure for a client/server and its API remains unmodified.
 
-En esta última sección, se pide trabajar con dos ejemplos básicos de implementación
-de sistemas cliente/servidor UDP y TCP sobre el ESP32, con el objetivo de estudiar
-su funcionalidad, comprobar su interoperabilidad y realizar modificaciones para
-adaptarlas a una hipotética aplicación IoT.
+In this last section, we will work with two basic examples of implementation of 
+client/server systems TCP and UDP on the ESP32, with the goal of studying its functionality,
+check its interoperability and perform modifications to adapt them to a hypothetical IoT application.
 
-## Cliente/servidor UDP en el ESP32
+## UDP client/server on the ESP32
 
-En esta parte, trabajarás con dos ejemplos proporcionados dentro de la colección
-de ejemplos de ESP-IDF. Por tanto, copia en tu espacio de trabajo (fuera del
-árbol principal de ESP-IDF) los ejemplos:
 
-* **Servidor UDP**: `examples/protocols/sockets/udp_server/`
-* **Cliente UDP**: `examples/protocols/sockets/udp_client/`
+In this part, you will work with two examples provided within the examples collection
+from ESP-IDF. Hence, copy in your workspace (out of the main ESP-IDF tree) both examples:
 
-### Estructura general
+* **Server UDP**: `examples/protocols/sockets/udp_server/`
+* **Cient UDP**: `examples/protocols/sockets/udp_client/`
 
-Observa sus códigos (`udp_server.c` para el servidor, y `udp_client.c` para el
-cliente). Comprueba que, tanto la estructura básica de ambos componentes como
-las invocaciones a la API de sockets concuerdan con las que vimos para el 
-sistema *echo* programado en C. 
+### General structure
 
-Acerca de la tarea principal (funcion `app_main`) observa que realiza 
-una serie de llamadas a APIs de configuración de algunos subsistemas de
-FreeRTOS, principalmente:
+Observe the codes (`udp_server.c` for the server, and `udp_client.c` for the client). 
+Check that both the basic structure of both components and the invocations
+to the sockets API match with those seen for the *echo* system programmed in C.
+
+Regarding the main task (function `app_main`) observe that it performs a series
+of invoations to configuration APIs of some subsystems from FreeRTOS, mainly:
 
 ```c
-// Inicializa la partición NVS (Non-volatile storage) por defecto. 
+// Initializes the NVS (Non-volatile storage) by default.
 ESP_ERROR_CHECK(nvs_flash_init());
-// Inicializa la infraestructura ESP-NETIF.
+// Initializes the ESP-NETIF infrastructure.
 ESP_ERROR_CHECK(esp_netif_init());
-// Crea un bucle de eventos por defecto.
+// Creates the main default event loop.
 ESP_ERROR_CHECK(esp_event_loop_create_default());
 
-/* Esta función configura WiFi o Ethernet, tal y como seleccionemos via menuconfig.
+/* This funtion configures WiFi or Ethernet, as selected via menunconfig.
 */
 ESP_ERROR_CHECK(example_connect());
 
 xTaskCreate(udp_server_task, "udp_server", 4096, NULL, 5, NULL);
 ```
 
-* `example_connect()`, función que no forma parte de ESP-IDF, establece una 
-conexión WiFi o Ethernet. La función es bloqueante, y retorna cuando se ha
-conseguido establecer una conexión.
+* `example_connect()`, function outside ESP-IDF, that establishes a WiFi or Ethernet connection. The function is blocking, and returns when a connection has been established.
 
-* Las características de la conexión WiFi (SSID y contraseña) se deben proporcionar
-a través de `menuconfig`.
+* The features of the WiFi connection (SSID and password) must be provided via `menuconfig`.
 
-* El objetivo de ESP-NETIF es proporcionar una capa de abstracción por encima de 
-  la pila TCP/IP, de modo que pueda migrarse la pila sin que los códigos del 
-  usuario cambien. Puedes consultar su documentación en la 
-  [página oficial](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/network/esp_netif.html).
+* The goal of ESP-NETIF is to provide an abstraction layer on top of the TCP/IP stack, so that it can be migrated without modifications on user codes. You can check the documentation in the 
+  [oficial webpage](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/network/esp_netif.html).
 
-* Por último, se cerea una tarea que ejecutará la lógica del servidor (lo mismo
-  ocurre en el cliente).
+* Last, a task is created that executes the server logic (same for the client).
 
-* Observa que, en todo el código, los mensajes de error se anotan utilizando
-  la macro `ESP_LOGE` y los informativos con `ESP_LOGI`; intenta seguir este 
-  convenio en tus códigos.
+* Observe that, in the code, the error messages are annotated using the macro
+  `ESP_LOGE` and the informative ones with `ESP_LOGI`; try to follow this mechanism in your codes.
 
-### Despliegue. Opción 1
+### Deployment. Option 1
 
-En este caso, desplegarás el cliente en un ESP32 y el servidor en otro. Si
-no dispones de dos ESP32, puedes trabajar con un compañero.
+In this case, you will deploy a client on an ESP32 and a server in the other.
+Obviously, both ESP32s must be part of the same wireless network,
+so they will be connected to the same access point (at home or at class, you can
+use a mobile phone for that). Configure the following point in the infrastructure:
 
-En cualquier caso, ambos ESP32 deben pertenecer a la misma red inalámbrica,
-por lo que deberán conectarse a un mismo punto de acceso (el profesor te
-proporcionará los datos, o simplemente puedes utilizar tu punto de acceso
-doméstico). Configura los siguientes puntos de la infraestructura:
+* Configure the SSID and password of the access point via `menuconfig` before compiling
+and flashing the code both in the client and in the server.
 
-* Configura el SSID y contraseña del punto de acceso vía `menuconfig` antes
-de compilar y flashear el código tanto en el cliente como en el servidor. 
+* In the server, configure via `menuconfig` the listen port.
 
-* En el servidor, configura vía `menuconfig` el puerto sobre el que escuchará.
+* Boot first the server node and take note of the proposed IP by the access point; use it in the client to configure the destintation IP of the communication. Do not forget to also configure the destination port using that configured for the server.
 
-* Arranca primero el nodo servidor y apunta la IP proporcionada por el punto de 
- acceso; utilízala en el cliente para
-configurar la IP destino de la comunicación. No olvides configurar también
-el puerto destino de acuerdo al configurado en el servidor vía `menuconfig`.
+At this point, you can boot the client and you should be communicating two ESP32 nodes via UDP.
 
-Ên este punto, podrás arrancar el cliente y deberías estar comunicando dos
-nodos ESP32 vía UDP.
+### Deployment. Option 2
 
-### Despliegue. Opción 2
+If you only have one node, or just want to test other way of communication
+between a PC node and an ESP32, you can use any of the system tools:
 
-Si sólo dispones de un nodo, o si simplemente quieres probar otra forma de 
-comunicación en la que uno de los equipos es un PC, puedes utilizar alguna
-de las herramientas del sistema:
+!!! danger "Note"
+    Take into account that your PC (that is, the virtual machine) and the ESP32
+    must be part of the same network. To accomplish it, stop your virtual machine and
+    add a new network interface of type *bridge* connected to the WiFi interface of your PC.
+    Proceeding this way, you will have an interface with IP within the network, granted 
+    directly by your access point.
 
-!!! danger "Nota"
-    Ten en cuenta que portátil (es decir, máquina virtual) y ESP32 deben
-    pertenecera la misma red. Para conseguirlo, para tu máquina virtual y añade
-    una nueva interfaz de red de tipo *bridge* conectada a la interfaz Wifi
-    física de tu PC. Así, tendrás una interfaz con IP en la misma red, otorgada
-    directamente por tu punto de acceso.
-
-* Para recibir un paquete UDP a través de un puerto (es decir, emular un
-  servidor UDP):
+* To receive a UDP packge via a port /that is, emulate a UDP server):
 
 ```sh
 nc -ul -p 3333
 ```
 
-* Para enviar un paquete UDP a una IP/puerto remotos (es decir, emular un cliente):
+* To send a UDP package to a remote IP/port (that is, emulate a client):
 
 ```sh
-nc -u IP_REMOTA 3333
+nc -u IP_REMOTE 3333
 ```
 
-En el directorio `scripts` dispones también de pequeños ejemplos de clientes y
-servidores UDP Python que puedes también utilizar.
+In the `scripts` folder of the examples folder, you can find small client/server UDP 
+Pythhon exmaples that you can also use.
 
-## Cliente/servidor TCP en el ESP32
+## TCP client/server on the ESP32
 
-El despliegue de cliente y servidor TCP es equivalente al UDP.
+The deployment of the client and server in their TCP version is equivalent to UDP.
 
-* Para recibir un paquete TCP a través de un puerto (es decir, emular un
-  servidor TCP):
+* To receive a TCP package via a port (that is, to emulate a TCP server):
 
 ```sh
 nc -l IP -p 3333
 ```
 
-* Para enviar un paquete TCP a una IP/puerto remotos (es decir, emular un cliente):
+* To send a TCP package to a remote IP/port (that is, emulate a client):
 
 ```sh
 nc IP 3333
 ```
 
-En el directorio `scripts` dispones también de pequeños ejemplos de clientes y
-servidores TCP Python que puedes también utilizar.
+Again, you can find TCP Python scripts to use on the `scripts` folder.
 
-!!! note "Tarea"
-    Experimenta con los ejemplos proporcionados en ESP-IDF (cliente/servidor
-    TCP y UDP) y consigue ejecutar todos los elementos en la placa. Si sólo
-    dispones de una placa, utiliza la máquina virtual como cliente/servidor
-    para comprobar el correcto funcionamiento de cada código.
+!!! note "Task"
+    Experiment with the examples provide in ESP-IDF (client/server
+    TCP and UDP) and execute them on the ESP32.
 
-!!! danger "Tarea entregable"
-    En este punto, deberías disponer de un conjunto de códigos que implementan
-    sistemas cliente/servidor tanto en un host (utilizando Python y/o C) como en
-    la placa ESP32 (utilizando C y ESP-IDF), y deberías haber comprobado su
-    correcto funcionamiento.
+!!! danger "Deliverable task"
+    At this point, you will have a set of codes that implement client/server systems both
+    in a host (using Python and/or C) and on the ESP32 (using C and ESP-IDF), and you should
+    have checked their correct functioning.
 
-    Específicamente, dispondrás de:
+    Specifically, you should have developed:
 
-    * Sistema cliente/servidor desarrollado en la Práctica 1, escrito en Python
-    e implementando un protocolo básico de aplicacion (tipo de mensaje) propuesto
-    por ti.
+    * A client/server system developed for Lab1, written in Python and implementing a basic application-level protocol proposed by you.
 
-    * Código básico en C para implementación de un servidor/cliente *echo* 
-    programado en C, cuyos códigos se proporcionan en este boletín.
+    * Basic C code for the implementation of a client/server *echo* system, with codes given in this Lab.
 
-    * Códigos básicos en C/ESP-IDF para implementar servidores/clientes
-    *echo* sobre el ESP32.
+    * Basic C/ESP-IDF codes to implement client/servers *echo* on the ESP32.
 
-    Como tarea entregable, se pide que adaptes tu entrega de la Práctica 1 para
-    que tanto cliente como servidor puedan funcionar en el host (bien usando
-    tu implementación Python, o bien utilizando una nueva implementación en 
-    C) o en el ESP32. Se entregarán los códigos y una breve memoria con capturas
-    de tráfico que demuestren el correcto funcionamiento del sistema.
+    As a deliverable task, you need to adapt your deliverable of Lab 1 so that both
+    client and server can work on the host (using Python or C) and on the ESP32. You will
+    deliver the developed codes and a short report with screen capture and explanations 
+    that demonstrate the correctness of the system.
