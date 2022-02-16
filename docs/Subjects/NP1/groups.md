@@ -7,7 +7,6 @@ class).
 ## Group 1
 | Rol     | Full name  |
 |---------|------------|
-| Auditor | GONGLU ZOU |
 | Speaker | ZHOU Ping  |
 | Auditor | ZHANG  Yi  |
 
@@ -59,6 +58,7 @@ class).
 | Contributor | FENGFENG GU  |
 | Contributor | BIN	ZHANG    |
 | Contributor | HONGBIAO CAO |
+| Contributor | GONGLU ZOU   |
 
 
 ## Group 6
