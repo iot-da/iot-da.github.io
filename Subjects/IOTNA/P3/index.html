@@ -4,89 +4,97 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+        <meta name="description" content="None">
         
         <link rel="canonical" href="https://iot-da.github.io/Subjects/IOTNA/P3/">
         <link rel="shortcut icon" href="../../../img/favicon.ico">
-        <title>Basic Input/output in ESP-IDF - Internet of Things and Data Analytics</title>
-        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <title>Internet of Things and Data Analytics</title>
+        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../../css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
 
         <script src="../../../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+    <body class="homepage">
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
-                <a class="navbar-brand" href="../../..">Internet of Things and Data Analytics</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../../..">Internet of Things and Data Analytics</a>
+                </div>
 
                 <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
+                <div class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li class="navitem">
-                                <a href="../../.." class="nav-link">Home</a>
+                            <li >
+                                <a href="../../..">Home</a>
                             </li>
-                            <li class="navitem">
-                                <a href="../../../General/" class="nav-link">General info.</a>
+                            <li >
+                                <a href="../../../General/">General info.</a>
                             </li>
-                            <li class="navitem">
-                                <a href="../../../News/" class="nav-link">News</a>
+                            <li >
+                                <a href="../../../News/">News</a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
-<li>
-    <a href="../" class="dropdown-item">IOTNA</a>
+<li >
+    <a href="../">IOTNA</a>
 </li>
                                     
-<li>
-    <a href="../../MDM/" class="dropdown-item">MDM</a>
+<li >
+    <a href="../../MDM/">MDM</a>
 </li>
                                     
-<li>
-    <a href="../../SID/" class="dropdown-item">SID</a>
+<li >
+    <a href="../../SID/">SID</a>
 </li>
                                     
-<li>
-    <a href="../../IA/" class="dropdown-item">IA</a>
+<li >
+    <a href="../../IA/">IA</a>
 </li>
                                     
-<li>
-    <a href="../../NP1/" class="dropdown-item">NP1</a>
+<li >
+    <a href="../../NP1/">NP1</a>
 </li>
                                     
-<li>
-    <a href="../../NP2/" class="dropdown-item">NP2</a>
+<li >
+    <a href="../../NP2/">NP2</a>
 </li>
                                     
-<li>
-    <a href="../../SEC/" class="dropdown-item">SEC</a>
+<li >
+    <a href="../../SEC/">SEC</a>
 </li>
                                     
-<li>
-    <a href="../../EDGE/" class="dropdown-item">EDGE</a>
+<li >
+    <a href="../../EDGE/">EDGE</a>
 </li>
                                 </ul>
                             </li>
-                            <li class="navitem">
-                                <a href="../../../Contact/" class="nav-link">Contact</a>
+                            <li >
+                                <a href="../../../Contact/">Contact</a>
                             </li>
                         </ul>
 
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
@@ -96,46 +104,17 @@
         </div>
 
         <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
-
-    
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-light">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-level="1"><a href="#basic-inputoutput-in-esp-idf" class="nav-link">Basic Input/output in ESP-IDF</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#goals" class="nav-link">Goals</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#documentation" class="nav-link">Documentation</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#using-gpio" class="nav-link">Using GPIO</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#timers" class="nav-link">Timers</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#chronometer-optional" class="nav-link">Chronometer (optional)</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-        </ul>
-    </div>
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#basic-inputoutput-in-esp-idf">Basic Input/output in ESP-IDF</a></li>
+            <li><a href="#goals">Goals</a></li>
+            <li><a href="#documentation">Documentation</a></li>
+            <li><a href="#using-gpio">Using GPIO</a></li>
+            <li><a href="#timers">Timers</a></li>
+            <li><a href="#chronometer-optional">Chronometer (optional)</a></li>
+    </ul>
 </div></div>
-                    <div class="col-md-9" role="main">
+                <div class="col-md-9" role="main">
 
 <h1 id="basic-inputoutput-in-esp-idf">Basic Input/output in ESP-IDF</h1>
 <h2 id="goals">Goals</h2>
@@ -163,13 +142,14 @@
 </ul>
 <p>Check the slides and documentation to learn how to do this configuration in ESP-IDF. Remember that you need to declare a variable of type <code>gpio_config_t</code>, assign the relevant fields of such variable and finally call <code>gpio_config( )</code>  to complete the configuration.</p>
 <p>Once the configuration of the GPIO is done, you can write a simple sampling loop. Write and endless <em>while</em> loop where you poll the status of the button, print a message if the button is pressed and wait for 250ms before polling again. A <strong>pseudo-code</strong> for such loop could be the following:</p>
-<pre><code class="language-c">while (1) {
+<pre><code class="c">while (1) {
    int status = gpio_get_level(GPIO_BUTTON_PIN);
    if (status == BUTTON_PRESSED)
       printf(&quot;Button pressed!!\n&quot;);
    delay(250);
 }
 </code></pre>
+
 <h3 id="gpio-input-and-output-button-led">GPIO input and output: button + LED</h3>
 <p>In the next step, you will configure a GPIO pin as an output in order to control the LEDs.  Similar to the button configuration, the first step is to configure the respective pins (there are two LEDs available):</p>
 <ul>
@@ -180,7 +160,7 @@
 <p>Remember to use  a variable of type <code>gpio_config_t</code> and complete the configuration with a call to <code>gpio_config( )</code>.</p>
 <p>Once both the three pins (one input, two outputs) are correctly configured, you will develop a very simple program that will switch one of the LEDs (on/off) every time the 
 button is pressed. The <em>pseudo-code</em> may be similar to:</p>
-<pre><code class="language-c">while (1) {
+<pre><code class="c">while (1) {
    int status = gpio_get_level(GPIO_BUTTON_PIN);
    if (status == BUTTON_PRESSED) {
         if LED_IS_ON 
@@ -192,6 +172,7 @@ button is pressed. The <em>pseudo-code</em> may be similar to:</p>
     delay(250);
 }
 </code></pre>
+
 <div class="admonition danger">
 <p class="admonition-title">Stop and sync </p>
 <p>Please send a message in Zoom chat  to the professor as soon as you finished</p>
@@ -243,7 +224,6 @@ button is pressed. The <em>pseudo-code</em> may be similar to:</p>
 <p class="admonition-title">Homework (Optional)</p>
 <p>Implement the chronometer using, at least, one <em>timer</em>. Once finished, the <em>Speaker</em> will contact me to <strong>explain (orally) the code developed</strong></p>
 </div></div>
-            </div>
         </div>
 
         <footer class="col-md-12">
@@ -257,21 +237,21 @@ button is pressed. The <em>pseudo-code</em> may be similar to:</p>
         <script src="../../../js/base.js" defer></script>
         <script src="../../../search/main.js" defer></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
             </div>
             <div class="modal-body">
                 <p>
                     From here you can search these documents. Enter
                     your search terms below.
                 </p>
-                <form>
+                <form role="form">
                     <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
                     </div>
                 </form>
                 <div id="mkdocs-search-results"></div>
@@ -280,12 +260,12 @@ button is pressed. The <em>pseudo-code</em> may be similar to:</p>
             </div>
         </div>
     </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
             </div>
             <div class="modal-body">
               <table class="table">
@@ -323,3 +303,8 @@ button is pressed. The <em>pseudo-code</em> may be similar to:</p>
 
     </body>
 </html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2022-02-16 12:18:22
+-->
