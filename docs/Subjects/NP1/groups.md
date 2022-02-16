@@ -8,7 +8,6 @@ class).
 | Rol     | Full name  |
 |---------|------------|
 | Speaker | ZHOU Ping  |
-| Auditor | ZHANG  Yi  |
 
 
 
@@ -36,6 +35,7 @@ class).
 | Contributor | Jiali Gao      |
 | Contributor | LIAO  Yinghua  |
 | Contributor | PAN Jiayun     |
+| Contributor | ZHANG  Yi      |
 
 
 ## Group 4
