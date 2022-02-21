@@ -61,8 +61,8 @@ link](https://api.socrative.com/rc/Yu9Dx).
 |   15/02   |                                      Lab 2. TCP/UDP sockets (ESP32)                                   | [Lab 2. instructions](P2/index.md) | All tasks from Lab1.                        |
 |   17/02   | [Websockets](slides/NP2-Websockets.pdf), Lab2. TCP/UDP sockets (ESP32)                                | [Lab 2. instructions](P2/index.md) |                                             |
 |   22/02   | [Information representation](slides/NP2-ReprInformation)  Lab 2. TCP/UDP (ESP32)                      | [Lab 2. instructions](P2/index.md) | Tasks up to 1.3 from Lab 2.                 |
-|   24/02   | [MQTT](slides/MQTT.pdf)                                                                               |                                    | [Quiz](https://api.socrative.com/rc/Yu9Dx)  |
-|   01/03   | Lab 4. MQTT                                                                                           | [Lab 4. instructions](P1/index.md) |                                             | 
+|   24/02   | Lab 3. Information representation and REST servers                                                    | [Lab 3. instructions](P5/index.md) | All tasks from Lab2                         |
+|   01/03   | Lab 3. Infomation representation and REST servers                                                     | [Lab 4. instructions](P1/index.md) |                                             | 
 |   03/03   | Lab 4. MQTT                                                                                           | [Lab 4. instructions](P1/index.md) |                                             |
 |   08/03   | [CoAP and LWM2M](slides/COAP.pdf)                                                                     |                                    | [Quiz](https://api.socrative.com/rc/Yu9Dx)  |
 |   10/03   | Lab 5. CoAP                                                                                           | [Lab 5. instructions](P1/index.md) |                                             |
