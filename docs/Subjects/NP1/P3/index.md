@@ -10,18 +10,18 @@ following:
     - Review the basic concepts for building a self-managed WiFi Mesh network.
     - Present the basic API for creating applications based on the
       ESP-MESH stack.
-    - Observe an ESP-MESH network in operation, as well as its capabilities
-      autoconfiguration.
+	- Observe an ESP-MESH network in operation, as well as its autoconfiguration
+	  capabilities.
 
 * Provisioning
 	- Understand and experiment with different modes of provisioning of WiFi
 	  credentials, via `BLE` and via` softAP`.
-	- Check the exchange of keys in clear making provisions from command line,
-	  as well as observe the utility (and the necessity) of sending encrypted
-	  credentials.
+	- Check the clear exchange of keys by making provisions from the command
+	  line, as well as observe the utility (and the necessity) of exanging
+	  encrypted credentials.
 
 * Energy saving
-    - Understand the three power operating modes for the WiFi of the ESP32.
+    - Understand the three power operating modes for the WiFi radio of the ESP32.
 	- Observe the influence of these operating modes in the latency of the
 	  connection.
 
@@ -81,9 +81,6 @@ network.
 * `MESH_EVENT_PS_PARENT_DUTY`: parent duty
 * `MESH_EVENT_PS_CHILD_DUTY`: child duty
 * `MESH_EVENT_PS_DEVICE_DUTY`: device duty
-
-
-
 
 
 ### LwIP and ESP-WIFI-MESH
@@ -225,29 +222,30 @@ network using `esp_mesh_send()` and `esp_mesh_recv()`.
 !!! danger "Task 3.1"
 	The most convenient way to observe the behavior of a WiFi network Mesh is to
 	deploy an infrastructure with a sufficient number of nodes belonging to to
-	the same network. Unfortunately, this requires having of said nodes in a
-	close space and given the conditions of this curse that will not be
-	possible.
+	the same network. Unfortunately, this requires would require to have a large
+	amount of nodes in the same closed space, and given the conditions of this
+	curse it wont be possible.
 
-	In this lab experience, each of you will deploy small WiFi Mesh network with
-	only two nodes, using your ESP32 nodes as elements of the network. We start
-	by copying the example `examples/mesh/internal_communication` to another
-	directory from our home folder. Then we configure the project for:
+	In this lab experience, each of you will deploy a WiFi Mesh network with
+	only two nodes, using the two ESP32 nodes that each student has. You will
+	start by copying the example `examples/mesh/internal_communication` to
+	another directory in your home folder. Then you can configure the project
+	to:
 
-	1. Connect to an access point generated with your own smartphone or your
-	   home wifi router (*Router SSID and Router password*).
+	1. Connect to an access point generated with your own smartphone or the
+	   wifi router at your place (*Router SSID and Router password*).
 	2. Configure the ESP-MESH network to use WPA2_PSK and select as password
 	   `password`.
 
-	At this time, we will not make any changes to the code in the example.
+	At this time, you will not make any changes to the code in the example.
 	Compile your code. Flash the two ESP nodes you have and monitor the output
 	of both nodes in two different terminals (use the command line toolset here
 	for convenience).  If you have the possibility, try to physically arrange
 	the nodes in a way that one has better connection with your
-	smartphone/router than the other (play with distance or obstacles). For each
-	node annotate the following information:
+	smartphone/router than the other (play with distance or obstacles). Monitor
+	the output of each node and annotate the following information:
 
-	1. MAC addresses of the `STA` and` SoftAP` interfaces (you will see it in
+	1. MAC addresses of the `STA` and` SoftAP` interfaces (you will see then in
 	   the first outgoing messages).
 	2. Layer of the topology in which your node is located (you will observe it
 	   in `[L: XX]` format for sending and receiving data).
@@ -263,7 +261,11 @@ network using `esp_mesh_send()` and `esp_mesh_recv()`.
 
 	Now reconnect the node you disconnected previously, and see how it
 	reconnects to the mesh. Is it again the root node? Annotate it and discuss
-	why you think it is or is not the root node again.
+	why you think it is or is not the root node again and if that is what you
+	expected.
+
+	Deliver a report in pdf format in which you explain your observations in
+	english.
 
 ## Part 2. WiFi Provisioning
 
@@ -317,7 +319,7 @@ structure.
 
 ### Check Provisioning State
 
-Whether device is provisioned or not can be checked at runtime by calling
+Whether the device is provisioned or not can be checked at runtime by calling
 `wifi_prov_mgr_is_provisioned()`. This internally checks if the Wi-Fi
 credentials are stored in NVS.
 
@@ -332,7 +334,7 @@ idf.py erase_flash
 ### Start Provisioning Service
 
 At the time of starting provisioning we need to specify a service name and the
-corresponding key. These translate to :
+corresponding key. These translate to:
 
 - Wi-Fi SoftAP SSID and passphrase, respectively, when scheme is
   `wifi_prov_scheme_softap`
@@ -341,15 +343,14 @@ corresponding key. These translate to :
 Also, since internally the manager uses *protocomm*, we have the option of
 choosing one of the security features provided by it :
 
-- Security 1 is secure communication which consists of a prior handshake
-  involving X25519 key exchange along with authentication using a proof of
-  possession (pop), followed by AES-CTR for encryption/decryption of subsequent
-  messages
-- Security 0 is simply plain text communication. In this case the pop is simply
+- Security 1 is secure communication which consists of an initial handshake
+  involving X25519 key exchange along with an authentication using a proof of
+  possession (pop), followed by the encryption/decryption of subsequent
+  messages with AES-CTR.
+- Security 0 is simply a plain text communication. In this case the pop is simply
   ignored
 
-See
-[Provisioning](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/provisioning/provisioning.html)
+See [Provisioning](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/provisioning/provisioning.html)
 for details about the security features.
 
 The following code snippet shows an example of Provisioning Service
@@ -366,9 +367,9 @@ ESP_ERR_CHECK( wifi_prov_mgr_start_provisioning(security, pop, service_name, ser
 ```
 
 The provisioning service will automatically finish only if it receives valid
-Wi-Fi AP credentials followed by successfully connection of device to the AP (IP
-obtained). Regardless of that, the provisioning service can be stopped at any
-moment by making a call to `wifi_prov_mgr_stop_provisioning()`.
+Wi-Fi AP credentials followed by a successful connection to the AP (IP
+obtained). Nevertheless, the provisioning service can be stopped at any moment
+by making a call to `wifi_prov_mgr_stop_provisioning()`.
 
 
 ### Waiting For Completion
@@ -429,11 +430,12 @@ and IOS devices, for BLE and/or SoftAP transports:
 	Provision your ESP32 devices using the credentials that correspond to your
 	WiFi network (home wifi or smartphone) using the applications corresponding
 	to your mobile device, for both BLE and SoftAP transports.  Write down a
-	small report (pdf formta) describing the process, including the screenshots
-	corresponding to the ESP32 output that show that the provisioning was
-	successful.  Remember, before each repetition of the experiment, use the
-	command `idf.py erase_flash` to remove provisioning information from
-	previous sessions.  Check the operation of the different security levels.
+	small report in english (in pdf format) describing the process, including
+	the screenshots corresponding to the ESP32 output that show that the
+	provisioning was successful.  Remember, before each repetition of the
+	experiment, use the command `idf.py erase_flash` to remove provisioning
+	information from previous sessions. Check the operation of the different
+	security levels.
 
 These applications work by means of a very simple communication with the
 unprovisioned ESP32, whose mechanisms depend on the transport being used.  In
@@ -463,7 +465,7 @@ for the user of a device mobile, since the credentials of connection to the WiFi
 network would be exposed.
 
 To analyze this security issue, we will use our laptop/pc as provisioning device.
-We ha to connect the laptop/pc to the provisioning SSID of the ESP32 node and
+We have to connect the laptop/pc to the provisioning SSID of the ESP32 node and
 use a command line tool provided with the ESP-IDF toolset, called `esp_prov.py`,
 which can be found in the directory `tools/esp_prov`.
 
@@ -482,18 +484,18 @@ Basically a provisioning session using `softAP` on a device with IP
 key SSID_EXAMPLE/KEY_EXAMPLE would result in:
 
 ```sh
-python esp_prov.py --transport softap --service_name "192.168.4.1:80" --sec_ver 0 --ssid SSID_EJEMPLO --passphrase CLAVE_EJEMPLO
+python esp_prov.py --transport softap --service_name "192.168.4.1:80" --sec_ver 0 --ssid SSID_EXAMPLE --passphrase KEY_EXAMPLE
 ```
 
 !!! danger "Task 3.3"
 	Perform the provisioning process from the command line using the above
-	indications. Use Wireshark to analyze the provisioning traffic and find
-	evidences of the clear delivery of the network credentials between the
-	provisioner and the device (text mode, without encryption) and the use of
-	the *endpoints/URIs* previously mentioned. Create a small report (pdf
-	format) describing the process and showing the evidences you found.  Next,
-	try with safe mode (option `--sec_ver 1`) and see how the keys exchanged are
-	now encrypted. Add the corresponding comments to your report.
+	indications. Use the wireshark program to analyze the provisioning traffic
+	and find evidences of the clear delivery of the network credentials between
+	the provisioner and the device (text mode, without encryption) and the use
+	of the *endpoints/URIs* previously mentioned. Create a small report in
+	english (in pdf format) describing the process and showing the evidences you
+	found.  Next, try with safe mode (option `--sec_ver 1`) and see how the keys
+	exchanged are now encrypted. Add the corresponding comments to your report.
 
 ## Part 3. WiFi Power States
 
@@ -502,28 +504,30 @@ python esp_prov.py --transport softap --service_name "192.168.4.1:80" --sec_ver 
 Currently, ESP32 Wi-Fi supports the Modem-sleep mode which refers to the legacy
 power-saving mode in the IEEE 802.11 protocol. Modem-sleep mode works in
 station-only mode and the station must connect to the AP first. If the
-Modem-sleep mode is enabled, station will switch between active and sleep state
-periodically. In sleep state, RF, PHY and BB are turned off in order to reduce
-power consumption. Station can keep connection with AP in modem-sleep mode.
+Modem-sleep mode is enabled, the station node will switch between active and
+sleep state periodically. In sleep state, RF, PHY and BB are turned off in order
+to reduce power consumption. The connection with the AP is nevertheless kept
+alive.
 
 `Modem-sleep` mode includes minimum and maximum power save modes. In minimum
-power save mode, station wakes up every DTIM to receive beacon. Broadcast data
-will not be lost because it is transmitted after DTIM. However, it can not save
-much more power if DTIM is short for DTIM is determined by AP.
+power save mode, the station wakes up for every beacon with DTIM (Delivery
+Traffic Indication Message) so that it can receive all the broadcast data.
+However, it cannot save much more power if the DTIM interval is short, and this
+interval is established by the AP.
 
-In maximum power save mode, station wakes up every listen interval to receive
-beacon. This listen interval can be set longer than the AP DTIM period.
-Broadcast data may be lost because station may be in sleep state at DTIM time.
-If listen interval is longer, more power is saved but broadcast data is more
-easy to lose. Listen interval can be configured by calling API
-`esp_wifi_set_config()` before connecting to AP.
+In maximum power save mode, station wakes up every *listen* interval to receive
+the AP beacon. The *listen* interval can be set longer than the AP DTIM
+interval, leading extra power savings at the risk of loosing some broadcast
+data, because station may be in sleep state during a DTIM beacon transmission.
+The *listen* interval is configured with the `esp_wifi_set_config()` function,
+which should be invoked before connecting to AP.
 
 ### AP mode
 
-Currently ESP32 AP doesn’t support all of the power save feature defined in
-Wi-Fi specification. To be specific, the AP only caches unicast data for the
-stations connect to this AP, but doesn’t cache the multicast data for the
-stations. If stations connected to the ESP32 AP are power save enabled, they may
+Currently ESP32 AP doesn’t support all of the power saving features defined in
+the Wi-Fi specification. To be specific, in AP mode it only caches unicast data
+for the stations connect to it, but does not cache the multicast data. If
+stations connected to the ESP32 AP have enabled the power save mode, they may
 experience multicast packet loss.
 
 In the future, all power save features will be supported on ESP32 AP.
@@ -541,8 +545,8 @@ listening time in the case of the *maximum* submode.
 	available: no savings, minimum savings and maximum savings. In the case of
 	maximum savings, vary the listening time so that it takes different values.
 	In all cases, connect your ESP32 to an access point and, from a laptop
-	connected to the same AP, execute a series of `pings` towards the station.
-	Analyze the relation between the mode, DTIM, listen times and the ping
-	response time, showing graphical represntations when possible. Deliver a
-	small report in pdf format.
+	connected to the same AP, execute a series of `ping` commands towards the
+	station. Analyze the relation between the mode, DTIM, listen times and the
+	ping response time, showing graphical represntations when possible. Deliver
+	a small report in english (in pdf format).
 
