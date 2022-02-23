@@ -37,7 +37,7 @@ The groups are the same as for NP1, please check them [here](groups.md)
 |   15/02   | [Neural Network regression with pyTorch](jupyter/04_regression.ipynb)                                                                           |                                    |                                             |
 |   16/02   | [Support-vector machine](jupyter/05_svm.ipynb)                                                                          |                                    |                                             |
 |   22/02   | [Support-vector machine assignment](jupyter/06_svm_multiclass.ipynb)                                                                           |                                    |                                             |
-|   23/02   |                                                                            |                                    |                                             |
+|   23/02   | [Genetic algorithm](jupyter/07_geneticAlgorithm.ipynb)                                                                          |                                    |                                             |
 |   01/03   |                                                                            |                                    |                                             |
 |   02/03   |                                                                            |                                    |                                             |
 |   08/03   |                                                                            |                                    |                                             |
