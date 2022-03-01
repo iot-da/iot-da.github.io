@@ -1,82 +1,75 @@
-# Práctica 5. Servidores REST y representación de la información. JSON y CBOR
+# Laboratory 3. REST servers and information representation. JSON and CBOR
 
-## Objetivos
+## Goals
 
-* Entender los mecanismos ofrecidos por ESP-IDF para la creación de 
-un servidor REST HTTP.
+* To understand the mechanisms offered by ESP-IDF for the creation of
+a REST HTTP server.
 
-* Implementar, a través de los mecanismos ofrecidos por ESP-IDF, una API
-REST extendida en el ESP32.
+* To implement, via the mechanisms offered by ESP-IDF, a REST API extended for the ESP32.
 
-* Entender los conceptos básicos de representación de datos a través
-de JSON.
+* To understand the basic concepts to represent data via JSON.
 
-* Implementar, a través de la biblioteca `cJSON`, un tipo de mensaje
-personalizado para los intercambios de datos entre cliente y servidor.
+* To implement, via de `cJSON` library, a message type personalized for the
+exchanges of data between client and server.
 
-* Entender los conceptos básicos de representación de datos a través
-de CBOR, y evaluar sus ventajas con respecto a JSON.
+* To undrestand the basic concepts to represent information via CBOR, and to 
+evaluate the advantages compared with JSON.
 
-* Implementar, a través de la biblioteca `tinycbor`, un tipo de mensaje
-personalizado para los intercambios de datos entre cliente y servidor, comparando
-los tamaños de *payload* con respecto al intercambio JSON.
+* To implement, via the `tinycbor` library, a message type personalized for the 
+data exchanges between client an server, comparing the payload sizes w.r.t. JSON.
 
-## Desarrollo de un servidor REST en ESP-IDF
+## Development of a REST server in ESP-IDF
 
-En la primera parte de la práctica, veremos cómo desarrollar, utilizando las
-funcionalidades ofrecidas por ESP-IDF, un servidor HTTP que exponga una API
-REST mediante la cual será posible interactuar, en modos lectura y escritura,
-con un servidor (en nuestro caso, un dispositivo ESP32). 
-Concretamente, trabajaremos con el ejemplo 
-`example/protocols/http_server/rest_server` de la distribución de IDF 
-(versión 4.1).
+In the first part of the laboratory, we will see how to develop, using the
+functionalities offered by ESP-IDF, a HTTP server that exposes an API REST. We will
+be able to interact, in read and write modes, with a server (in our case, a ESP32).
 
-### Descripción de la API
+Specifically, we will work with the example
+`example/protocols/http_server/rest_server` of the IDF distribution.
 
-El ejemplo que estudiaremos construye una sencilla interfaz (API) con
-tres *endpoints* que permiten interactuar con distintas funcionalidades
-del ESP32. Nótese que tanto las URLs como la funcionalidad asociada a ellas
-es totalmente personalizable, y puede ser ampliada de acuerdo a las necesidades
-de nuestra aplicación.
+### API description
 
-La siguiente tabla resume la funcionalidad de cada *endpoint*, así como
-posibles ejemplos de valores enviados o devueltos a/por el servidor:
+The example builds a simple interface (API) with three *endpoints* that allow an
+interaction with different functionality of the ESP32. Note that, both the URLs and the
+functionality associated with them is totally tunable, and can be extended according to
+the needs of our application.
+
+The next table summarizes the functionality of each *endpoint*, and possible examples
+of values sent or returned by the server:
 
 
-| API                        | Método | Ejemplo de recurso leído/escrito                      | Descripción                                                                              | URL |
+| API                        | Method | Example of read/write resource                        | Description                                                                              | URL |
 | -------------------------- | ------ | ----------------------------------------------------- | ---------------------------------------------------------------------------------------- | -------- |
-| `/api/v1/system/info`      | `GET`  | {<br />version:"v4.0-dev",<br />cores:2<br />}        | Utilizado por los clientes para obtener información de la placa (versión, número de cores, ...)| `/`      |
-| `/api/v1/temp/raw`         | `GET`  | {<br />raw:22<br />}                                  | Utilizado por los clientes para obtener datos de temperatura desde un sensor (no disponible en el ESP32)          | `/chart` |
-| `/api/v1/light/brightness` | `POST` | { <br />red:160,<br />green:160,<br />blue:160<br />} | Utilizado por los clientes para escribir en la placa valores de control para controlar la luminosidad de LEDs | `/light` |
+| `/api/v1/system/info`      | `GET`  | {<br />version:"v4.0-dev",<br />cores:2<br />}        | Used by the clients to obtaine information of the board (version, core numbers, ...)    | `/`      |
+| `/api/v1/temp/raw`         | `GET`  | {<br />raw:22<br />}                                  | Used by the clients to obtain temperature data from a sensor (unavailable in the ESP32) | `/chart` |
+| `/api/v1/light/brightness` | `POST` | { <br />red:160,<br />green:160,<br />blue:160<br />} | Used by the clients to wirte on the board control values to control luminosity of LEDS  | `/light` |
 
-### Configuración y compilación del ejemplo
+### Configuration and compilation of the example
 
-En primer lugar, configura, compila y flashea el ejemplo mencionado. En este
-caso, las instrucciones se dividen en dos partes: compilación del *firmware*
-para el ESP32, y preparación de un cliente web sencillo que nos permitirá 
-observar la interacción con el mismo. Esta última parte no es estrictamente
-necesaria, pero nos ayudará en la interacción con el dispositivo de forma 
-visual hasta que veamos cómo hacerlo a través de línea de comandos.
+First, configure, compile and flash the example. In this case, the instructions
+are divided in two parts: compilation of the *firmware* for the ESP32, and preparation
+of a web client that will allow us to interact with it. This last part is not strictly
+necessary, but it will help us in the interaction with the device in a visual manner until
+we study how to do it via command line.
 
-A través del menú de configuración,
-configura un nombre para el dispositivo (por ejemplo, 'esp_home_tunombre'),
-e indica que el modo de despliegue (`Website deploy mode`) sea
-*Deploy website to SPI Nor Flash*. Por último, configura las credenciales
-del punto de acceso WiFi al que conectará, siguiendo la metodología habitual.
+Through the configuation menu, configure a name for your device (e.g., 'esp_home_yourname'),
+and configure the deploy mode (`Website deploy mode`) to 
+*Deploy website to SPI Nor Flash*. Finally, configure the credentials 
+of the WiFi access point, using the same methodology as that used in Lab 2.
 
-En segundo lugar, necesitamos instalar los componentes necesarios para 
-desplegar el cliente web. Para ello, navega al subdirectorio `front/web-demo`,
-donde reside el código fuente del cliente. Ejecuta los siguientes comandos
-para instalar las dependencias necesarias:
+Second, you will need to install the necessary components to deploy the web 
+client. For that, navigate to the 
+`front/web-demo` folder, where
+the source code for the client resides. Execute the following commands:
 
 ```sh
+sudo apt-get update
 sudo apt-get install npm node-vue*
 npm install
 npm run build 
 ```
 
-En este punto, ya podrás ejecutar, desde el directorio base del ejemplo, la
-orden de compilación y flasheado:
+At this point you can execute, from the base directory of the example, the orders for compilation and flashing:
 
 ```sh
 idf.py build
@@ -84,101 +77,92 @@ idf.py flash
 idf.py monitor
 ```
 
-### Interacción con el dispositivo vía interfaz web
+### Interaction with the device via web interface
 
-Si todo ha ido bien, podrás observar en la salida de monitorización la
-IP proporcionada al ESP32. Abre un navegador en la máquina virtual o 
-en tu PC (estando conectada a la misma red que tu ESP32), navega hacia 
-la dirección IP del ESP32, y deberías observar una página como la siguiente:
+If everything is correct, you will be able to observe in the output of the monitorization
+the IP provided to the ESP32. Open a web browser on the virtual machine or your PC (connected in the
+same network as that of the ESP32), navigate to the IP of the ESP32, and you should observe a page like
+the following:
 
 ![](img/captura1.png)
 
-Esta es una página web servida por el propio ESP32, que te permitirá interactuar
-con él. Concretamente, la página dispone de dos funcionalidades:
+This is a web page served by the ESP32, that will allow you to interact with it. Specifically, the
+page offers two functionalities:
 
-* **Chart**: consulta periódicamente el valor de temperatura devuelto por
-el ESP32 a través del *endpoint* `/api/v1/temp/raw`.
+* **Chart**: periodically checks the temperature value returned by the ESP32 via the *endpoint* `/api/v1/temp/raw`.
 
-* **Light**: permite enviar al ESP32 nuevos valores para las tres componentes
-de luminosidad que hipotéticamente podría equipar el ESP32.
+* **Light**: allows to send to the ESP32 new values for the three components of luminosity that could (hypothetically) equip the ESP32.
 
-!!! note "Tarea"
-    Interactúa con el sensor de luminosidad del ESP32 enviando distintos
-    valores. Observa cómo la salida de monitorización del ESP32 responde mostrando
-    los valores recibidos. Analiza el tráfico generado para una de dichas peticiones
-    utilizando Wireshark. ¿Cómo se codifican los datos en el envío? ¿Cómo se
-    codifican los datos periódicos de temperatura recibidos?
+!!! note "Task 1.1"
+    Interact with the light sensor of the ESP32 sending different values. Observe how the
+    the output of the monitorization on the ESP32 responds showing the received values. Analyze the
+    generated traffic for one of those requests using Wireshark. How are the submitted values encoded?
+    How are the periodic data for temperature encoded?
 
-### Interacción con el dispositivo vía línea de comandos (`curl`)
+### Interaction with the device via command line (`curl`)
 
-`curl` es una herramienta orientada a la transferencia de archivos por red.     Entre
-otras (muchas) funcionalidades, `curl` soporta los métodos `GET` y `PUT` del 
-protocolo HTTP, justo las necesarias para realizar peticiones de lectura y 
-escritura sobre nuestro servidor HTTP REST. 
+`curl` is a tool oriented to the transfer of files through the networ. 
+Among others (many) functionalities, `curl` supports the
+`GET` and `PUT` methods from HTTP, just the necessary tools to perform read and write
+requests on our HTTP REST server.
 
-Concretamente, para realizar una petición HTTP `GET` sobre nuestro servidor, 
-podemos ejecutar:
+Specifically, in order to perform an HTTP 
+`GET` request on our server:
 
 ```sh
 curl http://IP/URI
 ```
 
-Por ejemplo, la petición:
+For example, the request:
 
 ```sh
 curl http://192.168.1.26/api/v1/temp/raw
 ```
-(siendo `192.168.1.26` la IP del ESP32)
-nos responderá con el valor de temperatura instantánea.
+(being `192.168.1.26` the IP of the ESP32)
+will respond with the value of instantaneous temperature.
 
-Del mismo modo, para escribir (método `POST`) sobre el servidor, utilizaremos
-el parámetro `-d`, seguido del recurso que queramos enviar. Ten en cuenta
-que es responsabilidad del cliente enviar un recurso bien formado e interpretable
-por el dispositivo:
+Similarly, to write (method `POST`) on the server, we will use the 
+parameter `-d`, followed by the resource to submit. Take into account that it is responsibility
+of the client to send a resource well-formed and that can be interpreted by the device:
 
 ```sh
 curl -d '{"red":70,"green":80,"blue":99}' -H "Content-Type: application/json" 
 -X POST http://192.168.1.26/api/v1/light/brightness
 ```
 
-Observa que hemos incluido el tipo de recurso enviado (`JSON`) y la operacion
-solicitada (`POST`). Volveremos a esto en breve.
+Note that we have included the type of resource submitted (`JSON`) and the requested operation
+(`POST`). We will come back to this shortly.
 
-!!! note "Tarea"
-    Comprueba que, efectivamente, el tráfico generado por las anteriores órdenes
-    es el mismo que el que observaste en el caso del  cliente web. Observa qué 
-    ocurre si consultas un *endpoint* inexistente, o si envías un JSON mal
-    formado o con información incorrecta.
+!!! note "Task 1.2"
+    Check that the traffic generated for each order is the same that you observed in the case of the web client. Note what happens if you check a non-existant *checkpoint*, or if you submit an incorrect JSON.
 
-### Implementación de un servidor HTTP con API REST
+### Implementation of a HTTP server with REST API
 
-La implementación de un servidor HTTP en ESP-IDF se delega al componente
-*HTTP Server*, que implementa toda la funcionalida necesaria para tal fin
-de forma eficiente y ligera. La construcción de un servidor puede
-resumirse en tres funciones principales (observa la implementación de la
-funcion `start_rest_server` en el fichero `rest_server.c`) del ejemplo:
+The implementation of a HTTP server in ESP-IDF is delegated to the 
+*HTTP Server* component, that implements all the functionality required for 
+that end in an efficient and light way. The construction of a server can be summarized
+in three main functions (study the implementation of the 
+`start_rest_server` function in `rest_server.c`):
 
-* `httpd_start`: crea una instancia de servidor HTTP, y aloja recursos para
-ella según la configuración proporcionada. En función del tráfico generado
-(URIs solicitadas), se utilizarán manejadores específicos definidos por el 
-usuario para analizarlo y, en caso necesario, enviar respuestas al cliente
-correspondiente.
+* `httpd_start`: creates an instance of a HTTP server, and allocates resources fo it
+according to a configuration. Depending on the generated traffic (URIs requested), specific
+hanlders will be used defined by the programmer to analyze it and, if necessary, to send
+back responses to the client.
 
-* `httpd_stop`: finaliza el servidor HTTP, cerrando cualquier conexión
-previamente establecida con clientes.
+* `httpd_stop`: finalizes the HTTP server, closing any previously establised connections with clients.
 
-* `httpd_register_uri_handler`: registra un manejador (una función definida
-por el usuario) para tratar una petición sobre una URI determinada. La estructura
-proporcionada dispone de campos para indicar la URI destino (`uri`), el 
-método que se espera recibir (`method`, por ejemplo `HTTPD_GET`
-o `HTTPD_POST`) y un puntero a una función que procesará la petición
-recibida a través de la URI indicada. Dicha función sólo se ejecutará si
-el método coincide con el indicado.
+* `httpd_register_uri_handler`: registers a handler (a function defined by the user) to serve a request on a
+specific URI. The structure provided has fields to indicate the target URI
+(`uri`), 
+the method that is expected to receive (`method`, for example `HTTPD_GET`
+or `HTTPD_POST`) and a pointer to a function that will process the request
+received via the indicated URI. That function will only be executed if the
+method matches with that requested.
 
-La función `start_rest_server` del ejemplo proporciona los mecanismos básicos
-para la creación de la API anteriormente descrita. Así, para crear el 
-*endpoint* `/api/v1/system/info`, procederemos, en primer lugar, registrándolo
-en el servidor, preparando previamente la estructura de tipo `httpd_uri_t`:
+The function `start_rest_server` of the example provides the necessary basic mechanisms
+for the creation of the previously described API. Hence, to create the
+*endpoint* `/api/v1/system/info` we will, first, register it on the server, 
+preparing previously a structure of type `httpd_uri_t`:
 
 ```c
 httpd_uri_t system_info_get_uri = {
@@ -190,37 +174,35 @@ httpd_uri_t system_info_get_uri = {
     httpd_register_uri_handler(server, &system_info_get_uri);
 ```
 
-En este caso, la operación asociada a la invocación del handler será, exclusivamente
-`GET`; de hecho, si invocamos a un método `POST` sobre este *endpoint*, el 
-servidor nos responderá automáticamente con un aviso que indicará que dicho método
-no está soportado.
+In this case, the operation associated to the invocation of the handler will be, exclusively, 
+`GET`; actually, if we invoce a `POST` method on this *endpoint*, the
+server will respond automatically with a warning statint that the method is not supported.
 
-El procesamiento de la petición `GET` se realiza en la función 
-`system_info_get_handler`, y el esquema que se sigue es, en cualquier caso,
-sencillo:
+The procedure to process the funtion 
+`GET` is performed via the function
+`system_info_get_handler`, and the schema is, anyway, simple:
 
 ```c
 static esp_err_t system_info_get_handler(httpd_req_t *req)
 {
-    // Preparación del tipo de respuesta.
+    // Setup response.
     httpd_resp_set_type(req, "application/json");
 
-    // Preparación del buffer de respuesta.
-    char * buffer = // En el ejemplo preparamos un buffer JSON.
+    // Setup response buffer.
+    char * buffer = // In the example prepare a JSON response.
 
-    // Envío de respuesta.
+    // Sending response.
     https_resp_sendstr( req, buffer  );
 
     return ESP_OK;
 ```
 
-Alternativamente, si la respuesta es binaria, podríamos utilizar la función
-`https_resp_send( req, buffer, buffer_len  )` para procesarla y enviarla 
-(lo necesitarás para enviar un buffer binario CBOR).
+Alternatively, if the response is binary, we could use the method
+`https_resp_send( req, buffer, buffer_len  )` to process it and send it
+(you will need this to send a binary CBOR buffer).
 
-La creación de un *endpoint* con soporte para método `POST`
-resulta algo más larga, aunque el registro del mismo no difiere del ejemplo
-anterior:
+The creation of an *endpoint* with support for the `POST` method is a little
+bit longer, but the registration is the same as in the previous example:
 
 ```c
     /* URI handler for light brightness control */
@@ -233,9 +215,9 @@ anterior:
     httpd_register_uri_handler(server, &light_brightness_post_uri);
 ```
 
-Observa el cuerpo de la función `light_brightness_post_handler`. La recepción
-del objeto enviado por parte del cliente se realiza en base a múltiples
-invocaciones a la rutina `httpd_req_recv`:
+Note that the body of the function `light_brightness_post_handler`. The reception
+of the object sent by the client is performed based on multiple invocations
+to `httpd_req_recv`:
 
 ```c
 /* Simple handler for light brightness control */
@@ -265,42 +247,39 @@ static esp_err_t light_brightness_post_handler(httpd_req_t *req)
     /// ... 
 ```
 
-!!! danger "Tarea entregable"
-    Observa y estudia los códigos de los manejadores implementados en el ejemplo. 
-    Extiende la API proporcionada para crear un nuevo *endpoint* que permita
-    obtener la temperatura (número aleatorio), pero transformándola a 
-    grados Fahrenheit. En este caso, el valor devuelto en el fichero 
-    JSON será un número en punto flotante (en la siguiente sección te
-    se explicará cómo hacerlo, por lo que de momento puedes enviar 
-    únicamente la parte entera del mismo). 
+!!! danger "Task 1.3"
+    Observe and study the codes of the handlers implemented in the example. 
+    Extend the API offered to create a new *endpoint* that allows to obtain 
+    the temperature (random number), but transforming it to Fahrenheit degrees. In this cas, 
+    the value returned in the JSON file will be a number in floating point format 
+    (you will see how to do this in the next section. By now, you can use an integer value).
 
-## Representación de la información. JSON
+## Information representation. JSON
 
-JSON es un formato de representación de datos en modo texto para el
-intercambio de datos entre sistemas informáticos. Se creó inicialmente
-como una notación literal de los objetos Javascript, pero dada su amplia
-aceptación (realmente como alternativa a XML), se considera a día de hoy
-un componente totalmente independiente al lenguaje.
+JSON is a data representation format based on text for the exchange of
+data between systems. It was created originally as a literal notation
+for Javascript objects, but given its adoption (as of today, it is a real
+alternative for XML), it is considered an independent component from the
+language. 
 
-Los tipos de datos soportados por JSON incluyen:
+The datatypes supported by JSON include:
 
-* Valores numéricos: permitiendo números con y sin signo, y con parte
-decimla en notación separada por puntos.
+* Numeric values: allowing numbers with and without sign, and with decimal
+part in dot-separated notation.
 
-* Cadenas: secuencias de cero o más caracteres.
+* Strings: sequences of zero or more characters.
 
-* Booleanos: `true` y `false`.
+* Booleans: `true` and `false`.
 
-* Arrays: listas ordenadas de cero o más valores de cualquier tipo, separados
-por comas y encerrados entre corchetes.
+* Arrays: ordered lists of zero or more values of any type, separated by commas with
+`[ ]` signs.
 
-* Objetos: colecciones no ordenadas de pares `<nombre>:<valor>`, separados
-por comas y encerrados entre llaves.
+* Objects: unordered collections of pairs `<name>:<value>`, separated by commas with
+`{ }` signs.
 
-ESP-IDF incluye el componente [cJSON](https://github.com/DaveGamble/cJSON)
-para parsear y construir objetos de tipo JSON de forma sencilla y consistente.
-La biblioteca cJSON representa datos JSON utilizando una estructura sencilla, 
-véase:
+ESP-IDF includes the [cJSON](https://github.com/DaveGamble/cJSON)
+component to parse and build objects of JSON type in a simple and consistent way.
+The cJSON library represents JSON data using a simple structure:
 
 ```c
 /* The cJSON structure: */
@@ -318,170 +297,154 @@ typedef struct cJSON
 } cJSON;
 ```
 
-El campo `type` informa sobre el tipo de dato contenido en el objeto, véase:
+The `type` field inforems about the type of data contained in the object:
 
-* `cJSON_False` (`cJSON_IsFalse()`): representa un valor booleano falso.
-* `cJSON_True` (`cJSON_IsTrue()`): representa un valor booleano verdadero.
-* `cJSON_NULL` (`cJSON_IsNULL()`): representa un valor nulo.
-* `cJSON_Number` (`cJSON_IsNumber()`): representa un valor numérico. Dicho
-valor se almacena en el campo `valuedouble` como flotante y en `valueint`
-como entero.
-* `cJSON_String` (`cJSON_IsString()`): representa un valor cadena, y se 
-almacena en el campo `valuestring` como un array de bytes terminado por
-el carácter nulo ('\0').
-* `cJSON_Array` (`cJSON_IsArray()`): representa un array de valores. En el
-campo `child` se almacena una lista enlazada con los elementos del array, 
-terminada en NULL.
-* `cJSON_Object` (`cJSON_IsObject()`): representa un valor objeto. Sus
-valores se almacenan de la misma manera que el array anterior, pero en el
-campo `string` se almacenan además las claves del objeto a modo de lista.
+* `cJSON_False` (`cJSON_IsFalse()`): false boolean value.
+* `cJSON_True` (`cJSON_IsTrue()`): true boolean value.
+* `cJSON_NULL` (`cJSON_IsNULL()`): null value.
+* `cJSON_Number` (`cJSON_IsNumber()`): numeric value. This value is stored in the field
+`valuedouble` as a floating point and at `valueint` as an integer.
+* `cJSON_String` (`cJSON_IsString()`): string value, stored in the field 
+`valuestring` as an array of bytes terminated by null character ('\0').
+* `cJSON_Array` (`cJSON_IsArray()`): array of values. In the field
+`child`, it stores a linked list with the elements of the array, terminated by NULL.
+* `cJSON_Object` (`cJSON_IsObject()`): object value. 
+Its values are stored in the same manner than in the previous array, but in this case in the field 
+`string` it stores the keys of the object as a list.
 
-### Creación y parseado de una estructura JSON
+### Creataion and parsing of a JSON structure
 
-Para cada tipo de datos, existe una rutina asociada con nombre
-`cJSON_Create...` que permite crear un item del tipo correspondiente.
-Todas estas funciones alojan memoria suficiente como para albergar 
-el dato creado. 
+For each datatype, there exists a routine associated with the name
+`cJSON_Create...` that allows to create an item of the corresponding type. 
+All these functions allocate enough memory to host the created data.
 
-Dado un objeto JSON en forma de cadena, es posible analizarlo (parsearlo)
-utilizando la función `cJSON_Parse`:
+Given a JSON object as a string, it is possible to analyze it (parse it) 
+using the function `cJSON_Parse`:
 
 ```c
 cJSON * json = cJSON_Parse( string );
 ```
 
-Para imprimir el contenido de una estructura JSON en modo texto, podemos
-hacer uso de la función `cJSON_Print(json)`:
+In order to print the contents of a JSON structure in in text mode, we can use the
+function `cJSON_Print(json)`:
 
 ```c
 char * string = cJSON_Print( json );
 ```
 
-### Ejemplos
+### Examples
 
-Observa de nuevo el contenido de las funciones manejadoras en nuestro servidor
-REST. Concretamente, céntrate en la función `system_info_get_handler`, que
-construye un objeto JSON con dos campos, de tipo cadena ("version")
-y numérico ("cores"):
+Observe again the contents of the handler funtions in the REST server. Specifically, 
+focus on the funtion `system_info_get_handler`, that builds
+a JSON object with two fields, of type string ("version") y numeric ("cores"):
 
 ```c
 /* Simple handler for getting system handler */
 static esp_err_t system_info_get_handler(httpd_req_t *req)
 {
-    // Preparación del tipo de datos de la respuesta.
+    // Preparation of the datatype of the response.
     httpd_resp_set_type(req, "application/json");
 
-    // Creación del objeto JSON.
+    // Creation of the JSON object.
     cJSON *root = cJSON_CreateObject();
 
-    // Obtención del dato.
+    // Obtention of the data.
     esp_chip_info_t chip_info;
     esp_chip_info(&chip_info);
 
-    // Anyadimos un campo de tipo cadena.
+    // Add a string field.
     cJSON_AddStringToObject(root, "version", IDF_VER);
 
-    // Anyadimos un campo de tipo numérico.
+    // Add a numeric field.
     cJSON_AddNumberToObject(root, "cores", chip_info.cores);
 
-    // Imprimimos a cadena previo al envío.
+    // Print the string prior to submission.
     const char *sys_info = cJSON_Print(root);
 
-    // Enviamos cabecera + objeto JSON en modo texto vía HTTP.
+    // Send header + JSON object in text mode via HTTP.
     httpd_resp_sendstr(req, sys_info);
 
-    // Liberamos recursos.
+    // Free resources.
     free((void *)sys_info);
 
-    // Liberamos recursos del objeto JSON.
+    // Free resources for JSON. 
     cJSON_Delete(root);
 
     return ESP_OK;
 }
 ```
 
-La función `light_brightness_post_handler` realiza un parseado del objeto
-JSON recibido. Observa su cuerpo:
+The funtion `light_brightness_post_handler` parsess the received JSON object. Analyze its body:
 
 ```c
-    // buf contiene la cadena recibida a través de HTTP (método POST).
+    // buf contains the string received via HTTP (method POST).
     // ...
-    // Parseamos el objeto JSON.
+    // Parse the JSON object.
     cJSON *root = cJSON_Parse(buf);
 
-    // Obtenemos tres valores numéricos (RGB).
+    // Obtain three numeric values (RGB).
     int red = cJSON_GetObjectItem(root, "red")->valueint;
     int green = cJSON_GetObjectItem(root, "green")->valueint;
     int blue = cJSON_GetObjectItem(root, "blue")->valueint;
 
-    // Mostramos por pantalla los valores parseados.
+    // Show on screen the parsed values.
     ESP_LOGI(REST_TAG, "Light control: red = %d, green = %d, blue = %d", red, green, blue);
 
-    // Liberamos recursos JSON.
+    // Free JSON resources.
     cJSON_Delete(root);
 
-    // Enviamos una respuesta generica en modo texto.
+    // Submit a generic response in text mode.
     httpd_resp_sendstr(req, "Post control value successfully");
 
     return ESP_OK;
 ```
 
-!!! danger "Tarea entregable"
-    Extiende la tarea anterior para añadir el dato en formato punto flotante
-    de la temperatura en grados Fahrenheit.
+!!! danger "Task 1.4"
+    Extend the previous task to add the data in floating point format about the Fahrenheit temperature.
 
-!!! danger "Tarea entregable"
-    Crea un nuevo *endpoint* que utilice un formato más complejo de objetos
-    JSON, incluyendo distintos tipos de datos que puedan dar respuesta a 
-    un hipotético entorno IoT. Documenta la API generada y el formato de los
-    objetos que has diseñado. Puedes, si así lo deseas, incluir capturas
-    Wireshark para ilustrar el intercambio de mensajes producido. Nos interesará,
-    especialmente, el número de bytes transportados para enviar/recibir tus
-    mensajes JSON.
+!!! danger "Task 1.5"
+    Create a new *endpoint* that uses a more complex object format (in JSON), including 
+    different types of data that can give response to a hypothetical IoT environment.
+    Document the generated API and the format of the objects. If you consider it necessary, include
+    Wireshark captures to illustrate the exchange of messages. Specifically, it will be interesting
+    to analyze the number of bytes transported to send/receive JSON messages.
 
-## Representación de la información. CBOR
+## Information representation. CBOR
 
-CBOR (*Concise Binary Object Representation*) es el formato de serialización
-de datos recomendado en muchos de los *stacks* IoT, específicamente en aquellos
-basados en CoAP. Pese a ser un formato binario, CBOR guarda similitudes con
-JSON, ya que sigue su mismo modelo de datos: valores numéricos, *strings*,
-arrays, mapas (objetos en JSON) y valores booleanos y nulos. 
+CBOR (*Concise Binary Object Representation*) is the recommended serialization
+format in many IoT stacks, specifically in those based on CoAP. 
+Even though it is a binary format, CBOR is similar in many ways with JSON, as it
+follows the same data model: numeric values, strings, arrays, maps (objects in JSON)
+and null/boolean values.
 
-Sin embargo, a diferencia de JSON, un objeto CBOR es autodescriptivo, y en
-este punto radica una de sus ventajas: es posible intercambiar datos entre
-un cliente y un servidor sin ceñirse a un esquema de datos concreto conocido
-por ambas partes.
+However, differently from JSON, a CBOR object is autodescriptive, and this is
+one if its advantages: it is possible to exchange data between a client and a server
+without using a pre-defined schema of data known by both parties.
 
-El hecho de ser un formato binario implica mejoras sustanciales con respecto a
-JSON, por ejemplo al transportar datos binarios (claves de cifrado, datos
-gráficos, o valores flotantes sensorizados, entre otros muchos); estos
-datos solían codificarse en JSON utilizando, por ejemplo, formato *base64*, 
-añadiendo complejidad al proceso de codificación/decodificación. 
-En general, el uso de un formato binario implica menor complejidad a la hora
-de ser integrado en aplicaciones, y es por esta razón por la que se considera
-óptimo para nodos de bajas prestaciones, típicos en IoT. 
+The fact of being a binary format implies improvements w.r.t. JSON, for example when 
+transporting binary data (cipher keys, graphics, floating point values, among others); these
+data were encoded in JSON using, for example base64 format, adding complexity in the 
+process of codification/decodification. 
+In general, the use of a binary format implies less complexity when integrating in applications, 
+and this is why it is considered to be optimum in low-power devices, such as IoT devices. 
 
-El formato CBOR está documentado en el [RFC 7049](https://tools.ietf.org/html/rfc7049),
-y por tanto se considera un estándar bien documentado y estable de cara al futuro.
+The CBOR format is documented in [RFC 7049](https://tools.ietf.org/html/rfc7049),
+so it is considered to be a well documented standard, and stable for the future.
 
-### CBOR en el ESP32
+### CBOR on the ESP32
 
-ESP-IDF incluye la biblioteca `tinyCBOR` como implementación ligera del estándar,
-que permite tanto codificar distintos tipos de datos a formato CBOR, parsear
-estructuras CBOR y convertir dichas estructuras tanto a formato texto visualizable
-como a JSON. TinyCBOR está mantenido como proyecto de software libre por parte
-de Intel, y su documentación detallada (se sugiere consultarla) se encuentra
-disponible en el siguiente [enlace](https://intel.github.io/tinycbor/current/).
+ESP-IDF includes the library `tinyCBOR` that 
+helps with the encoding of data into CBOR format, parsing
+CBOR structures and convering those structures bot to text format and to JSON.
+TinyCBOR is maintained as a free software project by Intel, and its documentation
+(that you should read as a reference) is available at [enlace](https://intel.github.io/tinycbor/current/).
 
-Estudiaremos el funcionamiento de `tinyCBOR` a través de un ejemplo
-funcional (lo puedes encontrar en `examples/protocols/cbor`). El ejemplo
-muestra los mecanismos necesarios para, en primer lugar, crear un objeto
-CBOR completo utilizando la biblioteca, y en segundo lugar, el mecanismo
-para convertir dicho objeto a representación JSON, así como para parsearlo
-manualmente.
+Let us study the logics of `tinyCBOR` through an example (you can find it
+in the `examples/protocols/cbor` folder of IDF). The example
+shows the necessary mechanisms to, first, create a CBOR object using the library and,
+second, to convert the object to a JSON representation and parse it:
 
-En primer lugar, compila, flashea y ejecuta el ejemplo. 
-Verás que la salida debería ser similar a la siguiente:
+Compile, flash and execute the example. You should see that the output is similar to: 
 
 ```sh
 I (320) example: encoded buffer size 67
@@ -509,61 +472,56 @@ Array[
 ]
 ```
 
-Observa que la estructura del objeto CBOR será medianamente compleja: constará
-de un array formado por cinco elementos:
+Note that the structure of a CBOR objct is complex: it is composed by an array with five elements:
 
-1. Un *mapa* (conjunto no ordenado de pares *clave-valor*), combinando cadenas,
-booleanos y un segundo array para especificar una dirección IP.
-2. Un valor flotante (3.14).
-3. Un valor numérico "simple" (99).
-4. Una fecha (en forma de cadena).
-5. Un valor indefinido.
+1. A *map* (unnordered set of pairs *key-value*) combining strings, booleans and a second array to specify an IP address.
+2. A floating point value (3.14).
+3. A numeric "simple" value (99).
+4. A date (as a string)
+5. An undefined value.
 
-El *firmware* procede en tres etapas:
+The *firmware* proceeds in three stages:
 
-### Etapa 1: creación (codificación) del objeto CBOR
+### Stage 1: creation (codification) of a CBOR object
 
-Observa el cuerpo de la tarea principal (`app_main`). El codificador 
-CBOR se basa en dos variables:
+Observe the body of the main task (`app_main`). The encoder for CBOR is based on two variables:
 
 ```c
-CborEncoder Root_encoder; // Codificador CBOR.
-uint8_t buf[100];         // Buffer para alojar el objeto CBOR (array de bytes). 
+CborEncoder Root_encoder; // CBOR encoder.
+uint8_t buf[100];         // Buffer to allocate the CBOR object (array of bytes).
 ```
 
-En segundo lugar, y ya que utilizaremos un array y un mapa, necesitaremos
-constructores especiales para dichos objetos:
+Second, and as we will use an array and a map, we will need constructors specifically desinged for those objects:
 
 ```c
-// Creación de Array.
+// Array creation.
 CborEncoder array_encoder;
 CborEncoder map_encoder;
 
 cbor_encoder_create_array(&root_encoder, &array_encoder, 5); // [
-  // 1. Creación del Mapa.
+  // 1. Map creation.
   cbor_encoder_create_map(&array_encoder, &map_encoder, 3); // {
 ```
 
-A partir de este punto, podemos proceder con la construcción de los objetos
-siguiendo el esquema deseado:
+From this point on, we can proceed with the construction of the objects following the desired schema:
 
 ```c
-  // chip: esp32 (cadena:cadena)
+  // chip: esp32 (string:string)
   cbor_encode_text_stringz(&map_encoder, "chip");
   cbor_encode_text_stringz(&map_encoder, "esp32");
 
-  // unicore: false (cadena:booleano)
+  // unicore: false (string:boolean)
   cbor_encode_text_stringz(&map_encoder, "unicore");
   cbor_encode_boolean(&map_encoder, false);
 
-  // IP:[192,168,1,100] (cadena:array)
+  // IP:[192,168,1,100] (string:array)
   cbor_encode_text_stringz(&map_encoder, "ip");
 
     CborEncoder array2;
 
     cbor_encoder_create_array(&map_encoder, &array2, 4); // [
 
-    // Valores numéricos.
+    // Numeric values.
     cbor_encode_uint(&array2, 192);
     cbor_encode_uint(&array2, 168);
     cbor_encode_uint(&array2, 1);
@@ -573,27 +531,26 @@ siguiendo el esquema deseado:
 
  cbor_encoder_close_container(&array_encoder, &map_encoder); // }
 
-// 2. Flotante
+// 2. Flotanting point
 cbor_encode_float(&array_encoder, 3.14);
 
-// 3. Valor simple
+// 3. Simple value 
 cbor_encode_simple_value(&array_encoder, 99);
 
-// 4. Cadena
+// 4. String 
 cbor_encode_text_stringz(&array_encoder, "2019-07-10 09:00:00+0000");
 
 // 5. Undefined value.
 cbor_encode_undefined(&array_encoder);
 cbor_encoder_close_container(&root_encoder, &array_encoder); // ]
 
-// Mostramos el tamaño del buffer creado.
+// Show the size of the created buffer.
 ESP_LOGI(TAG, "encoded buffer size %d", cbor_encoder_get_buffer_size(&root_encoder, buf));
 ```
 
-### Etapa 2: conversión a JSON
+### Stage 2: conversion to JSON
 
-La conversión a JSON (típicamente por motivos de visualización o depuración), 
-puede realizarse del siguiente modo:
+The conversion to JSON (typically to visualize or debug) can be done as follows:
 
 ```c
     // Initialize the cbor parser and the value iterator
@@ -604,78 +561,71 @@ puede realizarse del siguiente modo:
     cbor_value_to_json(stdout, &it, 0);
 ```
 
-### Etapa 3: parseado manual de un objeto CBOR
+### Stage 3: manually parsing a CBOR object
 
-Por último, el parseado manual del objeto CBOR se deja como ejercicio de estudio
-para el alumno, y está implementado en la función `example_dump_cbor_buffer`
-del ejemplo. Básicamente, la función itera por cada uno de los elementos
-del objeto CBOR, consultando el tipo de cada elemento y actuando en consecuencia.
-Para aquellos tipos complejos (e.g. arrays o mapas), la función se invoca
-recursivamente hasta encontrar un elemento de tipo básico. En este caso, 
-simplemente imprime por pantalla su valor (e.g. en el caso de un entero,
-caso `CborIntegerType`).
+Last, the manual parsing of a CBOR object is left as an exercise for the student,
+and it is implemented in the funtion `example_dump_cbor_buffer` of the example.
+Basically, the function iterates over each one of the elements of the CBOR object,
+checking each element and acting consequently. 
+For those types that are complex (e.g. arrays or maps), the function is invoked recursively
+till finding a basic datatype. In this case, it just prints on screen its value (e.g. in the case
+of an integer, case `CborIntegerType`).
 
-!!! danger "Tarea entregable"
-    Se pide extender la API REST con un nuevo *endpoint* que permita obtener
-    la misma información que el *endpoint* JSON desarrollado en la anterior
-    tarea, pero en esta ocasión, utilizando formato CBOR. El objetivo del 
-    ejercicio es comparar la cantidad de tráfico generado en cada 
-    representación, por lo que se sugiere que el objeto intercambiado 
-    sea relativamente complejo (es decir, incluya disintos tipos de datos numéricos,
-    arrays, o mapas). A continuación se incluyen notas adicionales que te 
-    permitirán depurar tu desarrollo, observando los valores devueltos
-    por el servidor HTTP.
+!!! danger "Task 1.5"
+    Extend the REST API with a new *endpoint* that allows obtaining the same information than 
+    the JSON *endpoint* developed in the last task, but in this case, using CBOR. The goal of the
+    task is to compare the amount of generated traffic in each representation, so it is suggested to
+    use a relatively complex object (different numeric types, arrays or maps). Next, we include 
+    additional notes that will help you in the solution for debugging purposes, observing the returned
+    values by the HTTP server.
+   
+### Additional notes: creation and query of a CBOR *endpoint* in the REST API
 
-### Notas adicionales: creación y consulta de un *endpoint* CBOR en la API REST
-
-Las modificaciones a realizar en la función manejadora del *endpoint* para 
-responder con un objeto CBOR son mínimas. De hecho, se centran simplemente en 
-el tipo de respuesta y el mecanismo a usar para enviarla, véase:
+The modifications to carry out in the handler funtion of the endpoint to answer with a CBOR
+object are minimal. Actually, they are focused simply on the type of response and the mechanism to send it, namely:
 
 ```c
 static esp_err_t system_info_get_handler(httpd_req_t *req)
 {
-    // Tipo de respuesta.
+    // Response type. 
     httpd_resp_set_type(req, "application/cbor");
 
     CborEncoder root_encoder;
     uint8_t buf[100];
 
-    // Codificador CBOR.
+    // CBOR encoder
     cbor_encoder_init(&root_encoder, buf, sizeof(buf), 0);
 
-    // Codificamos CBOR.
+    // Encoding CBOR.
     // ...
 
-    // Enviamos respuesta, consultando previamente el tamaño del buffer codificado.
+    // Send response, checking previously the size of the encoded buffer.
     httpd_resp_send(req, (char*)buf, cbor_encoder_get_buffer_size( &root_encoder, buf));
 
     return ESP_OK;
 ```
 
-Para consultar desde línea de comandos sobre este *endpoint*, podemos utilizar
-directamente `curl`, volcando la salida recibida a un fichero (por
-ejemplo, `output.cbor`):
+To query from command line on this endpoint, we can use directly `curl`, redirecting the received
+output to a file (e.g.  `output.cbor`):
 
 ```sh
 curl http://192.168.1.26/api/v1/system/info > output.cbor
 ```
 
-Si visualizas el contenido del fichero, verás que contiene datos binarios
-difícilmente interpretables. A continuación veremos distintos mecanismos
-de visualización.
+If we visualize the contents of the file, we can observe that it contains binary data, 
+dificult to analayze. In the following, we well see different visualization mechanisms.
 
-### Notas adicionales: visualización de datos CBOR
+### Additional notes: visualizing CBOR data
 
-Una opción de visualización consiste en utilizar la web [cbor.me](http://cbor.me/).
-En el panel derecho, podrás pegar el contenido binario leído. Si necesitas
-realizar la conversión antes de pegarlo en la web, puedes hacerlo con la orden:
+A visualization option consists on using the web [cbor.me](http://cbor.me/).
+In the right panel, you can paste the binary contents read. If you need to 
+perform a conversion before pasting on the web, you can do it with:
 
 ```sh
 xxd -ps output.cbor
 ```
 
-Un ejemplo de salida (a pegar en el panel derecho de la web), podría ser:
+An output example (to be pased on the right panel of the web), could be:
 
 ```sh
 $ xxd -ps output.cbor 
@@ -684,22 +634,21 @@ $ xxd -ps output.cbor
 302b30303030f7
 ```
 
-Deberías observar una salida similar a la siguiente (ten en cuenta que 
-la herramiente automáticamente indenta el contenido del panel derecho; 
-recuerda que simplemente debes pegar la salida generada por `xxd`):
+You shouls see a similar output as the one shown next (take into accounnt that
+the tools automatically indents the contents of the right panel; rememebre that you need to just paste the output generated by `xxd`):
 
 ![](img/cbor.me.png)
 
-Otra opción de visualización puede ser un programa Python (podrías integrarlo
-en tu servidor TCP/UDP, por ejemplo), que haga uso del módulo `cbor2`
- ([documentación](https://pypi.org/project/cbor2/)). Para
-comprobar su funcionamiento, primero instálalo:
+Other visualization option can be a Python program (it could actually be integrated 
+within your TCP/UDP client/server, for example) that makes use of the 
+`cbor2` module ([documentation](https://pypi.org/project/cbor2/)). To check
+how it works, first install it:
 
 ```sh
 pip install cbor2
 ```
 
-Y comprueba si efectivamente funciona utilizando el siguiente programa Python:
+And theck if it effectively works using the following Python program:
 
 ```python
 from cbor2 import dumps, loads, dump, load
@@ -710,7 +659,7 @@ with open('output.cbor', 'rb') as fp:
 print(obj)
 ```
 
-Al ejecutarlo, observarás el contenido del objeto:
+When executed, you will observe the contents of the object:
 
 ```sh
 python cbor.py
