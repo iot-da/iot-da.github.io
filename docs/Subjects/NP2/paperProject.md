@@ -1,6 +1,6 @@
-# Group paper work
+# Individual paper work
 
-Together with your lab group, you need to prepare a paper work, as explained in
+You need to prepare a paper work, as explained in
 the slides of the first class [Presentation](slides/Presentation.pdf).
 
 It is a documentation work in which you are requested to explore a set of documents
@@ -18,10 +18,9 @@ snippets, or even protoype codes are also welcome.
 
 ## List of technologies you can consider
 
-The technologies for the paper work shall not overlap between groups,
-you should request one of the topics sending a mail to the professor
+You should request one of the topics sending a mail to the professor
 (figual@ucm.es) before **March 1st**, who will confirm if you can choose 
-the topic or if it has been already chosen by other group.
+the topic.
 
 The topics are:
 

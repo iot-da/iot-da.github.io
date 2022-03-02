@@ -26,7 +26,7 @@ ported to different APIs and languages.
 
 Francisco Igual (figual@ucm.es)
 
-## Work paper work assignment
+## Paper work assignment
 
 [Here you can find description about this individual assignment](paperProject.md)
 
