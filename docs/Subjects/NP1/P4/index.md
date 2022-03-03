@@ -26,7 +26,7 @@ one place instead of adding services and characteristics one by one.
 This example implements the *Heart Rate Profile* as defined by the [Traditional
 Profile Specifications](https://www.bluetooth.com/specifications/profiles-overview).
 
-<div align="center"><img src="image/Heart_Rate_Service.png" width = "450" alt="Table-like data structure representing the Heart Rate Service" align=center /> </div>
+<div align="center"><img src="img/Heart_Rate_Service.png" width = "450" alt="Table-like data structure representing the Heart Rate Service" align=center /> </div>
 
 We will therefore display three characteristics. Of them, the most important for
 us will be the heart rate measurement value, with its value (*Heart Rate
@@ -838,13 +838,11 @@ static void publish_data_task(void *pvParameters)
 	while (1) {
 		ESP_LOGI("APP", "Sending data...");
 
-		// Paso 1: Actualizo valor...
+		// Step 1: Update characteristic value ...
 
-		// Paso 2: Si notificación activa...
+		// Step 2: If indications are active send the indication...
 
-		// Paso 3: Envío datos...
-
-		// Paso 4: Duermo un segundo...
+		// Step 3: Sleep for one second...
 		vTaskDelay( 1000. / portTICK_PERIOD_MS);
 	}
 }
