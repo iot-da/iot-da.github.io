@@ -4,107 +4,99 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="None">
+        
         
         <link rel="canonical" href="https://iot-da.github.io/News/">
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Internet of Things and Data Analytics</title>
-        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <title>News - Internet of Things and Data Analytics</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/font-awesome.min.css" rel="stylesheet">
         <link href="../css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
 
         <script src="../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
-    <body class="homepage">
-
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-
-                <!-- Collapsed navigation -->
-                <div class="navbar-header">
-                    <!-- Expander button -->
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="..">Internet of Things and Data Analytics</a>
-                </div>
+                <a class="navbar-brand" href="..">Internet of Things and Data Analytics</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
                 <!-- Expanded navigation -->
-                <div class="navbar-collapse collapse">
+                <div id="navbar-collapse" class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li >
-                                <a href="..">Home</a>
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Home</a>
                             </li>
-                            <li >
-                                <a href="../General/">General info.</a>
+                            <li class="navitem">
+                                <a href="../General/" class="nav-link">General info.</a>
                             </li>
-                            <li class="active">
-                                <a href="./">News</a>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">News</a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
-<li >
-    <a href="../Subjects/IOTNA/">IOTNA</a>
+<li>
+    <a href="../Subjects/IOTNA/" class="dropdown-item">IOTNA</a>
 </li>
                                     
-<li >
-    <a href="../Subjects/MDM/">MDM</a>
+<li>
+    <a href="../Subjects/MDM/" class="dropdown-item">MDM</a>
 </li>
                                     
-<li >
-    <a href="../Subjects/SID/">SID</a>
+<li>
+    <a href="../Subjects/SID/" class="dropdown-item">SID</a>
 </li>
                                     
-<li >
-    <a href="../Subjects/IA/">IA</a>
+<li>
+    <a href="../Subjects/IA/" class="dropdown-item">IA</a>
 </li>
                                     
-<li >
-    <a href="../Subjects/NP1/">NP1</a>
+<li>
+    <a href="../Subjects/NP1/" class="dropdown-item">NP1</a>
 </li>
                                     
-<li >
-    <a href="../Subjects/NP2/">NP2</a>
+<li>
+    <a href="../Subjects/NP2/" class="dropdown-item">NP2</a>
 </li>
                                     
-<li >
-    <a href="../Subjects/SEC/">SEC</a>
+<li>
+    <a href="../Subjects/SEC/" class="dropdown-item">SEC</a>
 </li>
                                     
-<li >
-    <a href="../Subjects/EDGE/">EDGE</a>
+<li>
+    <a href="../Subjects/EDGE/" class="dropdown-item">EDGE</a>
 </li>
                                 </ul>
                             </li>
-                            <li >
-                                <a href="../Contact/">Contact</a>
+                            <li class="navitem">
+                                <a href="../Contact/" class="nav-link">Contact</a>
                             </li>
                         </ul>
 
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
-                            <li >
-                                <a rel="next" href="../General/">
+                            <li class="nav-item">
+                                <a rel="prev" href="../General/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
-                            <li >
-                                <a rel="prev" href="../Subjects/IOTNA/">
+                            <li class="nav-item">
+                                <a rel="next" href="../Subjects/IOTNA/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -114,12 +106,26 @@
         </div>
 
         <div class="container">
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#news-and-announcements">News and announcements</a></li>
-    </ul>
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-light">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#news-and-announcements" class="nav-link">News and announcements</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
 </div></div>
-                <div class="col-md-9" role="main">
+                    <div class="col-md-9" role="main">
 
 <h1 id="news-and-announcements">News and announcements</h1>
 <div class="admonition danger">
@@ -130,6 +136,7 @@
 <p class="admonition-title">Test alert - Jan 1st</p>
 <p>This is a test alert.</p>
 </div></div>
+            </div>
         </div>
 
         <footer class="col-md-12">
@@ -143,21 +150,21 @@
         <script src="../js/base.js" defer></script>
         <script src="../search/main.js" defer></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-    <div class="modal-dialog">
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
             </div>
             <div class="modal-body">
                 <p>
                     From here you can search these documents. Enter
                     your search terms below.
                 </p>
-                <form role="form">
+                <form>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
                     </div>
                 </form>
                 <div id="mkdocs-search-results"></div>
@@ -166,12 +173,12 @@
             </div>
         </div>
     </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
             </div>
             <div class="modal-body">
               <table class="table">
@@ -209,8 +216,3 @@
 
     </body>
 </html>
-
-<!--
-MkDocs version : 1.0.4
-Build Date UTC : 2022-03-02 15:04:31
--->
