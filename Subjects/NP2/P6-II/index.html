@@ -106,170 +106,159 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#practica-6-el-protocolo-mqtt-ii-despliegue-de-clientes-en-el-esp32">Práctica 6. El protocolo MQTT (II). Despliegue de clientes en el ESP32</a></li>
-            <li><a href="#objetivos">Objetivos</a></li>
-            <li><a href="#el-componente-mqtt-en-esp-idf">El componente MQTT en ESP-IDF</a></li>
+        <li class="main active"><a href="#laboratory-4-mqtt-ii-client-deployments-on-the-esp32">Laboratory 4. MQTT (II). Client deployments on the ESP32</a></li>
+            <li><a href="#objectives">Objectives</a></li>
+            <li><a href="#the-mqtt-component-in-esp-idf">The MQTT component in ESP-IDF</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="practica-6-el-protocolo-mqtt-ii-despliegue-de-clientes-en-el-esp32">Práctica 6. El protocolo MQTT (II). Despliegue de clientes en el ESP32</h1>
-<h2 id="objetivos">Objetivos</h2>
+<h1 id="laboratory-4-mqtt-ii-client-deployments-on-the-esp32">Laboratory 4. MQTT (II). Client deployments on the ESP32</h1>
+<h2 id="objectives">Objectives</h2>
 <ul>
 <li>
-<p>Familiarizarse con el componente MQTT en ESP-IDF.</p>
+<p>To get familiar with the MQTT component in ESP-IDF.</p>
 </li>
 <li>
-<p>Desplegar un cliente completo MQTT en el ESP32, incluyendo rutinas de publicación y suscripción.</p>
+<p>To deploy a complete MQTT client on the ESP32, including routines for publication and subscription.</p>
 </li>
 <li>
-<p>Implementar QoS y LWT en el ESP32.</p>
+<p>To implement QoS and LWT on the ESP32.</p>
 </li>
 </ul>
-<h2 id="el-componente-mqtt-en-esp-idf">El componente MQTT en ESP-IDF</h2>
-<p>El componente ESP-MQTT es una implementación del protocolo MQTT en su parte
-cliente, que permite la implementación completa de clientes MQTT en el ESP32,
-incluyendo rutinas de publicación y suscripción a <em>brokers</em> existentes.</p>
-<p>El componente soporte MQTT sobre TCP por defecto, así como funcionalidades 
-avanzadas como SSL/TLS o MQTT sobre Websockets. Además, permite el despliegue
-de múltiples instancias de cliente MQTT sobre la misma placa; el componente
-implementa también parámetros avanzados soportados por el protocolo MQTT, como
-autenticación (mediante nombre de usuario y contraseña), mensajes <em>last will</em> y
-tres niveles de calidad de servicio (QoS).</p>
-<h3 id="eventos">Eventos</h3>
-<p>Como otros componentes, la interacción entre el cliente MQTT y la aplicación
-se basa en la recepción de eventos, entre los que destacan:</p>
+<h2 id="the-mqtt-component-in-esp-idf">The MQTT component in ESP-IDF</h2>
+<p>The ESP-MQTT component is an implementation of the MQTT protocol (in its
+client part), that allows the implementation of complete MQTT clients on the
+ESP32, including routines for publication and subscription to brokers.</p>
+<p>The component supports MQTT over TCP by default, and advanced functionalities
+such as SSL/TLS support or MQTT over Websockets. In addition, it allows the
+deployment of multiple instances of MQTT clients on the same boar; the component
+implements advanced parameters supported by MQTT, such as authentication
+(using username and password), <em>last will</em> messages and three
+levels of QoS.</p>
+<h3 id="events">Events</h3>
+<p>As other components, the interactiin between the MQTT client and the application
+is based on the reception and treatment of events, being the most important:</p>
 <ul>
-<li><code>MQTT_EVENT_BEFORE_CONNECT</code>: El cliente se ha inicializado y va a comenzar el
-proceso de conexión con el <em>broker</em>.</li>
-<li><code>MQTT_EVENT_CONNECTED</code>: El cliente ha establecido de forma exitosa una conexión 
-con el <em>broker</em> y está listo para enviar y recibir datos.</li>
-<li><code>MQTT_EVENT_DISCONNECTED</code>: El cliente ha abortado la conexión.</li>
-<li><code>MQTT_EVENT_SUBSCRIBED</code>: El <em>broker</em> ha confirmado la petición de suscripción
-del cliente. Los datos contendrán el ID del mensaje de suscripción.</li>
-<li><code>MQTT_EVENT_UNSUBSCRIBED</code>: El <em>broker</em> confirma la petición de <em>desuscripción</em>
-del cliente. Los datos contendrán el ID del mensaje de <em>desuscripción</em>.</li>
-<li><code>MQTT_EVENT_PUBLISHED</code>: El <em>broker</em> ha acusado la recepción de un mensaje
-previamente publicado por el cliente. Este evento sólo se producirá cuando QoS sea
-1 o 2, ya que el nivel 0 de QoS no utiliza acuses de recibo. Los datos asociados
-al evento contendrán el ID del mensaje publicado.</li>
-<li><code>MQTT_EVENT_DATA</code>: El cliente ha recibido un mensaje publicado en el <em>broker</em>.
-Los datos asociados al evento contienen el ID del mensaje, nombre del <em>topic</em>,
-datos recibidos y su longitud. </li>
+<li><code>MQTT_EVENT_BEFORE_CONNECT</code>: The client has been initialized and is about to
+commence the connection process with the remote broker.</li>
+<li><code>MQTT_EVENT_CONNECTED</code>: The client has successfully established a connection with the
+broker and it is ready to send and receive data.</li>
+<li><code>MQTT_EVENT_DISCONNECTED</code>: The client has aborted the connection.</li>
+<li><code>MQTT_EVENT_SUBSCRIBED</code>: The broker has confirmed the request for subscription from the client.
+Data will contain the ID of the subscription message.</li>
+<li><code>MQTT_EVENT_UNSUBSCRIBED</code>: The broker confirms the request of desubsuscription from the client. 
+Data will contain the ID of the desubscription message.</li>
+<li><code>MQTT_EVENT_PUBLISHED</code>: The broker has sent an ACK for the reception of a message
+previously published by a client. This event will only be produced when QoS is
+1 or 2, as the level 0 for QoS does not use ACKs. Data associated with the event will contain
+the ID of the published message.</li>
+<li><code>MQTT_EVENT_DATA</code>: The client has received a message published by the broker. Data associated
+to the event will contain the ID of the message, name of the topic and received data (an its length).</li>
 </ul>
 <h3 id="api">API</h3>
 <ul>
 <li><code>esp_mqtt_client_handle_t esp_mqtt_client_init(const esp_mqtt_client_config_t *config)</code></li>
 </ul>
-<p>Rutina de inicialización del cliente MQTT. Devuelve un manejador de la conexión,
-o <code>NULL</code> en caso de error. El parámetro <code>config</code> es una estructura con los 
-parámetros que regirán la conexión, entre los que destacan 
-(véase <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/protocols/mqtt.html#_CPPv424esp_mqtt_client_config_t">la documentación del componente</a>
-para parámetros adicionales):</p>
+<p>Initialization routine for the MQTT client. It returns a connection handler, or NULL in case of error.
+The <code>config</code> paramter is a structure with the parameters that will rule the connection, being 
+the most important
+(see <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/protocols/mqtt.html#_CPPv424esp_mqtt_client_config_t">the component documentation</a>
+for additional parameters):</p>
 <ul>
-<li><code>esp_event_loop_handle_t event_loop_handle</code>: manejador para eventos MQTT.</li>
-<li><code>const char *uri</code>: URI del <em>broker</em> MQTT.</li>
-<li><code>uint32_t port</code>: puerto del <em>broker</em> MQTT.</li>
-<li><code>const char *username</code>: nombre de usuario, en caso de estar soportado por el
-  <em>broker</em>.</li>
-<li><code>const char *password</code>: contraseña, en caso de estar soportada por el <em>broker</em>.</li>
-<li><code>const char *lwt_topic</code>: topic del mensaje LWT (<em>Last Will and Testament</em>).</li>
-<li><code>const char *lwt_msg</code>: contenido del mensaje LWT.</li>
-<li><code>int lwt_qos</code>: QoS del mensaje LWT.</li>
-<li><code>int lwt_retain</code>: flag <em>retain</em> para el mensaje LWT.</li>
-<li><code>int lwt_msg_len</code>: longitud del mensaje LWT.</li>
+<li><code>esp_event_loop_handle_t event_loop_handle</code>: hanlder for MQTT events.</li>
+<li><code>const char *uri</code>: URI of the MQTT <em>broker</em>.</li>
+<li><code>uint32_t port</code>: port of the MQTT <em>broker</em>.</li>
+<li><code>const char *username</code>: username, in case it is supported by the broker.</li>
+<li><code>const char *password</code>: password, in case it is supported by the broker.</li>
+<li><code>const char *lwt_topic</code>: topic of the LWT message (<em>Last Will and Testament</em>).</li>
+<li><code>const char *lwt_msg</code>: contents of the LWT message.</li>
+<li><code>int lwt_qos</code>: QoS of the LWT message.</li>
+<li><code>int lwt_retain</code>: flag <em>retain</em> for the LWT message.</li>
+<li><code>int lwt_msg_len</code>: length of the LWT message.</li>
 <li>
-<p><code>int keepalive</code>: valor del temporizador de <em>keepalive</em> (por defecto 120 segundos).</p>
+<p><code>int keepalive</code>: value for the <em>keepalive</em> timer (by default 120 seconds).</p>
 </li>
 <li>
 <p><code>esp_err_t esp_mqtt_client_start(esp_mqtt_client_handle_t client)</code></p>
 </li>
 </ul>
-<p>Rutina de arranque del cliente MQTT. Su único parámetro es el manejador devuelto 
-por la anterior rutina.</p>
+<p>Boot routine for the MQTT client. Its only parameter is the handler returned by the previous routine.</p>
 <ul>
 <li><code>int esp_mqtt_client_subscribe(esp_mqtt_client_handle_t client, const char *topic, int qos)</code></li>
 </ul>
-<p>Realiza la suscripción del cliente a un topic con el QoS determinado a través de 
-su tercer parámetro. El cliente debe estar conectado al <em>broker</em> para enviar
-el mensaje de suscripción.</p>
+<p>Subscribes the client to a topic with a given QoS via the third parameter. The client must
+be connected to the broker to send the subscription message.</p>
 <ul>
 <li><code>int esp_mqtt_client_unsubscribe(esp_mqtt_client_handle_t client, const char *topic)</code></li>
 </ul>
-<p><em>Desuscribe</em> al cliente de un determinado topic. El ciente debe estar conectado
-al <em>broker</em> para poder enviar el mensaje correspondiente.</p>
+<p><em>Desubscribes</em> the client from a given topic. The client must be connected to the 
+broker to send the corresponding message.</p>
 <ul>
 <li><code>int esp_mqtt_client_publish(esp_mqtt_client_handle_t client, const char *topic, const char *data, int len, int qos, int retain)</code></li>
 </ul>
-<p>El cliente publica un mensaje en el <em>broker</em>. El cliente no tiene que estar conectado
-al <em>broker</em> para enviar el mensaje de publicación. En dicho caso, si <code>qos=0</code>, los
-mensajes se descartarán, y si <code>qos&gt;=1</code>, los mensajes se encolarán a la espera de 
-ser enviados. Devuelve el identificador del mensaje publicado (si <code>qos=0</code>, el valor
-de retorno siempre será 0), o <code>-1</code> en caso de error.</p>
-<p>Parámetros de interés:</p>
+<p>The client publishes a message on the broker. The client does not need to be connected
+to the broker to send the publication message. In that case, if 
+<code>qos=0</code>, messages will be discarded,<br />
+and if <code>qos&gt;=1</code>, messages will be queued waiting to be sent.
+The routine returs the identifier of the published message (if <code>qos=0</code>, the return value will be always 0)
+or <code>-1</code> in case of error.</p>
+<p>Parameters of interest:</p>
 <ul>
-<li><code>client</code>: manejador del cliente MQTT.</li>
-<li><code>topic</code>: topic (en forma de cadena) bajo el cual se publicará el mensaje.</li>
-<li><code>data</code>: contenido del mensaje a publicar (es posible publicar un mensaje sin
-  contenido, en cuyo caso se proporcionará un valor <code>NULL</code> en este parámetro).</li>
-<li><code>len</code>: longitud de los datos a enviar. Si se proporciona el valor <code>0</code>, se calcula
-  su longitud a partir de la cadena <code>data</code>.</li>
-<li><code>qos</code>: nivel de QoS deseado.</li>
+<li><code>client</code>: MQTT client handler.</li>
+<li><code>topic</code>: topic (as a string) under whigh the message will be published.</li>
+<li><code>data</code>: contents of the message to publish (it is possible to publish a message withouth contents if <code>NULL</code> is used).</li>
+<li><code>len</code>: lenght, in bytes, of the data to send. If <code>0</code> is provided, it is calculated based on the length of the <code>data</code> string.</li>
+<li><code>qos</code>: desired QoS level.</li>
 <li><code>retain</code>: flag <em>Retain</em>.</li>
 </ul>
 <div class="admonition note">
-<p class="admonition-title">Tarea</p>
-<p>Analiza el ejemplo <code>examples/protocols/mqtt/tcp</code>, y configuralo para que 
-utilice como <em>broker</em> el que desplegaste en la máquina virtual (asegúrate
-de que tanto máquina virtual como ESP32 pertenecen a la misma red).</p>
-<p>Realiza procesos de publicación y suscripción en la máquina virtual que 
-permitan visualizar los mensajes publicados por el ESP32 en tu terminal
-Linux, y los mensajes publicados desde el terminal Linux en la salida
-de monitorización del ESP32.</p>
-<p>Modifica el ejemplo y analiza el tráfico generado (a través de Wireshark)
-para los siguientes casos:</p>
+<p class="admonition-title">Task</p>
+<p>Analyze the example <code>examples/protocols/mqtt/tcp</code>, and configure it so that
+it uses as a broker the mosquitto broker you deployed in your Virtual Machine
+(first, make sure that both the Virtual Machine and the ESP32 belong to the same network).</p>
+<p>Perform tests for publication and subscription in the Virtual Machine that 
+allow you to visualize the messages published by the ESP32 in your terminal,
+and the messages published from the terminal in the monitor output of the 
+ESP32.</p>
+<p>Modify the example and analyze the generated traffic (via Wireshark)
+for the following cases:</p>
 <ol>
-<li>Publicación de mensajes con niveles de QoS 0, 1 y 2.</li>
-<li>Activación o desactivación del flag <em>retain</em> en la publicación desde el
-ESP32.</li>
-<li>Configuración de un mensaje LWT con el topic <em>/disconnected</em>. Para ello,
-reduce el valor de <em>keepalive</em> a 10 segundos, para que la detección de 
-desconexión sea más rápida. Deberás observar el envío del mensaje con 
-dicho <em>topic</em> transcurrido dicho tiempo desde una desconexión forzada del
-ESP32 si estás suscrito al mismo desde tu terminal Linux.</li>
+<li>Publication of messages with QoS levels 0, 1 and 2. </li>
+<li>Activation and deactivatio of the <em>retain</em> flag in the publication from the ESP32.</li>
+<li>Configuration of a LWT message with the topic <em>/disconnected</em>. For that,
+reduce the valua of <em>keepalive</em> to 10 seconds, so that the detection of a 
+disconnection is faster. You should observe the submission of a message
+with the selected topic upon the timer expiration, starting from a forced
+disconnection of the ESP32 (you will need to be subscribed to it from Linux).</li>
 </ol>
 </div>
 <div class="admonition danger">
-<p class="admonition-title">Tarea</p>
-<p>Modifica el ejemplo proporcionado para que se integre en tu entorno de 
-monitorización de un edificio. Así, el <em>firmware</em> procederá creando una
-tarea que, periódicamente (cada <em>interval</em> segundos), publique un valor
-aleatorio para los cuatro parámetros monitorizados.</p>
-<p>Además, deberás diseña un sistema basado en MQTT mediante el cual puedas 
-controlar, externamente, el comportamiento del sensor, atendiendo a los
-siguientes criterios:</p>
+<p class="admonition-title">Task</p>
+<p>Modify the example so that it is integrated in your building monitoring
+and alarm system. The firmware will proceed by creating a task that, periodically
+(every <em>interval</em> seconds) publishes a random value for the four monitored values.</p>
+<p>In addition, you will need to design a system based on MQTT so that you can control,
+externally, the behavior of the sensor, attending to:</p>
 <ol>
-<li>El tiempo (<em>interval</em>) mediante que transcurrirá entre publicaciones
-será configurable a través de un proceso de publicación desde tu terminal 
-Linux y suscripción del ESP32 a un topic determinado.</li>
-<li>La sensorización (y publicación de datos) 
-podrá activarse o desactivarse bajo demanda
-a través de la publicación desde tu terminal Linux y suscripción del 
-ESP32 a un topic determinado.</li>
+<li>The time (<em>interval</em>) that will pass between publications will be configurable via
+a message published from your terminal, to which the ESP32 will be subscribed.</li>
+<li>The sensorization (and data publicaiton) will be activated or deactivated on demand, 
+via a publication from your Linux terminal and subscription from the ESP32 to a specific topic.</li>
 </ol>
-<p>Por ejemplo, imagina que tu sensor publica mensajes de sensorización
-en el topic <code>/EDIFICIO_3/P_4/N/12/(TEMP|HUM|LUX|VIBR)</code>. Para controlar el 
-intervalo de publicación de datos desde dicho ESP32 y fijarlo a 1 segundo, 
-podríamos publicar un mensaje utilizando la orden:</p>
-<p><code>mosquitto_pub -t /EDIFICIO_3/P_4/N/12/interval</code> -m "1000" -h IP_BROKER</p>
-<p>Para desactivar el sensor, podríamos utilizar:</p>
-<p><code>mosquitto_pub -t /EDIFICIO_3/P_4/N/12/disable</code> -m "" -h IP_BROKER</p>
-<p>Para activar el sensor, podríamos utilizar:</p>
-<p><code>mosquitto_pub -t /EDIFICIO_3/P_4/N/12/enable</code> -m "" -h IP_BROKER</p>
+<p>For example, imagine that your sensor publishes messages under the topic
+<code>/BUILDING_3/P_4/N/12/(TEMP|HUM|LUX|VIBR)</code>. To control the interval of 
+publication time from that ESP32, and fix it to 1 second, we could publish a 
+message using:</p>
+<p><code>mosquitto_pub -t /BUILDING_3/P_4/N/12/interval</code> -m "1000" -h IP_BROKER</p>
+<p>To disable the sensor:</p>
+<p><code>mosquitto_pub -t /BUILDING_3/P_4/N/12/disable</code> -m "" -h IP_BROKER</p>
+<p>To enable the sensor:</p>
+<p><code>mosquitto_pub -t /BUILDING_3/P_4/N/12/enable</code> -m "" -h IP_BROKER</p>
 <ol>
-<li>Opcionalmente, puedes ampliar tu solución para que cada sensor se active
-o desactive individualmente bajo demanda. En este caso, elige y documenta
-el topic utilizado.</li>
+<li>Optionally, you can extend your solution so that each sensor is activated or deactivated
+individually on demand. For that to happen, choose and document the selected topic that you 
+should employ.</li>
 </ol>
 </div></div>
         </div>
@@ -354,5 +343,5 @@ el topic utilizado.</li>
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2022-03-08 11:05:01
+Build Date UTC : 2022-03-05 07:13:53
 -->
