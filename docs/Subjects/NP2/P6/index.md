@@ -1,4 +1,4 @@
-# Laboratory 6. MQTT (I). Deployment of clients and servers/brokers. Traffic analysis
+# Laboratory 4. MQTT (I). Deployment of clients and servers/brokers. Traffic analysis
 
 ## Objectives
 

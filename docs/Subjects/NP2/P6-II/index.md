@@ -1,161 +1,150 @@
-# Práctica 6. El protocolo MQTT (II). Despliegue de clientes en el ESP32
+# Laboratory 4. MQTT (II). Client deployments on the ESP32
 
-## Objetivos
+## Objectives
 
-* Familiarizarse con el componente MQTT en ESP-IDF.
+* To get familiar with the MQTT component in ESP-IDF.
 
-* Desplegar un cliente completo MQTT en el ESP32, incluyendo rutinas de publicación y suscripción.
+* To deploy a complete MQTT client on the ESP32, including routines for publication and subscription.
 
-* Implementar QoS y LWT en el ESP32.
+* To implement QoS and LWT on the ESP32.
 
-## El componente MQTT en ESP-IDF
+## The MQTT component in ESP-IDF
 
-El componente ESP-MQTT es una implementación del protocolo MQTT en su parte
-cliente, que permite la implementación completa de clientes MQTT en el ESP32,
-incluyendo rutinas de publicación y suscripción a *brokers* existentes.
+The ESP-MQTT component is an implementation of the MQTT protocol (in its
+client part), that allows the implementation of complete MQTT clients on the
+ESP32, including routines for publication and subscription to brokers.
 
-El componente soporte MQTT sobre TCP por defecto, así como funcionalidades 
-avanzadas como SSL/TLS o MQTT sobre Websockets. Además, permite el despliegue
-de múltiples instancias de cliente MQTT sobre la misma placa; el componente
-implementa también parámetros avanzados soportados por el protocolo MQTT, como
-autenticación (mediante nombre de usuario y contraseña), mensajes *last will* y
-tres niveles de calidad de servicio (QoS).
+The component supports MQTT over TCP by default, and advanced functionalities
+such as SSL/TLS support or MQTT over Websockets. In addition, it allows the
+deployment of multiple instances of MQTT clients on the same boar; the component
+implements advanced parameters supported by MQTT, such as authentication
+(using username and password), *last will* messages and three
+levels of QoS.
 
-### Eventos
+### Events
 
-Como otros componentes, la interacción entre el cliente MQTT y la aplicación
-se basa en la recepción de eventos, entre los que destacan:
+As other components, the interactiin between the MQTT client and the application
+is based on the reception and treatment of events, being the most important:
 
-* `MQTT_EVENT_BEFORE_CONNECT`: El cliente se ha inicializado y va a comenzar el
-proceso de conexión con el *broker*.
-* `MQTT_EVENT_CONNECTED`: El cliente ha establecido de forma exitosa una conexión 
-con el *broker* y está listo para enviar y recibir datos.
-* `MQTT_EVENT_DISCONNECTED`: El cliente ha abortado la conexión.
-* `MQTT_EVENT_SUBSCRIBED`: El *broker* ha confirmado la petición de suscripción
-del cliente. Los datos contendrán el ID del mensaje de suscripción.
-* `MQTT_EVENT_UNSUBSCRIBED`: El *broker* confirma la petición de *desuscripción*
-del cliente. Los datos contendrán el ID del mensaje de *desuscripción*.
-* `MQTT_EVENT_PUBLISHED`: El *broker* ha acusado la recepción de un mensaje
-previamente publicado por el cliente. Este evento sólo se producirá cuando QoS sea
-1 o 2, ya que el nivel 0 de QoS no utiliza acuses de recibo. Los datos asociados
-al evento contendrán el ID del mensaje publicado.
-* `MQTT_EVENT_DATA`: El cliente ha recibido un mensaje publicado en el *broker*.
-Los datos asociados al evento contienen el ID del mensaje, nombre del *topic*,
-datos recibidos y su longitud. 
+* `MQTT_EVENT_BEFORE_CONNECT`: The client has been initialized and is about to
+commence the connection process with the remote broker.
+* `MQTT_EVENT_CONNECTED`: The client has successfully established a connection with the
+broker and it is ready to send and receive data.
+* `MQTT_EVENT_DISCONNECTED`: The client has aborted the connection.
+* `MQTT_EVENT_SUBSCRIBED`: The broker has confirmed the request for subscription from the client.
+Data will contain the ID of the subscription message.
+* `MQTT_EVENT_UNSUBSCRIBED`: The broker confirms the request of desubsuscription from the client. 
+Data will contain the ID of the desubscription message.
+* `MQTT_EVENT_PUBLISHED`: The broker has sent an ACK for the reception of a message
+previously published by a client. This event will only be produced when QoS is
+1 or 2, as the level 0 for QoS does not use ACKs. Data associated with the event will contain
+the ID of the published message.
+* `MQTT_EVENT_DATA`: The client has received a message published by the broker. Data associated
+to the event will contain the ID of the message, name of the topic and received data (an its length).
 
 ### API
 
 * `esp_mqtt_client_handle_t esp_mqtt_client_init(const esp_mqtt_client_config_t *config)`
 
-Rutina de inicialización del cliente MQTT. Devuelve un manejador de la conexión,
-o `NULL` en caso de error. El parámetro `config` es una estructura con los 
-parámetros que regirán la conexión, entre los que destacan 
-(véase [la documentación del componente](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/protocols/mqtt.html#_CPPv424esp_mqtt_client_config_t)
-para parámetros adicionales):
+Initialization routine for the MQTT client. It returns a connection handler, or NULL in case of error.
+The `config` paramter is a structure with the parameters that will rule the connection, being 
+the most important
+(see [the component documentation](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/protocols/mqtt.html#_CPPv424esp_mqtt_client_config_t)
+for additional parameters):
 
-  - `esp_event_loop_handle_t event_loop_handle`: manejador para eventos MQTT.
-  - `const char *uri`: URI del *broker* MQTT.
-  - `uint32_t port`: puerto del *broker* MQTT.
-  - `const char *username`: nombre de usuario, en caso de estar soportado por el
-  *broker*.
-  - `const char *password`: contraseña, en caso de estar soportada por el *broker*.
-  - `const char *lwt_topic`: topic del mensaje LWT (*Last Will and Testament*).
-  - `const char *lwt_msg`: contenido del mensaje LWT.
-  - `int lwt_qos`: QoS del mensaje LWT.
-  - `int lwt_retain`: flag *retain* para el mensaje LWT.
-  - `int lwt_msg_len`: longitud del mensaje LWT.
-  - `int keepalive`: valor del temporizador de *keepalive* (por defecto 120 segundos).
+  - `esp_event_loop_handle_t event_loop_handle`: hanlder for MQTT events.
+  - `const char *uri`: URI of the MQTT *broker*.
+  - `uint32_t port`: port of the MQTT *broker*.
+  - `const char *username`: username, in case it is supported by the broker.
+  - `const char *password`: password, in case it is supported by the broker.
+  - `const char *lwt_topic`: topic of the LWT message (*Last Will and Testament*).
+  - `const char *lwt_msg`: contents of the LWT message.
+  - `int lwt_qos`: QoS of the LWT message.
+  - `int lwt_retain`: flag *retain* for the LWT message.
+  - `int lwt_msg_len`: length of the LWT message.
+  - `int keepalive`: value for the *keepalive* timer (by default 120 seconds).
 
 * `esp_err_t esp_mqtt_client_start(esp_mqtt_client_handle_t client)`
 
-Rutina de arranque del cliente MQTT. Su único parámetro es el manejador devuelto 
-por la anterior rutina.
+Boot routine for the MQTT client. Its only parameter is the handler returned by the previous routine.
 
 * `int esp_mqtt_client_subscribe(esp_mqtt_client_handle_t client, const char *topic, int qos)`
 
-Realiza la suscripción del cliente a un topic con el QoS determinado a través de 
-su tercer parámetro. El cliente debe estar conectado al *broker* para enviar
-el mensaje de suscripción.
+Subscribes the client to a topic with a given QoS via the third parameter. The client must
+be connected to the broker to send the subscription message.
 
 * `int esp_mqtt_client_unsubscribe(esp_mqtt_client_handle_t client, const char *topic)`
 
-*Desuscribe* al cliente de un determinado topic. El ciente debe estar conectado
-al *broker* para poder enviar el mensaje correspondiente.
+*Desubscribes* the client from a given topic. The client must be connected to the 
+broker to send the corresponding message.
 
 * `int esp_mqtt_client_publish(esp_mqtt_client_handle_t client, const char *topic, const char *data, int len, int qos, int retain)`
 
-El cliente publica un mensaje en el *broker*. El cliente no tiene que estar conectado
-al *broker* para enviar el mensaje de publicación. En dicho caso, si `qos=0`, los
-mensajes se descartarán, y si `qos>=1`, los mensajes se encolarán a la espera de 
-ser enviados. Devuelve el identificador del mensaje publicado (si `qos=0`, el valor
-de retorno siempre será 0), o `-1` en caso de error.
+The client publishes a message on the broker. The client does not need to be connected
+to the broker to send the publication message. In that case, if 
+`qos=0`, messages will be discarded,  
+and if `qos>=1`, messages will be queued waiting to be sent.
+The routine returs the identifier of the published message (if `qos=0`, the return value will be always 0)
+or `-1` in case of error.
 
-Parámetros de interés:
+Parameters of interest:
 
-  - `client`: manejador del cliente MQTT.
-  - `topic`: topic (en forma de cadena) bajo el cual se publicará el mensaje.
-  - `data`: contenido del mensaje a publicar (es posible publicar un mensaje sin
-  contenido, en cuyo caso se proporcionará un valor `NULL` en este parámetro).
-  - `len`: longitud de los datos a enviar. Si se proporciona el valor `0`, se calcula
-  su longitud a partir de la cadena `data`.
-  - `qos`: nivel de QoS deseado.
+  - `client`: MQTT client handler.
+  - `topic`: topic (as a string) under whigh the message will be published.
+  - `data`: contents of the message to publish (it is possible to publish a message withouth contents if `NULL` is used).
+  - `len`: lenght, in bytes, of the data to send. If `0` is provided, it is calculated based on the length of the `data` string.
+  - `qos`: desired QoS level.
   - `retain`: flag *Retain*.
 
-!!! note "Tarea"
-    Analiza el ejemplo `examples/protocols/mqtt/tcp`, y configuralo para que 
-    utilice como *broker* el que desplegaste en la máquina virtual (asegúrate
-    de que tanto máquina virtual como ESP32 pertenecen a la misma red).
+!!! note "Task"
+    Analyze the example `examples/protocols/mqtt/tcp`, and configure it so that
+    it uses as a broker the mosquitto broker you deployed in your Virtual Machine
+    (first, make sure that both the Virtual Machine and the ESP32 belong to the same network).
     
-    Realiza procesos de publicación y suscripción en la máquina virtual que 
-    permitan visualizar los mensajes publicados por el ESP32 en tu terminal
-    Linux, y los mensajes publicados desde el terminal Linux en la salida
-    de monitorización del ESP32.
-
-    Modifica el ejemplo y analiza el tráfico generado (a través de Wireshark)
-    para los siguientes casos:
-
-    1. Publicación de mensajes con niveles de QoS 0, 1 y 2.
-    2. Activación o desactivación del flag *retain* en la publicación desde el
+    Perform tests for publication and subscription in the Virtual Machine that 
+    allow you to visualize the messages published by the ESP32 in your terminal,
+    and the messages published from the terminal in the monitor output of the 
     ESP32.
-    3. Configuración de un mensaje LWT con el topic */disconnected*. Para ello,
-    reduce el valor de *keepalive* a 10 segundos, para que la detección de 
-    desconexión sea más rápida. Deberás observar el envío del mensaje con 
-    dicho *topic* transcurrido dicho tiempo desde una desconexión forzada del
-    ESP32 si estás suscrito al mismo desde tu terminal Linux.
 
-!!! danger "Tarea"
-    Modifica el ejemplo proporcionado para que se integre en tu entorno de 
-    monitorización de un edificio. Así, el *firmware* procederá creando una
-    tarea que, periódicamente (cada *interval* segundos), publique un valor
-    aleatorio para los cuatro parámetros monitorizados.
+    Modify the example and analyze the generated traffic (via Wireshark)
+    for the following cases:
 
-    Además, deberás diseña un sistema basado en MQTT mediante el cual puedas 
-    controlar, externamente, el comportamiento del sensor, atendiendo a los
-    siguientes criterios:
+    1. Publication of messages with QoS levels 0, 1 and 2. 
+    2. Activation and deactivatio of the *retain* flag in the publication from the ESP32.
+    3. Configuration of a LWT message with the topic */disconnected*. For that,
+    reduce the valua of *keepalive* to 10 seconds, so that the detection of a 
+    disconnection is faster. You should observe the submission of a message
+    with the selected topic upon the timer expiration, starting from a forced
+    disconnection of the ESP32 (you will need to be subscribed to it from Linux).
 
-    1. El tiempo (*interval*) mediante que transcurrirá entre publicaciones
-    será configurable a través de un proceso de publicación desde tu terminal 
-    Linux y suscripción del ESP32 a un topic determinado.
-    2. La sensorización (y publicación de datos) 
-    podrá activarse o desactivarse bajo demanda
-    a través de la publicación desde tu terminal Linux y suscripción del 
-    ESP32 a un topic determinado.
+!!! danger "Task"
+    Modify the example so that it is integrated in your building monitoring
+    and alarm system. The firmware will proceed by creating a task that, periodically
+    (every *interval* seconds) publishes a random value for the four monitored values.
 
-    Por ejemplo, imagina que tu sensor publica mensajes de sensorización
-    en el topic `/EDIFICIO_3/P_4/N/12/(TEMP|HUM|LUX|VIBR)`. Para controlar el 
-    intervalo de publicación de datos desde dicho ESP32 y fijarlo a 1 segundo, 
-    podríamos publicar un mensaje utilizando la orden:
+    In addition, you will need to design a system based on MQTT so that you can control,
+    externally, the behavior of the sensor, attending to:
 
-    `mosquitto_pub -t /EDIFICIO_3/P_4/N/12/interval` -m "1000" -h IP_BROKER
+    1. The time (*interval*) that will pass between publications will be configurable via
+    a message published from your terminal, to which the ESP32 will be subscribed.
+    2. The sensorization (and data publicaiton) will be activated or deactivated on demand, 
+    via a publication from your Linux terminal and subscription from the ESP32 to a specific topic.
 
-    Para desactivar el sensor, podríamos utilizar:
+    For example, imagine that your sensor publishes messages under the topic
+    `/BUILDING_3/P_4/N/12/(TEMP|HUM|LUX|VIBR)`. To control the interval of 
+    publication time from that ESP32, and fix it to 1 second, we could publish a 
+    message using:
 
-    `mosquitto_pub -t /EDIFICIO_3/P_4/N/12/disable` -m "" -h IP_BROKER
+    `mosquitto_pub -t /BUILDING_3/P_4/N/12/interval` -m "1000" -h IP_BROKER
 
-    Para activar el sensor, podríamos utilizar:
+    To disable the sensor:
 
-    `mosquitto_pub -t /EDIFICIO_3/P_4/N/12/enable` -m "" -h IP_BROKER
+    `mosquitto_pub -t /BUILDING_3/P_4/N/12/disable` -m "" -h IP_BROKER
 
-    3. Opcionalmente, puedes ampliar tu solución para que cada sensor se active
-    o desactive individualmente bajo demanda. En este caso, elige y documenta
-    el topic utilizado.
+    To enable the sensor:
+
+    `mosquitto_pub -t /BUILDING_3/P_4/N/12/enable` -m "" -h IP_BROKER
+
+    3. Optionally, you can extend your solution so that each sensor is activated or deactivated
+    individually on demand. For that to happen, choose and document the selected topic that you 
+    should employ.
