@@ -59,9 +59,9 @@ link](https://api.socrative.com/rc/Yu9Dxn).
 |   02/03   | [BLE-2](slides/BLE-2.pdf) and [BLE-Mesh](slides/BLE-Mesh.pdf)                                         |                                    | [Quiz](https://api.socrative.com/rc/Yu9Dxn)   |
 |   03/03   | Lab 4. Bluetooth Low Energy                                                                           | [Lab 4. instructions](P4/index.md) | Task 4.1                                      |
 |   09/03   | Lab 4. Bluetooth Low Energy                                                                           | [Lab 4. instructions](P4/index.md) | Task 4.2                                      |
-|   10/03   | Lab 5. Bluetooth Mesh                                                                                 | [Lab 5. instructions](P5/index.md) | Task 5.1                                      |
-|   16/03   | Lab 5. Bluetooth Mesh                                                                                 | [Lab 5. instructions](P5/index.md) | Task 5.2                                      |
-|   17/03   | [802.15.4](slides/802_15_4.pdf), [6LoWPAN](slides/6LoWPAN.pdf), [6LoWPAN-RPL](slides/6LoWPAN-RPL.pdf) |                                    | [Quiz](https://api.socrative.com/rc/Yu9Dxn)   |
+|   10/03   | Lab 4. Bluetooth Low Energy                                                                           | [Lab 4. instructions](P4/index.md) | Extra session                                 |
+|   16/03   | [802.15.4](slides/802_15_4.pdf), [6LoWPAN](slides/6LoWPAN.pdf), [6LoWPAN-RPL](slides/6LoWPAN-RPL.pdf) |                                    | [Quiz](https://api.socrative.com/rc/Yu9Dxn)   |
+|   17/03   | Lab 5. Bluetooth Mesh                                                                                 | [Lab 5. instructions](P5/index.md) | Task 5.1 and 5.2                              |
 |   23/03   | Lab 6. 6LoWPAN, RPL                                                                                   | [Lab 6. instructions](P6/index.md) |                                               |
 |   24/03   | [LPWAN](slides/LPWAN.pdf)                                                                             |                                    | [Quiz](https://api.socrative.com/rc/Yu9Dxn)   |
 |   30/03   | Work on Final Project                                                                                 |                                    |                                               |
