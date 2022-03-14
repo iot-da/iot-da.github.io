@@ -67,7 +67,7 @@ link](https://api.socrative.com/rc/Yu9Dx).
 |   08/03   | Lab 4. MQTT (I)                                                                                       | [Lab 4 (I) instructions](P6/index.md) | All tasks from Lab3                      |
 |   10/03   | Lab 4. MQTT (II)                                                                                      | [Lab 4 (II) instructions](P6-II/index.md) |                                      |
 |   15/03   | Advanced MQTT. LWT. Lab4 (II)                                                                         | [Lab 4 (II) instructions](P6-II/index.md) | All tasks from Lab4 (I)              |
-|   17/03   | [OTA](slides/OTA.pdf) Lab 4 (II)                                                                      | [Lab 4 (II) instructions](P6-II/index.md) |                                      |
+|   17/03   | [OTA](slides/NP2-OTA.pdf). Lab 4 (II)                                                                 | [Lab 4 (II) instructions](P6-II/index.md) |                                      |
 |   22/03   | [Node-RED](slides/node-red.pdf)                                                                       | [Lab 5. instructions](P9/index.md) | All tasks from Lab4 (II)                    |
 |   24/03   | Work on Final Project                                                                                 |                                    |                                             |
 |   29/03   | Work on Final Project                                                                                 |                                    |                                             |
