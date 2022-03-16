@@ -4,97 +4,89 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="None">
+        
         
         <link rel="canonical" href="https://iot-da.github.io/Subjects/IOTNA/P1/">
         <link rel="shortcut icon" href="../../../img/favicon.ico">
-        <title>Internet of Things and Data Analytics</title>
-        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <title>Introduction to ESP-IDF and Platform IO. First project - Internet of Things and Data Analytics</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../../css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
 
         <script src="../../../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
-    <body class="homepage">
-
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-
-                <!-- Collapsed navigation -->
-                <div class="navbar-header">
-                    <!-- Expander button -->
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="../../..">Internet of Things and Data Analytics</a>
-                </div>
+                <a class="navbar-brand" href="../../..">Internet of Things and Data Analytics</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
                 <!-- Expanded navigation -->
-                <div class="navbar-collapse collapse">
+                <div id="navbar-collapse" class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li >
-                                <a href="../../..">Home</a>
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Home</a>
                             </li>
-                            <li >
-                                <a href="../../../General/">General info.</a>
+                            <li class="navitem">
+                                <a href="../../../General/" class="nav-link">General info.</a>
                             </li>
-                            <li >
-                                <a href="../../../News/">News</a>
+                            <li class="navitem">
+                                <a href="../../../News/" class="nav-link">News</a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
-<li >
-    <a href="../">IOTNA</a>
+<li>
+    <a href="../" class="dropdown-item">IOTNA</a>
 </li>
                                     
-<li >
-    <a href="../../MDM/">MDM</a>
+<li>
+    <a href="../../MDM/" class="dropdown-item">MDM</a>
 </li>
                                     
-<li >
-    <a href="../../SID/">SID</a>
+<li>
+    <a href="../../SID/" class="dropdown-item">SID</a>
 </li>
                                     
-<li >
-    <a href="../../IA/">IA</a>
+<li>
+    <a href="../../IA/" class="dropdown-item">IA</a>
 </li>
                                     
-<li >
-    <a href="../../NP1/">NP1</a>
+<li>
+    <a href="../../NP1/" class="dropdown-item">NP1</a>
 </li>
                                     
-<li >
-    <a href="../../NP2/">NP2</a>
+<li>
+    <a href="../../NP2/" class="dropdown-item">NP2</a>
 </li>
                                     
-<li >
-    <a href="../../SEC/">SEC</a>
+<li>
+    <a href="../../SEC/" class="dropdown-item">SEC</a>
 </li>
                                     
-<li >
-    <a href="../../EDGE/">EDGE</a>
+<li>
+    <a href="../../EDGE/" class="dropdown-item">EDGE</a>
 </li>
                                 </ul>
                             </li>
-                            <li >
-                                <a href="../../../Contact/">Contact</a>
+                            <li class="navitem">
+                                <a href="../../../Contact/" class="nav-link">Contact</a>
                             </li>
                         </ul>
 
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
@@ -104,20 +96,58 @@
         </div>
 
         <div class="container">
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#introduction-to-esp-idf-and-platform-io-first-project">Introduction to ESP-IDF and Platform IO. First project</a></li>
-            <li><a href="#goals">Goals</a></li>
-            <li><a href="#create-a-platformio-project">Create a PlatformIO project</a></li>
-            <li><a href="#project-configuration">Project configuration</a></li>
-            <li><a href="#including-source-code">Including source code</a></li>
-            <li><a href="#flashing-the-project">Flashing the project</a></li>
-            <li><a href="#monitoring-the-project">Monitoring the project</a></li>
-            <li><a href="#tasks-homework-28102021">Tasks / Homework (28/10/2021)</a></li>
-            <li><a href="#extra-optional-memory-map">Extra (OPTIONAL): Memory Map</a></li>
-    </ul>
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-light">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#introduction-to-esp-idf-and-platform-io-first-project" class="nav-link">Introduction to ESP-IDF and Platform IO. First project</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#goals" class="nav-link">Goals</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#create-a-platformio-project" class="nav-link">Create a PlatformIO project</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#project-configuration" class="nav-link">Project configuration</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#including-source-code" class="nav-link">Including source code</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#flashing-the-project" class="nav-link">Flashing the project</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#monitoring-the-project" class="nav-link">Monitoring the project</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#tasks-homework-28102021" class="nav-link">Tasks / Homework (28/10/2021)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#extra-optional-memory-map" class="nav-link">Extra (OPTIONAL): Memory Map</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
 </div></div>
-                <div class="col-md-9" role="main">
+                    <div class="col-md-9" role="main">
 
 <h1 id="introduction-to-esp-idf-and-platform-io-first-project">Introduction to ESP-IDF and Platform IO. First project</h1>
 <h2 id="goals">Goals</h2>
@@ -157,13 +187,12 @@
 <p>Note that the <code>upload_port</code> specified above is the one used by default in the Virtual Machine provided. If you are not using it, make sure you write the correct port name.</p>
 <h2 id="including-source-code">Including source code</h2>
 <p>The new project will automatically create a <em>src</em> folder, including a default <em>main.c</em> file with the following content:</p>
-<pre><code class="c">void app_main()
+<pre><code class="language-c">void app_main()
 {
 }
 </code></pre>
-
 <p>We are going to write a very simple <em>Hello World</em> application. Write the following code in <em>main.c</em> file:</p>
-<pre><code class="c">#include &lt;stdio.h&gt;
+<pre><code class="language-c">#include &lt;stdio.h&gt;
 #include &quot;freertos/FreeRTOS.h&quot;
 #include &quot;freertos/task.h&quot;
 
@@ -177,7 +206,6 @@ void app_main(void)
   vTaskDelete(NULL);
 }
 </code></pre>
-
 <p>Once you have written the source code, you can proceed to build the project.  To do so, you can display the  <em>Project Tasks</em> (<code>View-&gt;Command Palette</code>) and execute  <code>PlatformIO: Build</code>. You could also press the <code>Build</code> button (<em>check</em> button in the bottom pane).</p>
 <p><img alt="foo" src="img/PlatformIO/3.png" /></p>
 <p>If the building process works ok (it may take a few minutes the first time)  you should see a message similar to:</p>
@@ -223,14 +251,13 @@ void app_main(void)
 <p><strong>Instruction RAM</strong> ESP-IDF allocates part of Internal SRAM0 region for instruction RAM. It allows us to use the range 0x4008_0000 to 0x400A_0000 to store parts of the application which need to run from RAM instead of Flash (for example, interrupt handlers are good candidates since they need to run as fast as possible). In order to place code in IRAM we may use the <code>IRAM_ATTR</code> macro:</p>
 </li>
 </ul>
-<pre><code class="c"> #include &quot;esp_attr.h&quot;
+<pre><code class="language-c"> #include &quot;esp_attr.h&quot;
 
 void IRAM_ATTR gpio_isr_handler(void* arg)
 {
         // ...
 }
 </code></pre>
-
 <h3 id="heap-memory-allocation">Heap memory allocation</h3>
 <p>Since FreeRTOS is mult-threaded, each RTOS task has its own stack. By default, each of these stacks is allocated from the heap when the task is created. </p>
 <p>Since there are multiple types of RAM, there are also several heaps with different capabilities. 
@@ -239,6 +266,7 @@ Most of the time, you can rely in the standard libc calls (<code>malloc()</code>
 <p class="admonition-title">Homework (Optional)</p>
 <p>Create a new project to explore the addresses of different variables. Declare different variables: g lobal variables with initial value, global variables without initial value, global <code>const</code> variables, local variables (stack), allocate memory in the heap using both <code>malloc()</code>and <code>heap_caps_malloc()</code> and try to allocate some function in IRAM. Then print the address of all these symbols (variables, functions...) and check in which memories they are actually allocated.</p>
 </div></div>
+            </div>
         </div>
 
         <footer class="col-md-12">
@@ -252,21 +280,21 @@ Most of the time, you can rely in the standard libc calls (<code>malloc()</code>
         <script src="../../../js/base.js" defer></script>
         <script src="../../../search/main.js" defer></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-    <div class="modal-dialog">
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
             </div>
             <div class="modal-body">
                 <p>
                     From here you can search these documents. Enter
                     your search terms below.
                 </p>
-                <form role="form">
+                <form>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
                     </div>
                 </form>
                 <div id="mkdocs-search-results"></div>
@@ -275,12 +303,12 @@ Most of the time, you can rely in the standard libc calls (<code>malloc()</code>
             </div>
         </div>
     </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
             </div>
             <div class="modal-body">
               <table class="table">
@@ -318,8 +346,3 @@ Most of the time, you can rely in the standard libc calls (<code>malloc()</code>
 
     </body>
 </html>
-
-<!--
-MkDocs version : 1.0.4
-Build Date UTC : 2022-03-15 14:57:16
--->
