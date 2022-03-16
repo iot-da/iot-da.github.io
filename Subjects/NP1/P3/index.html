@@ -4,89 +4,97 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+        <meta name="description" content="None">
         
         <link rel="canonical" href="https://iot-da.github.io/Subjects/NP1/P3/">
         <link rel="shortcut icon" href="../../../img/favicon.ico">
-        <title>Lab 3. WiFi. Advanced Concepts (WiFi Mesh, provisioning and low power mode) - Internet of Things and Data Analytics</title>
-        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <title>Internet of Things and Data Analytics</title>
+        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../../css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
 
         <script src="../../../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+    <body class="homepage">
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
-                <a class="navbar-brand" href="../../..">Internet of Things and Data Analytics</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../../..">Internet of Things and Data Analytics</a>
+                </div>
 
                 <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
+                <div class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li class="navitem">
-                                <a href="../../.." class="nav-link">Home</a>
+                            <li >
+                                <a href="../../..">Home</a>
                             </li>
-                            <li class="navitem">
-                                <a href="../../../General/" class="nav-link">General info.</a>
+                            <li >
+                                <a href="../../../General/">General info.</a>
                             </li>
-                            <li class="navitem">
-                                <a href="../../../News/" class="nav-link">News</a>
+                            <li >
+                                <a href="../../../News/">News</a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
-<li>
-    <a href="../../IOTNA/" class="dropdown-item">IOTNA</a>
+<li >
+    <a href="../../IOTNA/">IOTNA</a>
 </li>
                                     
-<li>
-    <a href="../../MDM/" class="dropdown-item">MDM</a>
+<li >
+    <a href="../../MDM/">MDM</a>
 </li>
                                     
-<li>
-    <a href="../../SID/" class="dropdown-item">SID</a>
+<li >
+    <a href="../../SID/">SID</a>
 </li>
                                     
-<li>
-    <a href="../../IA/" class="dropdown-item">IA</a>
+<li >
+    <a href="../../IA/">IA</a>
 </li>
                                     
-<li>
-    <a href="../" class="dropdown-item">NP1</a>
+<li >
+    <a href="../">NP1</a>
 </li>
                                     
-<li>
-    <a href="../../NP2/" class="dropdown-item">NP2</a>
+<li >
+    <a href="../../NP2/">NP2</a>
 </li>
                                     
-<li>
-    <a href="../../SEC/" class="dropdown-item">SEC</a>
+<li >
+    <a href="../../SEC/">SEC</a>
 </li>
                                     
-<li>
-    <a href="../../EDGE/" class="dropdown-item">EDGE</a>
+<li >
+    <a href="../../EDGE/">EDGE</a>
 </li>
                                 </ul>
                             </li>
-                            <li class="navitem">
-                                <a href="../../../Contact/" class="nav-link">Contact</a>
+                            <li >
+                                <a href="../../../Contact/">Contact</a>
                             </li>
                         </ul>
 
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
@@ -96,42 +104,16 @@
         </div>
 
         <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
-
-    
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-light">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-level="1"><a href="#lab-3-wifi-advanced-concepts-wifi-mesh-provisioning-and-low-power-mode" class="nav-link">Lab 3. WiFi. Advanced Concepts (WiFi Mesh, provisioning and low power mode)</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#goals" class="nav-link">Goals</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#part-1-wifi-mesh-esp-mesh" class="nav-link">Part 1. WiFi Mesh (ESP MESH)</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#part-2-wifi-provisioning" class="nav-link">Part 2. WiFi Provisioning</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#part-3-wifi-power-states" class="nav-link">Part 3. WiFi Power States</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-        </ul>
-    </div>
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#lab-3-wifi-advanced-concepts-wifi-mesh-provisioning-and-low-power-mode">Lab 3. WiFi. Advanced Concepts (WiFi Mesh, provisioning and low power mode)</a></li>
+            <li><a href="#goals">Goals</a></li>
+            <li><a href="#part-1-wifi-mesh-esp-mesh">Part 1. WiFi Mesh (ESP MESH)</a></li>
+            <li><a href="#part-2-wifi-provisioning">Part 2. WiFi Provisioning</a></li>
+            <li><a href="#part-3-wifi-power-states">Part 3. WiFi Power States</a></li>
+    </ul>
 </div></div>
-                    <div class="col-md-9" role="main">
+                <div class="col-md-9" role="main">
 
 <h1 id="lab-3-wifi-advanced-concepts-wifi-mesh-provisioning-and-low-power-mode">Lab 3. WiFi. Advanced Concepts (WiFi Mesh, provisioning and low power mode)</h1>
 <h2 id="goals">Goals</h2>
@@ -234,7 +216,7 @@ following services after LwIP initialization:</p>
 </ul>
 <p>The following code snippet demonstrates how to initialize LwIP for ESP-WIFI-MESH
 applications.</p>
-<pre><code class="language-c">/*  tcpip initialization */
+<pre><code class="c">/*  tcpip initialization */
 tcpip_adapter_init();
 /*
  * for mesh
@@ -244,6 +226,7 @@ tcpip_adapter_init();
 ESP_ERROR_CHECK(tcpip_adapter_dhcps_stop(TCPIP_ADAPTER_IF_AP));
 ESP_ERROR_CHECK(tcpip_adapter_dhcpc_stop(TCPIP_ADAPTER_IF_STA));
 </code></pre>
+
 <p>ESP-WIFI-MESH requires a root node to be connected with a router. Therefore, in
 the event that a node becomes the root, the corresponding handler must start the
 DHCP client service and immediately obtain an IP address. Doing so will allow
@@ -253,7 +236,7 @@ network. However, this step is unnecessary if static IP settings are used.</p>
 <p>The prerequisites for starting ESP-WIFI-MESH is to initialize LwIP and Wi-Fi,
 The following code snippet demonstrates the necessary prerequisite steps before
 ESP-WIFI-MESH itself can be initialized.</p>
-<pre><code class="language-c">tcpip_adapter_init();
+<pre><code class="c">tcpip_adapter_init();
 /*
  * for mesh
  * stop DHCP server on softAP interface by default
@@ -273,6 +256,7 @@ ESP_ERROR_CHECK(esp_event_handler_register(IP_EVENT, IP_EVENT_STA_GOT_IP, &amp;i
 ESP_ERROR_CHECK(esp_wifi_set_storage(WIFI_STORAGE_FLASH));
 ESP_ERROR_CHECK(esp_wifi_start());
 </code></pre>
+
 <p>After initializing LwIP and Wi-Fi, the process of getting an ESP-WIFI-MESH
 network up and running can be summarized into the following three steps:</p>
 <ol>
@@ -282,11 +266,12 @@ network up and running can be summarized into the following three steps:</p>
 </ol>
 <h3 id="1-initialize-mesh">1. Initialize Mesh</h3>
 <p>The following code snippet demonstrates how to initialize ESP-WIFI-MESH:</p>
-<pre><code class="language-c">/*  mesh initialization */
+<pre><code class="c">/*  mesh initialization */
 ESP_ERROR_CHECK(esp_mesh_init());
 /*  register mesh events handler */
 ESP_ERROR_CHECK(esp_event_handler_register(MESH_EVENT, ESP_EVENT_ANY_ID, &amp;mesh_event_handler, NULL));
 </code></pre>
+
 <h3 id="2-configuring-an-esp-wifi-mesh-network">2. Configuring an ESP-WIFI-MESH Network</h3>
 <p>ESP-WIFI-MESH is configured via <code>esp_mesh_set_config()</code> which receives its
 arguments using the <code>mesh_cfg_t</code> structure. The structure contains the following
@@ -322,7 +307,7 @@ parameters used to configure ESP-WIFI-MESH:</p>
 </tbody>
 </table>
 <p>The following code snippet shows an example of how to configure ESP-WIFI-MESH:</p>
-<pre><code class="language-c">/* Mesh ID */
+<pre><code class="c">/* Mesh ID */
 static const uint8_t MESH_ID = { 0x77, 0x77, 0x77, 0x77, 0x77, 0x77 };
 /* Enable the Mesh IE encryption by default */
 mesh_cfg_t cfg = MESH_INIT_CONFIG_DEFAULT();
@@ -341,11 +326,13 @@ memcpy((uint8_t *) &amp;cfg.mesh_ap.password, CONFIG_MESH_AP_PASSWD,
        strlen(CONFIG_MESH_AP_PASSWD));
 ESP_ERROR_CHECK(esp_mesh_set_config(&amp;cfg));
 </code></pre>
+
 <h3 id="3-start-mesh">3. Start Mesh</h3>
 <p>The following code snippet demonstrates how to start ESP-WIFI-MESH:</p>
-<pre><code class="language-c">/* mesh start */
+<pre><code class="c">/* mesh start */
 ESP_ERROR_CHECK(esp_mesh_start());
 </code></pre>
+
 <p>After starting ESP-WIFI-MESH, the application should check for ESP-WIFI-MESH
 events to determine when it has connected to the network. After connecting, the
 application can start transmitting and receiving packets over the ESP-WIFI-MESH
@@ -412,13 +399,14 @@ Loop and Wi-Fi (and optionally mDNS), hence these must be initialized
 beforehand. The manager can be de-initialized at any moment by making a call to
 <code>wifi_prov_mgr_deinit()</code>.</p>
 <p>An initialization example could be:</p>
-<pre><code class="language-c">wifi_prov_mgr_config_t config = {
+<pre><code class="c">wifi_prov_mgr_config_t config = {
   .scheme = wifi_prov_scheme_ble,
   .scheme_event_handler = WIFI_PROV_SCHEME_BLE_EVENT_HANDLER_FREE_BTDM
 };
 
 ESP_ERR_CHECK( wifi_prov_mgr_init(config) );
 </code></pre>
+
 <p>The configuration structure <code>wifi_prov_mgr_config_t</code> has a few fields to specify
 the behavior desired of the manager. The <code>scheme</code> field is used to specify the
 provisioning scheme. Each scheme corresponds to one of the modes of transport
@@ -442,8 +430,9 @@ credentials are stored in NVS.</p>
 <p>Although there are different methods to delete the provisioning information
 stored in NVS, we will use the mechanism provided by <code>idf.py</code> to
 delete its content. To do this, we will execute:</p>
-<pre><code class="language-sh">idf.py erase_flash
+<pre><code class="sh">idf.py erase_flash
 </code></pre>
+
 <h3 id="start-provisioning-service">Start Provisioning Service</h3>
 <p>At the time of starting provisioning we need to specify a service name and the
 corresponding key. These translate to:</p>
@@ -466,7 +455,7 @@ choosing one of the security features provided by it :</p>
 for details about the security features.</p>
 <p>The following code snippet shows an example of Provisioning Service
 initialization:</p>
-<pre><code class="language-c">const char *service_name = &quot;my_device&quot;;
+<pre><code class="c">const char *service_name = &quot;my_device&quot;;
 const char *service_key  = &quot;password&quot;;
 
 wifi_prov_security_t security = WIFI_PROV_SECURITY_1;
@@ -474,6 +463,7 @@ const char *pop = &quot;abcd1234&quot;;
 
 ESP_ERR_CHECK( wifi_prov_mgr_start_provisioning(security, pop, service_name, service_key) );
 </code></pre>
+
 <p>The provisioning service will automatically finish only if it receives valid
 Wi-Fi AP credentials followed by a successful connection to the AP (IP
 obtained). Nevertheless, the provisioning service can be stopped at any moment
@@ -486,7 +476,7 @@ own logic.</p>
 <ul>
 <li>The simpler way is to use a <strong>blocking</strong> call to <code>wifi_prov_mgr_wait()</code>.</li>
 </ul>
-<pre><code class="language-c">// Start provisioning service
+<pre><code class="c">// Start provisioning service
 ESP_ERROR_CHECK( wifi_prov_mgr_start_provisioning(security, pop, service_name, service_key) );
 
 // Wait for service to complete
@@ -498,12 +488,13 @@ wifi_prov_mgr_deinit();
 // From here, the usual application logic would starts
 // ...
 </code></pre>
+
 <ul>
 <li>The second mechanism is based on events (i.e., is asynchronous/non blocking).
   The default event loop handler to catch <code>WIFI_PROV_EVENT</code> and call
   <code>wifi_prov_mgr_deinit()</code> when event ID is <code>WIFI_PROV_END</code>:</li>
 </ul>
-<pre><code class="language-c">static void event_handler(void* arg, esp_event_base_t event_base,
+<pre><code class="c">static void event_handler(void* arg, esp_event_base_t event_base,
                           int event_id, void* event_data)
 {
     if (event_base == WIFI_PROV_EVENT &amp;&amp; event_id == WIFI_PROV_END) {
@@ -512,6 +503,7 @@ wifi_prov_mgr_deinit();
     }
 }
 </code></pre>
+
 <h3 id="provisioning-tools-for-mobile-devices">Provisioning tools for mobile devices</h3>
 <p>There are applications prepared by Espressif to carry out the process
 provisioning over ESP32. These applications are available both for Android
@@ -607,8 +599,9 @@ pip install -r requirements_linux_extra.txt</code></p>
 Basically a provisioning session using <code>softAP</code> on a device with IP
 <code>192.168.4.1</code>, without layer security (encryption) and providing the SSID and
 key SSID_EXAMPLE/KEY_EXAMPLE would result in:</p>
-<pre><code class="language-sh">python esp_prov.py --transport softap --service_name &quot;192.168.4.1:80&quot; --sec_ver 0 --ssid SSID_EXAMPLE --passphrase KEY_EXAMPLE
+<pre><code class="sh">python esp_prov.py --transport softap --service_name &quot;192.168.4.1:80&quot; --sec_ver 0 --ssid SSID_EXAMPLE --passphrase KEY_EXAMPLE
 </code></pre>
+
 <div class="admonition danger">
 <p class="admonition-title">Task 3.3</p>
 <p>Perform the provisioning process from the command line using the above
@@ -664,7 +657,6 @@ station. Analyze the relation between the mode, DTIM, listen times and the
 ping response time, showing graphical represntations when possible. Deliver
 a small report in english (in pdf format).</p>
 </div></div>
-            </div>
         </div>
 
         <footer class="col-md-12">
@@ -678,21 +670,21 @@ a small report in english (in pdf format).</p>
         <script src="../../../js/base.js" defer></script>
         <script src="../../../search/main.js" defer></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
             </div>
             <div class="modal-body">
                 <p>
                     From here you can search these documents. Enter
                     your search terms below.
                 </p>
-                <form>
+                <form role="form">
                     <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
                     </div>
                 </form>
                 <div id="mkdocs-search-results"></div>
@@ -701,12 +693,12 @@ a small report in english (in pdf format).</p>
             </div>
         </div>
     </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
             </div>
             <div class="modal-body">
               <table class="table">
@@ -744,3 +736,8 @@ a small report in english (in pdf format).</p>
 
     </body>
 </html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2022-03-16 11:34:35
+-->
