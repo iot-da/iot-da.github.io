@@ -42,7 +42,7 @@ The groups are the same as for NP1, please check them [here](groups.md)
 |   02/03   |                                                                            |                                    |                                             |
 |   08/03   |  [PID controller](jupyter/09_pid.ipynb)                                                                          | [PID controller slides](slides/pid.pdf)                                   |                                             |
 |   09/03   |                                                                            |                                    |                                             |
-|   15/03   |  [Path following](jupyter/10_gvf.ipynb)       | [Path following slides](slides/path_following.pdf)                                   |                                             |
+|   15/03   |  [Path following](jupyter/10_gvf.ipynb)       | [Path following slides](slides/path_following.pdf)                                   |  [Path following (sine trajectory)](jupyter/10_gvf_2.ipynb)                                           |
 |   16/03   |                                                                            |                                    |                                             |
 |   22/03   |                                                                            |                                    |                                             |
 |   23/03   |                                                                            |                                    |                                             |
