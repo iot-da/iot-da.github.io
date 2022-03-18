@@ -21,7 +21,7 @@ protocolos for IoT in the Internet are covered
 
 Christian Tenllado (tenllado@ucm.es)
 
-## Work paper work assignment
+## Paper work assignment
 
 [Here you can find  description about this individual assignment](paperProject.md)
 
