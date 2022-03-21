@@ -44,8 +44,8 @@ The groups are the same as for NP1, please check them [here](groups.md)
 |   09/03   |                                                                            |                                    |                                             |
 |   15/03   |  [Path following](jupyter/10_gvf.ipynb)       | [Path following slides](slides/path_following.pdf)                                   |  [Path following (sine trajectory)](jupyter/10_gvf_2.ipynb)                                           |
 |   16/03   |                                                                            |                                    |                                             |
-|   22/03   |                                                                            |                                    |                                             |
-|   23/03   |                                                                            |                                    |                                             |
+|   22/03   | Work on Final Project           | [Final project exercises](slides/AI_finalproject.pdf)                                   |                                             |
+|   23/03   | Work on Final Project                                                                           |                                    |                                             |
 |   29/03   | Work on Final Project                                                      |                                    |                                             |
 |   30/03   | Work on Final Project                                                      |                                    |                                             |
 |   05/03   | Work on Final Project                                                      |                                    |                                             |
