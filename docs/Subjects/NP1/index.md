@@ -62,7 +62,7 @@ link](https://api.socrative.com/rc/Yu9Dxn).
 |   10/03   | Lab 4. Bluetooth Low Energy                                                   | [Lab 4. instructions](P4/index.md) | Extra session                                 |
 |   16/03   | [802.15.4](slides/802_15_4.pdf), [6LoWPAN](slides/6LoWPAN.pdf)                |                                    | [Quiz](https://api.socrative.com/rc/Yu9Dxn)   |
 |   17/03   | Lab 5. Bluetooth Mesh                                                         | [Lab 5. instructions](P5/index.md) | Task 5.1 and 5.2                              |
-|   23/03   | Lab 6. 6LoWPAN, RPL                                                           | [Lab 6. instructions](P6/index.md) |                                               |
+|   23/03   | Lab 6. 6LoWPAN, RPL                                                           | [Lab 6. instructions](P6/index.md) | Task 6.1                                      |
 |   24/03   | [LPWAN](slides/LPWAN.pdf)                                                     |                                    | [Quiz](https://api.socrative.com/rc/Yu9Dxn)   |
 |   30/03   | Work on Final Project                                                         |                                    |                                               |
 |   31/03   | Work on Final Project                                                         |                                    |                                               |
