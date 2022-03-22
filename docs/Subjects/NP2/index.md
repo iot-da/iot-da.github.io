@@ -69,7 +69,8 @@ link](https://api.socrative.com/rc/Yu9Dx).
 |   15/03   | Advanced MQTT. LWT. Lab4 (II)                                                                         | [Lab 4 (II) instructions](P6-II/index.md) | All tasks from Lab4 (I)              |
 |   17/03   | [OTA](slides/NP2-OTA.pdf). Lab 4 (II)                                                                 | [Lab 4 (II) instructions](P6-II/index.md) |                                      |
 |   22/03   | Lab 5. Node-RED                                                                                       | [Lab 5. instructions](P9/index.md) | All tasks from Lab4 (II)                    |
-|   24/03   | Work on Final Project                                                                                 |                                    |                                             |
-|   29/03   | Work on Final Project                                                                                 |                                    |                                             |
+|   24/03   | Lab 5. Node-RED                                                                                       |                                    |                                             |
+|   29/03   | Work on Final Project                                                                                 |                                    | All tasks from Lab5                         |
 |   31/04   | Work on Final Project                                                                                 |                                    |                                             |
 |   05/04   | Work on Final Project                                                                                 |                                    |                                             |
+|   07/04   | Work on Final Project                                                                                 |                                    |                                             |

@@ -301,3 +301,7 @@ examples, this study will help you on the development of the exercise.
     The studenst will deliver the JSON file or files that describe the nodes, and a short report
     describing the designed system and the developed work, highlighting the difficulties found and 
     those additional aspects considered of interest by the students.
+
+    * Additional task: add to your control panel the capability of simultaneously showing data gathered from *multiple* ESP32s, and demonstrate to the professor that this data is actually gathered from multiple devices (remotely).
+
+    * Additional task: investigate and implement in your Control Panel the ability of communicating with a specific ESP32. For example, you can investigate in how to add a button that, when pressed, activates or deactivates the submission of data from a specific ESP32.
