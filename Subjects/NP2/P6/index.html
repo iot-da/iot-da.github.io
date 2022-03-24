@@ -4,89 +4,97 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+        <meta name="description" content="None">
         
         <link rel="canonical" href="https://iot-da.github.io/Subjects/NP2/P6/">
         <link rel="shortcut icon" href="../../../img/favicon.ico">
-        <title>Laboratory 4. MQTT (I). Deployment of clients and servers/brokers. Traffic analysis - Internet of Things and Data Analytics</title>
-        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <title>Internet of Things and Data Analytics</title>
+        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
 
         <script src="../../../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../../../js/bootstrap.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+    <body class="homepage">
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
-                <a class="navbar-brand" href="../../..">Internet of Things and Data Analytics</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../../..">Internet of Things and Data Analytics</a>
+                </div>
 
                 <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
+                <div class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li class="navitem">
-                                <a href="../../.." class="nav-link">Home</a>
+                            <li >
+                                <a href="../../..">Home</a>
                             </li>
-                            <li class="navitem">
-                                <a href="../../../General/" class="nav-link">General info.</a>
+                            <li >
+                                <a href="../../../General/">General info.</a>
                             </li>
-                            <li class="navitem">
-                                <a href="../../../News/" class="nav-link">News</a>
+                            <li >
+                                <a href="../../../News/">News</a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
-<li>
-    <a href="../../IOTNA/" class="dropdown-item">IOTNA</a>
+<li >
+    <a href="../../IOTNA/">IOTNA</a>
 </li>
                                     
-<li>
-    <a href="../../MDM/" class="dropdown-item">MDM</a>
+<li >
+    <a href="../../MDM/">MDM</a>
 </li>
                                     
-<li>
-    <a href="../../SID/" class="dropdown-item">SID</a>
+<li >
+    <a href="../../SID/">SID</a>
 </li>
                                     
-<li>
-    <a href="../../IA/" class="dropdown-item">IA</a>
+<li >
+    <a href="../../IA/">IA</a>
 </li>
                                     
-<li>
-    <a href="../../NP1/" class="dropdown-item">NP1</a>
+<li >
+    <a href="../../NP1/">NP1</a>
 </li>
                                     
-<li>
-    <a href="../" class="dropdown-item">NP2</a>
+<li >
+    <a href="../">NP2</a>
 </li>
                                     
-<li>
-    <a href="../../SEC/" class="dropdown-item">SEC</a>
+<li >
+    <a href="../../SEC/">SEC</a>
 </li>
                                     
-<li>
-    <a href="../../EDGE/" class="dropdown-item">EDGE</a>
+<li >
+    <a href="../../EDGE/">EDGE</a>
 </li>
                                 </ul>
                             </li>
-                            <li class="navitem">
-                                <a href="../../../Contact/" class="nav-link">Contact</a>
+                            <li >
+                                <a href="../../../Contact/">Contact</a>
                             </li>
                         </ul>
 
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
@@ -96,42 +104,16 @@
         </div>
 
         <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
-
-    
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-level="1"><a href="#laboratory-4-mqtt-i-deployment-of-clients-and-serversbrokers-traffic-analysis" class="nav-link">Laboratory 4. MQTT (I). Deployment of clients and servers/brokers. Traffic analysis</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#objectives" class="nav-link">Objectives</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#publicationsubscription-on-a-broker-in-the-cloud" class="nav-link">Publication/subscription on a broker in the cloud</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#deploying-a-local-broker-using-eclipse-mosquitto" class="nav-link">Deploying a local broker using Eclipse Mosquitto</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#developing-a-local-client-using-eclipse-paho" class="nav-link">Developing a local client using Eclipse Paho</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-        </ul>
-    </div>
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#laboratory-4-mqtt-i-deployment-of-clients-and-serversbrokers-traffic-analysis">Laboratory 4. MQTT (I). Deployment of clients and servers/brokers. Traffic analysis</a></li>
+            <li><a href="#objectives">Objectives</a></li>
+            <li><a href="#publicationsubscription-on-a-broker-in-the-cloud">Publication/subscription on a broker in the cloud</a></li>
+            <li><a href="#deploying-a-local-broker-using-eclipse-mosquitto">Deploying a local broker using Eclipse Mosquitto</a></li>
+            <li><a href="#developing-a-local-client-using-eclipse-paho">Developing a local client using Eclipse Paho</a></li>
+    </ul>
 </div></div>
-                    <div class="col-md-9" role="main">
+                <div class="col-md-9" role="main">
 
 <h1 id="laboratory-4-mqtt-i-deployment-of-clients-and-serversbrokers-traffic-analysis">Laboratory 4. MQTT (I). Deployment of clients and servers/brokers. Traffic analysis</h1>
 <h2 id="objectives">Objectives</h2>
@@ -168,8 +150,9 @@ the <a href="https://mosquitto.org"><em>mosquitto</em></a> distribution from the
 Even thourgh <em>mosquitto</em> is mainly an implementation of an MQTT broker, we will use it in this
 step as a client; this will allow us to subscribe or publish on any MQTT topic.</p>
 <p>First, install <em>mosquitto</em>:</p>
-<pre><code class="language-sh">sudo apt-get install mosquitto mosquitto-clients mosquitto-dev libmosquitto*
+<pre><code class="sh">sudo apt-get install mosquitto mosquitto-clients mosquitto-dev libmosquitto*
 </code></pre>
+
 <p>Provided there were no errors, you will find two binaries ready for execution:</p>
 <ul>
 <li><code>mosquitto_sub</code>: to subscribe to a given topic via a broker.</li>
@@ -182,16 +165,18 @@ the parameters that allow specifying the destination broker, the topic to use an
 the message to send.</p>
 </div>
 <p>Let us subscribe to the topic <code>#</code> in the broker, using the order:</p>
-<pre><code class="language-sh">mosquitto_sub -h test.mosquitto.org  -t &quot;#&quot;
+<pre><code class="sh">mosquitto_sub -h test.mosquitto.org  -t &quot;#&quot;
 </code></pre>
+
 <div class="admonition note">
 <p class="admonition-title">Task</p>
 <p>Pause the output (Ctrl+C) as soon as you can. What are the messages you are observing?</p>
 </div>
 <p>Next, we will complete a process of publication/subscription with a known topic (e.g. 
 <code>/MIOT/yourname/</code>). In order to publish a message under this topic:</p>
-<pre><code class="language-sh">mosquitto_pub -h test.mosquitto.org -t &quot;/MIOT/tunombre&quot; -m &quot;Hola, soy tunombre&quot;
+<pre><code class="sh">mosquitto_pub -h test.mosquitto.org -t &quot;/MIOT/tunombre&quot; -m &quot;Hola, soy tunombre&quot;
 </code></pre>
+
 <div class="admonition note">
 <p class="admonition-title">Task</p>
 <p>Subscribe to the topic <code>/MIOT/yourname</code> and observe if you can receive the results
@@ -211,13 +196,15 @@ inconvenients (security, lack of configuration mechanisms, ...).</p>
 <p>In this section, we will configure a <em>mosquitto</em> borker to deploy a local
 MQTT infrastructure under our control.</p>
 <p>Booting a broker (server) in mosquitto is performed via the command <code>mosquitto</code>:</p>
-<pre><code class="language-sh">mosquitto [-c config file] [ -d | --daemon ] [-p port number] [-v]
+<pre><code class="sh">mosquitto [-c config file] [ -d | --daemon ] [-p port number] [-v]
 </code></pre>
+
 <p>However, in many Linux distributions, the broker boots by default on system boot, 
 and it is executed continously in background. In order to check the status of 
 the broker, you can execute:</p>
-<pre><code class="language-sh">sudo service mosquitto status
+<pre><code class="sh">sudo service mosquitto status
 </code></pre>
+
 <p>You will observe a message that indicates that the service is active. The options
 <code>restart</code>, <code>start</code> or <code>stop</code> will allow you to control the status of the broker.</p>
 <div class="admonition note">
@@ -244,12 +231,13 @@ Paho is an infrastructure devleloped by the Eclipse IoT project to support imple
 of protocols of instant messaging (M2M and IoT), even though as of today, it is exclusively
 focused on MQTT.</p>
 <p>In our case, we will use the Python version of the library, that can be installed via:</p>
-<pre><code class="language-sh">pip install paho-mqtt
+<pre><code class="sh">pip install paho-mqtt
 </code></pre>
+
 <p>All documentation for the module is available via <a href="https://pypi.org/project/paho-mqtt/#usage-and-api">this link</a>.</p>
 <p>The deployment of simple example for a client that connects to a broker and subscribes to the
 <code>$SYS</code> topic, printing all received messages, would result, using Paho from Python, in:</p>
-<pre><code class="language-python">import paho.mqtt.client as mqtt
+<pre><code class="python">import paho.mqtt.client as mqtt
 
 # Callback function invoked qhen the client receives a CONNACK from the broker.
 def on_connect(client, userdata, flags, rc):
@@ -272,6 +260,7 @@ client.connect(&quot;mqtt.eclipse.org&quot;, 1883, 60)
 # Blocking call that processes network traffic, invokes callbacks and handles broker reconnections.
 client.loop_forever()
 </code></pre>
+
 <p>The client class can be used to:</p>
 <ul>
 <li>Create an instance of an MQTT client.</li>
@@ -285,36 +274,41 @@ client.loop_forever()
 <ul>
 <li><code>ON_CONNECT</code>: invoked when the broker responds to our connection request. Example:</li>
 </ul>
-<pre><code class="language-python">def on_connect(client, userdata, flags, rc):
+<pre><code class="python">def on_connect(client, userdata, flags, rc):
     print(&quot;Connection returned result: &quot;+connack_string(rc))
 </code></pre>
+
 <ul>
 <li><code>ON_DISCONNECT</code>: invoked when the client disconnects from the broker. Example:</li>
 </ul>
-<pre><code class="language-python">def on_disconnect(client, userdata, rc):
+<pre><code class="python">def on_disconnect(client, userdata, rc):
     if rc != 0:
         print(&quot;Unexpected disconnection.&quot;)
 </code></pre>
+
 <ul>
 <li><code>ON_MESSAGE</code>: invoked when a message on a topic is received and the client is subscribed:
 Example:</li>
 </ul>
-<pre><code class="language-python">def on_message(client, userdata, message):
+<pre><code class="python">def on_message(client, userdata, message):
     print(&quot;Received message '&quot; + str(message.payload) + &quot;' on topic '&quot;
         + message.topic + &quot;' with QoS &quot; + str(message.qos))
 </code></pre>
+
 <p>In order to publish on a punctual manner on a broker (without keeping a connection
 open), it is possible to use the following sequence of orders:</p>
-<pre><code class="language-python">import paho.mqtt.publish as publish
+<pre><code class="python">import paho.mqtt.publish as publish
 
 publish.single(&quot;paho/test/single&quot;, &quot;payload&quot;, hostname=&quot;mqtt.eclipse.org&quot;)
 </code></pre>
+
 <p>Similarly, we can subscribe only to a topic with a blocking call as:</p>
-<pre><code class="language-python">import paho.mqtt.subscribe as subscribe
+<pre><code class="python">import paho.mqtt.subscribe as subscribe
 
 msg = subscribe.simple(&quot;paho/test/simple&quot;, hostname=&quot;mqtt.eclipse.org&quot;)
 print(&quot;%s %s&quot; % (msg.topic, msg.payload))
 </code></pre>
+
 <p>All the information and documentation for the module can be found <a href="https://pypi.org/project/paho-mqtt/">here</a>.</p>
 <h3 id="wildcards">Wildcards</h3>
 <p>In addition of using complete topics for the subscription process, topics can include wildcards
@@ -374,7 +368,6 @@ the building, floor, wing, room and sensor that produced the alarm, together wit
 <p>You can use the  <a href="https://docs.python.org/3/library/json.html">JSON module</a>
 to parse the receive objects.</p>
 </div></div>
-            </div>
         </div>
 
         <footer class="col-md-12">
@@ -388,32 +381,35 @@ to parse the receive objects.</p>
         <script src="../../../js/base.js" defer></script>
         <script src="../../../search/main.js" defer></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
             </div>
             <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
                     <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
                     </div>
                 </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+                <div id="mkdocs-search-results"></div>
             </div>
             <div class="modal-footer">
             </div>
         </div>
     </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
             </div>
             <div class="modal-body">
               <table class="table">
@@ -451,3 +447,8 @@ to parse the receive objects.</p>
 
     </body>
 </html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2022-03-24 04:33:16
+-->
