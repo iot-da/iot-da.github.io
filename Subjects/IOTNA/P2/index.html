@@ -4,97 +4,89 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="None">
+        
         
         <link rel="canonical" href="https://iot-da.github.io/Subjects/IOTNA/P2/">
         <link rel="shortcut icon" href="../../../img/favicon.ico">
-        <title>Internet of Things and Data Analytics</title>
-        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <title>Task management in FreeRTOS (ESP-IDF) - Internet of Things and Data Analytics</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
 
         <script src="../../../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../../../js/bootstrap-3.0.3.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
-    <body class="homepage">
-
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-
-                <!-- Collapsed navigation -->
-                <div class="navbar-header">
-                    <!-- Expander button -->
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="../../..">Internet of Things and Data Analytics</a>
-                </div>
+                <a class="navbar-brand" href="../../..">Internet of Things and Data Analytics</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
                 <!-- Expanded navigation -->
-                <div class="navbar-collapse collapse">
+                <div id="navbar-collapse" class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li >
-                                <a href="../../..">Home</a>
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">Home</a>
                             </li>
-                            <li >
-                                <a href="../../../General/">General info.</a>
+                            <li class="navitem">
+                                <a href="../../../General/" class="nav-link">General info.</a>
                             </li>
-                            <li >
-                                <a href="../../../News/">News</a>
+                            <li class="navitem">
+                                <a href="../../../News/" class="nav-link">News</a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
-<li >
-    <a href="../">IOTNA</a>
+<li>
+    <a href="../" class="dropdown-item">IOTNA</a>
 </li>
                                     
-<li >
-    <a href="../../MDM/">MDM</a>
+<li>
+    <a href="../../MDM/" class="dropdown-item">MDM</a>
 </li>
                                     
-<li >
-    <a href="../../SID/">SID</a>
+<li>
+    <a href="../../SID/" class="dropdown-item">SID</a>
 </li>
                                     
-<li >
-    <a href="../../IA/">IA</a>
+<li>
+    <a href="../../IA/" class="dropdown-item">IA</a>
 </li>
                                     
-<li >
-    <a href="../../NP1/">NP1</a>
+<li>
+    <a href="../../NP1/" class="dropdown-item">NP1</a>
 </li>
                                     
-<li >
-    <a href="../../NP2/">NP2</a>
+<li>
+    <a href="../../NP2/" class="dropdown-item">NP2</a>
 </li>
                                     
-<li >
-    <a href="../../SEC/">SEC</a>
+<li>
+    <a href="../../SEC/" class="dropdown-item">SEC</a>
 </li>
                                     
-<li >
-    <a href="../../EDGE/">EDGE</a>
+<li>
+    <a href="../../EDGE/" class="dropdown-item">EDGE</a>
 </li>
                                 </ul>
                             </li>
-                            <li >
-                                <a href="../../../Contact/">Contact</a>
+                            <li class="navitem">
+                                <a href="../../../Contact/" class="nav-link">Contact</a>
                             </li>
                         </ul>
 
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
@@ -104,16 +96,42 @@
         </div>
 
         <div class="container">
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#task-management-in-freertos-esp-idf">Task management in FreeRTOS (ESP-IDF)</a></li>
-            <li><a href="#goals">Goals</a></li>
-            <li><a href="#matrix-multiplication">Matrix multiplication</a></li>
-            <li><a href="#simple-parallelisation">Simple parallelisation</a></li>
-            <li><a href="#work-dispatching">Work dispatching</a></li>
-    </ul>
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#task-management-in-freertos-esp-idf" class="nav-link">Task management in FreeRTOS (ESP-IDF)</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#goals" class="nav-link">Goals</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#matrix-multiplication" class="nav-link">Matrix multiplication</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#simple-parallelisation" class="nav-link">Simple parallelisation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#work-dispatching" class="nav-link">Work dispatching</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
 </div></div>
-                <div class="col-md-9" role="main">
+                    <div class="col-md-9" role="main">
 
 <h1 id="task-management-in-freertos-esp-idf">Task management in FreeRTOS (ESP-IDF)</h1>
 <h2 id="goals">Goals</h2>
@@ -126,13 +144,12 @@
 It is an example of a massively parallel computation, where all the elements of the output matrix (<em>C</em> in the image below) can be computed in parallel.</p>
 <p><img alt="foo" src="img/matMul.png" /></p>
 <p>The most basic pseudo-code of the matrix multiplication is shown below:</p>
-<pre><code class="c">for i = 0 to N
+<pre><code class="language-c">for i = 0 to N
   for j = 0 to M
       C[i][j] = 0
       for k=0 to K
          C[i][j] += A[i][k]*B[k][j]
 </code></pre>
-
 <p>where loops <em>i</em> and <em>j</em> are fully parallel. </p>
 <div class="admonition danger">
 <p class="admonition-title">Assignment 1</p>
@@ -152,6 +169,7 @@ It is an example of a massively parallel computation, where all the elements of 
 <p class="admonition-title">Homework (Optional)</p>
 <p>Create a new project and implement this alternative. Try creating a different number of <em>Worker</em> tasks (from 1 to 4, for example) and measure the execution time. You may use<code>esp_timer_get_time()</code> to compute the total time.</p>
 </div></div>
+            </div>
         </div>
 
         <footer class="col-md-12">
@@ -165,35 +183,32 @@ It is an example of a massively parallel computation, where all the elements of 
         <script src="../../../js/base.js" defer></script>
         <script src="../../../search/main.js" defer></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-    <div class="modal-dialog">
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
             </div>
             <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
-                <form role="form">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
                     </div>
                 </form>
-                <div id="mkdocs-search-results"></div>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
             </div>
             <div class="modal-footer">
             </div>
         </div>
     </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
             </div>
             <div class="modal-body">
               <table class="table">
@@ -231,8 +246,3 @@ It is an example of a massively parallel computation, where all the elements of 
 
     </body>
 </html>
-
-<!--
-MkDocs version : 1.0.4
-Build Date UTC : 2022-03-22 07:11:51
--->
