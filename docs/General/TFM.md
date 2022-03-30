@@ -213,7 +213,7 @@ The goal of this project is to deep into the idea of Smart Cities, starting with
 
 | Group | Member 1 | Member 2 | Member 3 |
 |-------|----------|----------|----------|
-| 1     | Zhijun Hao | Hongbia Cao | Yuanshuang Sha|
+| 1     | Zhijun Hao | Hongbiao Cao | Yuanshuang Sha|
 | 2     | Jiayun Pan | WeiLin Zhang| YongTao He|
 
 

@@ -15,7 +15,7 @@
 
 ## **2nd term ** - 18th Jan. 2022 till 7th Apr. 2022
 
-*From 28th March, Spanish time will become UTC+2 again. Most of the courses of this term will take place at 19:00h  in China Standard Time.  But, the LAST WEEK will  be starting at 18:00h in China Standard Time.*
+*From 28th March, Spanish time will become UTC+2 again. Most of the courses of this term will take place at 19:00h  in China Standard Time.  But, the LAST TWO WEEKS will  be starting at 18:00h in China Standard Time.*
 
 | Hours (Spanish time) | Tuesday | Wednesday | Thursday |
 |-------|---------|-----------|----------|
