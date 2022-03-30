@@ -98,3 +98,27 @@ following (these are only ideas, you can also propose some others):
 
 - Implement bi-directional communication, with the possibility of externally modifying the 
   behavior of the ESP32 (e.g. modifying sampling or sending period).
+
+# Teams for the project
+
+| Team  | Members                          |
+| ----- | -------------------------------- |
+| 1     | LIU Jinhua, HU Hao               |
+| 2     | Zhao Hu, Yan Zhao                |
+| 3     | HUANG Yujuan, DUAN Zhen          |
+| 4     | WEILIN ZHANG ,YONGTAO HE         |
+| 5     | QIUJI CHEN, XIAOLAN LI           |
+| 6     | Junyan Guo,Haozhijun             |
+| 7     | jianchuang zhang,xionglan luo    |
+| 8     | YUANSHUANG SHA,                  |
+| 9     | Gonglu Zou，Hongbao Cao          |
+| 10    | Jiali Gao，Jiayun Pan            |
+| 11    | Suizhi Liu, Wei Ren              |
+| 12    | Yang Chu, Wenyan Liao            |
+| 13    | Fengfeng Gu, Bin Zhang           |
+| 14    | Li tianfeng, Yi Zhang            |
+| 15    | Youran Tian, Jun Shou            |
+| 16    | Dongyang Xu，Xueqing Zhao        |
+| 17    | Yuanshuang Sha, Guanjie Xiao     |
+| 18    | Liao Yinghua, Qinghong Yu        |
+| 19    | Shuishi Zhou                     |
