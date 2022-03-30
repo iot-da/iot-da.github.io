@@ -7,6 +7,16 @@ by detecting their smartphones, uploading the data to an external server for
 analysis and visualization. In the following sections we describe what should be
 covered for the two subjects.
 
+## Project submission and deadline
+
+You should submit:
+- The code of the program in the node
+- Data of your experiments
+- A pdf report documenting your work in english.
+
+The deadline for submission is April 17th. We will admit delayed
+submissions with penalization on the grade up to the 24th of April.
+
 ## Requirements for NP1
 
 Your system should manage a sensor network, formed by your ESP32 nodes. We assume
