@@ -10,8 +10,11 @@ covered for the two subjects.
 ## Project submission and deadline
 
 You should submit:
+
 - The code of the program in the node
+
 - Data of your experiments
+
 - A pdf report documenting your work in english.
 
 The deadline for submission is April 17th. We will admit delayed
@@ -99,7 +102,7 @@ following (these are only ideas, you can also propose some others):
 - Implement bi-directional communication, with the possibility of externally modifying the 
   behavior of the ESP32 (e.g. modifying sampling or sending period).
 
-# Teams for the project
+## Teams for the project
 
 | Team  | Members                          |
 | ----- | -------------------------------- |
