@@ -113,8 +113,8 @@ following (these are only ideas, you can also propose some others):
 | 5     | QIUJI CHEN, XIAOLAN LI           |
 | 6     | Junyan Guo,Haozhijun             |
 | 7     | jianchuang zhang,xionglan luo    |
-| 8     | YUANSHUANG SHA,                  |
-| 9     | Gonglu Zou，Hongbao Cao          |
+| 8     |                                  |
+| 9     | Gonglu Zou，Hongbiao Cao         |
 | 10    | Jiali Gao，Jiayun Pan            |
 | 11    | Suizhi Liu, Wei Ren              |
 | 12    | Yang Chu, Wenyan Liao            |
