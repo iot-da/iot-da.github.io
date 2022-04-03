@@ -23,7 +23,7 @@ Christian Tenllado (tenllado@ucm.es)
 
 ## Paper work assignment
 
-[Here you can find  description about this individual assignment](paperProject.md)
+[Here you can find  description about this assignment](paperProject.md)
 
 ## Final programming project (teams of 2 people)
 

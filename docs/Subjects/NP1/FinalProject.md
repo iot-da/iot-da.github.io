@@ -7,6 +7,19 @@ by detecting their smartphones, uploading the data to an external server for
 analysis and visualization. In the following sections we describe what should be
 covered for the two subjects.
 
+## Project submission and deadline
+
+You should submit:
+
+- The code of the program in the node
+
+- Data of your experiments
+
+- A pdf report documenting your work in english.
+
+The deadline for submission is April 17th. We will admit delayed
+submissions with penalization on the grade up to the 24th of April.
+
 ## Requirements for NP1
 
 Your system should manage a sensor network, formed by your ESP32 nodes. We assume
@@ -88,3 +101,27 @@ following (these are only ideas, you can also propose some others):
 
 - Implement bi-directional communication, with the possibility of externally modifying the 
   behavior of the ESP32 (e.g. modifying sampling or sending period).
+
+## Teams for the project
+
+| Team  | Members                          |
+| ----- | -------------------------------- |
+| 1     | LIU Jinhua, HU Hao               |
+| 2     | Zhao Hu, Yan Zhao                |
+| 3     | HUANG Yujuan, DUAN Zhen          |
+| 4     | WEILIN ZHANG ,YONGTAO HE         |
+| 5     | QIUJI CHEN, XIAOLAN LI           |
+| 6     | Junyan Guo,Haozhijun             |
+| 7     | jianchuang zhang,xionglan luo    |
+| 8     |                                  |
+| 9     | Gonglu Zou，Hongbiao Cao         |
+| 10    | Jiali Gao，Jiayun Pan            |
+| 11    | Suizhi Liu, Wei Ren              |
+| 12    | Yang Chu, Wenyan Liao            |
+| 13    | Fengfeng Gu, Bin Zhang           |
+| 14    | Li tianfeng, Yi Zhang            |
+| 15    | Youran Tian, Jun Shou            |
+| 16    | Dongyang Xu，Xueqing Zhao        |
+| 17    | Yuanshuang Sha, Guanjie Xiao     |
+| 18    | Liao Yinghua, Qinghong Yu        |
+| 19    | Shuishi Zhou                     |

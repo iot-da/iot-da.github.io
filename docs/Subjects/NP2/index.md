@@ -41,9 +41,8 @@ course.
 
 ## Quizzes
 
-For all quizzes will you are requested to use your e-mail address as name. All
-of them can be accessed directly from [this
-link](https://api.socrative.com/rc/Yu9Dx).
+All quizzes will be done in [this link](https://b.socrative.com/login/student/). The name of the room is UCMIOTNP2.
+You MUST enter your email to answer the quizzes (the email address where you received mails from me).
 
 
 ## Schedule
@@ -70,8 +69,8 @@ link](https://api.socrative.com/rc/Yu9Dx).
 |   17/03   | [OTA](slides/NP2-OTA.pdf). Lab 4 (II)                                                                 | [Lab 4 (II) instructions](P6-II/index.md) |                                      |
 |   22/03   | Lab 5. Node-RED                                                                                       | [Lab 5. instructions](P9/index.md) | All tasks from Lab4 (II)                    |
 |   24/03   | Lab 5. Node-RED                                                                                       |                                    |                                             |
-|   29/03   | Work on Final Project                                                                                 |                                    | All tasks from Lab5                         |
-|   31/04   | Work on Final Project                                                                                 |                                    |                                             |
-|   05/04   | Work on Final Project                                                                                 |                                    |                                             |
-|   07/04   | Work on Final Project                                                                                 |                                    |                                             |
+|   29/03   | Work on Final Project                                                                                 |  Quiz                              | All tasks from Lab5                         |
+|   31/04   | Work on Final Project                                                                                 |  Quiz                              |                                             |
+|   05/04   | Work on Final Project                                                                                 |  Quiz                              |                                             |
+|   07/04   | Work on Final Project                                                                                 |  Quiz                              |                                             |
 
