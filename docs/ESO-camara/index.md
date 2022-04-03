@@ -147,11 +147,11 @@ A partir de ese momento, comenzaremos a ver información de depuración que la p
 
 Vamos a hacer una variación en el código para volver a escribirlo en la placa. Para ello, usaremos VSCode (Visual Studio Code) como editor.  Abrimos VSCode haciendo click sobre su icono:
 
-![foo](img/vsCode.png)
+![foo](img/VsCode.png)
 
 Debería abrirse directamente el proyecto que está volcado en la placa. De entre los ficheros del proyecto, ahora nos interesa abrir el fichero `app_main.cpp`:
 
-![foo](img/vsCode-appMain.png)
+![foo](img/vscode-appMain.png)
 
 Es un fichero escrito en C++ que contiene el bucle principal del código volcado en la placa (líneas 26 a 66).
 Si modificamos cualquier cosa de este fichero (o cualquier otro fichero) del proyecto, deberemos volver a compilarlo y generar así la imagen que volcaremos en la placa (lo que a veces se conoce como *firmware*, que no es más que el código de nuestra aplicación junto con el sistema operativo FreeRTOS, que es el usado en ESP-IDF).  
