@@ -47,7 +47,9 @@ El programa Node-Red que aparece por defecto está preparado para recibir inform
 
 ![foo](img/nodered-mqtt.png)
 
-**Haced lo mismo con el nodo etiquetado** `/ucm/fdi/lab/pto2/imagen`.
+!!! note "Configuración de canales MQTT"
+	Cambiad los dos nodos MQTT de Node-Red, tanto el que finaliza con *movimiento* como el que finaliza con *imagen*. Aseguraos de escribid el número de vuestra cámara.
+	
 
 
 ### 4. Determinar el ID de vuestro chat en Telegram
@@ -117,7 +119,7 @@ el *token* de este *bot*. que utilizaremos para interaccionar con él desde el e
 
 En la siguiente imagen se muestra el proceso de creación de mi *bot*:
 
-![foo](img/botFather.jpg)
+<img src="img/botFather.jpg"  height="600" />
 
 
 ## Reprogramación de la cámara 
