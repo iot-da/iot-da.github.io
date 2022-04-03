@@ -216,9 +216,9 @@ ubuntu@ubuntu2004:~$ idf.py monitor
 </code></pre>
 <p>A partir de ese momento, comenzaremos a ver información de depuración que la placa está enviando por su puerto serie, vía USB, al PC. El envío de imágenes prosigue por WiFi mediante MQTT a Node-Red; esta información de depuración es útil durante el desarrollo de la aplicación.</p>
 <p>Vamos a hacer una variación en el código para volver a escribirlo en la placa. Para ello, usaremos VSCode (Visual Studio Code) como editor.  Abrimos VSCode haciendo click sobre su icono:</p>
-<p><img alt="foo" src="img/vsCode.png" /></p>
+<p><img alt="foo" src="img/VsCode.png" /></p>
 <p>Debería abrirse directamente el proyecto que está volcado en la placa. De entre los ficheros del proyecto, ahora nos interesa abrir el fichero <code>app_main.cpp</code>:</p>
-<p><img alt="foo" src="img/vsCode-appMain.png" /></p>
+<p><img alt="foo" src="img/vscode-appMain.png" /></p>
 <p>Es un fichero escrito en C++ que contiene el bucle principal del código volcado en la placa (líneas 26 a 66).
 Si modificamos cualquier cosa de este fichero (o cualquier otro fichero) del proyecto, deberemos volver a compilarlo y generar así la imagen que volcaremos en la placa (lo que a veces se conoce como <em>firmware</em>, que no es más que el código de nuestra aplicación junto con el sistema operativo FreeRTOS, que es el usado en ESP-IDF).  </p>
 <p>Para compilar el proyecto y posteriormente escribir la aplicación modificada en la placa, escribiremos los siguientes comandos en el mismo terminal que venimos utilizando en este apartado:</p>
