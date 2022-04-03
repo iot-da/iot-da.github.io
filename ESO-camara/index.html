@@ -166,7 +166,10 @@
 <p>Como decíamos en la introducción, la cámara enviará un mensaje de texto y una imagen usando el protocolo MQTT. Cada una de las cámaras está configurada para enviar su información a un canal diferente. Concretamente, la cámara etiquetada como '1' envía un texto al canal <code>/ucm/fdi/lab/pto1/movimiento</code> y una imagen al canal  <code>/ucm/fdi/lab/pto1/imagen</code>. La cámara etiquetada como '2' lo enviará al canal   <code>/ucm/fdi/lab/pto2/movimiento</code> y <code>/ucm/fdi/lab/pto2/imagen</code>; y así sucesivamente.</p>
 <p>El programa Node-Red que aparece por defecto está preparado para recibir información de la cámara '1'. Si tenéis esa cámara.... podéis saltar este paso.  Si no es el caso, es necesario editar los dos nodos  MQTT que hay al comienzo de la zona de trabajo. Para ello, hacemos doble click en el primero (correspondiente el <em>canal</em>  <code>/ucm/fdi/lab/pto1/movimiento</code>), y editaremos el campo <code>Topic</code> con el número de cámara que tengáis:</p>
 <p><img alt="foo" src="img/nodered-mqtt.png" /></p>
-<p><strong>Haced lo mismo con el nodo etiquetado</strong> <code>/ucm/fdi/lab/pto2/imagen</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Configuración de canales MQTT</p>
+<p>Cambiad los dos nodos MQTT de Node-Red, tanto el que finaliza con <em>movimiento</em> como el que finaliza con <em>imagen</em>. Aseguraos de escribid el número de vuestra cámara.</p>
+</div>
 <h3 id="4-determinar-el-id-de-vuestro-chat-en-telegram">4. Determinar el ID de vuestro chat en Telegram</h3>
 <p>Si tenéis vuestro móvil con Telegram instalado, y habéis creado algún <em>bot</em>, podréis enlazar Node-Red con ese <em>bot</em>. Para ello, lo primero es determinar el <em>chatID</em> de vuestro <em>bot</em> (ojo; no es el <em>Token</em> que os muestra <em>BotFather</em> cuando creáis un nuevo <em>bot</em>).</p>
 <p>Para conocer el <em>chatID</em>, vamos a crear un nodo receptor de Telegram para investigar el contenido del paquete recibido.  Empezaremos añadiendo un nodo <strong>Receiver</strong>  desde el panel izquierdo de Node-Red (puedes teclear "Telegram" en la caja de búsqueda para que aparezcan solo los nodos relacionados con Telegram). </p>
@@ -200,7 +203,7 @@ Conectad el cable microUSB al  conector de la placa.  Conectad el otro extremo a
 <p>Para crear un <em>bot</em> primero deberás buscar el <em>BotFather</em>. Una vez incluido, basta con utilizar el comando <code>/newbot</code>. Después daremos un nombre nuestro <em>bot</em> (<code>4eso_cam</code> en mi caso) y un nombre de usuario.  Finalmente, obtendremos<br />
 el <em>token</em> de este <em>bot</em>. que utilizaremos para interaccionar con él desde el exterior (con un interfaz HTTP; lo que se conoce como un a API REST).</p>
 <p>En la siguiente imagen se muestra el proceso de creación de mi <em>bot</em>:</p>
-<p><img alt="foo" src="img/botFather.jpg" /></p>
+<p><img src="img/botFather.jpg"  height="600" /></p>
 <h2 id="reprogramacion-de-la-camara">Reprogramación de la cámara</h2>
 <p>Las cámaras (en realidad, el chip ESP32 que controla toda la placa) se programan usando los lenguajes C/C++ en un entorno llamado ESP-IDF (y ESP-WHO), desarrollados por Espressif, la compañía que diseña y fabrica estas placas. Hay muchos detalles del proceso que conoceréis cuando estudiéis <em>Ingeniería de Computadores</em> en la UCM, pero hoy vamos a ver lo más básico.</p>
 <p>Primero debemos configurar un terminal para poder utilizar el entorno de ESP. Para ello, abre un nuevo terminal y escribe los siguientes comandos:</p>
