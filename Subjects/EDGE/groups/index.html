@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://iot-da.github.io/Subjects/EDGE/groups/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Groups - Internet of Things and Data Analytics</title>
+        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../../css/highlight.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+	
+	<script src="../../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../../js/highlight.pack.js"></script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../..">Internet of Things and Data Analytics</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../../Contact/">Home</a>
+</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">ESO camara <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../../ESO-camara/">Home</a>
+</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">General <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../../General/TFM/">TFM</a>
+</li>
+                            
+<li >
+    <a href="../../../General/">Home</a>
+</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">News <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../../News/">Home</a>
+</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+  <li class="dropdown-submenu">
+    <a href="#">EDGE</a>
+    <ul class="dropdown-menu">
+            
+<li class="active">
+    <a href="./">Groups</a>
+</li>
+            
+<li >
+    <a href="../">Home</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">Week1</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../Week1/">Home</a>
+</li>
+            
+<li >
+    <a href="../Week1/setup_Jetson-Nano/">setup Jetson Nano</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">Docs</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../Week1/docs/aux-docker/">Aux docker</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                            
+  <li class="dropdown-submenu">
+    <a href="#">IA</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../IA/groups/">Groups</a>
+</li>
+            
+<li >
+    <a href="../../IA/">Home</a>
+</li>
+    </ul>
+  </li>
+                            
+  <li class="dropdown-submenu">
+    <a href="#">IOTNA</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../IOTNA/groups/">Groups</a>
+</li>
+            
+<li >
+    <a href="../../IOTNA/">Home</a>
+</li>
+            
+<li >
+    <a href="../../IOTNA/paperProject/">paperProject</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">P1</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../IOTNA/P1/">Home</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">P2</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../IOTNA/P2/">Home</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">P3</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../IOTNA/P3/">Home</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">P4</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../IOTNA/P4/">Home</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">P5</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../IOTNA/P5/">Home</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">P6</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../IOTNA/P6/">Home</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">P7</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../IOTNA/P7/">Home</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">Ctutorial</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../IOTNA/ctutorial/">Home</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">Demo</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../IOTNA/demo/">Home</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                            
+  <li class="dropdown-submenu">
+    <a href="#">MDM</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../MDM/">Home</a>
+</li>
+    </ul>
+  </li>
+                            
+  <li class="dropdown-submenu">
+    <a href="#">NP1</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../NP1/FinalProject/">FinalProject</a>
+</li>
+            
+<li >
+    <a href="../../NP1/groups/">Groups</a>
+</li>
+            
+<li >
+    <a href="../../NP1/">Home</a>
+</li>
+            
+<li >
+    <a href="../../NP1/paperProject/">paperProject</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">P1</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../NP1/P1/">Home</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">P2</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../NP1/P2/">Home</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">P3</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../NP1/P3/">Home</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">P4</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../NP1/P4/">Home</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">P5</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../NP1/P5/">Home</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">P6</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../NP1/P6/">Home</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                            
+  <li class="dropdown-submenu">
+    <a href="#">NP2</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../NP2/FinalProject/">FinalProject</a>
+</li>
+            
+<li >
+    <a href="../../NP2/groups/">Groups</a>
+</li>
+            
+<li >
+    <a href="../../NP2/">Home</a>
+</li>
+            
+<li >
+    <a href="../../NP2/paperProject/">paperProject</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">Assignments</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../NP2/Assignments/1/">1</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">P1</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../NP2/P1/">Home</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">P10</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../NP2/P10/">Home</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">P2</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../NP2/P2/">Home</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">P3</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../NP2/P3/">Home</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">P4</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../NP2/P4/">Home</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">P5</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../NP2/P5/">Home</a>
+</li>
+            
+<li >
+    <a href="../../NP2/P5/notas/">Notas</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">P6</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../NP2/P6/">Home</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">P6 II</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../NP2/P6-II/">Home</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">P7</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../NP2/P7/">Home</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">P8</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../NP2/P8/">Home</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">P9</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../NP2/P9/">Home</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                            
+  <li class="dropdown-submenu">
+    <a href="#">SEC</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../SEC/groups/">Groups</a>
+</li>
+            
+<li >
+    <a href="../../SEC/">Home</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#">P1</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../SEC/P1/">Home</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                            
+  <li class="dropdown-submenu">
+    <a href="#">SID</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../SID/">Home</a>
+</li>
+    </ul>
+  </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                    <li >
+                        <a rel="next" href="../../../News/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#groups-for-lecture-assignments">Groups for lecture assignments</a></li>
+            <li><a href="#group-1">Group 1</a></li>
+            <li><a href="#group-2">Group 2</a></li>
+            <li><a href="#group-3">Group 3</a></li>
+            <li><a href="#group-4">Group 4</a></li>
+            <li><a href="#group-5">Group 5</a></li>
+            <li><a href="#group-6">Group 6</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="groups-for-lecture-assignments">Groups for lecture assignments</h1>
+<p>We will be using the stable groups from EDGE to work during lab lectures.</p>
+<h2 id="group-1">Group 1</h2>
+<table>
+<thead>
+<tr>
+<th>Rol</th>
+<th>Full name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Speaker</td>
+<td>ZHOU Ping</td>
+</tr>
+</tbody>
+</table>
+<h2 id="group-2">Group 2</h2>
+<table>
+<thead>
+<tr>
+<th>Rol</th>
+<th>Full name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Speaker</td>
+<td>Liu Jinhua</td>
+</tr>
+<tr>
+<td>Recorder</td>
+<td>Hu Haho</td>
+</tr>
+<tr>
+<td>Auditor</td>
+<td>Weilin Zhang</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>Duan Zhen</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>Youran Tian</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>Huang Yujuan</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>Jun Shou</td>
+</tr>
+</tbody>
+</table>
+<h2 id="group-3">Group 3</h2>
+<table>
+<thead>
+<tr>
+<th>Rol</th>
+<th>Full name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Speaker</td>
+<td>GuanJIE Xiao</td>
+</tr>
+<tr>
+<td>Speaker (2)</td>
+<td>DongYang Xu</td>
+</tr>
+<tr>
+<td>Recorder</td>
+<td>YuanShuang Sha</td>
+</tr>
+<tr>
+<td>Auditor</td>
+<td>Junyan Guo</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>Zhijun Hao</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>Xueqing Zhao</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>Jiali Gao</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>LIAO  Yinghua</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>PAN Jiayun</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>ZHANG  Yi</td>
+</tr>
+</tbody>
+</table>
+<h2 id="group-4">Group 4</h2>
+<table>
+<thead>
+<tr>
+<th>Rol</th>
+<th>Full name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Speaker</td>
+<td>JIEPING YOU</td>
+</tr>
+<tr>
+<td>Recorder</td>
+<td>QINGHONG YU</td>
+</tr>
+<tr>
+<td>Auditor</td>
+<td>SUIZHI LIU</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>TIANFENG LI</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>WEI REN</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>XIAZU HU</td>
+</tr>
+</tbody>
+</table>
+<h2 id="group-5">Group 5</h2>
+<table>
+<thead>
+<tr>
+<th>Rol</th>
+<th>Full name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Speaker</td>
+<td>Shuishi Zhou</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>Yang Chu</td>
+</tr>
+<tr>
+<td>Auditor</td>
+<td>WENYAN LIAO</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>FENGFENG GU</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>BIN ZHANG</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>HONGBIAO CAO</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>GONGLU ZOU</td>
+</tr>
+</tbody>
+</table>
+<h2 id="group-6">Group 6</h2>
+<table>
+<thead>
+<tr>
+<th>Rol</th>
+<th>Full name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Speaker</td>
+<td>Xiaolan Li</td>
+</tr>
+<tr>
+<td>Recorder</td>
+<td>Xionglan Luo</td>
+</tr>
+<tr>
+<td>Auditor</td>
+<td>Qiuji Chen</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>Jianchuang Zhang</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>Yan Zhao</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>Yongtao He</td>
+</tr>
+<tr>
+<td>Contributor</td>
+<td>Zhao Hu</td>
+</tr>
+</tbody>
+</table></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>var base_url = '../../..';</script>
+        <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script>
+        <script src="../../../js/base.js"></script><div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
