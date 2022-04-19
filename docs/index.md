@@ -7,8 +7,8 @@ Looking forward to meet you all!
 ## **3rd term** - 19 Apr. till 3 Jun.
 *All courses will be starting at 19:00h in China Standard Time*
 
-| Hours (UTC+2) | Tuesday | Wednesday | Thursday |
-|-------|---------|-----------|----------|
+| Hours (UTC+2) | Tuesday | Wednesday | Thursday | Zoom links |
+|-------|---------|-----------|----------|----------|
 | 13:00-14:55 | [EDGE](../Subjects/EDGE/index.md)    | [EDGE](../Subjects/EDGE/index.md)      | [EDGE](../Subjects/EDGE/index.md)     | [Zoom link](https://us02web.zoom.us/j/88542365522?pwd=ZVVjZzV2eFNBWkM3VGlDakI0enlmQT09)  Meeting number: 885 4236 5522.   Passcode: 641877 |
 | 15:05-17:00 | [SEC](../Subjects/SEC/index.md)     | [SEC](../Subjects/SEC/index.md)       | [SEC](../Subjects/SEC/index.md)      | [Zoom link](https://us02web.zoom.us/j/89284664167?pwd=ZGwxQzg4OXEyY0EydUd5RXNUenZ6Zz09)   Meeting number: 892 8466 4167 Passcode: 477109 |
 
