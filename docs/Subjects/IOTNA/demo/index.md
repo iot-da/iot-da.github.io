@@ -6,8 +6,8 @@
 * Learn how to run  the virtual machine and install the environments
 * Learn how to connect our ESP32 board to the computer and upload a binary
 
-
 ## Using the Virtual Machine
+
 We have provided a virtual machine with some of the tools we will be using already installed. Note that you can install everything natively in your system, and I will run faster. We provide the virtual machine just in case you prefer not to install new software in your own computer.
 
 You can download the OVA file  from [Google Drive](https://drive.google.com/file/d/1PYeX4PDDk63yAljhoXuL_VtkmBD1wF4N/view) or [Baidu Netdisk](https://pan.baidu.com/s/1EhKZv6WzqXyZPpYrc7KxlQ) (with code 7spz).  An OVA file  contains a OVF  (Open Virtualizaion Format) file so it can be opened in any virtualization framework.
