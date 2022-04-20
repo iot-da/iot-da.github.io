@@ -1,4 +1,4 @@
-# Week1: Introduction & Setup JetsonNano
+# Week1&2: Introduction & Setup JetsonNano
 * Most of this workshop is available in [YouTube](https://www.youtube.com/watch?v=QXIwdsyK7Rw&list=PL5B692fm6--uQRRDTPsJDp4o0xbzkoyf8&index=10). Fell free to watch by yourself
 
 ## Hello AI World
@@ -20,7 +20,6 @@ Hello AI World can be run completely onboard your Jetson, including inferencing 
     * To check CSI camera, you can run ```nvgstcapture-1.0```, which will start capture and preview display it on the screen:
 
 ```shell
-nano@jetson-nano:~/jetson-inference$ more /tmp/test.md 
 nano@jetson-nano:~$ nvgstcapture-1.0 
 Encoder null, cannot set bitrate!
 Encoder Profile = High
