@@ -54,3 +54,19 @@ Download [Hidra 10.1.2](https://github.com/NationalSecurityAgency/ghidra/release
 
 ## Tasks
 
+1. Download and import the IOTNA Ubuntu Virtual Machine available in the [link](https://iot-da.github.io/Subjects/IOTNA/demo/)
+
+2. Follow the [tutorial](https://www.youtube.com/watch?v=fTGTnrgjuGA&ab_channel=stacksmashing) example:
+
+   * Get the file from [easy_reverse](https://crackmes.one/crackme/5b8a37a433c5d45fc286ad83) (zip password: `crackmes.one`) or use directly the uncompressed file [rev50.zip](rev50.zip)
+
+   - Obtain and test the password
+
+3. Download the firmware `ip_cam_attify.bin` and use `binwalk` to extract its content.
+
+4. Locate the `npc.tar.gz` and extract its content
+5. Analyze the `npc` file with Ghidra:
+    1. Execute `ghidra_10.1.2_PUBLIC/ghidraRun`
+    2. Create a project, import the `npc` file and analyze it
+    3. The camera rejects modified Firmwares with the message: `Md5 err!`
+    4. Find the string and locate the functions in which it is used
