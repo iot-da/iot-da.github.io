@@ -54,19 +54,56 @@ Download [Hidra 10.1.2](https://github.com/NationalSecurityAgency/ghidra/release
 
 ## Tasks
 
-1. Download and import the IOTNA Ubuntu Virtual Machine available in the [link](https://iot-da.github.io/Subjects/IOTNA/demo/)
+### Task 1.1: Familiarise with Ghidra
 
-2. Follow the [tutorial](https://www.youtube.com/watch?v=fTGTnrgjuGA&ab_channel=stacksmashing) example:
+Once we have Ghidra installed in the Virtual Machine, we will follow the [tutorial](https://www.youtube.com/watch?v=fTGTnrgjuGA&ab_channel=stacksmashing) example to reverse engineer a linux executable file to obtain a secret password: 
 
-   * Get the file from [easy_reverse](https://crackmes.one/crackme/5b8a37a433c5d45fc286ad83) (zip password: `crackmes.one`) or use directly the uncompressed file [rev50.zip](rev50.zip)
+1. Get the executable file from [easy_reverse](https://crackmes.one/crackme/5b8a37a433c5d45fc286ad83) (zip password: `crackmes.one`) or use directly the uncompressed file [rev50.zip](rev50.zip)
 
-   - Obtain and test the password
+2. Execute the binary:
 
-3. Download the firmware `ip_cam_attify.bin` and use `binwalk` to extract its content.
+    ```bash
+    buntu@ubuntu2004:~/Downloads$ ./rev50_linux64-bit 
+    USAGE: ./rev50_linux64-bit <password>
+    try again!
+    ```
 
-4. Locate the `npc.tar.gz` and extract its content
-5. Analyze the `npc` file with Ghidra:
-    1. Execute `ghidra_10.1.2_PUBLIC/ghidraRun`
-    2. Create a project, import the `npc` file and analyze it
-    3. The camera rejects modified Firmwares with the message: `Md5 err!`
-    4. Find the string and locate the functions in which it is used
+3. Create a new Ghidra project by executing `./ghidraRun` in the command line inside hidra folder(`File -> New Project -> Non-Shared Project`:
+
+    ![ghidra_new](ghidra_new.png)
+
+4. Add the binary file (`File -> Import File`):![ghidra_import](ghidra_import.png)
+
+5. Double click in the binary file to start the code browser and select analyze the file now using the default parameters.
+
+6. Locate the `main` function
+
+    ![ghidra_main](ghidra_main.png)
+
+7. For a better understanding of the code, modify the prototype of the `main` function, by right-clicking on it and selecting `Edit Function Signature`, to use the standard definition:
+
+   ```c
+   int main(int argc, char **argv)
+   ```
+
+8. Analyse the code and extract the password
+
+9. Try again `./rev50_linux64-bit` to see if you are correct!
+
+### Task 1.2: Patch `easy_reverse`
+
+
+
+### Task 2.1: Extract IP Camera Firmware
+
+Once we have Binwalk installed in the Virtual Machine:
+
+1. Download the firmware `ip_cam_attify.bin` and use `binwalk` to extract its content.
+2. Locate the `npc.tar.gz` and extract its content
+
+### Task 2.2: Use Ghidra to analyse `npc` binary
+
+Analyze the `npc` file with Ghidra:
+1. Execute `ghidra_10.1.2_PUBLIC/ghidraRun`
+2. Create a project, import the `npc` file and analyse it.
+3. The camera rejects modified Firmwares with the message: `Md5 err!`. Find the string and locate the functions in which it is used.
