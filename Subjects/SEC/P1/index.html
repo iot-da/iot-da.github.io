@@ -168,33 +168,78 @@ sudo pip install matplotlib
 </code></pre>
 <p>Download <a href="https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_10.1.2_build/ghidra_10.1.2_PUBLIC_20220125.zip">Hidra 10.1.2</a>, unzip and execute (<code>./ghidraRun</code>).</p>
 <h2 id="tasks">Tasks</h2>
+<h3 id="task-11-familiarise-with-ghidra">Task 1.1: Familiarise with Ghidra</h3>
+<p>Once we have Ghidra installed in the Virtual Machine, we will follow the <a href="https://www.youtube.com/watch?v=fTGTnrgjuGA&amp;ab_channel=stacksmashing">tutorial</a> example to reverse engineer a linux executable file to obtain a secret password: </p>
 <ol>
 <li>
-<p>Download and import the IOTNA Ubuntu Virtual Machine available in the <a href="https://iot-da.github.io/Subjects/IOTNA/demo/">link</a></p>
+<p>Get the executable file from <a href="https://crackmes.one/crackme/5b8a37a433c5d45fc286ad83">easy_reverse</a> (zip password: <code>crackmes.one</code>) or use directly the uncompressed file <a href="rev50.zip">rev50.zip</a></p>
 </li>
 <li>
-<p>Follow the <a href="https://www.youtube.com/watch?v=fTGTnrgjuGA&amp;ab_channel=stacksmashing">tutorial</a> example:</p>
+<p>Execute the binary:</p>
+<p><code>bash
+buntu@ubuntu2004:~/Downloads$ ./rev50_linux64-bit 
+USAGE: ./rev50_linux64-bit &lt;password&gt;
+try again!</code></p>
 </li>
 <li>
-<p>Get the file from <a href="https://crackmes.one/crackme/5b8a37a433c5d45fc286ad83">easy_reverse</a> (zip password: <code>crackmes.one</code>) or use directly the uncompressed file <a href="rev50.zip">rev50.zip</a></p>
+<p>Create a new Ghidra project by executing <code>./ghidraRun</code> in the command line inside hidra folder(<code>File -&gt; New Project -&gt; Non-Shared Project</code>:</p>
+<p><img alt="ghidra_new" src="ghidra_new.png" /></p>
 </li>
 <li>
-<p>Obtain and test the password</p>
+<p>Add the binary file (<code>File -&gt; Import File</code>):<img alt="ghidra_import" src="ghidra_import.png" /></p>
 </li>
 <li>
-<p>Download the firmware <code>ip_cam_attify.bin</code> and use <code>binwalk</code> to extract its content.</p>
+<p>Double click in the binary file to start the code browser and select analyze the file now using the default parameters.</p>
 </li>
 <li>
-<p>Locate the <code>npc.tar.gz</code> and extract its content</p>
+<p>Locate the <code>main</code> function</p>
+<p><img alt="ghidra_main" src="ghidra_main.png" /></p>
 </li>
-<li>Analyze the <code>npc</code> file with Ghidra:<ol>
-<li>Execute <code>ghidra_10.1.2_PUBLIC/ghidraRun</code></li>
-<li>Create a project, import the <code>npc</code> file and analyze it</li>
-<li>The camera rejects modified Firmwares with the message: <code>Md5 err!</code></li>
-<li>Find the string and locate the functions in which it is used</li>
+<li>
+<p>For a better understanding of the code, modify the prototype of the <code>main</code> function, by right-clicking on it and selecting <code>Edit Function Signature</code>, to use the standard definition:</p>
+</li>
 </ol>
+<p><code>c
+   int main(int argc, char **argv)</code></p>
+<ol>
+<li>
+<p>Analyse the code and extract the password</p>
 </li>
-</ol></div>
+<li>
+<p>Try again <code>./rev50_linux64-bit</code> to see if you are correct!</p>
+</li>
+</ol>
+<h3 id="task-12-patch-easy_reverse">Task 1.2: Patch <code>easy_reverse</code></h3>
+<p>Modify the binary file to accept any password of length 10 without an <code>@</code> at the fifth position:</p>
+<ol>
+<li>Locate the line in which the content of the password is checked:</li>
+</ol>
+<p><img alt="guidra_at" src="guidra_at.png" /></p>
+<ol>
+<li>Right click on the interaction that rejects the password located in <code>0x0010-1206</code> (<code>JNZ LAB_00101235</code>) to <code>Patch Instruction</code> and change it to <code>JZ LAB_00101235</code>. And analyse the code again (<code>Analysis-&gt;Auto Analyse...</code>):</li>
+</ol>
+<p><img alt="ghidra_jz" src="ghidra_jz.png" /> </p>
+<p>The bytecode of the instruction located in <code>0x0010-1206</code> has changed from <code>0x752d</code> to <code>0x742d</code> and also the decompiled code has changed. Now the program rejects passwords that do <strong>NOT</strong> contain an <code>@</code> ant the fifth position. </p>
+<p>The patching functionality of Ghidra does not work correctly, so we will patch it using another program: Ghex:</p>
+<ol>
+<li>Install Ghex:</li>
+</ol>
+<p><code>bash
+   sudo apt-get install ghex</code></p>
+<ol>
+<li>Open the binary file and locate the interaction (<code>0x1206</code>)</li>
+</ol>
+<h3 id="task-21-extract-ip-camera-firmware">Task 2.1: Extract IP Camera Firmware</h3>
+<p>Once we have Binwalk installed in the Virtual Machine:</p>
+<ol>
+<li>Download the firmware <code>ip_cam_attify.bin</code> and use <code>binwalk</code> to extract its content.</li>
+<li>Locate the <code>npc.tar.gz</code> and extract its content</li>
+</ol>
+<h3 id="task-22-use-ghidra-to-analyse-npc-binary">Task 2.2: Use Ghidra to analyse <code>npc</code> binary</h3>
+<p>Analyze the <code>npc</code> file with Ghidra:
+1. Execute <code>ghidra_10.1.2_PUBLIC/ghidraRun</code>
+2. Create a project, import the <code>npc</code> file and analyse it.
+3. The camera rejects modified Firmwares with the message: <code>Md5 err!</code>. Find the string and locate the functions in which it is used.</p></div>
             </div>
         </div>
 
