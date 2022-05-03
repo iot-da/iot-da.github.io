@@ -26,16 +26,16 @@ Guillemo Botella (gbotella@ucm.es) and Joaquín Recas (recas@ucm.es)
 | 26/4 | Cryptography (I): Introduction      | [M4-Crypto (1)](slides/M4-Crypto_1.pdf)       |                                                              |
 | 27/4 | Cryptography (I): Introduction      | [M4-Crypto (2)](slides/M4-Crypto_2.pdf)       |                                                              |
 | 28/4 | Cryptography (I): Introduction      |                                               | [M4-Crypto (3) Assignments](slides/M4-Crypto_3_Assignments.pdf) |
-| 3/5  | Comm Protocol Exploitations         | M5                                            |                                                              |
-| 4/5  | Pentest example: Smart Bulb (I)     | M6                                            |                                                              |
+| 3/5  | Comm Protocol Exploitations         | [M3-IPCam (Cont.)](slides/M3-IpCam.pdf)       | [Material](./P1/index.md)                                    |
+| 4/5  | Pentest example: Smart Bulb (I)     | M4                                            |                                                              |
 | 5/5  | Pentest example: Smart Bulb (II)    |                                               |                                                              |
-| 10/5 | Cryptography (II)                   | M7                                            |                                                              |
+| 10/5 | Cryptography (II)                   | M5                                            |                                                              |
 | 11/5 | Cryptography (II)                   |                                               |                                                              |
 | 12/5 | Cryptography (II)                   |                                               |                                                              |
-| 17/5 | Pentest project: Smart Socket (I)   | M8                                            |                                                              |
+| 17/5 | Pentest project: Smart Socket (I)   | M6                                            |                                                              |
 | 18/5 | Pentest project: Smart Socket (II)  |                                               |                                                              |
 | 19/5 | Pentest project: Smart Socket (III) |                                               |                                                              |
-| 24/5 | Cryptography (III)                  | M9                                            |                                                              |
+| 24/5 | Cryptography (III)                  | M7                                            |                                                              |
 | 25/5 | Cryptography (III)                  |                                               |                                                              |
 | 26/5 | Cryptography (III)                  |                                               |                                                              |
 | 31/5 | Final Project (I)                   |                                               |                                                              |

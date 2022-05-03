@@ -17,6 +17,12 @@ The objective of this laboratory session is to put into practice the knowledge o
 
 4. [Ghidra](#ghidra)
 
+5. [Ghex](https://wiki.gnome.org/Apps/Ghex): 
+
+````
+sudo apt-get install ghex
+````
+
 ### Binwalk
 
 [Binwalk](https://github.com/ReFirmLabs/binwalk) is a fast, easy to use tool for analyzing, reverse engineering, and extracting firmware images.
