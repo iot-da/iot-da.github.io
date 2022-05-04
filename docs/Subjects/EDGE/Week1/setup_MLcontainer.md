@@ -38,7 +38,8 @@ nano@jetson-nano:~$ sudo docker run -it --gpus all -e DISPLAY=:0 -v /tmp/.X11-un
 nano@jetson-nano:~$ sudo docker run -it --rm --runtime nvidia --network host -v /home/user/project:/location/in/container nvcr.io/nvidia/l4t-ml:r32.6.1-py3
 ```
 
-* You should then be able to start a Python3 interpreter
+* **Note that you should change the path directories and adapt to your installation**: ``-v`` flag adds the mecanism to share a folder between host and docker image running, the path "/home/user/project" corresponds to host path (adapt to your installation "/home/nano/l4t-ml-data"), and "/location/in/container" corresponds to docker path (you could change to "/home/l4t-ml-data")
+* Now, you should then be able to start a Python3 interpreter
 
 ## Connecting to JupyterLab Server
 * A JupyterLab server instance is automatically started along with the container.
