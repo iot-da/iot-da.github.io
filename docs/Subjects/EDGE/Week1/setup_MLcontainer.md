@@ -48,7 +48,7 @@ nano@jetson-nano:~$ sudo docker run -it --rm --runtime nvidia --network host -v 
 ![foo](figures/jupyter-notebook.png)
 
 !!! danger "Assignment 1"
-	Run the [Jupyter Notebook](JupyterNotebooks/NotebookBasics.ipynb) on Jetson Nano. You can look for more information about how to use the [Jupyter-Notebook](https://realpython.com/jupyter-notebook-introduction/)
+	Run the [Jupyter Notebook](JupyterNotebooks/lab.tar.gz) on Jetson Nano. You can look for more information about how to use the [Jupyter-Notebook](https://realpython.com/jupyter-notebook-introduction/)
 **Please send a message to the professor as soon as you finished**
 
 !!! danger "Assignment 2"
