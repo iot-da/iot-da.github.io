@@ -148,7 +148,7 @@ Is it possible to completely remove the password verification? Explain how and p
 
 
 
-!!! danger "Report: Create a report (one per class group) with screen captures and comments. Due date: may 17."
+!!! danger "Report: Create a report (one per class group) with screenshots and comments, send it to [recas@ucm.es](mailto:recas@ucm.es). Due Date: May 17."
 
 
 
