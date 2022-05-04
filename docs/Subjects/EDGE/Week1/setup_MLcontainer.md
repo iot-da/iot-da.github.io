@@ -29,7 +29,7 @@ nano@jetson-nano:~$ sudo docker pull nvcr.io/nvidia/l4t-ml:r32.6.1-py3
 * Then to start an interactive session in the container, run the following command:
 
 ```shell
-nano@jetson-nano:~$ sudo docker run --it --gpus all -e DISPLAY=:0 -v /tmp/.X11-unix:/tmp/.X11-unix --network host nvcr.io/nvidia/l4t-ml:r32.6.1-py3
+nano@jetson-nano:~$ sudo docker run -it --gpus all -e DISPLAY=:0 -v /tmp/.X11-unix:/tmp/.X11-unix --network host nvcr.io/nvidia/l4t-ml:r32.6.1-py3
 ```
 
 ## Mounting Directories
