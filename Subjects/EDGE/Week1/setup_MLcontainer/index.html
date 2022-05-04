@@ -619,7 +619,7 @@
 <ul>
 <li>Then to start an interactive session in the container, run the following command:</li>
 </ul>
-<pre><code class="shell">nano@jetson-nano:~$ sudo docker run --it --gpus all -e DISPLAY=:0 -v /tmp/.X11-unix:/tmp/.X11-unix --network host nvcr.io/nvidia/l4t-ml:r32.6.1-py3
+<pre><code class="shell">nano@jetson-nano:~$ sudo docker run -it --gpus all -e DISPLAY=:0 -v /tmp/.X11-unix:/tmp/.X11-unix --network host nvcr.io/nvidia/l4t-ml:r32.6.1-py3
 </code></pre>
 
 <h2 id="mounting-directories">Mounting Directories</h2>
