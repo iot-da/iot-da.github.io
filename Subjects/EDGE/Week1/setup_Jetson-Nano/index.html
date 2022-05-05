@@ -8,579 +8,130 @@
         
         <link rel="canonical" href="https://iot-da.github.io/Subjects/EDGE/Week1/setup_Jetson-Nano/">
         <link rel="shortcut icon" href="../../../../img/favicon.ico">
-        <title>setup Jetson Nano - Internet of Things and Data Analytics</title>
-        <link href="../../../../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../../../../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <title>Week1&2: Introduction & Setup JetsonNano - Internet of Things and Data Analytics</title>
+        <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="../../../../css/highlight.css">
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
-	
-	<script src="../../../../js/jquery-1.10.2.min.js"></script>
-        <script src="../../../../js/bootstrap-3.0.3.min.js"></script>
-        <script src="../../../../js/highlight.pack.js"></script> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
     <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../..">Internet of Things and Data Analytics</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../../General/" class="nav-link">General info.</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../../News/" class="nav-link">News</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../IOTNA/" class="dropdown-item">IOTNA</a>
+</li>
+                                    
+<li>
+    <a href="../../../MDM/" class="dropdown-item">MDM</a>
+</li>
+                                    
+<li>
+    <a href="../../../SID/" class="dropdown-item">SID</a>
+</li>
+                                    
+<li>
+    <a href="../../../IA/" class="dropdown-item">IA</a>
+</li>
+                                    
+<li>
+    <a href="../../../NP1/" class="dropdown-item">NP1</a>
+</li>
+                                    
+<li>
+    <a href="../../../NP2/" class="dropdown-item">NP2</a>
+</li>
+                                    
+<li>
+    <a href="../../../SEC/" class="dropdown-item">SEC</a>
+</li>
+                                    
+<li>
+    <a href="../../" class="dropdown-item">EDGE</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../../Contact/" class="nav-link">Contact</a>
+                            </li>
+                        </ul>
 
-        <!-- Collapsed navigation -->
-        <div class="navbar-header">
-            <!-- Expander button -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="../../../..">Internet of Things and Data Analytics</a>
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-
-        <!-- Expanded navigation -->
-        <div class="navbar-collapse collapse">
-                <!-- Main navigation -->
-                <ul class="nav navbar-nav">
-                    <li >
-                        <a href="../../../..">Home</a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-<li >
-    <a href="../../../../Contact/">Home</a>
-</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">ESO camara <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-<li >
-    <a href="../../../../ESO-camara/">Home</a>
-</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">General <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-<li >
-    <a href="../../../../General/TFM/">TFM</a>
-</li>
-                            
-<li >
-    <a href="../../../../General/">Home</a>
-</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">News <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-<li >
-    <a href="../../../../News/">Home</a>
-</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-  <li class="dropdown-submenu">
-    <a href="#">EDGE</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../groups/">Groups</a>
-</li>
-            
-<li >
-    <a href="../../">Home</a>
-</li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">Week1</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../assigments_Jetson-Nano/">assigments Jetson Nano</a>
-</li>
-            
-<li >
-    <a href="../">Home</a>
-</li>
-            
-<li >
-    <a href="../install_Jetson-Nano/">install Jetson Nano</a>
-</li>
-            
-<li class="active">
-    <a href="./">setup Jetson Nano</a>
-</li>
-            
-<li >
-    <a href="../setup_MLcontainer/">setup MLcontainer</a>
-</li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">Docs</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../docs/aux-docker/">Aux docker</a>
-</li>
-    </ul>
-  </li>
-    </ul>
-  </li>
-    </ul>
-  </li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">IA</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../IA/groups/">Groups</a>
-</li>
-            
-<li >
-    <a href="../../../IA/">Home</a>
-</li>
-    </ul>
-  </li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">IOTNA</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../IOTNA/groups/">Groups</a>
-</li>
-            
-<li >
-    <a href="../../../IOTNA/">Home</a>
-</li>
-            
-<li >
-    <a href="../../../IOTNA/paperProject/">paperProject</a>
-</li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P1</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../IOTNA/P1/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P2</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../IOTNA/P2/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P3</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../IOTNA/P3/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P4</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../IOTNA/P4/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P5</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../IOTNA/P5/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P6</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../IOTNA/P6/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P7</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../IOTNA/P7/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">Ctutorial</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../IOTNA/ctutorial/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">Demo</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../IOTNA/demo/">Home</a>
-</li>
-    </ul>
-  </li>
-    </ul>
-  </li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">MDM</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../MDM/">Home</a>
-</li>
-    </ul>
-  </li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">NP1</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP1/FinalProject/">FinalProject</a>
-</li>
-            
-<li >
-    <a href="../../../NP1/groups/">Groups</a>
-</li>
-            
-<li >
-    <a href="../../../NP1/">Home</a>
-</li>
-            
-<li >
-    <a href="../../../NP1/paperProject/">paperProject</a>
-</li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P1</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP1/P1/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P2</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP1/P2/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P3</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP1/P3/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P4</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP1/P4/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P5</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP1/P5/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P6</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP1/P6/">Home</a>
-</li>
-    </ul>
-  </li>
-    </ul>
-  </li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">NP2</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/FinalProject/">FinalProject</a>
-</li>
-            
-<li >
-    <a href="../../../NP2/groups/">Groups</a>
-</li>
-            
-<li >
-    <a href="../../../NP2/">Home</a>
-</li>
-            
-<li >
-    <a href="../../../NP2/paperProject/">paperProject</a>
-</li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">Assignments</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/Assignments/1/">1</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P1</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/P1/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P10</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/P10/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P2</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/P2/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P3</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/P3/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P4</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/P4/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P5</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/P5/">Home</a>
-</li>
-            
-<li >
-    <a href="../../../NP2/P5/notas/">Notas</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P6</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/P6/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P6 II</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/P6-II/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P7</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/P7/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P8</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/P8/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P9</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/P9/">Home</a>
-</li>
-    </ul>
-  </li>
-    </ul>
-  </li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">SEC</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../SEC/groups/">Groups</a>
-</li>
-            
-<li >
-    <a href="../../../SEC/">Home</a>
-</li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P1</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../SEC/P1/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P2</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../SEC/P2/">Home</a>
-</li>
-    </ul>
-  </li>
-    </ul>
-  </li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">SID</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../SID/">Home</a>
-</li>
-    </ul>
-  </li>
-                        </ul>
-                    </li>
-                </ul>
-
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
-                        <i class="fa fa-search"></i> Search
-                    </a>
-                </li>
-                    <li >
-                        <a rel="next" href="../install_Jetson-Nano/">
-                            <i class="fa fa-arrow-left"></i> Previous
-                        </a>
-                    </li>
-                    <li >
-                        <a rel="prev" href="../setup_MLcontainer/">
-                            Next <i class="fa fa-arrow-right"></i>
-                        </a>
-                    </li>
-            </ul>
-        </div>
-    </div>
-</div>
 
         <div class="container">
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#week12-introduction-setup-jetsonnano">Week1&amp;2: Introduction &amp; Setup JetsonNano</a></li>
-            <li><a href="#hello-ai-world">Hello AI World</a></li>
-            <li><a href="#camera-setup">Camera Setup</a></li>
-            <li><a href="#setup-container">Setup Container</a></li>
-            <li><a href="#running-applications">Running applications</a></li>
-    </ul>
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#week12-introduction-setup-jetsonnano" class="nav-link">Week1&amp;2: Introduction &amp; Setup JetsonNano</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#hello-ai-world" class="nav-link">Hello AI World</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#camera-setup" class="nav-link">Camera Setup</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#setup-container" class="nav-link">Setup Container</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#running-applications" class="nav-link">Running applications</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
 </div></div>
-                <div class="col-md-9" role="main">
+                    <div class="col-md-9" role="main">
 
 <h1 id="week12-introduction-setup-jetsonnano">Week1&amp;2: Introduction &amp; Setup JetsonNano</h1>
 <ul>
@@ -608,7 +159,7 @@
 </ul>
 </li>
 </ul>
-<pre><code class="shell">nano@jetson-nano:~$ nvgstcapture-1.0 
+<pre><code class="language-shell">nano@jetson-nano:~$ nvgstcapture-1.0 
 Encoder null, cannot set bitrate!
 Encoder Profile = High
 Supported resolutions in case of ARGUS Camera
@@ -617,15 +168,13 @@ Supported resolutions in case of ARGUS Camera
   (4) : 1920x1080
 .....
 </code></pre>
-
 <ul>
 <li>Check rotation </li>
 <li>This example command will rotate the image 180 degrees (vertical flip)</li>
 </ul>
-<pre><code class="shell">nano@jetson-nano:~$ nvgstcapture-1.0 --orientation 2
+<pre><code class="language-shell">nano@jetson-nano:~$ nvgstcapture-1.0 --orientation 2
 .....
 </code></pre>
-
 <h3 id="take-a-picture-and-save-to-disk">Take a picture and save to disk</h3>
 <ol>
 <li>Connect CSI camera</li>
@@ -666,12 +215,11 @@ Supported resolutions in case of ARGUS Camera
 <ul>
 <li>Follow the <a href="https://github.com/dusty-nv/jetson-inference/blob/master/docs/aux-docker.md">github repo instructions</a> to install the docker image in the Jetson-Nano</li>
 </ul>
-<pre><code class="shell">nano@jetson-nano:~$ git clone --recursive https://github.com/dusty-nv/jetson-inference
+<pre><code class="language-shell">nano@jetson-nano:~$ git clone --recursive https://github.com/dusty-nv/jetson-inference
 Cloning into 'jetson-inference'...
 remote: Enumerating objects: 20861, done.
 ....
 </code></pre>
-
 <h3 id="launching-the-container">Launching the Container</h3>
 <ul>
 <li>It's recommended to use the script <a href="https://github.com/dusty-nv/jetson-inference/blob/master/docker/run.sh"><strong>docker/run.sh</strong></a> script to run the container<ul>
@@ -680,7 +228,7 @@ remote: Enumerating objects: 20861, done.
 </ul>
 </li>
 </ul>
-<pre><code class="shell">nano@jetson-nano:~$ cd jetson-inference/
+<pre><code class="language-shell">nano@jetson-nano:~$ cd jetson-inference/
 nano@jetson-nano:~/jetson-inference$ docker/run.sh --volume /tmp/argus_socket:/tmp/argus_socket
 reading L4T version from /etc/nv_tegra_release
 L4T BSP Version:  L4T R32.6.1
@@ -688,7 +236,6 @@ L4T BSP Version:  L4T R32.6.1
 size of data/networks:  79397 bytes
 .....
 </code></pre>
-
 <ul>
 <li>For reference, the following paths automatically get mounted from your host device into the container:<ul>
 <li><em>jetson-inference/data</em> (stores the network models, serialized TensorRT engines, and test images)</li>
@@ -703,21 +250,19 @@ size of data/networks:  79397 bytes
 <ul>
 <li>Once the container is up and running, you can then run example programs from the tutorial like normal inside the container:</li>
 </ul>
-<pre><code class="shell">root@jetson-nano:/jetson-inference# cd build/aarch64/bin
+<pre><code class="language-shell">root@jetson-nano:/jetson-inference# cd build/aarch64/bin
 root@jetson-nano:/jetson-inference/build/aarch64/bin# ./video-viewer
 # (press Ctrl+D to exit the container)
 </code></pre>
-
 <div class="admonition danger">
 <p class="admonition-title">Assignment 3</p>
 <p>Test your camera is running in the Docker Image through the <strong>video-viewer</strong> script</p>
 </div>
 <p><strong>Please send a message to the professor as soon as you finished</strong></p>
 <h3 id="inference-of-image-classification">Inference of Image Classification</h3>
-<pre><code class="shell">root@jetson-nano:/jetson-inference# cd build/aarch64/bin
+<pre><code class="language-shell">root@jetson-nano:/jetson-inference# cd build/aarch64/bin
 root@jetson-nano:/jetson-inference/build/aarch64/bin# ./imagenet images/jellyfish.jpg images/test/jellyfish.jpg
 </code></pre>
-
 <ul>
 <li>Note that <code>imagenet</code> app <strong>classifies</strong> the image <em>jellyfish.jpg</em> as a <strong>jellyfish</strong> and store the image solution in the path <em>data/images/test</em> with a confidence of 99.85%</li>
 </ul>
@@ -728,10 +273,9 @@ root@jetson-nano:/jetson-inference/build/aarch64/bin# ./imagenet images/jellyfis
 </div>
 <p><strong>Please send a message to the professor as soon as you finished</strong></p>
 <h3 id="inference-of-object-detection">Inference of Object Detection</h3>
-<pre><code class="shell">root@jetson-nano:/jetson-inference# cd build/aarch64/bin
+<pre><code class="language-shell">root@jetson-nano:/jetson-inference# cd build/aarch64/bin
 root@jetson-nano:/jetson-inference/build/aarch64/bin# ./detectnet images/peds_0.jpg images/test/peds_0.jpg
 </code></pre>
-
 <ul>
 <li>Note that <code>detectnet</code> app detects four persons with a confidence of 70.0%, 97.6%, 98.4% and 86.1% and store the image solution in path <em>data/images/test</em></li>
 </ul>
@@ -746,41 +290,82 @@ root@jetson-nano:/jetson-inference/build/aarch64/bin# ./detectnet images/peds_0.
 <li>You can Download other models with the script <strong>download-models.sh</strong></li>
 </ul>
 <p><img alt="foo" src="../figures/models-download.png" /></p>
-<pre><code class="shell">nano@jetson-nano:~$ cd jetson-inference/tools
+<pre><code class="language-shell">nano@jetson-nano:~$ cd jetson-inference/tools
 nano@jetson-nano:~/jetson-inference$ ./download-models.sh
 </code></pre>
-
 <div class="admonition note">
 <p class="admonition-title">Homework (Optional)</p>
 <p>You can test other image classification models, object detection, etc. by making use of the <strong>download-models.sh</strong> script and launching the inference with the option <code>--network</code></p>
 </div>
 <p><strong>Please send a message to the professor as soon as you finished</strong></p></div>
+            </div>
         </div>
 
         <footer class="col-md-12">
             <hr>
-            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
-        <script>var base_url = '../../../..';</script>
-        <script data-main="../../../../mkdocs/js/search.js" src="../../../../mkdocs/js/require.js"></script>
-        <script src="../../../../js/base.js"></script><div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <script>
+            var base_url = "../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../js/base.js" defer></script>
+        <script src="../../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
             </div>
             <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
-                <form role="form">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results"></div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
             <div class="modal-footer">
             </div>
