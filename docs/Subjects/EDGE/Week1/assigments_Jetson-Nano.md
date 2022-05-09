@@ -8,15 +8,15 @@
 
 
 ## Assigments
-* All the assigments related to the setup of Jetson-Nano should be sent to proffesor by email. As a **Subject** write "[IoT-DA Edge] Assigments Week1&2&3"
+* All the assigments related to the setup of Jetson-Nano should be sent to professor by email. As a **Subject** write "[IoT-DA Edge] Assignments Weeks1&2&3"
 
 ### Assigment 1: Image classification
-!!! danger "Assign"
+!!! danger "Assign 1"
     * Image classification using the **imagenet** script with an input example *images/strawberry_0.jpg*
 
 
 ### Assigment 2: Pedestrian detection
-!!! danger "Assign"
+!!! danger "Assign 2"
     * Test Pedestrian Detection example running the **detectnet** script with an input example data/images/peds_3.jpg
     * Download test video with the next command and test **detectnet* with pedestrians as output
 
@@ -25,4 +25,11 @@ root@jetson-nano:/jetson-inference/build/aarch64/bin# wget https://nvidia.box.co
 root@jetson-nano:/jetson-inference/build/aarch64/bin# ./detectnet images/pedestrians.mp4 images/test/pedestrians.mp4
 
 ```
+
+
+### Assigment 3: Jupyter Notebook
+!!! danger "Assign 3"
+    * Create a **Jupyter Notebook** that 
+        1. Prints on the screen "Hello World" with the python command **print**. More info about how to use *print* could be found in the [link](https://realpython.com/python-print/)
+        2. Given to vectors ```x = [5, 10, -5, 6, 9]``` and ```y = [4, -7, -1, 0.5, 8]``` write a for-loop that compute the dot product of x and y
 
