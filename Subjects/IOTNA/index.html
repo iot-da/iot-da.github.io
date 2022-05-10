@@ -8,602 +8,152 @@
         
         <link rel="canonical" href="https://iot-da.github.io/Subjects/IOTNA/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Home - Internet of Things and Data Analytics</title>
-        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <title>IOTNA - Internet of Things and Data Analytics</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="../../css/highlight.css">
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
-	
-	<script src="../../js/jquery-1.10.2.min.js"></script>
-        <script src="../../js/bootstrap-3.0.3.min.js"></script>
-        <script src="../../js/highlight.pack.js"></script> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
     <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Internet of Things and Data Analytics</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../General/" class="nav-link">General info.</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../News/" class="nav-link">News</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="./" class="dropdown-item active">IOTNA</a>
+</li>
+                                    
+<li>
+    <a href="../MDM/" class="dropdown-item">MDM</a>
+</li>
+                                    
+<li>
+    <a href="../SID/" class="dropdown-item">SID</a>
+</li>
+                                    
+<li>
+    <a href="../IA/" class="dropdown-item">IA</a>
+</li>
+                                    
+<li>
+    <a href="../NP1/" class="dropdown-item">NP1</a>
+</li>
+                                    
+<li>
+    <a href="../NP2/" class="dropdown-item">NP2</a>
+</li>
+                                    
+<li>
+    <a href="../SEC/" class="dropdown-item">SEC</a>
+</li>
+                                    
+<li>
+    <a href="../EDGE/" class="dropdown-item">EDGE</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../Contact/" class="nav-link">Contact</a>
+                            </li>
+                        </ul>
 
-        <!-- Collapsed navigation -->
-        <div class="navbar-header">
-            <!-- Expander button -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="../..">Internet of Things and Data Analytics</a>
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../../News/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../MDM/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-
-        <!-- Expanded navigation -->
-        <div class="navbar-collapse collapse">
-                <!-- Main navigation -->
-                <ul class="nav navbar-nav">
-                    <li >
-                        <a href="../..">Home</a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-<li >
-    <a href="../../Contact/">Home</a>
-</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">ESO camara <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-<li >
-    <a href="../../ESO-camara/">Home</a>
-</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">General <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-<li >
-    <a href="../../General/TFM/">TFM</a>
-</li>
-                            
-<li >
-    <a href="../../General/">Home</a>
-</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">News <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-<li >
-    <a href="../../News/">Home</a>
-</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-  <li class="dropdown-submenu">
-    <a href="#">EDGE</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../EDGE/groups/">Groups</a>
-</li>
-            
-<li >
-    <a href="../EDGE/">Home</a>
-</li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">Week1</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../EDGE/Week1/assigments_Jetson-Nano/">assigments Jetson Nano</a>
-</li>
-            
-<li >
-    <a href="../EDGE/Week1/">Home</a>
-</li>
-            
-<li >
-    <a href="../EDGE/Week1/install_Jetson-Nano/">install Jetson Nano</a>
-</li>
-            
-<li >
-    <a href="../EDGE/Week1/setup_Jetson-Nano/">setup Jetson Nano</a>
-</li>
-            
-<li >
-    <a href="../EDGE/Week1/setup_MLcontainer/">setup MLcontainer</a>
-</li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">Docs</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../EDGE/Week1/docs/aux-docker/">Aux docker</a>
-</li>
-    </ul>
-  </li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">Week4</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../EDGE/Week4/assigments_OpenCV/">assigments OpenCV</a>
-</li>
-    </ul>
-  </li>
-    </ul>
-  </li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">IA</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../IA/groups/">Groups</a>
-</li>
-            
-<li >
-    <a href="../IA/">Home</a>
-</li>
-    </ul>
-  </li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">IOTNA</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="groups/">Groups</a>
-</li>
-            
-<li class="active">
-    <a href="./">Home</a>
-</li>
-            
-<li >
-    <a href="paperProject/">paperProject</a>
-</li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P1</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="P1/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P2</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="P2/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P3</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="P3/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P4</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="P4/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P5</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="P5/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P6</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="P6/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P7</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="P7/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">Ctutorial</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="ctutorial/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">Demo</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="demo/">Home</a>
-</li>
-    </ul>
-  </li>
-    </ul>
-  </li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">MDM</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../MDM/">Home</a>
-</li>
-    </ul>
-  </li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">NP1</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../NP1/FinalProject/">FinalProject</a>
-</li>
-            
-<li >
-    <a href="../NP1/groups/">Groups</a>
-</li>
-            
-<li >
-    <a href="../NP1/">Home</a>
-</li>
-            
-<li >
-    <a href="../NP1/paperProject/">paperProject</a>
-</li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P1</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../NP1/P1/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P2</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../NP1/P2/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P3</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../NP1/P3/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P4</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../NP1/P4/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P5</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../NP1/P5/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P6</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../NP1/P6/">Home</a>
-</li>
-    </ul>
-  </li>
-    </ul>
-  </li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">NP2</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../NP2/FinalProject/">FinalProject</a>
-</li>
-            
-<li >
-    <a href="../NP2/groups/">Groups</a>
-</li>
-            
-<li >
-    <a href="../NP2/">Home</a>
-</li>
-            
-<li >
-    <a href="../NP2/paperProject/">paperProject</a>
-</li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">Assignments</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../NP2/Assignments/1/">1</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P1</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../NP2/P1/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P10</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../NP2/P10/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P2</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../NP2/P2/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P3</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../NP2/P3/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P4</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../NP2/P4/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P5</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../NP2/P5/">Home</a>
-</li>
-            
-<li >
-    <a href="../NP2/P5/notas/">Notas</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P6</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../NP2/P6/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P6 II</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../NP2/P6-II/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P7</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../NP2/P7/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P8</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../NP2/P8/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P9</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../NP2/P9/">Home</a>
-</li>
-    </ul>
-  </li>
-    </ul>
-  </li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">SEC</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../SEC/groups/">Groups</a>
-</li>
-            
-<li >
-    <a href="../SEC/">Home</a>
-</li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P1</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../SEC/P1/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P2</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../SEC/P2/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P3</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../SEC/P3/">Home</a>
-</li>
-    </ul>
-  </li>
-    </ul>
-  </li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">SID</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../SID/">Home</a>
-</li>
-    </ul>
-  </li>
-                        </ul>
-                    </li>
-                </ul>
-
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
-                        <i class="fa fa-search"></i> Search
-                    </a>
-                </li>
-                    <li >
-                        <a rel="next" href="groups/">
-                            <i class="fa fa-arrow-left"></i> Previous
-                        </a>
-                    </li>
-                    <li >
-                        <a rel="prev" href="paperProject/">
-                            Next <i class="fa fa-arrow-right"></i>
-                        </a>
-                    </li>
-            </ul>
-        </div>
-    </div>
-</div>
 
         <div class="container">
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#iot-node-architecture">IoT Node Architecture</a></li>
-            <li><a href="#general-information">General information</a></li>
-            <li><a href="#professors">Professors</a></li>
-            <li><a href="#work-groups-for-regular-lab-assignments">Work groups (for regular lab assignments)</a></li>
-            <li><a href="#personal-paper-project-assignment">Personal paper project assignment</a></li>
-            <li><a href="#final-programming-project-teams-of-2-people">Final programming project (teams of 2 people)</a></li>
-            <li><a href="#quizzes">Quizzes</a></li>
-            <li><a href="#schedule">Schedule</a></li>
-    </ul>
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#iot-node-architecture" class="nav-link">IoT Node Architecture</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#general-information" class="nav-link">General information</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#professors" class="nav-link">Professors</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#work-groups-for-regular-lab-assignments" class="nav-link">Work groups (for regular lab assignments)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#personal-paper-project-assignment" class="nav-link">Personal paper project assignment</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#final-programming-project-teams-of-2-people" class="nav-link">Final programming project (teams of 2 people)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#quizzes" class="nav-link">Quizzes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#schedule" class="nav-link">Schedule</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
 </div></div>
-                <div class="col-md-9" role="main">
+                    <div class="col-md-9" role="main">
 
 <h1 id="iot-node-architecture">IoT Node Architecture</h1>
 <h2 id="general-information">General information</h2>
@@ -615,7 +165,7 @@
 <li>Work with sensors and learn the most common interfaces</li>
 </ul>
 <h3 id="subject-program-and-evaluation-methodology">Subject program and evaluation methodology</h3>
-<p><a href="./slides/intro.pdf">Program and evaluation</a></p>
+<p><a href="slides/intro.pdf">Program and evaluation</a></p>
 <h2 id="professors">Professors</h2>
 <p>Jose Ignacio Gomez (jigomez@ucm.es) and Katzalin Olcoz  (katzalin@ucm.es )</p>
 <h2 id="work-groups-for-regular-lab-assignments">Work groups (for regular lab assignments)</h2>
@@ -640,7 +190,7 @@ You MUST enter your email to answer the quizzes (the email address where you rec
 <tbody>
 <tr>
 <td>20/10</td>
-<td><a href="./slides/soc.pdf">Introduction: boards, SoC</a></td>
+<td><a href="slides/soc.pdf">Introduction: boards, SoC</a></td>
 <td><a href="ctutorial/">C Exercises</a></td>
 <td></td>
 </tr>
@@ -664,31 +214,31 @@ You MUST enter your email to answer the quizzes (the email address where you rec
 </tr>
 <tr>
 <td>03/11</td>
-<td><a href="./slides/tasks.pdf">ESP-IDF Tasks Scheduler</a></td>
+<td><a href="slides/tasks.pdf">ESP-IDF Tasks Scheduler</a></td>
 <td><a href="P2/">2. Tasks: matrix multiply </a></td>
-<td></td>
+<td> </td>
 </tr>
 <tr>
 <td>04/11</td>
-<td><a href="./slides/tasks.pdf">ESP-IDF Tasks Scheduler</a></td>
+<td><a href="slides/tasks.pdf">ESP-IDF Tasks Scheduler</a></td>
 <td><a href="P2/">2. Tasks: matrix multiply </a></td>
 <td></td>
 </tr>
 <tr>
 <td>10/11</td>
-<td><a href="./slides/events.pdf">Events and task notifications</a></td>
+<td><a href="slides/events.pdf">Events and task notifications</a></td>
 <td><a href="P2/">2. Tasks: matrix multiply  </a></td>
 <td></td>
 </tr>
 <tr>
 <td>11/11</td>
-<td><a href="./slides/IO.pdf">Input/Output</a> -  <a href="./slides/interrupts.pdf">Polling/Interrupts</a> -  <a href="./slides/gpio.pdf">GPIO</a></td>
+<td><a href="slides/IO.pdf">Input/Output</a> -  <a href="slides/interrupts.pdf">Polling/Interrupts</a> -  <a href="slides/gpio.pdf">GPIO</a></td>
 <td><a href="P3/">3. Chronometer</a></td>
 <td></td>
 </tr>
 <tr>
 <td>17/11</td>
-<td><a href="./slides/timer.pdf">Timers</a></td>
+<td><a href="slides/timer.pdf">Timers</a></td>
 <td><a href="P3/">3. Chronometer</a></td>
 <td></td>
 </tr>
@@ -700,25 +250,25 @@ You MUST enter your email to answer the quizzes (the email address where you rec
 </tr>
 <tr>
 <td>24/11</td>
-<td>Event based programming. <a href="./slides/storage.pdf">NAND/NOR Flash</a></td>
-<td><a href="P3/">3. Chronometer</a></td>
+<td>Event based programming. <a href="slides/storage.pdf">NAND/NOR Flash</a></td>
+<td><a href="P3/">3. Chronometer</a> </td>
 <td></td>
 </tr>
 <tr>
 <td>25/11</td>
-<td><a href="./slides/partitions.pdf">File system</a>. <a href="./slides/logging.pdf">System Log</a></td>
+<td><a href="slides/partitions.pdf">File system</a>. <a href="slides/logging.pdf">System Log</a></td>
 <td><a href="P4/">4. Log in flash</a></td>
 <td></td>
 </tr>
 <tr>
 <td>01/12</td>
-<td><a href="./slides/watchdog.pdf">Watchdog</a></td>
+<td><a href="slides/watchdog.pdf">Watchdog</a></td>
 <td><a href="P4/">4. Log in flash</a></td>
 <td>Lab 3 deadline</td>
 </tr>
 <tr>
 <td>02/12</td>
-<td><a href="./slides/sensors.pdf">Sensors</a>.</td>
+<td><a href="slides/sensors.pdf">Sensors</a>.</td>
 <td><a href="P4/">4. Log in flash</a></td>
 <td></td>
 </tr>
@@ -730,75 +280,117 @@ You MUST enter your email to answer the quizzes (the email address where you rec
 </tr>
 <tr>
 <td>09/12</td>
-<td><a href="./slides/serial.pdf">Serial buses: I2C, SPI, UART</a></td>
+<td><a href="slides/serial.pdf">Serial buses: I2C, SPI, UART</a></td>
 <td><a href="P4/">4. Log in flash</a></td>
 <td></td>
 </tr>
 <tr>
 <td>15/12</td>
-<td><a href="https://b.socrative.com/login/student/">QUIZ</a>.  <a href="./slides/i2c-idf.pdf">ESP-IDF I2C API</a></td>
-<td><a href="P5/">5. Built-in sensors</a>.   <a href="./slides/hts221.pdf">HTS221 Datasheet</a></td>
+<td><a href="https://b.socrative.com/login/student/">QUIZ</a>.  <a href="slides/i2c-idf.pdf">ESP-IDF I2C API</a></td>
+<td><a href="P5/">5. Built-in sensors</a>.   <a href="slides/hts221.pdf">HTS221 Datasheet</a></td>
 <td>Lab4 deadline</td>
 </tr>
 <tr>
 <td>16/12</td>
 <td>I2C</td>
-<td><a href="P5/">5. Built-in sensors</a> .  <a href="./slides/hts221.pdf">HTS221 Datasheet</a></td>
+<td><a href="P5/">5. Built-in sensors</a> .  <a href="slides/hts221.pdf">HTS221 Datasheet</a></td>
 <td></td>
 </tr>
 <tr>
 <td>22/12</td>
-<td><a href="./slides/energy.pdf">Energy consumption</a>. <a href="./slides/espPower.pdf">Powering the system</a></td>
+<td><a href="slides/energy.pdf">Energy consumption</a>. <a href="slides/espPower.pdf">Powering the system</a></td>
 <td><a href="P5/">5. Built-in sensors</a></td>
 <td></td>
 </tr>
 <tr>
 <td>23/12</td>
-<td><a href="https://b.socrative.com/login/student/">QUIZ</a>. <a href="./slides/lowpower.pdf">ESP32 power modes</a></td>
+<td><a href="https://b.socrative.com/login/student/">QUIZ</a>. <a href="slides/lowpower.pdf">ESP32 power modes</a></td>
 <td><a href="P6/">6. Low power modes</a></td>
 <td>Labs 5  deadline</td>
 </tr>
 <tr>
 <td>12/01</td>
 <td>Final Programming project  (groups of 2)</td>
-<td><a href="P7/">7. Final Project</a></td>
+<td><a href="P7/">7. Final Project</a> </td>
 <td>Paper project deadline</td>
 </tr>
 <tr>
 <td>13/01</td>
 <td><a href="https://b.socrative.com/login/student/">QUIZ</a>. Final Programming project</td>
-<td><a href="P7/">7. Final Project</a></td>
+<td><a href="P7/">7. Final Project</a> </td>
 <td>Lab 6 deadline</td>
 </tr>
 </tbody>
 </table>
 <p><em>The final programming project, will be due before 24th Jan. 2022</em></p></div>
+            </div>
         </div>
 
         <footer class="col-md-12">
             <hr>
-            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
-        <script>var base_url = '../..';</script>
-        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
-        <script src="../../js/base.js"></script><div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
             </div>
             <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
-                <form role="form">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results"></div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
             <div class="modal-footer">
             </div>
