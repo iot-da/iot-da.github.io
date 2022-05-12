@@ -33,13 +33,13 @@ For all quizzes will you are requested to use your e-mail address as name. All o
 | 10/5         | [OpenCV with Jetson](Week4/slides/Week3_OpenCV.pdf)                  | [Notebooks BO](Week4/JupyterNotebooks/OpenCV_BasicOperations.tar.gz)  | [QUIZ Lab1](https://api.socrative.com/rc/MSKz9c)    | C. García |
 | 11/5         | [OpenCV with Jetson](Week4/slides/Week3_OpenCV.pdf)                  | [python examples](Week4/JupyterNotebooks/example_python.tar.gz)    |                | C. García |
 | 12/5         | [OpenCV with Jetson](Week4/slides/Week3_OpenCV.pdf)                  | [Notebooks IP](Week4/JupyterNotebooks/OpenCV_ImageProcessing.tar.gz)  |                | C. García |
-| 17/5         | Inference Image Classifying                                          |                                       | *QUIZ Lab2*    | C. García |
-| 18/5         | Evaluating Inference Models                                          |                                       |                | C. García |
-| 19/5         | Own Image Recognition                                                |                                       |                | C. García |
-| 24/5         | Coding Im. Recognition in C                                          |                                       | *QUIZ Lab3*    | C. García |
-| 25/5         | Pytorch training                                                     |                                       |                | C. García |
-| 26/5         | Object Detection (DetectNet)                                         |                                       | *QUIZ Lab4*    | C. García |
-| 31/5         | Own object Detection                                                 |                                       |                | C. García |
-| 1/5          | Segmentation with SegNet                                             |                                       |                | C. García |
-| 2/6          | PoseNet                                                              |                                       | *QUIZ Lab5*    | C. García |
+| 17/5         | [OpenCV with Jetson](Week4/slides/Week3_OpenCV.pdf)                  |                                       |                | C. García |
+| 18/5         | [OpenCV with Jetson](Week4/slides/Week3_OpenCV.pdf)                  |                                       |                | C. García |
+| 19/5         | Inference Image Classifying                                          |                                       |                | C. García |
+| 24/5         | Evaluating Inference Models                                          |                                       | *QUIZ Lab2*    | C. García |
+| 25/5         | Own Image Recognition                                                |                                       |                | C. García |
+| 26/5         | Coding Im. Recognition in C                                          |                                       | *QUIZ Lab3*    | C. García |
+| 31/5         | Pytorch training                                                     |                                       |                | C. García |
+|  1/5         | Object Detection (DetectNet)                                         |                                       | *QUIZ Lab4*    | C. García |
+|  2/5         | Own object Detection                                                 |                                       |                | C. García |
 
