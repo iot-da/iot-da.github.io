@@ -17,6 +17,12 @@ The objective of this laboratory session is to put into practice the knowledge o
 
 4. [Ghidra](#ghidra)
 
+5. [Ghex](https://wiki.gnome.org/Apps/Ghex): 
+
+````bash
+sudo apt-get install ghex
+````
+
 ### Binwalk
 
 [Binwalk](https://github.com/ReFirmLabs/binwalk) is a fast, easy to use tool for analyzing, reverse engineering, and extracting firmware images.
@@ -119,7 +125,7 @@ Nice Job!!
 flag{1234567890}
 ```
 
-Is it possible to completely remove the password verification?
+Is it possible to completely remove the password verification? Explain how and patch the binary to do it. 
 
 ## Analyze IP Camera Firmware
 !!! note "Task 2.1"
@@ -139,3 +145,10 @@ Is it possible to completely remove the password verification?
 3. The camera rejects modified Firmwares with the message: `Md5 err!`. Find the string and locate the functions in which it is used.
 
 4. Which line should we modify to accept any firmware?
+
+
+
+!!! danger "Report: Create a report (one per class group) with screenshots and comments, send it to [recas@ucm.es](mailto:recas@ucm.es). Due Date: May 17."
+
+
+

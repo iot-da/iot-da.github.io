@@ -95,8 +95,7 @@ size of data/networks:  79397 bytes
 
 * For reference, the following paths automatically get mounted from your host device into the container:
     * *jetson-inference/data* (stores the network models, serialized TensorRT engines, and test images)
-    * *jetson-inference/python/training/classification
-/data* (stores classification training datasets)
+    * *jetson-inference/python/training/classification/data* (stores classification training datasets)
     * *jetson-inference/python/training/classification/models* (stores classification models trained by PyTorch)
     * *jetson-inference/python/training/detection/ssd/data* (stores detection training datasets)
     * *jetson-inference/python/training/detection/ssd/models* (stores detection models trained by PyTorch)
@@ -119,7 +118,7 @@ root@jetson-nano:/jetson-inference/build/aarch64/bin# ./video-viewer
 root@jetson-nano:/jetson-inference# cd build/aarch64/bin
 root@jetson-nano:/jetson-inference/build/aarch64/bin# ./imagenet images/jellyfish.jpg images/test/jellyfish.jpg
 ```
-* Note that ```imagenet``` app **classifies** the image *jellyfish.jpg* as a **jellyfish** and store the image solution in the path *data/images/test* with a confidence of 99.85\%
+* Note that ```imagenet``` app **classifies** the image *jellyfish.jpg* as a **jellyfish** and store the image solution in the path *data/images/test* with a confidence of 99.85%
 
 ![foo](figures/jellyfish.jpg)
 
@@ -132,7 +131,7 @@ root@jetson-nano:/jetson-inference/build/aarch64/bin# ./imagenet images/jellyfis
 root@jetson-nano:/jetson-inference# cd build/aarch64/bin
 root@jetson-nano:/jetson-inference/build/aarch64/bin# ./detectnet images/peds_0.jpg images/test/peds_0.jpg
 ```
-* Note that ```detectnet``` app detects four persons with a confidence of 70.0\%, 97.6\%, 98.4\% and 86.1\% and store the image solution in path *data/images/test*
+* Note that ```detectnet``` app detects four persons with a confidence of 70.0%, 97.6%, 98.4% and 86.1% and store the image solution in path *data/images/test*
 
 
 ![foo](figures/peds_0.jpg)
