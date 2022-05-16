@@ -32,9 +32,9 @@ Guillemo Botella (gbotella@ucm.es) and Joaquín Recas (recas@ucm.es)
 | 10/5 | Cryptography (II)                  | [M4-Crypto (4) Lab1](slides/M4-Crypto_4_Lab1.pdf) |                                                              |
 | 11/5 | Cryptography (II)                  | M4-Crypto (4) Lab1 (Cont.) |                                                              |
 | 12/5 | Cryptography (II)                  | [M4-Crypto (5) Lab2](slides/M4-Crypto_5_Lab2.pdf) | [MPPP (Personal Paper Project)](slides/MPPP.pdf) |
-| 17/5 | Pentest project: Smart Socket (I)  | M7                                              |                                                              |
-| 18/5 | Pentest project: Smart Socket (II) |                                                 |                                                              |
-| 19/5 |                                    |                                                 |                                                              |
+| 17/5 | Pentest project: Smart Socket (II) | [M7-SmartSocket2](slides/M7-SmartSocket2.pdf) | [Material P3](./P3/index.md) |
+| 18/5 | Pentest project: Smart Socket (III) |                                                 |                                                              |
+| 19/5 | Pentest project: Smart Socket (IV) |                                                 |                                                              |
 | 24/5 | Cryptography (III)                 | M8                                              |                                                              |
 | 25/5 | Cryptography (III)                 |                                                 |                                                              |
 | 26/5 | Cryptography (III)                 |                                                 |                                                              |
