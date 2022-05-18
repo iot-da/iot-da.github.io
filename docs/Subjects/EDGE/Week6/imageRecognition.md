@@ -1,13 +1,21 @@
-# Re-training on the Cat/Dog Dataset
+# Re-training a Model with an input Dataset
 * **Note:** information extracted from [NVIDIA laboratories](https://github.com/dusty-nv/jetson-inference/blob/master/docs/pytorch-cat-dog.md) 
+* In this lab you should learn:
+    * How to download a prepared dataset to retrained a model
+    * Train a CNN ResNet-18 with **PyTorch** (it could be done in a server/cloud system)
+    * Convert the model trained to ONNX format to be run on the Jetson-Nano
+    * Perform an inference in the Jetson-Nano (single image, a batch of images or using the CSI Camera)
+    * Create your own dataset and repeat the training/inference process
+
+## Re-training on the Cat/Dog Dataset
 
 The model that we'll be re-training is a simple model that recognizes two classes:  cat or dog.
 
 <img src="https://github.com/dusty-nv/jetson-inference/raw/python/docs/images/pytorch-cat-dog.jpg" width="700">
 
-Provided below is an 800MB dataset that includes 5000 training images, 1000 validation images, and 200 test images, each evenly split between the cat and dog classes.  The set of training images is used for transfer learning, while the validation set is used to evaluate classification accuracy during training, and the test images are to be used by us after training completes.  The network is never directly trained on the validation and test sets, only the training set.
+Provided below is an 800MB data-set that includes 5000 training images, 1000 validation images, and 200 test images, each evenly split between the cat and dog classes.  The set of training images is used for transfer learning, while the validation set is used to evaluate classification accuracy during training, and the test images are to be used by us after training completes.  The network is never directly trained on the validation and test sets, only the training set.
 
-The images from the dataset are made up of many different breeds of dogs and cats, including large felines like tigers and mountain lions since the amount of cat images available was a bit lower than dogs.  Some of the images also picture humans, which the detector is essentially trained to ignore as background and focus on the cat vs. dog content.
+The images from the data-set are made up of many different breeds of dogs and cats, including large felines like tigers and mountain lions since the amount of cat images available was a bit lower than dogs.  Some of the images also picture humans, which the detector is essentially trained to ignore as background and focus on the cat vs. dog content.
 
 To get started, first make sure that you have [PyTorch installed](https://github.com/dusty-nv/jetson-inference/blob/master/docs/pytorch-transfer-learning.md#installing-pytorch) on your Jetson, then download the dataset below and kick off the training script.  After that, we'll test the re-trained model in TensorRT on some static images and a live camera feed. 
 
@@ -163,7 +171,22 @@ For more info about loading/saving sequences of images, see the [Camera Streamin
 
 Next, we'll try running our re-trained model on a live camera feed.
 
-# Collecting your own Classification Datasets
+## Running the Live Camera Program
+
+If you have a furry friend at home, you can run the camera program and see how it works!  Like the previous step, `imagenet` supports extended command-line parameters for loading customized models:
+
+```bash
+# C++ (MIPI CSI)
+imagenet --model=$NET/resnet18.onnx --input_blob=input_0 --output_blob=output_0 --labels=$DATASET/labels.txt csi://0
+
+# Python (MIPI CSI)
+imagenet.py --model=$NET/resnet18.onnx --input_blob=input_0 --output_blob=output_0 --labels=$DATASET/labels.txt csi://0
+```
+> **note:** for information about supported video streams and protocols, please see the [Camera Streaming and Multimedia](aux-streaming.md) page.
+
+<img src="https://github.com/dusty-nv/jetson-inference/raw/python/docs/images/pytorch-otto.jpg" width="500">
+
+## Creating your own Classification Datasets
 
 In order to collect your own datasets for training customized models to classify objects or scenes of your choosing, we've created an easy-to-use tool called `camera-capture` (NOTE: /jetson-inference/build/aarch64/bin/camera-capture) for capturing and labeling images on your Jetson from live video:
 
@@ -218,14 +241,17 @@ And here's the corresponding directory structure that the tool will create:
 	• class-C/
 ```
 
-## Assignment 
-* If you have finished all the steps mentioned before, you are ready to perform the task
+## Assignments 
+* If you have finished all the steps mentioned before, you are ready to perform the task.
+* Taking into account the global situation with the pandemic and COVID-19, create an IoT system that detects if a person is wearing a medical mask using the CSI Camera
 
-!!! note "Homework"
-	Create your own dataset with the **camera-capture** tool, for example a database with three objects: 
-               * No person
-               * Yourself
-               * Yourself with a medical mask wearn
-	Taking into account the global situation with the pandemic and COVID-19, create an IoT system that detects if a person is wearing a medical mask using an image classifier based on ResNet18 whose training can be carried out using a dataset created by yourself
-**Please send a message to the professor as soon as you finished**
 
+!!! danger "Assignment 1"
+	Create your own dataset with the **camera-capture** tool, for example a database with three objects: (1) No person, (2) Yourself, (3) Yourself with a medical mask worn.
+
+!!! danger "Assignment 2"
+	Train the ResNet-18 Model with your own dataset. Note that apart from training, you should converting the Model to ONNX
+
+
+!!! danger "Assignment 3"
+	Invoke the inference with your model create by yourself. The IoT system should detect if a person is wearing a medical mask using an image classifier based on ResNet-18 using the CSI camera

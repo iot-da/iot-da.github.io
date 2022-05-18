@@ -132,7 +132,7 @@ root@jetson-nano:/jetson-inference/build/aarch64/bin#  ./imagenet --network=resn
 root@jetson-nano:/jetson-inference/build/aarch64/bin#  ./imagenet.py --network=resnet-18 jellyfish.mkv images/test/jellyfish_resnet18.mkv
 ```
 
-!!! note "Homework"
+!!! danger "Assignment"
 	Evaluate the accuracy and inference time of *fruit_0.jpg*, *strawberry_1.jpg* for the image classification models launching the inference with the option ```--network``` for AlexNet, GoogleNet, ResNet-50, VGG-16, Inception-v4
 **Please send a message to the professor as soon as you finished**
 
