@@ -11,14 +11,14 @@ App that should be used to control the Smart Plug: [Home Mate Apk](HomeMate.apk)
 In case you are not able to record an On/Off sequence, use these files (**only for synchronous class, not valid for Pentest Project**):
 
 * Group 1 file: 
-    * [Traza1.pcapng](Traza1.pcapng) 
+    * [Trace1.pcapng](Trace1.pcapng) 
 * Group 2 file: 
-    * [Traza2.pcapng](Traza2.pcapng) 
+    * [Trace2.pcapng](Trace2.pcapng) 
 * Group 3 file: 
-    * [Traza3.pcapng](Traza3.pcapng) 
+    * [Trace3.pcapng](Trace3.pcapng) 
 * Group 4 file: 
-    * [Traza4.pcapng](Traza4.pcapng) 
+    * [Trace4.pcapng](Trace4.pcapng) 
 * Group 5 file: 
-    * [Traza5.pcapng](Traza5.pcapng) 
+    * [Trace5.pcapng](Trace5.pcapng) 
 * Group 6 file: 
-    * [Traza6.pcapng](Traza6.pcapng) 
+    * [Trace6.pcapng](Trace6.pcapng) 
