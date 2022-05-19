@@ -1,8 +1,8 @@
-# Laboratory 3. IP Smart Socket Pentest
+# Laboratory 3. Smart Socket Pentest
 
 During this lab you are going to perform a PenTest of a real device, the Smartsocket Orvibo S30C. This work will be done in pairs. For this you can use the groups available in IOTNA *Final programming project* ([link](https://iot-da.github.io/Subjects/IOTNA/P7/)). 
 
-!!! danger "Remember that this practice represents a total of 30% of the grade. You can send me the corresponding memory until May 3 ([recas@ucm.es](mailto:recas@ucm.es))."
+!!! danger "Remember that this practice represents a total of 30% of the grade. You can send me the corresponding memory until June 3 ([recas@ucm.es](mailto:recas@ucm.es))."
 
 ### Material
 
@@ -22,3 +22,11 @@ In case you are not able to record an On/Off sequence, use these files (**only f
     * [Trace5.pcapng](Trace5.pcapng) 
 * Group 6 file: 
     * [Trace6.pcapng](Trace6.pcapng) 
+
+**Python script for AES-ECB description:**
+
+* [decrypt_AES_ECB.py](decrypt_AES_ECB.py)
+
+**Python script to control the Smartplug:**
+
+* [orvibocontrol.py](orvibocontrol.py) 
