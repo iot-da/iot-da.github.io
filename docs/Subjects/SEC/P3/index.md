@@ -1,6 +1,6 @@
 # Laboratory 3. Smart Socket Pentest
 
-During this lab you are going to perform a PenTest of a real device, the Smartsocket Orvibo S30C. This work will be done in pairs. For this you can use the groups available in IOTNA *Final programming project* ([link](https://iot-da.github.io/Subjects/IOTNA/P7/)). 
+During this lab you are going to perform a PenTest of a real device, the Smartsocket Orvibo S30C. This work will be done in pairs. For this you can use the groups available in NP *Final programming project* ([link](https://iot-da.github.io/Subjects/NP1/FinalProject/)). 
 
 !!! danger "Remember that this practice represents a total of 30% of the grade. You can send me the corresponding memory until June 3 ([recas@ucm.es](mailto:recas@ucm.es))."
 
