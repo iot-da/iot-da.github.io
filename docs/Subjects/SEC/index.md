@@ -35,7 +35,7 @@ Guillemo Botella (gbotella@ucm.es) and Joaquín Recas (recas@ucm.es)
 | 17/5 | Pentest project: Smart Socket (II) | [M7-SmartSocket2](slides/M7-SmartSocket2.pdf) | [Material P3](./P3/index.md) |
 | 18/5 | Pentest project: Smart Socket (III) | [M7-SmartSocket3](slides/M7-SmartSocket3.pdf) | [Material P3](./P3/index.md) |
 | 19/5 | Pentest project: Smart Socket (IV) | [M7-SmartSocket4](slides/M7-SmartSocket4.pdf) | [Material P3](./P3/index.md) |
-| 24/5 | Cryptography (III)                 | M8                                              |                                                              |
+| 24/5 | Cryptography (III)                 | [M6-Crypto (6)](slides/M6-Crypto_6.pdf) |                                                              |
 | 25/5 | Cryptography (III)                 |                                                 |                                                              |
 | 26/5 | Cryptography (III)                 |                                                 |                                                              |
 | 31/5 | Final Project (I)                  |                                                 |                                                              |
