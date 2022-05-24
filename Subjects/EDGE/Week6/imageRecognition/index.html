@@ -8,618 +8,150 @@
         
         <link rel="canonical" href="https://iot-da.github.io/Subjects/EDGE/Week6/imageRecognition/">
         <link rel="shortcut icon" href="../../../../img/favicon.ico">
-        <title>imageRecognition - Internet of Things and Data Analytics</title>
-        <link href="../../../../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../../../../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <title>Re-training a Model with an input Dataset - Internet of Things and Data Analytics</title>
+        <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="../../../../css/highlight.css">
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
-	
-	<script src="../../../../js/jquery-1.10.2.min.js"></script>
-        <script src="../../../../js/bootstrap-3.0.3.min.js"></script>
-        <script src="../../../../js/highlight.pack.js"></script> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
     <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../..">Internet of Things and Data Analytics</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../../General/" class="nav-link">General info.</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../../News/" class="nav-link">News</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../IOTNA/" class="dropdown-item">IOTNA</a>
+</li>
+                                    
+<li>
+    <a href="../../../MDM/" class="dropdown-item">MDM</a>
+</li>
+                                    
+<li>
+    <a href="../../../SID/" class="dropdown-item">SID</a>
+</li>
+                                    
+<li>
+    <a href="../../../IA/" class="dropdown-item">IA</a>
+</li>
+                                    
+<li>
+    <a href="../../../NP1/" class="dropdown-item">NP1</a>
+</li>
+                                    
+<li>
+    <a href="../../../NP2/" class="dropdown-item">NP2</a>
+</li>
+                                    
+<li>
+    <a href="../../../SEC/" class="dropdown-item">SEC</a>
+</li>
+                                    
+<li>
+    <a href="../../" class="dropdown-item">EDGE</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../../Contact/" class="nav-link">Contact</a>
+                            </li>
+                        </ul>
 
-        <!-- Collapsed navigation -->
-        <div class="navbar-header">
-            <!-- Expander button -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="../../../..">Internet of Things and Data Analytics</a>
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-
-        <!-- Expanded navigation -->
-        <div class="navbar-collapse collapse">
-                <!-- Main navigation -->
-                <ul class="nav navbar-nav">
-                    <li >
-                        <a href="../../../..">Home</a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-<li >
-    <a href="../../../../Contact/">Home</a>
-</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">ESO camara <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-<li >
-    <a href="../../../../ESO-camara/">Home</a>
-</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">General <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-<li >
-    <a href="../../../../General/TFM/">TFM</a>
-</li>
-                            
-<li >
-    <a href="../../../../General/">Home</a>
-</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">News <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-<li >
-    <a href="../../../../News/">Home</a>
-</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-  <li class="dropdown-submenu">
-    <a href="#">EDGE</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../groups/">Groups</a>
-</li>
-            
-<li >
-    <a href="../../">Home</a>
-</li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">Week1</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../Week1/assigments_Jetson-Nano/">assigments Jetson Nano</a>
-</li>
-            
-<li >
-    <a href="../../Week1/">Home</a>
-</li>
-            
-<li >
-    <a href="../../Week1/install_Jetson-Nano/">install Jetson Nano</a>
-</li>
-            
-<li >
-    <a href="../../Week1/setup_Jetson-Nano/">setup Jetson Nano</a>
-</li>
-            
-<li >
-    <a href="../../Week1/setup_MLcontainer/">setup MLcontainer</a>
-</li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">Docs</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../Week1/docs/aux-docker/">Aux docker</a>
-</li>
-    </ul>
-  </li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">Week4</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../Week4/assigments_OpenCV/">assigments OpenCV</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">Week6</a>
-    <ul class="dropdown-menu">
-            
-<li class="active">
-    <a href="./">imageRecognition</a>
-</li>
-            
-<li >
-    <a href="../inferenceImageClassifying/">inferenceImageClassifying</a>
-</li>
-    </ul>
-  </li>
-    </ul>
-  </li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">IA</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../IA/groups/">Groups</a>
-</li>
-            
-<li >
-    <a href="../../../IA/">Home</a>
-</li>
-    </ul>
-  </li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">IOTNA</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../IOTNA/groups/">Groups</a>
-</li>
-            
-<li >
-    <a href="../../../IOTNA/">Home</a>
-</li>
-            
-<li >
-    <a href="../../../IOTNA/paperProject/">paperProject</a>
-</li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P1</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../IOTNA/P1/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P2</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../IOTNA/P2/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P3</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../IOTNA/P3/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P4</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../IOTNA/P4/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P5</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../IOTNA/P5/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P6</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../IOTNA/P6/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P7</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../IOTNA/P7/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">Ctutorial</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../IOTNA/ctutorial/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">Demo</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../IOTNA/demo/">Home</a>
-</li>
-    </ul>
-  </li>
-    </ul>
-  </li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">MDM</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../MDM/">Home</a>
-</li>
-    </ul>
-  </li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">NP1</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP1/FinalProject/">FinalProject</a>
-</li>
-            
-<li >
-    <a href="../../../NP1/groups/">Groups</a>
-</li>
-            
-<li >
-    <a href="../../../NP1/">Home</a>
-</li>
-            
-<li >
-    <a href="../../../NP1/paperProject/">paperProject</a>
-</li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P1</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP1/P1/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P2</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP1/P2/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P3</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP1/P3/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P4</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP1/P4/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P5</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP1/P5/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P6</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP1/P6/">Home</a>
-</li>
-    </ul>
-  </li>
-    </ul>
-  </li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">NP2</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/FinalProject/">FinalProject</a>
-</li>
-            
-<li >
-    <a href="../../../NP2/groups/">Groups</a>
-</li>
-            
-<li >
-    <a href="../../../NP2/">Home</a>
-</li>
-            
-<li >
-    <a href="../../../NP2/paperProject/">paperProject</a>
-</li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">Assignments</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/Assignments/1/">1</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P1</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/P1/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P10</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/P10/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P2</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/P2/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P3</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/P3/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P4</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/P4/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P5</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/P5/">Home</a>
-</li>
-            
-<li >
-    <a href="../../../NP2/P5/notas/">Notas</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P6</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/P6/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P6 II</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/P6-II/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P7</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/P7/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P8</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/P8/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P9</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/P9/">Home</a>
-</li>
-    </ul>
-  </li>
-    </ul>
-  </li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">SEC</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../SEC/groups/">Groups</a>
-</li>
-            
-<li >
-    <a href="../../../SEC/">Home</a>
-</li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P1</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../SEC/P1/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P2</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../SEC/P2/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P3</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../SEC/P3/">Home</a>
-</li>
-    </ul>
-  </li>
-    </ul>
-  </li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">SID</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../SID/">Home</a>
-</li>
-    </ul>
-  </li>
-                        </ul>
-                    </li>
-                </ul>
-
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
-                        <i class="fa fa-search"></i> Search
-                    </a>
-                </li>
-                    <li >
-                        <a rel="next" href="../../Week4/assigments_OpenCV/">
-                            <i class="fa fa-arrow-left"></i> Previous
-                        </a>
-                    </li>
-                    <li >
-                        <a rel="prev" href="../inferenceImageClassifying/">
-                            Next <i class="fa fa-arrow-right"></i>
-                        </a>
-                    </li>
-            </ul>
-        </div>
-    </div>
-</div>
 
         <div class="container">
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#re-training-a-model-with-an-input-dataset">Re-training a Model with an input Dataset</a></li>
-            <li><a href="#re-training-on-the-catdog-dataset">Re-training on the Cat/Dog Dataset</a></li>
-            <li><a href="#downloading-the-data">Downloading the Data</a></li>
-            <li><a href="#re-training-resnet-18-model">Re-training ResNet-18 Model</a></li>
-            <li><a href="#converting-the-model-to-onnx">Converting the Model to ONNX</a></li>
-            <li><a href="#processing-images-with-tensorrt">Processing Images with TensorRT</a></li>
-            <li><a href="#running-the-live-camera-program">Running the Live Camera Program</a></li>
-            <li><a href="#creating-your-own-classification-datasets">Creating your own Classification Datasets</a></li>
-            <li><a href="#creating-the-label-file">Creating the Label File</a></li>
-            <li><a href="#assignments">Assignments</a></li>
-    </ul>
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#re-training-a-model-with-an-input-dataset" class="nav-link">Re-training a Model with an input Dataset</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#re-training-on-the-catdog-dataset" class="nav-link">Re-training on the Cat/Dog Dataset</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#downloading-the-data" class="nav-link">Downloading the Data</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#re-training-resnet-18-model" class="nav-link">Re-training ResNet-18 Model</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#converting-the-model-to-onnx" class="nav-link">Converting the Model to ONNX</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#processing-images-with-tensorrt" class="nav-link">Processing Images with TensorRT</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#running-the-live-camera-program" class="nav-link">Running the Live Camera Program</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#creating-your-own-classification-datasets" class="nav-link">Creating your own Classification Datasets</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#creating-the-label-file" class="nav-link">Creating the Label File</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#assignments" class="nav-link">Assignments</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
 </div></div>
-                <div class="col-md-9" role="main">
+                    <div class="col-md-9" role="main">
 
 <h1 id="re-training-a-model-with-an-input-dataset">Re-training a Model with an input Dataset</h1>
 <ul>
@@ -641,11 +173,10 @@
 <p>To get started, first make sure that you have <a href="https://github.com/dusty-nv/jetson-inference/blob/master/docs/pytorch-transfer-learning.md#installing-pytorch">PyTorch installed</a> on your Jetson, then download the dataset below and kick off the training script.  After that, we'll test the re-trained model in TensorRT on some static images and a live camera feed. </p>
 <h2 id="downloading-the-data">Downloading the Data</h2>
 <p>During this tutorial, we'll store the datasets on the host device under <code>jetson-inference/python/training/classification/data</code>, which is one of the directories that is automatically mounted into the container.  This way the dataset won't be lost when you shutdown the container.</p>
-<pre><code class="bash">nano@jetson-nano:~$ cd jetson-inference/python/training/classification/data
+<pre><code class="language-bash">nano@jetson-nano:~$ cd jetson-inference/python/training/classification/data
 nano@jetson-nano:~/jetson-inference/python/training/classification/data$ wget https://nvidia.box.com/shared/static/o577zd8yp3lmxf5zhm38svrbrv45am3y.gz -O cat_dog.tar.gz
 nano@jetson-nano:~/jetson-inference/python/training/classification/data$ tar xvzf cat_dog.tar.gz
 </code></pre>
-
 <p>Mirrors of the dataset are available here:</p>
 <ul>
 <li><a href="https://drive.google.com/file/d/16E3yFvVS2DouwgIl4TPFJvMlhGpnYWKF/view?usp=sharing">https://drive.google.com/file/d/16E3yFvVS2DouwgIl4TPFJvMlhGpnYWKF/view?usp=sharing</a></li>
@@ -654,7 +185,7 @@ nano@jetson-nano:~/jetson-inference/python/training/classification/data$ tar xvz
 <h2 id="re-training-resnet-18-model">Re-training ResNet-18 Model</h2>
 <p>The PyTorch training scripts are located in the repo under <a href="https://github.com/dusty-nv/jetson-inference/tree/master/python/training/classification"><code>jetson-inference/python/training/classification/</code></a>.  These scripts aren't specific to any one dataset, so we'll use the same PyTorch code with each of the example datasets from this tutorial.  By default it's set to train a ResNet-18 model, but you can change that with the <code>--arch</code> flag.</p>
 <p>To launch the training, run the following commands:</p>
-<pre><code class="bash">nano@jetson-nano:~/jetson-inference$ sudo init 3
+<pre><code class="language-bash">nano@jetson-nano:~/jetson-inference$ sudo init 3
 nano@jetson-nano:~/jetson-inference$ docker/run.sh
 root@jetson-nano:/jetson-inference# cd python/training/classification
 root@jetson-nano:/jetson-inference/python/training/classification# python3 train.py --batch-size=2 --workers=1  --model-dir=models/cat_dog data/cat_dog
@@ -665,13 +196,12 @@ Downloading: &quot;https://download.pytorch.org/models/resnet18-f37072fd.pth&quo
 100.0%
 =&gt; reshaped ResNet fully-connected layer with: Linear(in_features=512, out_features=2, bias=True)
 </code></pre>
-
 <blockquote>
 <p><strong>note:</strong> if you run out of memory or your process is "killed" during training, try <a href="https://github.com/dusty-nv/jetson-inference/blob/master/docs/pytorch-transfer-learning.md#mounting-swap">Mounting SWAP</a> and <a href="https://github.com/dusty-nv/jetson-inference/blob/master/docs/pytorch-transfer-learning.md#disabling-the-desktop-gui">Disabling the Desktop GUI</a>. <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; to save memory, you can also reduce the <code>--batch-size</code> (default 8) and <code>--workers</code> (default 2)</p>
 </blockquote>
 <p>As training begins, you should see text appear from the console like the following:</p>
-<pre><code class="bash">Use GPU: 0 for training
+<pre><code class="language-bash">Use GPU: 0 for training
 =&gt; dataset classes:  2 ['cat', 'dog']
 =&gt; using pre-trained model 'resnet18'
 =&gt; reshaped ResNet fully-connected layer with: Linear(in_features=512, out_features=2, bias=True)
@@ -682,7 +212,6 @@ Epoch: [0][  30/2500]  Time  0.223 ( 3.446)  Data  0.000 ( 0.260)  Loss 1.0363e+
 Epoch: [0][  40/2500]  Time  0.226 ( 2.660)  Data  0.000 ( 0.199)  Loss 2.2514e+00 (4.3716e+01)  Acc@1   0.00 ( 52.44)  Acc@5 100.00 (100.00)
 
 </code></pre>
-
 <p>To stop training at any time, you can press <code>Ctrl+C</code>.  You can also restart the training again later using the <code>--resume</code> and <code>--epoch-start</code> flags, so you don't need to wait for training to complete before testing out the model.  </p>
 <p>Run <code>python3 train.py --help</code> for more information about each option that's available for you to use, including other networks that you can try with the <code>--arch</code> flag.</p>
 <h3 id="training-metrics">Training Metrics</h3>
@@ -727,7 +256,7 @@ Epoch: [0][  40/2500]  Time  0.226 ( 2.660)  Data  0.000 ( 0.199)  Loss 2.2514e+
 <h2 id="converting-the-model-to-onnx">Converting the Model to ONNX</h2>
 <p>To run our re-trained ResNet-18 model with TensorRT for testing and realtime inference, first we need to convert the PyTorch model into <a href="https://onnx.ai/">ONNX format</a> format so that TensorRT can load it.  ONNX is an open model format that supports many of the popular ML frameworks, including PyTorch, TensorFlow, TensorRT, and others, so it simplifies transferring models between tools.</p>
 <p>PyTorch comes with built-in support for exporting PyTorch models to ONNX, so run the following command to convert our Cat/Dog model with the provided <code>onnx_export.py</code> script:</p>
-<pre><code class="bash">root@jetson-nano:/jetson-inference/python/training/classification# python3 onnx_export.py --model-dir=models/cat_dog
+<pre><code class="language-bash">root@jetson-nano:/jetson-inference/python/training/classification# python3 onnx_export.py --model-dir=models/cat_dog
 Namespace(input='model_best.pth.tar', model_dir='models/cat_dog', no_softmax=False, output='')
 running on device cuda:0
 loading checkpoint:  models/cat_dog/model_best.pth.tar
@@ -738,11 +267,10 @@ exporting model to ONNX...
 model exported to:  models/cat_dog/resnet18.onnx
 ....
 </code></pre>
-
 <p>This will create a model called <code>resnet18.onnx</code> under <code>jetson-inference/python/training/classification/models/cat_dog/</code></p>
 <h2 id="processing-images-with-tensorrt">Processing Images with TensorRT</h2>
 <p>To classify some static test images, we'll use the extended command-line parameters to <code>imagenet</code> to load our customized ResNet-18 model that we re-trained above.  To run these commands, the working directory of your terminal should still be located in:  <code>jetson-inference/python/training/classification/</code></p>
-<pre><code class="bash">root@jetson-nano:/jetson-inference/build/aarch64/bin# NET=/jetson-inference/python/training/classification/models/cat_dog
+<pre><code class="language-bash">root@jetson-nano:/jetson-inference/build/aarch64/bin# NET=/jetson-inference/python/training/classification/models/cat_dog
 root@jetson-nano:/jetson-inference/build/aarch64/bin# DATASET=/jetson-inference/python/training/classification/data/cat_dog
 
 # C++
@@ -751,11 +279,10 @@ root@jetson-nano:/jetson-inference/build/aarch64/bin# imagenet --model=$NET/resn
 # Python
 root@jetson-nano:/jetson-inference/build/aarch64/bin# imagenet.py --model=$NET/resnet18.onnx --input_blob=input_0 --output_blob=output_0 --labels=$DATASET/labels.txt $DATASET/test/cat/01.jpg images/test/my_cat.jpg
 </code></pre>
-
 <p><img src="https://github.com/dusty-nv/jetson-inference/raw/python/docs/images/pytorch-cat.jpg"></p>
 <h3 id="processing-all-the-test-images">Processing all the Test Images</h3>
 <p>There are 200 test images included with the dataset between the cat and dog classes, or you can download your own pictures to try.  You can process them all like this:</p>
-<pre><code class="bash">mkdir $DATASET/test_output_cat $DATASET/test_output_dog
+<pre><code class="language-bash">mkdir $DATASET/test_output_cat $DATASET/test_output_dog
 
 imagenet --model=$NET/resnet18.onnx --input_blob=input_0 --output_blob=output_0 --labels=$DATASET/../labels.txt \
            $DATASET/test/cat $DATASET/test_output_cat
@@ -763,19 +290,17 @@ imagenet --model=$NET/resnet18.onnx --input_blob=input_0 --output_blob=output_0 
 imagenet --model=$NET/resnet18.onnx --input_blob=input_0 --output_blob=output_0 --labels=$DATASET/../labels.txt \
            $DATASET/test/dog $DATASET/test_output_dog
 </code></pre>
-
 <p>In this instance, all the images will be read from the dataset's <code>test/</code> directory, and saved to the <code>test_output/</code> directory.  </p>
-<p>For more info about loading/saving sequences of images, see the <a href="../../Week1/setup_Jetson-Nano/#camera-setup">Camera Streaming and Multimedia</a>.</p>
+<p>For more info about loading/saving sequences of images, see the <a href="../Week1/setup_Jetson-Nano/#camera-setup">Camera Streaming and Multimedia</a>.</p>
 <p>Next, we'll try running our re-trained model on a live camera feed.</p>
 <h2 id="running-the-live-camera-program">Running the Live Camera Program</h2>
 <p>If you have a furry friend at home, you can run the camera program and see how it works!  Like the previous step, <code>imagenet</code> supports extended command-line parameters for loading customized models:</p>
-<pre><code class="bash"># C++ (MIPI CSI)
+<pre><code class="language-bash"># C++ (MIPI CSI)
 imagenet --model=$NET/resnet18.onnx --input_blob=input_0 --output_blob=output_0 --labels=$DATASET/labels.txt csi://0
 
 # Python (MIPI CSI)
 imagenet.py --model=$NET/resnet18.onnx --input_blob=input_0 --output_blob=output_0 --labels=$DATASET/labels.txt csi://0
 </code></pre>
-
 <blockquote>
 <p><strong>note:</strong> for information about supported video streams and protocols, please see the <a href="aux-streaming.md">Camera Streaming and Multimedia</a> page.</p>
 </blockquote>
@@ -797,19 +322,17 @@ imagenet.py --model=$NET/resnet18.onnx --input_blob=input_0 --output_blob=output
     • class-B/
     • ...
 </code></pre>
-
 <p>where <code>class-A</code>, <code>class-B</code>, ect. will be subdirectories containing the data for each object class that you've defined in a class label file.  The names of these class subdirectories will match the class label names that we'll create below.  These subdirectories will automatically be populated by the tool for the <code>train</code>, <code>val</code>, and <code>test</code> sets from the classes listed in the label file, and a sequence of JPEG images will be saved under each.</p>
 <p>Note that above is the organization structure expected by the PyTorch training script that we've been using.  If you inspect the Cat/Dog and PlantCLEF datasets, they're also organized in the same way.</p>
 <h2 id="creating-the-label-file">Creating the Label File</h2>
 <p>Under <code>jetson-inference/python/training/classification/data</code>, create an empty directory for storing your dataset and a text file that will define the class labels (usually called <code>labels.txt</code>).  The label file contains one class label per line, and is alphabetized (this is important so the ordering of the classes in the label file matches the ordering of the corresponding subdirectories on disk).</p>
 <p>Here's an example <code>labels.txt</code> file with 3 classes:</p>
-<pre><code class="bash">class-A
+<pre><code class="language-bash">class-A
 class-B
 class-C
 </code></pre>
-
 <p>And here's the corresponding directory structure that the tool will create:</p>
-<pre><code class="bash">‣ train/
+<pre><code class="language-bash">‣ train/
     • class-A/
     • class-B/
     • class-C/
@@ -822,7 +345,6 @@ class-C
     • class-B/
     • class-C/
 </code></pre>
-
 <h2 id="assignments">Assignments</h2>
 <ul>
 <li>If you have finished all the steps mentioned before, you are ready to perform the task.</li>
@@ -840,32 +362,74 @@ class-C
 <p class="admonition-title">Assignment 3</p>
 <p>Invoke the inference with your model create by yourself. The IoT system should detect if a person is wearing a medical mask using an image classifier based on ResNet-18 using the CSI camera</p>
 </div></div>
+            </div>
         </div>
 
         <footer class="col-md-12">
             <hr>
-            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
-        <script>var base_url = '../../../..';</script>
-        <script data-main="../../../../mkdocs/js/search.js" src="../../../../mkdocs/js/require.js"></script>
-        <script src="../../../../js/base.js"></script><div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <script>
+            var base_url = "../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../js/base.js" defer></script>
+        <script src="../../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
             </div>
             <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
-                <form role="form">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results"></div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
             <div class="modal-footer">
             </div>
