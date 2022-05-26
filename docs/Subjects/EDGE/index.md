@@ -37,7 +37,7 @@ For all quizzes will you are requested to use your e-mail address as name. All o
 | 18/5         | [OpenCV with Jetson](Week4/slides/Week3_OpenCV.pdf)                  |                                       |                | C. García |
 | 19/5         | [OpenCV with Jetson](Week4/slides/Week3_OpenCV.pdf)                  |                                       |[Tasks](Week4/assigments_OpenCV.md)| C. García |
 | 24/5         | [Inference Image Classifying](Week6/inferenceImageClassifying.md)    | [Models](https://we.tl/t-KQDtGGNTsA) for Image Classification | [QUIZ Lab2](https://api.socrative.com/rc/MSKz9c)    | C. García |
-| 25/5         | [Own Image Recognition](Week6/imageRecognition.md)                   |                                       |                | C. García |
+| 25/5         | [Own Image Recognition](Week6/imageRecognition.md)                   | [Cat_Dog Dataset](https://we.tl/t-xhfTqXPVD7) |                | C. García |
 | 26/5         | [Own Image Recognition](Week6/imageRecognition.md)                   |                                       | [IoT Mask](Week6/assigment.md) | C. García |
 | 31/5         | [Object Detection](Week7/objectDetection.md)                         |                                       | *QUIZ Lab3*    | C. García |
 |  1/5         | Own object Detection                                                 |                                       |                | C. García |
