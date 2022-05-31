@@ -30,20 +30,20 @@ Here are some examples of detecting pedestrians in images with the default SSD-M
 
 ``` bash
 # C++
-$ ./detectnet --network=ssd-mobilenet-v2 images/peds_0.jpg images/test/output.jpg     # --network flag is optional
+root@jetson-nano:/jetson-inference/build/aarch64/bin# ./detectnet --network=ssd-mobilenet-v2 images/peds_0.jpg images/test/output.jpg     # --network flag is optional
 
 # Python
-$ ./detectnet.py --network=ssd-mobilenet-v2 images/peds_0.jpg images/test/output.jpg  # --network flag is optional
+root@jetson-nano:/jetson-inference/build/aarch64/bin# ./detectnet --network=ssd-mobilenet-v2 images/peds_0.jpg images/test/output.jpg     # --network flag is optional
 ```
 
 <img src="https://github.com/dusty-nv/jetson-inference/raw/dev/docs/images/detectnet-ssd-peds-0.jpg" >
 
 ``` bash
 # C++
-$ ./detectnet images/peds_1.jpg images/test/output.jpg
+root@jetson-nano:/jetson-inference/build/aarch64/bin# ./detectnet images/peds_1.jpg images/test/output.jpg
 
 # Python
-$ ./detectnet.py images/peds_1.jpg images/test/output.jpg
+root@jetson-nano:/jetson-inference/build/aarch64/bin# ./detectnet.py images/peds_1.jpg images/test/output.jpg
 ```
 
 <img src="https://github.com/dusty-nv/jetson-inference/raw/dev/docs/images/detectnet-ssd-peds-1.jpg" >
@@ -62,26 +62,28 @@ Various images are found under `images/` for testing, such as `cat_*.jpg`, `dog_
 You can also process videos from disk. 
 ``` bash
 # Download test video
-wget https://nvidia.box.com/shared/static/veuuimq6pwvd62p9fresqhrrmfqz0e2f.mp4 -O pedestrians.mp4
+root@jetson-nano:/jetson-inference/build/aarch64/bin# cd images
+root@jetson-nano:/jetson-inference/build/aarch64/bin/images# wget https://nvidia.box.com/shared/static/veuuimq6pwvd62p9fresqhrrmfqz0e2f.mp4 -O pedestrians.mp4
 
 # C++
-./detectnet pedestrians.mp4 images/test/pedestrians_ssd.mp4
+root@jetson-nano:/jetson-inference/build/aarch64/bin# ./detectnet pedestrians.mp4 images/test/pedestrians_ssd.mp4
 
 # Python
-./detectnet.py pedestrians.mp4 images/test/pedestrians_ssd.mp4
+root@jetson-nano:/jetson-inference/build/aarch64/bin# ./detectnet.py pedestrians.mp4 images/test/pedestrians_ssd.mp4
 ```
 
 <a href="https://www.youtube.com/watch?v=EbTyTJS9jOQ" target="_blank"><img src=https://github.com/dusty-nv/jetson-inference/raw/dev/docs/images/detectnet-ssd-pedestrians-video.jpg width="750"></a>
 
 ``` bash
 # Download test video
-wget https://nvidia.box.com/shared/static/i5i81mkd9wdh4j7wx04th961zks0lfh9.avi -O parking.avi
+root@jetson-nano:/jetson-inference/build/aarch64/bin# cd images
+root@jetson-nano:/jetson-inference/build/aarch64/bin/images# wget https://nvidia.box.com/shared/static/i5i81mkd9wdh4j7wx04th961zks0lfh9.avi -O parking.avi
 
 # C++
-./detectnet parking.avi images/test/parking_ssd.avi
+root@jetson-nano:/jetson-inference/build/aarch64/bin# ./detectnet parking.avi images/test/parking_ssd.avi
 
 # Python
-./detectnet.py parking.avi images/test/parking_ssd.avi
+root@jetson-nano:/jetson-inference/build/aarch64/bin# ./detectnet.py parking.avi images/test/parking_ssd.avi
 ```
 
 <a href="https://www.youtube.com/watch?v=iB86W-kloPE" target="_blank"><img src=https://github.com/dusty-nv/jetson-inference/raw/dev/docs/images/detectnet-ssd-parking-video.jpg width="585"></a>
@@ -121,72 +123,14 @@ For example, if you chose to download SSD-Inception-v2 with the [Model Downloade
 
 ``` bash
 # C++
-$ ./detectnet --network=ssd-inception-v2 input.jpg output.jpg
+root@jetson-nano:/jetson-inference/build/aarch64/bin# ./detectnet --network=ssd-inception-v2 input.jpg output.jpg
 
 # Python
-$ ./detectnet.py --network=ssd-inception-v2 input.jpg output.jpg
+root@jetson-nano:/jetson-inference/build/aarch64/bin# ./detectnet.py --network=ssd-inception-v2 input.jpg output.jpg
 ```
 
-### Source Code
 
-For reference, below is the source code to [`detectnet.py`](https://github.com/dusty-nv/jetson-inference/blob/master/python/examples/detectnet.py):
+!!! danger "Assignment"
+	Evaluate the accuracy and inference time of *peds_3.jpg*, *humans_7.jpg* for the object detection models launching the inference with the option ```--network``` for PedNet, SSD-Mobilenet-v2, SSD-Inception-v2, MultiPed
+**Please send a message to the professor as soon as you finished**
 
-``` python
-import jetson.inference
-import jetson.utils
-
-import argparse
-import sys
-
-# parse the command line
-parser = argparse.ArgumentParser(description="Locate objects in a live camera stream using an object detection DNN.")
-
-parser.add_argument("input_URI", type=str, default="", nargs='?', help="URI of the input stream")
-parser.add_argument("output_URI", type=str, default="", nargs='?', help="URI of the output stream")
-parser.add_argument("--network", type=str, default="ssd-mobilenet-v2", help="pre-trained model to load (see below for options)")
-parser.add_argument("--overlay", type=str, default="box,labels,conf", help="detection overlay flags (e.g. --overlay=box,labels,conf)\nvalid combinations are:  'box', 'labels', 'conf', 'none'")
-parser.add_argument("--threshold", type=float, default=0.5, help="minimum detection threshold to use") 
-
-try:
-	opt = parser.parse_known_args()[0]
-except:
-	print("")
-	parser.print_help()
-	sys.exit(0)
-
-# load the object detection network
-net = jetson.inference.detectNet(opt.network, sys.argv, opt.threshold)
-
-# create video sources & outputs
-input = jetson.utils.videoSource(opt.input_URI, argv=sys.argv)
-output = jetson.utils.videoOutput(opt.output_URI, argv=sys.argv)
-
-# process frames until the user exits
-while True:
-	# capture the next image
-	img = input.Capture()
-
-	# detect objects in the image (with overlay)
-	detections = net.Detect(img, overlay=opt.overlay)
-
-	# print the detections
-	print("detected {:d} objects in image".format(len(detections)))
-
-	for detection in detections:
-		print(detection)
-
-	# render the image
-	output.Render(img)
-
-	# update the title bar
-	output.SetStatus("{:s} | Network {:.0f} FPS".format(opt.network, net.GetNetworkFPS()))
-
-	# print out performance info
-	net.PrintProfilerTimes()
-
-	# exit on input/output EOS
-	if not input.IsStreaming() or not output.IsStreaming():
-		break
-```
-
-Next, we'll run object detection on a live camera stream.
