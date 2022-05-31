@@ -1,5 +1,6 @@
 # EDGE
 
+
 ## General information
 
 This subject will cover concepts related to edge computing. On the one hand, the new processing paradigm close to its generation will be presented, and on the other, the Jetson-Nano development board will be experimented with these concepts. These board allows not only processing information with an internal accelerator as GPU but also transfered it through the Internet.
