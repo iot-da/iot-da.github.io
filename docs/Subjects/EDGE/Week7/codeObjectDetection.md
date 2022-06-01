@@ -1,68 +1,6 @@
 # Understanding Source Code
 
-## Source Code
-
-For reference, below is the source code to [`detectnet.py`](https://github.com/dusty-nv/jetson-inference/blob/master/python/examples/detectnet.py):
-
-``` python
-import jetson.inference
-import jetson.utils
-
-import argparse
-import sys
-
-# parse the command line
-parser = argparse.ArgumentParser(description="Locate objects in a live camera stream using an object detection DNN.")
-
-parser.add_argument("input_URI", type=str, default="", nargs='?', help="URI of the input stream")
-parser.add_argument("output_URI", type=str, default="", nargs='?', help="URI of the output stream")
-parser.add_argument("--network", type=str, default="ssd-mobilenet-v2", help="pre-trained model to load (see below for options)")
-parser.add_argument("--overlay", type=str, default="box,labels,conf", help="detection overlay flags (e.g. --overlay=box,labels,conf)\nvalid combinations are:  'box', 'labels', 'conf', 'none'")
-parser.add_argument("--threshold", type=float, default=0.5, help="minimum detection threshold to use") 
-
-try:
-	opt = parser.parse_known_args()[0]
-except:
-	print("")
-	parser.print_help()
-	sys.exit(0)
-
-# load the object detection network
-net = jetson.inference.detectNet(opt.network, sys.argv, opt.threshold)
-
-# create video sources & outputs
-input = jetson.utils.videoSource(opt.input_URI, argv=sys.argv)
-output = jetson.utils.videoOutput(opt.output_URI, argv=sys.argv)
-
-# process frames until the user exits
-while True:
-	# capture the next image
-	img = input.Capture()
-
-	# detect objects in the image (with overlay)
-	detections = net.Detect(img, overlay=opt.overlay)
-
-	# print the detections
-	print("detected {:d} objects in image".format(len(detections)))
-
-	for detection in detections:
-		print(detection)
-
-	# render the image
-	output.Render(img)
-
-	# update the title bar
-	output.SetStatus("{:s} | Network {:.0f} FPS".format(opt.network, net.GetNetworkFPS()))
-
-	# print out performance info
-	net.PrintProfilerTimes()
-
-	# exit on input/output EOS
-	if not input.IsStreaming() or not output.IsStreaming():
-		break
-```
-
-# Coding Your Own Object Detection Program
+## Coding Your Own Object Detection Program
 
 In this step of the tutorial, we'll walk through the creation of the previous example for realtime object detection on a live camera feed in only 10 lines of Python code.  The program will load the detection network with the [`detectNet`](https://rawgit.com/dusty-nv/jetson-inference/dev/docs/html/python/jetson.inference.html#detectNet) object, capture video frames and process them, and then render the detected objects to the display.
 
@@ -137,7 +75,7 @@ The first thing that happens in the main loop is to capture the next video frame
 	img = camera.Capture()
 ```
 
-The returned image will be a [`jetson.utils.cudaImage`](aux-image.md#image-capsules-in-python) object that contains attributes like width, height, and pixel format:
+The returned image will be a [`jetson.utils.cudaImage`](https://github.com/dusty-nv/jetson-inference/blob/master/docs/aux-image.md#image-capsules-in-python) object that contains attributes like width, height, and pixel format:
 
 ```python
 <jetson.utils.cudaImage>
@@ -163,6 +101,47 @@ Next the detection network processes the image with the `net.Detect()` function.
 This function will also automatically overlay the detection results on top of the input image.
 
 If you want, you can add a `print(detections)` statement here, and the coordinates, confidence, and class info will be printed out to the terminal for each detection result.  Also see the [`detectNet`](https://rawgit.com/dusty-nv/jetson-inference/python/docs/html/python/jetson.inference.html#detectNet) documentation for info about the different members of the `Detection` structures that are returned for accessing them directly in a custom application.
+
+```python
+Detection = <type 'jetson.inference.detectNet.Detection'>
+Object Detection Result
+ 
+----------------------------------------------------------------------
+Data descriptors defined here:
+ 
+Area
+    Area of bounding box
+ 
+Bottom
+    Bottom bounding box coordinate
+ 
+Center
+    Center (x,y) coordinate of bounding box
+ 
+ClassID
+    Class index of the detected object
+ 
+Confidence
+    Confidence value of the detected object
+ 
+Height
+    Height of bounding box
+ 
+Instance
+    Instance index of the detected object
+ 
+Left
+    Left bounding box coordinate
+ 
+Right
+    Right bounding box coordinate
+ 
+Top
+    Top bounding box coordinate
+ 
+Width
+     Width of bounding box
+```
 
 #### Rendering
 
@@ -205,5 +184,27 @@ To run the application we just coded, simply launch it from a terminal with the 
 $ python3 my-detection.py
 ```
 
-To tweak the results, you can try changing the model that's loaded along with the detection threshold.  Have fun!
+## Assignment
+
+### Important aspects to take into account
+1. The file `my-detection.py` located in the path `/jetson-inference/python/examples` is always **reset when the container is started**. For this reason it should be copied to a durable Jetson-Nano file system zone. `data` directory is not reset, so this path could be one of the candidate.
+2. The invocation ```detections = net.Detect(img)``` create a tensor in ```detections```. Information of each 'detection' could be consulted (see the section [Detecting Objects](./codeObjectDetection#detecting-objects)). 
+3. So, you can access to **ClassID, Confidence, Instance, Left, Right, Bottom, Top** values
+4. In the last [assignment](./objectDetection#running-different-detection-models) accuracy and inference times were evaluated choosing different models.
+
+!!! danger "Assignment1"
+	Modify the code **my-detection.py** so that, the bounding boxes and identifiers associated with each object are displayed for each frame on the console
+
+**Please send a message to the professor as soon as you finished**
+
+
+<img src="../figures/metro-entrance.jpg" >
+
+
+!!! danger "Assignment 2: system that counts people crossing the entry or exit like in the photo"
+	Modify the code **my-detection.py** so that, design and implement a solution to monitor the crossing of people in the direction of entry and exit at an entrance to a venue. Thus, a camera located perpendicular to the entrance to the enclosure will be assumed, so that the people who access it will enter the scene through one of the ends and leave through the opposite. The people who leave the enclosure will run through the image in the opposite direction. The system is requested to store the number of people who have entered and left the premises, as well as the moment in which they have done so.
+
+
+
+
 
