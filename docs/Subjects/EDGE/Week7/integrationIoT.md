@@ -1,13 +1,13 @@
-# Objects Detection with DetectNet
+# Integration into a IoT system
 
-## detectNet 
+## Object detection with detectNet 
 We're are working in **object detection**, and finding where in the frame various objects are located by extracting their bounding boxes.  Unlike image classification, object detection networks are capable of detecting many different objects per frame.
 
 <img src="https://github.com/dusty-nv/jetson-inference/raw/dev/docs/images/detectnet.jpg" >
 
 The [`detectNet`](https://github.com/dusty-nv/jetson-inference/blob/master/c/detectNet.h) object accepts an image as input, and outputs a list of coordinates of the detected bounding boxes along with their classes and confidence values.  
 
-## Source Listing
+### Source Listing
 
 That's it!  For completness, here's the full source of the Python script that we just created:
 
@@ -29,7 +29,7 @@ while display.IsStreaming():
 Note that this version assumes you are using a MIPI CSI camera.
 
 
-## Running the Program
+### Running the Program
 
 To run the application we just coded, simply launch it from a terminal with the Python interpreter:
 
