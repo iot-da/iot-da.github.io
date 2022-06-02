@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="https://iot-da.github.io/Subjects/EDGE/Week4/assigments_OpenCV/">
+        <link rel="canonical" href="https://iot-da.github.io/Subjects/EDGE/Week7/integrationIoT/">
         <link rel="shortcut icon" href="../../../../img/favicon.ico">
-        <title>assigments OpenCV - Internet of Things and Data Analytics</title>
+        <title>integrationIoT - Internet of Things and Data Analytics</title>
         <link href="../../../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../../../css/font-awesome-4.5.0.css" rel="stylesheet">
         <link href="../../../../css/base.css" rel="stylesheet">
@@ -144,8 +144,8 @@
     <a href="#">Week4</a>
     <ul class="dropdown-menu">
             
-<li class="active">
-    <a href="./">assigments OpenCV</a>
+<li >
+    <a href="../../Week4/assigments_OpenCV/">assigments OpenCV</a>
 </li>
     </ul>
   </li>
@@ -173,15 +173,15 @@
     <ul class="dropdown-menu">
             
 <li >
-    <a href="../../Week7/codeObjectDetection/">codeObjectDetection</a>
+    <a href="../codeObjectDetection/">codeObjectDetection</a>
+</li>
+            
+<li class="active">
+    <a href="./">integrationIoT</a>
 </li>
             
 <li >
-    <a href="../../Week7/integrationIoT/">integrationIoT</a>
-</li>
-            
-<li >
-    <a href="../../Week7/objectDetection/">objectDetection</a>
+    <a href="../objectDetection/">objectDetection</a>
 </li>
     </ul>
   </li>
@@ -612,12 +612,12 @@
                     </a>
                 </li>
                     <li >
-                        <a rel="next" href="../../Week1/docs/aux-docker/">
+                        <a rel="next" href="../codeObjectDetection/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../../Week6/assigment/">
+                        <a rel="prev" href="../objectDetection/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -629,96 +629,157 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#week4-introduction-to-opencv">Week4: Introduction to OpenCV</a></li>
-            <li><a href="#sumary">Sumary</a></li>
-            <li><a href="#assigments">Assigments</a></li>
+        <li class="main active"><a href="#integration-into-a-iot-system">Integration into a IoT system</a></li>
+            <li><a href="#object-detection-with-detectnet">Object detection with detectNet</a></li>
+            <li><a href="#mqtt">MQTT</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="week4-introduction-to-opencv">Week4: Introduction to OpenCV</h1>
-<h2 id="sumary">Sumary</h2>
-<ul>
-<li>During this week we have worked on the OpenCV image processing library that allows us to interact with images and perform transformations.</li>
-</ul>
-<h2 id="assigments">Assigments</h2>
-<ul>
-<li>All the assigments related to the setup of Jetson-Nano should be sent to professor by email. As a <strong>Subject</strong> write "[IoT-DA Edge] Assignments Weeks4"</li>
-</ul>
-<h3 id="basic-operations">Basic Operations</h3>
-<div class="admonition danger">
-<p class="admonition-title">Assign 1</p>
-<ul>
-<li>Inspect the pixel x=300, y=25 of <strong>../images/input.jpg</strong><ul>
-<li>Which values have the RGB channels?</li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="admonition danger">
-<p class="admonition-title">Assign 2</p>
-<ul>
-<li>Crop the image "input.jpg" to centered rectangle with half the width and half the height of the <strong>pyramid</strong> in the photo</li>
-</ul>
-</div>
-<div class="admonition danger">
-<p class="admonition-title">Assign 3</p>
-<ul>
-<li>Develop a script which create a puzzle of an image (swapping four regions of a picture in clockwise), and one of the quarter only is shown the green channel as in the example<ol>
-<li>Taking as input the Lena image avaliable in images directory</li>
-</ol>
-</li>
-</ul>
-</div>
-<p><img alt="Original Lena image" src="../images/Lena.jpg" /></p>
-<pre><code>    2. As an output the image (swapped) should be created
+<h1 id="integration-into-a-iot-system">Integration into a IoT system</h1>
+<h2 id="object-detection-with-detectnet">Object detection with detectNet</h2>
+<p>We're are working in <strong>object detection</strong>, and finding where in the frame various objects are located by extracting their bounding boxes.  Unlike image classification, object detection networks are capable of detecting many different objects per frame.</p>
+<p><img src="https://github.com/dusty-nv/jetson-inference/raw/dev/docs/images/detectnet.jpg" ></p>
+<p>The <a href="https://github.com/dusty-nv/jetson-inference/blob/master/c/detectNet.h"><code>detectNet</code></a> object accepts an image as input, and outputs a list of coordinates of the detected bounding boxes along with their classes and confidence values.  </p>
+<h3 id="source-listing">Source Listing</h3>
+<p>That's it!  For completness, here's the full source of the Python script that we just created:</p>
+<pre><code class="python">import jetson.inference
+import jetson.utils
+
+net = jetson.inference.detectNet(&quot;ssd-mobilenet-v2&quot;, threshold=0.5)
+camera = jetson.utils.videoSource(&quot;csi://0&quot;)      # '/dev/video0' for V4L2
+display = jetson.utils.videoOutput(&quot;display://0&quot;) # 'my_video.mp4' for file
+
+while display.IsStreaming():
+    img = camera.Capture()
+    detections = net.Detect(img)
+    display.Render(img)
+    display.SetStatus(&quot;Object Detection | Network {:.0f} FPS&quot;.format(net.GetNetworkFPS()))
 </code></pre>
-<p><img alt="Swaped Lena image" src="../images/Lena_swapping.jpg" /></p>
-<h3 id="image-processing">Image Processing</h3>
-<div class="admonition danger">
-<p class="admonition-title">Assign 4</p>
+
+<p>Note that this version assumes you are using a MIPI CSI camera.</p>
+<h3 id="running-the-program">Running the Program</h3>
+<p>To run the application we just coded, simply launch it from a terminal with the Python interpreter:</p>
+<pre><code class="bash">$ python3 my-detection.py
+</code></pre>
+
+<h2 id="mqtt">MQTT</h2>
+<p><a href="https://en.wikipedia.org/wiki/MQTT">MQTT</a> comes from MQ Telemetry Transport
+    * Publish-subscribe based messaging protocol
+    * Implemented over TCP/IP
+    * Designed for remote connections with low bandwidth requirements
+    * Initially developed by IBM</p>
+<h3 id="history">History</h3>
+<p>Andy Stanford-Clark (IBM) and Arlen Nipper (then working for Eurotech, Inc.) authored the first version of the protocol in 1999. It was used to monitor oil pipelines within the SCADA industrial control system. The goal was to have a protocol that is bandwidth-efficient, lightweight and uses little battery power, because the devices were connected via satellite link which, at that time, was extremely expensive.</p>
+<p><img src="../figures/500px-Pipeline-Scada.jpg" ></p>
+<h3 id="how-mqtt-works">How MQTT works</h3>
 <ul>
-<li>Detecting lane lines on a binary mask<ul>
-<li>Create a masks to be applied e.g. ROI (trapezoid) to lane detection</li>
+<li>Simile ~ Postal Mail System<ul>
+<li>Message sent by <em>sender</em> (<strong>publisher</strong>) through the centralized system: Post Office (<strong>broker</strong>)</li>
+<li>Postal Mail sends it to the <em>address</em> (<strong>subscriber</strong>)</li>
+<li>The <strong>publisher</strong> and <strong>subscriber</strong> are autonomous (unlike the HTTP Client-Server system)</li>
+<li>The theme or <strong>topic</strong> is a point the <strong>publishers</strong> connect to. Acts as the distribution center<ul>
+<li>The <strong>topics</strong> are simple and hierarchical</li>
 </ul>
 </li>
 </ul>
-</div>
-<p><img alt="image" src="../images/lanes_road.png" /></p>
-<div class="admonition danger">
-<p class="admonition-title">Assign 5</p>
-<ul>
-<li>Create a code that segmentated the ball of a video using <code>cv2.inRange</code> function</li>
-<li>A video can be found in the <a href="../images/ball_example.mp4">link</a> </li>
+</li>
 </ul>
-</div>
-<p><img alt="image" src="../images/ball_example.png" /></p>
-<div class="admonition danger">
-<p class="admonition-title">Assign 6</p>
+<p><img src="../figures/mqtt-diagram.png" ></p>
+<h3 id="mqtt-topics">MQTT Topics</h3>
+<p>In MQTT, the word topic refers to an UTF-8 string that the broker uses to filter messages for each connected client. The topic consists of one or more topic levels. Each topic level is separated by a forward slash (topic level separator).</p>
+<p><img src="../figures/topic_basics.png" ></p>
+<h3 id="mqtt-message">MQTT Message</h3>
+<p>Message consists of 3 parts:
+    * Fixed header: 2 bytes and it is mandatory to send in all messages.
+    * Variable header: 4 bits and is not required in messages.
+    * Message or payload (<strong>payload</strong>). Maximum of 256 Mbits although in real implementations, the maximum 2-4 kB.</p>
+<h3 id="mosquitto">Mosquitto</h3>
+<p><a href="https://mosquitto.org/">Mosquitto</a> is an open source (EPL/EDL licensed) message broker that implements the MQTT protocol.</p>
+<p>There is a package previously build in the Jetson-Nano to test the Mosquitto implementation and the check how MQTT protocol is working. Follow the next steps to find out how MQTT works:</p>
 <ul>
-<li>Create an application that count the number of coins through an image as in the following images</li>
-<li>Extra: can be extended using CSI camera in real-time and counting</li>
+<li><strong>1</strong> Install Mosquitto Clients on the Jetson-Nano</li>
 </ul>
-</div>
-<p><img alt="Image" src="../images/coins1.png" />
-<img alt="Image" src="../images/coins2.png" /></p>
-<div class="admonition danger">
-<p class="admonition-title">Assign 7</p>
+<pre><code class="bash">nano@jetson-nano:~$ sudo apt-get install mosquitto-clients
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following additional packages will be installed:
+  libc-ares2 libmosquitto1
+The following NEW packages will be installed:
+  libc-ares2 libmosquitto1 mosquitto-clients
+0 upgraded, 3 newly installed, 0 to remove and 31 not upgraded.
+Need to get 91,9 kB of archives.
+After this operation, 337 kB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+
+</code></pre>
+
 <ul>
-<li>Detecting lane lines on a binary mask</li>
-<li>Create a masks to be applied e.g. ROI (trapezoid) to lane detection</li>
-<li>Detect lane from the road appling the Hough transform</li>
+<li><strong>2</strong> Init subscriptor with <code>mosquitto_sub -h BROKER -t TOPIC</code> where <em>BROKER</em> corresponds to broker address and <em>TOPIC</em> the topic to be subscrited</li>
 </ul>
-</div>
-<div class="admonition danger">
-<p class="admonition-title">Assign 8</p>
+<pre><code class="bash">nano@jetson-nano:~$ mosquitto_sub -h BROKER -t TOPIC
+
+</code></pre>
+
 <ul>
-<li>Using Hough transform, it is also possible to detect <a href="https://en.wikipedia.org/wiki/Circle_Hough_Transform">circles</a></li>
-<li>Use the OpenCV function <code>HoughCircles()</code> to detect circles in an image. Take as input images the coins examples<ul>
-<li>More info related to <code>HoughCircles</code> function can be found in <a href="https://docs.opencv.org/3.4/d4/d70/tutorial_hough_circle.html">OpenCV documentation</a></li>
+<li><strong>3</strong> Now you are ready to publish a message in the broker with <code>mosquitto_pub -h BROKER -t TOPIC -m MSG</code>, where <em>BROKER</em> corresponds to broker IP address, <em>TOPIC</em> the topic to be subscrited, and <em>MSG</em> the message or <strong>payload</strong> to be sent to the broker</li>
+</ul>
+<h3 id="mqtt-client-in-python">MQTT client in Python</h3>
+<p>There is an API to use the MQTT protocol in python, to be integrated with the previous development performed as <strong>object detection application</strong>. Please note, that some <a href="https://pypi.org/project/paho-mqtt/">Paho MQTT client library</a> should be installed in your Jetson-Nano board:</p>
+<pre><code class="bash">root@jetson-nano:/jetson-inference# pip3 install paho-mqtt
+Collecting paho-mqtt
+  Downloading https://files.pythonhosted.org/packages/f8/dd/4b75dcba025f8647bc9862ac17299e0d7d12d3beadbf026d8c8d74215c12/paho-mqtt-1.6.1.tar.gz (99kB)
+    100% |################################| 102kB 1.6MB/s 
+Building wheels for collected packages: paho-mqtt
+  Running setup.py bdist_wheel for paho-mqtt ... done
+  Stored in directory: /root/.cache/pip/wheels/b7/18/24/b9f50d4ff75478d9ccb373bcaa454fc1573cdd39fbad37f49e
+Successfully built paho-mqtt
+Installing collected packages: paho-mqtt
+Successfully installed paho-mqtt-1.6.1
+
+</code></pre>
+
+<h4 id="publish-a-message">Publish a message</h4>
+<p>This code provides a client class which enable applications to connect to an MQTT broker to publish messages. It also provides some helper functions to make publishing one off messages to an MQTT server very straightforward.</p>
+<p>You can use the client class as an instance, within a class or by subclassing. </p>
+<h5 id="example">Example</h5>
+<ul>
+<li>The general usage flow is as follows:<ul>
+<li>Create a client instance with <code>mqtt.Client</code></li>
+<li>Connect to a broker using one of the <code>connect*()</code> functions. Note that the <strong>Broker address</strong> corresponds to <em>broker_address variable</em></li>
+<li>Call one of the <code>loop*()</code> functions to maintain network traffic flow with the broker</li>
+<li>Use <code>publish()</code> to publish messages to the broker. Note that the <strong>TOPIC</strong> is refer as <em>"house/bulbs/bulb1"</em> and the <strong>payload</strong> as <em>"ON"</em></li>
 </ul>
 </li>
 </ul>
+<pre><code class="python">import paho.mqtt.client as mqtt
+import time
+
+############
+def on_message(client, userdata, message):
+    print(&quot;message received &quot; ,str(message.payload.decode(&quot;utf-8&quot;)))
+    print(&quot;message topic=&quot;,message.topic)
+    print(&quot;message qos=&quot;,message.qos)
+    print(&quot;message retain flag=&quot;,message.retain)
+
+########################################
+broker_address=&quot;test.mosquitto.org&quot;
+print(&quot;creating new instance&quot;)
+client = mqtt.Client(&quot;P1&quot;) #create new instance
+client.on_message=on_message #attach function to callback
+print(&quot;connecting to broker&quot;)
+client.connect(broker_address) #connect to broker
+client.loop_start() #start the loop
+print(&quot;Publishing message to topic&quot;,&quot;house/bulbs/bulb1&quot;)
+client.publish(&quot;house/bulbs/bulb1&quot;,&quot;ON&quot;)
+time.sleep(4) # wait
+client.loop_stop() #stop the loop
+</code></pre>
+
+<div class="admonition danger">
+<p class="admonition-title">Assignment: system that counts people crossing the entry or exit like in the photo and send information through MQTT</p>
+<p>Modify the code <strong>my-detection.py</strong> developed adding the functionality of sending the number of people that are entering to an area every 10 seconds. Note that your application should publish in the topic <em>"shopping/cameraID/people_count/"</em>. Each node should implement the people counter and publish in the corresponding topic, that is, group 1 would have the topic "shopping/camera1/people_count/" assigned.</p>
 </div></div>
         </div>
 
