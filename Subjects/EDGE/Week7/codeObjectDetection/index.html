@@ -8,642 +8,137 @@
         
         <link rel="canonical" href="https://iot-da.github.io/Subjects/EDGE/Week7/codeObjectDetection/">
         <link rel="shortcut icon" href="../../../../img/favicon.ico">
-        <title>codeObjectDetection - Internet of Things and Data Analytics</title>
-        <link href="../../../../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../../../../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <title>Understanding Source Code - Internet of Things and Data Analytics</title>
+        <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="../../../../css/highlight.css">
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
-	
-	<script src="../../../../js/jquery-1.10.2.min.js"></script>
-        <script src="../../../../js/bootstrap-3.0.3.min.js"></script>
-        <script src="../../../../js/highlight.pack.js"></script> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
     <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../..">Internet of Things and Data Analytics</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../../General/" class="nav-link">General info.</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../../News/" class="nav-link">News</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../IOTNA/" class="dropdown-item">IOTNA</a>
+</li>
+                                    
+<li>
+    <a href="../../../MDM/" class="dropdown-item">MDM</a>
+</li>
+                                    
+<li>
+    <a href="../../../SID/" class="dropdown-item">SID</a>
+</li>
+                                    
+<li>
+    <a href="../../../IA/" class="dropdown-item">IA</a>
+</li>
+                                    
+<li>
+    <a href="../../../NP1/" class="dropdown-item">NP1</a>
+</li>
+                                    
+<li>
+    <a href="../../../NP2/" class="dropdown-item">NP2</a>
+</li>
+                                    
+<li>
+    <a href="../../../SEC/" class="dropdown-item">SEC</a>
+</li>
+                                    
+<li>
+    <a href="../../" class="dropdown-item">EDGE</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../../../Contact/" class="nav-link">Contact</a>
+                            </li>
+                        </ul>
 
-        <!-- Collapsed navigation -->
-        <div class="navbar-header">
-            <!-- Expander button -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="../../../..">Internet of Things and Data Analytics</a>
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-
-        <!-- Expanded navigation -->
-        <div class="navbar-collapse collapse">
-                <!-- Main navigation -->
-                <ul class="nav navbar-nav">
-                    <li >
-                        <a href="../../../..">Home</a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-<li >
-    <a href="../../../../Contact/">Home</a>
-</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">ESO camara <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-<li >
-    <a href="../../../../ESO-camara/">Home</a>
-</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">General <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-<li >
-    <a href="../../../../General/TFM/">TFM</a>
-</li>
-                            
-<li >
-    <a href="../../../../General/">Home</a>
-</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">News <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-<li >
-    <a href="../../../../News/">Home</a>
-</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-  <li class="dropdown-submenu">
-    <a href="#">EDGE</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../groups/">Groups</a>
-</li>
-            
-<li >
-    <a href="../../">Home</a>
-</li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">Week1</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../Week1/assigments_Jetson-Nano/">assigments Jetson Nano</a>
-</li>
-            
-<li >
-    <a href="../../Week1/">Home</a>
-</li>
-            
-<li >
-    <a href="../../Week1/install_Jetson-Nano/">install Jetson Nano</a>
-</li>
-            
-<li >
-    <a href="../../Week1/setup_Jetson-Nano/">setup Jetson Nano</a>
-</li>
-            
-<li >
-    <a href="../../Week1/setup_MLcontainer/">setup MLcontainer</a>
-</li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">Docs</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../Week1/docs/aux-docker/">Aux docker</a>
-</li>
-    </ul>
-  </li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">Week4</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../Week4/assigments_OpenCV/">assigments OpenCV</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">Week6</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../Week6/assigment/">Assigment</a>
-</li>
-            
-<li >
-    <a href="../../Week6/imageRecognition/">imageRecognition</a>
-</li>
-            
-<li >
-    <a href="../../Week6/inferenceImageClassifying/">inferenceImageClassifying</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">Week7</a>
-    <ul class="dropdown-menu">
-            
-<li class="active">
-    <a href="./">codeObjectDetection</a>
-</li>
-            
-<li >
-    <a href="../integrationIoT/">integrationIoT</a>
-</li>
-            
-<li >
-    <a href="../objectDetection/">objectDetection</a>
-</li>
-    </ul>
-  </li>
-    </ul>
-  </li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">IA</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../IA/groups/">Groups</a>
-</li>
-            
-<li >
-    <a href="../../../IA/">Home</a>
-</li>
-    </ul>
-  </li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">IOTNA</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../IOTNA/groups/">Groups</a>
-</li>
-            
-<li >
-    <a href="../../../IOTNA/">Home</a>
-</li>
-            
-<li >
-    <a href="../../../IOTNA/paperProject/">paperProject</a>
-</li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P1</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../IOTNA/P1/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P2</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../IOTNA/P2/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P3</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../IOTNA/P3/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P4</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../IOTNA/P4/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P5</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../IOTNA/P5/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P6</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../IOTNA/P6/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P7</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../IOTNA/P7/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">Ctutorial</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../IOTNA/ctutorial/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">Demo</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../IOTNA/demo/">Home</a>
-</li>
-    </ul>
-  </li>
-    </ul>
-  </li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">MDM</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../MDM/">Home</a>
-</li>
-    </ul>
-  </li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">NP1</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP1/FinalProject/">FinalProject</a>
-</li>
-            
-<li >
-    <a href="../../../NP1/groups/">Groups</a>
-</li>
-            
-<li >
-    <a href="../../../NP1/">Home</a>
-</li>
-            
-<li >
-    <a href="../../../NP1/paperProject/">paperProject</a>
-</li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P1</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP1/P1/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P2</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP1/P2/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P3</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP1/P3/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P4</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP1/P4/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P5</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP1/P5/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P6</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP1/P6/">Home</a>
-</li>
-    </ul>
-  </li>
-    </ul>
-  </li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">NP2</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/FinalProject/">FinalProject</a>
-</li>
-            
-<li >
-    <a href="../../../NP2/groups/">Groups</a>
-</li>
-            
-<li >
-    <a href="../../../NP2/">Home</a>
-</li>
-            
-<li >
-    <a href="../../../NP2/paperProject/">paperProject</a>
-</li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">Assignments</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/Assignments/1/">1</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P1</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/P1/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P10</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/P10/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P2</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/P2/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P3</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/P3/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P4</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/P4/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P5</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/P5/">Home</a>
-</li>
-            
-<li >
-    <a href="../../../NP2/P5/notas/">Notas</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P6</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/P6/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P6 II</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/P6-II/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P7</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/P7/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P8</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/P8/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P9</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../NP2/P9/">Home</a>
-</li>
-    </ul>
-  </li>
-    </ul>
-  </li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">SEC</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../SEC/groups/">Groups</a>
-</li>
-            
-<li >
-    <a href="../../../SEC/">Home</a>
-</li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P1</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../SEC/P1/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P2</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../SEC/P2/">Home</a>
-</li>
-    </ul>
-  </li>
-            
-  <li class="dropdown-submenu">
-    <a href="#">P3</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../SEC/P3/">Home</a>
-</li>
-    </ul>
-  </li>
-    </ul>
-  </li>
-                            
-  <li class="dropdown-submenu">
-    <a href="#">SID</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../SID/">Home</a>
-</li>
-    </ul>
-  </li>
-                        </ul>
-                    </li>
-                </ul>
-
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
-                        <i class="fa fa-search"></i> Search
-                    </a>
-                </li>
-                    <li >
-                        <a rel="next" href="../../Week6/inferenceImageClassifying/">
-                            <i class="fa fa-arrow-left"></i> Previous
-                        </a>
-                    </li>
-                    <li >
-                        <a rel="prev" href="../integrationIoT/">
-                            Next <i class="fa fa-arrow-right"></i>
-                        </a>
-                    </li>
-            </ul>
-        </div>
-    </div>
-</div>
 
         <div class="container">
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#understanding-source-code">Understanding Source Code</a></li>
-            <li><a href="#coding-your-own-object-detection-program">Coding Your Own Object Detection Program</a></li>
-            <li><a href="#source-code">Source Code</a></li>
-            <li><a href="#running-the-program">Running the Program</a></li>
-            <li><a href="#assignment">Assignment</a></li>
-    </ul>
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#understanding-source-code" class="nav-link">Understanding Source Code</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#coding-your-own-object-detection-program" class="nav-link">Coding Your Own Object Detection Program</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#source-code" class="nav-link">Source Code</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#running-the-program" class="nav-link">Running the Program</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#assignment" class="nav-link">Assignment</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
 </div></div>
-                <div class="col-md-9" role="main">
+                    <div class="col-md-9" role="main">
 
 <h1 id="understanding-source-code">Understanding Source Code</h1>
 <h2 id="coding-your-own-object-detection-program">Coding Your Own Object Detection Program</h2>
 <p>In this step of the tutorial, we'll walk through the creation of the previous example for realtime object detection on a live camera feed in only 10 lines of Python code.  The program will load the detection network with the <a href="https://rawgit.com/dusty-nv/jetson-inference/dev/docs/html/python/jetson.inference.html#detectNet"><code>detectNet</code></a> object, capture video frames and process them, and then render the detected objects to the display.</p>
 <p>For your convenience and reference, the completed source is available in the <a href="https://github.com/dusty-nv/jetson-inference/blob/master/python/examples/my-detection.py"><code>python/examples/my-detection.py</code></a> file of the repo, but the guide below will act like they reside in the user's home directory or in an arbitrary directory of your choosing.  </p>
 <p>Here's a quick preview of the Python code we'll be walking through:</p>
-<pre><code class="python">import jetson.inference
+<pre><code class="language-python">import jetson.inference
 import jetson.utils
 
 net = jetson.inference.detectNet(&quot;ssd-mobilenet-v2&quot;, threshold=0.5)
@@ -656,44 +151,38 @@ while display.IsStreaming():
     display.Render(img)
     display.SetStatus(&quot;Object Detection | Network {:.0f} FPS&quot;.format(net.GetNetworkFPS()))
 </code></pre>
-
 <p>There's also a video screencast of this coding tutorial available on YouTube:</p>
 <p><a href="https://www.youtube.com/watch?v=obt60r8ZeB0&list=PL5B692fm6--uQRRDTPsJDp4o0xbzkoyf8&index=12" target="_blank"><img src=https://github.com/dusty-nv/jetson-inference/raw/master/docs/images/thumbnail_detectnet.jpg width="750"></a></p>
 <h2 id="source-code">Source Code</h2>
 <h3 id="importing-modules">Importing Modules</h3>
 <p>At the top of the source file, we'll import the Python modules that we're going to use in the script.  Add <code>import</code> statements to load the <a href="https://rawgit.com/dusty-nv/jetson-inference/python/docs/html/python/jetson.inference.html"><code>jetson.inference</code></a> and <a href="https://rawgit.com/dusty-nv/jetson-inference/python/docs/html/python/jetson.utils.html"><code>jetson.utils</code></a> modules used for object detection and camera capture.</p>
-<pre><code class="python">import jetson.inference
+<pre><code class="language-python">import jetson.inference
 import jetson.utils
 </code></pre>
-
 <h3 id="loading-the-detection-model">Loading the Detection Model</h3>
-<p>Next use the following line to create a <a href="https://rawgit.com/dusty-nv/jetson-inference/python/docs/html/python/jetson.inference.html#detectNet"><code>detectNet</code></a> object instance that loads the <a href="../../data/networks/ssd_coco_labels.txt">91-class</a> SSD-Mobilenet-v2 model:</p>
-<pre><code class="python"># load the object detection model
+<p>Next use the following line to create a <a href="https://rawgit.com/dusty-nv/jetson-inference/python/docs/html/python/jetson.inference.html#detectNet"><code>detectNet</code></a> object instance that loads the <a href="../data/networks/ssd_coco_labels.txt">91-class</a> SSD-Mobilenet-v2 model:</p>
+<pre><code class="language-python"># load the object detection model
 net = jetson.inference.detectNet(&quot;ssd-mobilenet-v2&quot;, threshold=0.5)
 </code></pre>
-
 <p>Note that you can change the model string to one of the values from <a href="detectnet-console-2.md#pre-trained-detection-models-available">this table</a> to load a different detection model.  We also set the detection threshold here to the default of <code>0.5</code> for illustrative purposes - you can tweak it later if needed.</p>
 <h3 id="opening-the-camera-stream">Opening the Camera Stream</h3>
 <p>To connect to the camera device for streaming, we'll create an instance of the <a href="https://rawgit.com/dusty-nv/jetson-inference/pytorch/docs/html/python/jetson.utils.html#videoSource"><code>videoSource</code></a> object:</p>
-<pre><code class="python">camera = jetson.utils.videoSource(&quot;csi://0&quot;)      # '/dev/video0' for V4L2
+<pre><code class="language-python">camera = jetson.utils.videoSource(&quot;csi://0&quot;)      # '/dev/video0' for V4L2
 </code></pre>
-
 <p>The string passed to <code>videoSource()</code> can actually be any valid resource URI, whether it be a camera, video file, or network stream.  </p>
 <h4 id="display-loop">Display Loop</h4>
 <p>Next, we'll create a video output interface with the <a href="https://rawgit.com/dusty-nv/jetson-inference/pytorch/docs/html/python/jetson.utils.html#videoOutput"><code>videoOutput</code></a> object and create a main loop that will run until the user exits:</p>
-<pre><code class="python">display = jetson.utils.videoOutput(&quot;display://0&quot;) # 'my_video.mp4' for file
+<pre><code class="language-python">display = jetson.utils.videoOutput(&quot;display://0&quot;) # 'my_video.mp4' for file
 
 while display.IsStreaming():
     # main loop will go here
 </code></pre>
-
 <h4 id="camera-capture">Camera Capture</h4>
 <p>The first thing that happens in the main loop is to capture the next video frame from the camera.  <code>camera.Capture()</code> will wait until the next frame has been sent from the camera and loaded into GPU memory.</p>
-<pre><code class="python">    img = camera.Capture()
+<pre><code class="language-python">    img = camera.Capture()
 </code></pre>
-
 <p>The returned image will be a <a href="https://github.com/dusty-nv/jetson-inference/blob/master/docs/aux-image.md#image-capsules-in-python"><code>jetson.utils.cudaImage</code></a> object that contains attributes like width, height, and pixel format:</p>
-<pre><code class="python">&lt;jetson.utils.cudaImage&gt;
+<pre><code class="language-python">&lt;jetson.utils.cudaImage&gt;
   .ptr      # memory address (not typically used)
   .size     # size in bytes
   .shape    # (height,width,channels) tuple
@@ -703,15 +192,13 @@ while display.IsStreaming():
   .format   # format string
   .mapped   # true if ZeroCopy
 </code></pre>
-
 <h4 id="detecting-objects">Detecting Objects</h4>
 <p>Next the detection network processes the image with the <code>net.Detect()</code> function.  It takes in the image from <code>camera.Capture()</code> and returns a list of detections:</p>
-<pre><code class="python">    detections = net.Detect(img)
+<pre><code class="language-python">    detections = net.Detect(img)
 </code></pre>
-
 <p>This function will also automatically overlay the detection results on top of the input image.</p>
 <p>If you want, you can add a <code>print(detections)</code> statement here, and the coordinates, confidence, and class info will be printed out to the terminal for each detection result.  Also see the <a href="https://rawgit.com/dusty-nv/jetson-inference/python/docs/html/python/jetson.inference.html#detectNet"><code>detectNet</code></a> documentation for info about the different members of the <code>Detection</code> structures that are returned for accessing them directly in a custom application.</p>
-<pre><code class="python">Detection = &lt;type 'jetson.inference.detectNet.Detection'&gt;
+<pre><code class="language-python">Detection = &lt;type 'jetson.inference.detectNet.Detection'&gt;
 Object Detection Result
 
 ----------------------------------------------------------------------
@@ -750,17 +237,15 @@ Top
 Width
      Width of bounding box
 </code></pre>
-
 <h4 id="rendering">Rendering</h4>
 <p>Finally we'll visualize the results with OpenGL and update the title of the window to display the current peformance:</p>
-<pre><code class="python">    display.Render(img)
+<pre><code class="language-python">    display.Render(img)
     display.SetStatus(&quot;Object Detection | Network {:.0f} FPS&quot;.format(net.GetNetworkFPS()))
 </code></pre>
-
 <p>The <code>Render()</code> function will automatically flip the backbuffer and present the image on-screen.</p>
 <h4 id="source-listing">Source Listing</h4>
 <p>That's it!  For completness, here's the full source of the Python script that we just created:</p>
-<pre><code class="python">import jetson.inference
+<pre><code class="language-python">import jetson.inference
 import jetson.utils
 
 net = jetson.inference.detectNet(&quot;ssd-mobilenet-v2&quot;, threshold=0.5)
@@ -773,20 +258,18 @@ while display.IsStreaming():
     display.Render(img)
     display.SetStatus(&quot;Object Detection | Network {:.0f} FPS&quot;.format(net.GetNetworkFPS()))
 </code></pre>
-
 <p>Note that this version assumes you are using a MIPI CSI camera.</p>
 <h2 id="running-the-program">Running the Program</h2>
 <p>To run the application we just coded, simply launch it from a terminal with the Python interpreter:</p>
-<pre><code class="bash">$ python3 my-detection.py
+<pre><code class="language-bash">$ python3 my-detection.py
 </code></pre>
-
 <h2 id="assignment">Assignment</h2>
 <h3 id="important-aspects-to-take-into-account">Important aspects to take into account</h3>
 <ol>
 <li>The file <code>my-detection.py</code> located in the path <code>/jetson-inference/python/examples</code> is always <strong>reset when the container is started</strong>. For this reason it should be copied to a durable Jetson-Nano file system zone. <code>data</code> directory is not reset, so this path could be one of the candidate.</li>
-<li>The invocation <code>detections = net.Detect(img)</code> create a tensor in <code>detections</code>. Information of each 'detection' could be consulted (see the section <a href="../codeObjectDetection#detecting-objects">Detecting Objects</a>). </li>
+<li>The invocation <code>detections = net.Detect(img)</code> create a tensor in <code>detections</code>. Information of each 'detection' could be consulted (see the section <a href="./codeObjectDetection#detecting-objects">Detecting Objects</a>). </li>
 <li>So, you can access to <strong>ClassID, Confidence, Instance, Left, Right, Bottom, Top</strong> values</li>
-<li>In the last <a href="../objectDetection#running-different-detection-models">assignment</a> accuracy and inference times were evaluated choosing different models.</li>
+<li>In the last <a href="./objectDetection#running-different-detection-models">assignment</a> accuracy and inference times were evaluated choosing different models.</li>
 </ol>
 <div class="admonition danger">
 <p class="admonition-title">Assignment1</p>
@@ -798,32 +281,74 @@ while display.IsStreaming():
 <p class="admonition-title">Assignment 2: system that counts people crossing the entry or exit like in the photo</p>
 <p>Modify the code <strong>my-detection.py</strong> so that, design and implement a solution to monitor the crossing of people in the direction of entry and exit at an entrance to a venue. Thus, a camera located perpendicular to the entrance to the enclosure will be assumed, so that the people who access it will enter the scene through one of the ends and leave through the opposite. The people who leave the enclosure will run through the image in the opposite direction. The system is requested to store the number of people who have entered and left the premises, as well as the moment in which they have done so.</p>
 </div></div>
+            </div>
         </div>
 
         <footer class="col-md-12">
             <hr>
-            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
-        <script>var base_url = '../../../..';</script>
-        <script data-main="../../../../mkdocs/js/search.js" src="../../../../mkdocs/js/require.js"></script>
-        <script src="../../../../js/base.js"></script><div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <script>
+            var base_url = "../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../js/base.js" defer></script>
+        <script src="../../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
             </div>
             <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
-                <form role="form">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results"></div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
             <div class="modal-footer">
             </div>
