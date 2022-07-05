@@ -9,6 +9,52 @@
 - Deadline for final deliverables. September session (PDF report, video presentation and supplementary material): **September 5**
 - Final defenses (September session) : **September 12-15**
 
+## Defense sessions
+
+!!! warning "Note"
+    * Zoom links for each defense session will be published in this webpage.
+
+### Session 1
+
+* Date: **Monday, July 11. 13h-15h (UTC+2)**
+* Zoom link: To Be Announced.
+* Committee: Jose Ignacio Gomez, Carlos Garcia Sanchez
+
+| Proposal | Member 1 | Member 2 | Member 3 |
+|-------|----------|----------|----------|
+| Relation between air pollution, weather and traffic     | Qiuji Chen      | Xiaolan Li      | Zhao Hu      |
+| Machine Learning Ensemble Methods     | Yan Zhao |            |              |
+| IoT devices or services for well-being    | Liu Jinhua| Duan Zhen |  Hu Hao      |
+| Open Source IoT frameworks     | Zhang Yi | Li Tianfeng | Re Wei |
+
+### Session 2
+
+* Date: **Tuesday, July 12. 15:30h-17:30h (UTC+2)**
+* Zoom link: To Be Announced.
+* Committee: Rafael Caballero, Ivan Garcia-Magarino
+
+| Proposal | Member 1 | Member 2 | Member 3 |
+|-------|----------|----------|----------|
+| OpenData Initiatives in China: situation, perspectives and use cases     | Junyan Guo | Jianchuang Zhang | Guanjie Xiao |
+| OpenData Initiatives in China: situation, perspectives and use cases     | Yinghua Liao | Jiali Gao | Xionglan Luo |
+| SmartCities: requirements, infrastructure and use cases     | Jiayun Pan | WeiLin Zhang| YongTao He|
+
+
+### Session 3
+
+* Date: **Thursday, July 14. 16h-18h (UTC+2)**
+* Zoom link: To Be Announced.
+* Committee: Francisco Igual, Christian Tenllado
+
+
+| Proposal | Member 1 | Member 2 | Member 3 |
+|-------|----------|----------|----------|
+| IoT devices or services for healthcare     | Shuishi Zhou | Yang Chu |  Wenyan Liao      |
+| IoT devices or services for healthcare     | Dongyang Xu | Xueqing Zhao|  Yujuan Huang|
+| Smartcities: requirements, infrastructures and use cases     | Zhijun Hao | Hongbiao Cao | Yuanshuang Sha|
+| Accelerators in Edge Computing     | Youran Tian | Jun Shou | |
+
+
 ## Description and rules
 
 The Final Project is a research or development work that aims at demonstrating
