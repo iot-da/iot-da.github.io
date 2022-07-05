@@ -4,89 +4,97 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+        <meta name="description" content="None">
         
         <link rel="canonical" href="https://iot-da.github.io/ESO-camara/">
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Cámara de seguridad de andar por casa - Internet of Things and Data Analytics</title>
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <title>Internet of Things and Data Analytics</title>
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../css/font-awesome.min.css" rel="stylesheet">
         <link href="../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
 
         <script src="../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../js/bootstrap.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script src="../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+    <body class="homepage">
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
-                <a class="navbar-brand" href="..">Internet of Things and Data Analytics</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">Internet of Things and Data Analytics</a>
+                </div>
 
                 <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
+                <div class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li class="navitem">
-                                <a href=".." class="nav-link">Home</a>
+                            <li >
+                                <a href="..">Home</a>
                             </li>
-                            <li class="navitem">
-                                <a href="../General/" class="nav-link">General info.</a>
+                            <li >
+                                <a href="../General/">General info.</a>
                             </li>
-                            <li class="navitem">
-                                <a href="../News/" class="nav-link">News</a>
+                            <li >
+                                <a href="../News/">News</a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
-<li>
-    <a href="../Subjects/IOTNA/" class="dropdown-item">IOTNA</a>
+<li >
+    <a href="../Subjects/IOTNA/">IOTNA</a>
 </li>
                                     
-<li>
-    <a href="../Subjects/MDM/" class="dropdown-item">MDM</a>
+<li >
+    <a href="../Subjects/MDM/">MDM</a>
 </li>
                                     
-<li>
-    <a href="../Subjects/SID/" class="dropdown-item">SID</a>
+<li >
+    <a href="../Subjects/SID/">SID</a>
 </li>
                                     
-<li>
-    <a href="../Subjects/IA/" class="dropdown-item">IA</a>
+<li >
+    <a href="../Subjects/IA/">IA</a>
 </li>
                                     
-<li>
-    <a href="../Subjects/NP1/" class="dropdown-item">NP1</a>
+<li >
+    <a href="../Subjects/NP1/">NP1</a>
 </li>
                                     
-<li>
-    <a href="../Subjects/NP2/" class="dropdown-item">NP2</a>
+<li >
+    <a href="../Subjects/NP2/">NP2</a>
 </li>
                                     
-<li>
-    <a href="../Subjects/SEC/" class="dropdown-item">SEC</a>
+<li >
+    <a href="../Subjects/SEC/">SEC</a>
 </li>
                                     
-<li>
-    <a href="../Subjects/EDGE/" class="dropdown-item">EDGE</a>
+<li >
+    <a href="../Subjects/EDGE/">EDGE</a>
 </li>
                                 </ul>
                             </li>
-                            <li class="navitem">
-                                <a href="../Contact/" class="nav-link">Contact</a>
+                            <li >
+                                <a href="../Contact/">Contact</a>
                             </li>
                         </ul>
 
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
@@ -96,50 +104,18 @@
         </div>
 
         <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
-
-    
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-level="1"><a href="#camara-de-seguridad-de-andar-por-casa" class="nav-link">Cámara de seguridad de andar por casa</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#que-vamos-a-hacer" class="nav-link">¿Qué vamos a hacer?</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#como-lo-haremos" class="nav-link">¿Cómo lo haremos?</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#configuracion-del-entorno-node-red" class="nav-link">Configuración del entorno Node-Red</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#conectad-la-camara" class="nav-link">Conectad la cámara.</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#como-crear-un-bot-en-telegram" class="nav-link">¿Cómo crear un bot en Telegram?</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#reprogramacion-de-la-camara" class="nav-link">Reprogramación de la cámara</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-        </ul>
-    </div>
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#camara-de-seguridad-de-andar-por-casa">Cámara de seguridad de andar por casa</a></li>
+            <li><a href="#que-vamos-a-hacer">¿Qué vamos a hacer?</a></li>
+            <li><a href="#como-lo-haremos">¿Cómo lo haremos?</a></li>
+            <li><a href="#configuracion-del-entorno-node-red">Configuración del entorno Node-Red</a></li>
+            <li><a href="#conectad-la-camara">Conectad la cámara.</a></li>
+            <li><a href="#como-crear-un-bot-en-telegram">¿Cómo crear un bot en Telegram?</a></li>
+            <li><a href="#reprogramacion-de-la-camara">Reprogramación de la cámara</a></li>
+    </ul>
 </div></div>
-                    <div class="col-md-9" role="main">
+                <div class="col-md-9" role="main">
 
 <h1 id="camara-de-seguridad-de-andar-por-casa">Cámara de seguridad de andar por casa</h1>
 <h2 id="que-vamos-a-hacer">¿Qué vamos a hacer?</h2>
@@ -207,16 +183,18 @@ el <em>token</em> de este <em>bot</em>. que utilizaremos para interaccionar con 
 <h2 id="reprogramacion-de-la-camara">Reprogramación de la cámara</h2>
 <p>Las cámaras (en realidad, el chip ESP32 que controla toda la placa) se programan usando los lenguajes C/C++ en un entorno llamado ESP-IDF (y ESP-WHO), desarrollados por Espressif, la compañía que diseña y fabrica estas placas. Hay muchos detalles del proceso que conoceréis cuando estudiéis <em>Ingeniería de Computadores</em> en la UCM, pero hoy vamos a ver lo más básico.</p>
 <p>Primero debemos configurar un terminal para poder utilizar el entorno de ESP. Para ello, abre un nuevo terminal y escribe los siguientes comandos:</p>
-<pre><code class="language-console">ubuntu@ubuntu2004:~$ cd esp-idf
+<pre><code class="console">ubuntu@ubuntu2004:~$ cd esp-idf
 ubuntu@ubuntu2004:~$ source ./export.sh 
 </code></pre>
+
 <p>Con esos comandos hemos establecido el entorno necesario para poder comunicarnos con la placa. Ahora iremos al directorio en el que se encuentra el proyecto desarrollado y escribiremos la aplicación nuevamente en la placa. </p>
 <p>Pero antes de hacerlo, debemos conectar la placa (el dispositivo USB) con la máquina virtual Ubuntu en la que estamos haciendo el trabajo.  Asegúrate de tener la cámara conectada al PC;  En el menú <em>Dispositivos</em> (o <em>Devices</em>) de VirtualBox debe aparecer un dispositivo de tipo USB, llamado <em>USB to UART</em> (quizás <em>CP2102N</em>). Seleccionando para que la máquina virtual pueda acceder al dispositivo.</p>
 <p>Ahora sí, podemos proceder a abrir una conexión USB con la placa mientras está en funcionamiento. En el mismo terminal anterior, teclearemos los siguientes comandos:</p>
-<pre><code class="language-console">ubuntu@ubuntu2004:~$ cd
+<pre><code class="console">ubuntu@ubuntu2004:~$ cd
 ubuntu@ubuntu2004:~$ cd  esp-who/examples/mot-detect-mqtt/terminal
 ubuntu@ubuntu2004:~$ idf.py monitor
 </code></pre>
+
 <p>A partir de ese momento, comenzaremos a ver información de depuración que la placa está enviando por su puerto serie, vía USB, al PC. El envío de imágenes prosigue por WiFi mediante MQTT a Node-Red; esta información de depuración es útil durante el desarrollo de la aplicación.</p>
 <p>Vamos a hacer una variación en el código para volver a escribirlo en la placa. Para ello, usaremos VSCode (Visual Studio Code) como editor.  Abrimos VSCode haciendo click sobre su icono:</p>
 <p><img alt="foo" src="img/VsCode.png" /></p>
@@ -225,9 +203,10 @@ ubuntu@ubuntu2004:~$ idf.py monitor
 <p>Es un fichero escrito en C++ que contiene el bucle principal del código volcado en la placa (líneas 26 a 66).
 Si modificamos cualquier cosa de este fichero (o cualquier otro fichero) del proyecto, deberemos volver a compilarlo y generar así la imagen que volcaremos en la placa (lo que a veces se conoce como <em>firmware</em>, que no es más que el código de nuestra aplicación junto con el sistema operativo FreeRTOS, que es el usado en ESP-IDF).  </p>
 <p>Para compilar el proyecto y posteriormente escribir la aplicación modificada en la placa, escribiremos los siguientes comandos en el mismo terminal que venimos utilizando en este apartado:</p>
-<pre><code class="language-console">ubuntu@ubuntu2004:~$ idf.py build
+<pre><code class="console">ubuntu@ubuntu2004:~$ idf.py build
 ubuntu@ubuntu2004:~$ idf.py flash monitor
 </code></pre>
+
 <div class="admonition note">
 <p class="admonition-title">Ejercicio final</p>
 <p>Tratad de cambiar el canal MQTT por el que vuestra cámara enviará la información. Poned el que queráis, siempre que comience por el carácter /. Modificadlo en el código C++  y volcad el nuevo código en la placa. Modificad asimismo la aplicación de Node-Red y haced un nuevo <em>Deploy</em>. Comprobad que todo sigue funcionando correctamente.</p>
@@ -236,7 +215,6 @@ ubuntu@ubuntu2004:~$ idf.py flash monitor
 <p class="admonition-title">Para investigar...</p>
 <p>Nuestra cámara está publicando información por MQTT. La aplicación Node-Red está suscrita a dos canales por los que espera recibir esa información. Pero.... ¿dónde se envía la información?¿Dónde nos suscribimos? Nos falta por hablar del papel del <em>broker</em> MQTT, que es quien hace ese papel intermedio. ¿Sabrías encontrar qué <em>broker</em> MQTT estamos usando en este ejemplo? ¿Sabrías localizar en qué país está esa máquina?</p>
 </div></div>
-            </div>
         </div>
 
         <footer class="col-md-12">
@@ -250,32 +228,35 @@ ubuntu@ubuntu2004:~$ idf.py flash monitor
         <script src="../js/base.js" defer></script>
         <script src="../search/main.js" defer></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
             </div>
             <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
                     <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
                     </div>
                 </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+                <div id="mkdocs-search-results"></div>
             </div>
             <div class="modal-footer">
             </div>
         </div>
     </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
             </div>
             <div class="modal-body">
               <table class="table">
@@ -313,3 +294,8 @@ ubuntu@ubuntu2004:~$ idf.py flash monitor
 
     </body>
 </html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2022-07-05 13:31:48
+-->

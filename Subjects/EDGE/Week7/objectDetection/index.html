@@ -9,84 +9,92 @@
         <link rel="canonical" href="https://iot-da.github.io/Subjects/EDGE/Week7/objectDetection/">
         <link rel="shortcut icon" href="../../../../img/favicon.ico">
         <title>Objects Detection with DetectNet - Internet of Things and Data Analytics</title>
-        <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
 
         <script src="../../../../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../../../../js/bootstrap.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script src="../../../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
     <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
-                <a class="navbar-brand" href="../../../..">Internet of Things and Data Analytics</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../../../..">Internet of Things and Data Analytics</a>
+                </div>
 
                 <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
+                <div class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li class="navitem">
-                                <a href="../../../.." class="nav-link">Home</a>
+                            <li >
+                                <a href="../../../..">Home</a>
                             </li>
-                            <li class="navitem">
-                                <a href="../../../../General/" class="nav-link">General info.</a>
+                            <li >
+                                <a href="../../../../General/">General info.</a>
                             </li>
-                            <li class="navitem">
-                                <a href="../../../../News/" class="nav-link">News</a>
+                            <li >
+                                <a href="../../../../News/">News</a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
-<li>
-    <a href="../../../IOTNA/" class="dropdown-item">IOTNA</a>
+<li >
+    <a href="../../../IOTNA/">IOTNA</a>
 </li>
                                     
-<li>
-    <a href="../../../MDM/" class="dropdown-item">MDM</a>
+<li >
+    <a href="../../../MDM/">MDM</a>
 </li>
                                     
-<li>
-    <a href="../../../SID/" class="dropdown-item">SID</a>
+<li >
+    <a href="../../../SID/">SID</a>
 </li>
                                     
-<li>
-    <a href="../../../IA/" class="dropdown-item">IA</a>
+<li >
+    <a href="../../../IA/">IA</a>
 </li>
                                     
-<li>
-    <a href="../../../NP1/" class="dropdown-item">NP1</a>
+<li >
+    <a href="../../../NP1/">NP1</a>
 </li>
                                     
-<li>
-    <a href="../../../NP2/" class="dropdown-item">NP2</a>
+<li >
+    <a href="../../../NP2/">NP2</a>
 </li>
                                     
-<li>
-    <a href="../../../SEC/" class="dropdown-item">SEC</a>
+<li >
+    <a href="../../../SEC/">SEC</a>
 </li>
                                     
-<li>
-    <a href="../../" class="dropdown-item">EDGE</a>
+<li >
+    <a href="../../">EDGE</a>
 </li>
                                 </ul>
                             </li>
-                            <li class="navitem">
-                                <a href="../../../../Contact/" class="nav-link">Contact</a>
+                            <li >
+                                <a href="../../../../Contact/">Contact</a>
                             </li>
                         </ul>
 
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
@@ -96,26 +104,16 @@
         </div>
 
         <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
-
-    
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-level="1"><a href="#objects-detection-with-detectnet" class="nav-link">Objects Detection with DetectNet</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-        </ul>
-    </div>
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#objects-detection-with-detectnet">Objects Detection with DetectNet</a></li>
+            <li><a href="#detecting-objects-from-images">Detecting Objects from Images</a></li>
+            <li><a href="#processing-video-files">Processing Video Files</a></li>
+            <li><a href="#pre-trained-detection-models-available">Pre-trained Detection Models Available</a></li>
+            <li><a href="#running-different-detection-models">Running Different Detection Models</a></li>
+    </ul>
 </div></div>
-                    <div class="col-md-9" role="main">
+                <div class="col-md-9" role="main">
 
 <h1 id="objects-detection-with-detectnet">Objects Detection with DetectNet</h1>
 <p>The previous recognition examples output class probabilities representing the entire input image.  Next we're going to focus on <strong>object detection</strong>, and finding where in the frame various objects are located by extracting their bounding boxes.  Unlike image classification, object detection networks are capable of detecting many different objects per frame.</p>
@@ -141,19 +139,21 @@
 </ul>
 <p>If you're using the <a href="../Week1/setup_Jetson-Nano/">Docker container</a>, it's recommended to save the output images to the <code>images/test</code> mounted directory.  These images will then be easily viewable from your host device under <code>jetson-inference/data/images/test</code>. </p>
 <p>Here are some examples of detecting pedestrians in images with the default SSD-Mobilenet-v2 model:</p>
-<pre><code class="language-bash"># C++
+<pre><code class="bash"># C++
 root@jetson-nano:/jetson-inference/build/aarch64/bin# ./detectnet --network=ssd-mobilenet-v2 images/peds_0.jpg images/test/output.jpg     # --network flag is optional
 
 # Python
 root@jetson-nano:/jetson-inference/build/aarch64/bin# ./detectnet --network=ssd-mobilenet-v2 images/peds_0.jpg images/test/output.jpg     # --network flag is optional
 </code></pre>
+
 <p><img src="https://github.com/dusty-nv/jetson-inference/raw/dev/docs/images/detectnet-ssd-peds-0.jpg" ></p>
-<pre><code class="language-bash"># C++
+<pre><code class="bash"># C++
 root@jetson-nano:/jetson-inference/build/aarch64/bin# ./detectnet images/peds_1.jpg images/test/output.jpg
 
 # Python
 root@jetson-nano:/jetson-inference/build/aarch64/bin# ./detectnet.py images/peds_1.jpg images/test/output.jpg
 </code></pre>
+
 <p><img src="https://github.com/dusty-nv/jetson-inference/raw/dev/docs/images/detectnet-ssd-peds-1.jpg" ></p>
 <blockquote>
 <p><strong>note</strong>:  the first time you run each model, TensorRT will take a few minutes to optimize the network. <br/>
@@ -164,7 +164,7 @@ root@jetson-nano:/jetson-inference/build/aarch64/bin# ./detectnet.py images/peds
 <p>Various images are found under <code>images/</code> for testing, such as <code>cat_*.jpg</code>, <code>dog_*.jpg</code>, <code>horse_*.jpg</code>, <code>peds_*.jpg</code>, ect. </p>
 <h3 id="processing-video-files">Processing Video Files</h3>
 <p>You can also process videos from disk. </p>
-<pre><code class="language-bash"># Download test video
+<pre><code class="bash"># Download test video
 root@jetson-nano:/jetson-inference/build/aarch64/bin# cd images
 root@jetson-nano:/jetson-inference/build/aarch64/bin/images# wget https://nvidia.box.com/shared/static/veuuimq6pwvd62p9fresqhrrmfqz0e2f.mp4 -O pedestrians.mp4
 
@@ -174,8 +174,9 @@ root@jetson-nano:/jetson-inference/build/aarch64/bin# ./detectnet pedestrians.mp
 # Python
 root@jetson-nano:/jetson-inference/build/aarch64/bin# ./detectnet.py pedestrians.mp4 images/test/pedestrians_ssd.mp4
 </code></pre>
+
 <p><a href="https://www.youtube.com/watch?v=EbTyTJS9jOQ" target="_blank"><img src=https://github.com/dusty-nv/jetson-inference/raw/dev/docs/images/detectnet-ssd-pedestrians-video.jpg width="750"></a></p>
-<pre><code class="language-bash"># Download test video
+<pre><code class="bash"># Download test video
 root@jetson-nano:/jetson-inference/build/aarch64/bin# cd images
 root@jetson-nano:/jetson-inference/build/aarch64/bin/images# wget https://nvidia.box.com/shared/static/i5i81mkd9wdh4j7wx04th961zks0lfh9.avi -O parking.avi
 
@@ -185,6 +186,7 @@ root@jetson-nano:/jetson-inference/build/aarch64/bin# ./detectnet parking.avi im
 # Python
 root@jetson-nano:/jetson-inference/build/aarch64/bin# ./detectnet.py parking.avi images/test/parking_ssd.avi
 </code></pre>
+
 <p><a href="https://www.youtube.com/watch?v=iB86W-kloPE" target="_blank"><img src=https://github.com/dusty-nv/jetson-inference/raw/dev/docs/images/detectnet-ssd-parking-video.jpg width="585"></a></p>
 <p>Remember that you can use the <code>--threshold</code> setting to change the detection sensitivity up or down (the default is 0.5).</p>
 <h3 id="pre-trained-detection-models-available">Pre-trained Detection Models Available</h3>
@@ -262,24 +264,25 @@ root@jetson-nano:/jetson-inference/build/aarch64/bin# ./detectnet.py parking.avi
 </tbody>
 </table>
 <p><img alt="foo" src="../figures/models-download.png" /></p>
-<pre><code class="language-shell">nano@jetson-nano:~$ cd jetson-inference/tools
+<pre><code class="shell">nano@jetson-nano:~$ cd jetson-inference/tools
 nano@jetson-nano:~/jetson-inference$ ./download-models.sh
 </code></pre>
+
 <h3 id="running-different-detection-models">Running Different Detection Models</h3>
 <p>You can specify which model to load by setting the <code>--network</code> flag on the command line to one of the corresponding CLI arguments from the table above.  By default, SSD-Mobilenet-v2 if the optional <code>--network</code> flag isn't specified.</p>
 <p>For example, if you chose to download SSD-Inception-v2 with the <a href="https://github.com/dusty-nv/jetson-inference/blob/master/docs/building-repo-2.md#downloading-models">Model Downloader</a> tool, you can use it like so:</p>
-<pre><code class="language-bash"># C++
+<pre><code class="bash"># C++
 root@jetson-nano:/jetson-inference/build/aarch64/bin# ./detectnet --network=ssd-inception-v2 input.jpg output.jpg
 
 # Python
 root@jetson-nano:/jetson-inference/build/aarch64/bin# ./detectnet.py --network=ssd-inception-v2 input.jpg output.jpg
 </code></pre>
+
 <div class="admonition danger">
 <p class="admonition-title">Assignment</p>
 <p>Evaluate the accuracy and inference time of <em>peds_3.jpg</em>, <em>humans_7.jpg</em> for the object detection models launching the inference with the option <code>--network</code> for PedNet, SSD-Mobilenet-v2, SSD-Inception-v2, MultiPed</p>
 </div>
 <p><strong>Please send a message to the professor as soon as you finished</strong></p></div>
-            </div>
         </div>
 
         <footer class="col-md-12">
@@ -293,32 +296,35 @@ root@jetson-nano:/jetson-inference/build/aarch64/bin# ./detectnet.py --network=s
         <script src="../../../../js/base.js" defer></script>
         <script src="../../../../search/main.js" defer></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
             </div>
             <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
                     <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
                     </div>
                 </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+                <div id="mkdocs-search-results"></div>
             </div>
             <div class="modal-footer">
             </div>
         </div>
     </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
             </div>
             <div class="modal-body">
               <table class="table">

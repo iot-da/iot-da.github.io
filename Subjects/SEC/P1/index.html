@@ -4,89 +4,97 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+        <meta name="description" content="None">
         
         <link rel="canonical" href="https://iot-da.github.io/Subjects/SEC/P1/">
         <link rel="shortcut icon" href="../../../img/favicon.ico">
-        <title>Laboratory 1. IP Camera Pentest - Internet of Things and Data Analytics</title>
-        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <title>Internet of Things and Data Analytics</title>
+        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
 
         <script src="../../../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../../../js/bootstrap.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+    <body class="homepage">
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
-                <a class="navbar-brand" href="../../..">Internet of Things and Data Analytics</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../../..">Internet of Things and Data Analytics</a>
+                </div>
 
                 <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
+                <div class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li class="navitem">
-                                <a href="../../.." class="nav-link">Home</a>
+                            <li >
+                                <a href="../../..">Home</a>
                             </li>
-                            <li class="navitem">
-                                <a href="../../../General/" class="nav-link">General info.</a>
+                            <li >
+                                <a href="../../../General/">General info.</a>
                             </li>
-                            <li class="navitem">
-                                <a href="../../../News/" class="nav-link">News</a>
+                            <li >
+                                <a href="../../../News/">News</a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
-<li>
-    <a href="../../IOTNA/" class="dropdown-item">IOTNA</a>
+<li >
+    <a href="../../IOTNA/">IOTNA</a>
 </li>
                                     
-<li>
-    <a href="../../MDM/" class="dropdown-item">MDM</a>
+<li >
+    <a href="../../MDM/">MDM</a>
 </li>
                                     
-<li>
-    <a href="../../SID/" class="dropdown-item">SID</a>
+<li >
+    <a href="../../SID/">SID</a>
 </li>
                                     
-<li>
-    <a href="../../IA/" class="dropdown-item">IA</a>
+<li >
+    <a href="../../IA/">IA</a>
 </li>
                                     
-<li>
-    <a href="../../NP1/" class="dropdown-item">NP1</a>
+<li >
+    <a href="../../NP1/">NP1</a>
 </li>
                                     
-<li>
-    <a href="../../NP2/" class="dropdown-item">NP2</a>
+<li >
+    <a href="../../NP2/">NP2</a>
 </li>
                                     
-<li>
-    <a href="../" class="dropdown-item">SEC</a>
+<li >
+    <a href="../">SEC</a>
 </li>
                                     
-<li>
-    <a href="../../EDGE/" class="dropdown-item">EDGE</a>
+<li >
+    <a href="../../EDGE/">EDGE</a>
 </li>
                                 </ul>
                             </li>
-                            <li class="navitem">
-                                <a href="../../../Contact/" class="nav-link">Contact</a>
+                            <li >
+                                <a href="../../../Contact/">Contact</a>
                             </li>
                         </ul>
 
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
@@ -96,38 +104,14 @@
         </div>
 
         <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
-
-    
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-level="1"><a href="#laboratory-1-ip-camera-pentest" class="nav-link">Laboratory 1. IP Camera Pentest</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#introduction" class="nav-link">Introduction</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#familiarise-with-ghidra-easy_reverse" class="nav-link">Familiarise with Ghidra: easy_reverse</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#analyze-ip-camera-firmware" class="nav-link">Analyze IP Camera Firmware</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-        </ul>
-    </div>
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#laboratory-1-ip-camera-pentest">Laboratory 1. IP Camera Pentest</a></li>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#familiarise-with-ghidra-easy_reverse">Familiarise with Ghidra: easy_reverse</a></li>
+    </ul>
 </div></div>
-                    <div class="col-md-9" role="main">
+                <div class="col-md-9" role="main">
 
 <h1 id="laboratory-1-ip-camera-pentest">Laboratory 1. IP Camera Pentest</h1>
 <h2 id="introduction">Introduction</h2>
@@ -157,17 +141,19 @@
 <p><a href="https://wiki.gnome.org/Apps/Ghex">Ghex</a>: </p>
 </li>
 </ol>
-<pre><code class="language-bash">sudo apt-get install ghex
+<pre><code class="bash">sudo apt-get install ghex
 </code></pre>
+
 <h3 id="binwalk">Binwalk</h3>
 <p><a href="https://github.com/ReFirmLabs/binwalk">Binwalk</a> is a fast, easy to use tool for analyzing, reverse engineering, and extracting firmware images.</p>
 <p>Minimal installation instructions inside Ubuntu VM:</p>
-<pre><code class="language-bash">git clone https://github.com/ReFirmLabs/binwalk.git
+<pre><code class="bash">git clone https://github.com/ReFirmLabs/binwalk.git
 cd binwalk
 sudo python3 setup.py install
 </code></pre>
+
 <p>Dependencies:</p>
-<pre><code class="language-bash"># Install sasquatch to extract non-standard SquashFS images
+<pre><code class="bash"># Install sasquatch to extract non-standard SquashFS images
 sudo apt-get install zlib1g-dev liblzma-dev liblzo2-dev
 git clone https://github.com/devttys0/sasquatch
 (cd sasquatch &amp;&amp; ./build.sh)
@@ -181,11 +167,13 @@ git clone https://github.com/sviehb/jefferson
 # Entropy study
 sudo pip install matplotlib
 </code></pre>
+
 <h3 id="ghidra">Ghidra</h3>
 <p><a href="https://github.com/NationalSecurityAgency/ghidra/releases">Ghidra</a>: A Software Reverse Engineering (SRE) suite of tools developed by NSA's Research Directorate in support of the Cybersecurity mission.</p>
 <p>Dependencies:</p>
-<pre><code class="language-bash">sudo apt-get install default-jre default-jdk
+<pre><code class="bash">sudo apt-get install default-jre default-jdk
 </code></pre>
+
 <p>Download <a href="https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_10.1.2_build/ghidra_10.1.2_PUBLIC_20220125.zip">Hidra 10.1.2</a>, unzip and execute (<code>./ghidraRun</code>).</p>
 <h2 id="familiarise-with-ghidra-easy_reverse">Familiarise with Ghidra: <code>easy_reverse</code></h2>
 <div class="admonition note">
@@ -253,12 +241,12 @@ sudo pip install matplotlib
 <p>Change it for <code>0x742d</code>, save as <code>rev50_linux64-bit_hacked</code> and test it:</p>
 </li>
 </ol>
-<pre><code class="language-bash">buntu@ubuntu2004:~/Downloads$ ./rev50_linux64-bit_hacked 1234567890
+<pre><code class="bash">buntu@ubuntu2004:~/Downloads$ ./rev50_linux64-bit_hacked 1234567890
 Nice Job!!
 flag{1234567890}
 </code></pre>
+
 <p>Is it possible to completely remove the password verification? Explain how and patch the binary to do it. </p>
-<h2 id="analyze-ip-camera-firmware">Analyze IP Camera Firmware</h2>
 <div class="admonition note">
 <p class="admonition-title">Task 2.1</p>
 <p>Once we have Binwalk installed in the Virtual Machine:</p>
@@ -292,7 +280,6 @@ flag{1234567890}
 <div class="admonition danger">
 <p class="admonition-title">Report: Create a report (one per class group) with screenshots and comments, send it to <a href="mailto:recas@ucm.es">recas@ucm.es</a>. Due Date: May 17.</p>
 </div></div>
-            </div>
         </div>
 
         <footer class="col-md-12">
@@ -306,32 +293,35 @@ flag{1234567890}
         <script src="../../../js/base.js" defer></script>
         <script src="../../../search/main.js" defer></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
             </div>
             <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
                     <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
                     </div>
                 </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+                <div id="mkdocs-search-results"></div>
             </div>
             <div class="modal-footer">
             </div>
         </div>
     </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
             </div>
             <div class="modal-body">
               <table class="table">
@@ -369,3 +359,8 @@ flag{1234567890}
 
     </body>
 </html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2022-07-05 13:31:52
+-->

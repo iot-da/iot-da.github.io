@@ -9,84 +9,92 @@
         <link rel="canonical" href="https://iot-da.github.io/Subjects/EDGE/Week6/inferenceImageClassifying/">
         <link rel="shortcut icon" href="../../../../img/favicon.ico">
         <title>Classifying Images with ImageNet - Internet of Things and Data Analytics</title>
-        <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
 
         <script src="../../../../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../../../../js/bootstrap.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script src="../../../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
     <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
-                <a class="navbar-brand" href="../../../..">Internet of Things and Data Analytics</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../../../..">Internet of Things and Data Analytics</a>
+                </div>
 
                 <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
+                <div class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li class="navitem">
-                                <a href="../../../.." class="nav-link">Home</a>
+                            <li >
+                                <a href="../../../..">Home</a>
                             </li>
-                            <li class="navitem">
-                                <a href="../../../../General/" class="nav-link">General info.</a>
+                            <li >
+                                <a href="../../../../General/">General info.</a>
                             </li>
-                            <li class="navitem">
-                                <a href="../../../../News/" class="nav-link">News</a>
+                            <li >
+                                <a href="../../../../News/">News</a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
-<li>
-    <a href="../../../IOTNA/" class="dropdown-item">IOTNA</a>
+<li >
+    <a href="../../../IOTNA/">IOTNA</a>
 </li>
                                     
-<li>
-    <a href="../../../MDM/" class="dropdown-item">MDM</a>
+<li >
+    <a href="../../../MDM/">MDM</a>
 </li>
                                     
-<li>
-    <a href="../../../SID/" class="dropdown-item">SID</a>
+<li >
+    <a href="../../../SID/">SID</a>
 </li>
                                     
-<li>
-    <a href="../../../IA/" class="dropdown-item">IA</a>
+<li >
+    <a href="../../../IA/">IA</a>
 </li>
                                     
-<li>
-    <a href="../../../NP1/" class="dropdown-item">NP1</a>
+<li >
+    <a href="../../../NP1/">NP1</a>
 </li>
                                     
-<li>
-    <a href="../../../NP2/" class="dropdown-item">NP2</a>
+<li >
+    <a href="../../../NP2/">NP2</a>
 </li>
                                     
-<li>
-    <a href="../../../SEC/" class="dropdown-item">SEC</a>
+<li >
+    <a href="../../../SEC/">SEC</a>
 </li>
                                     
-<li>
-    <a href="../../" class="dropdown-item">EDGE</a>
+<li >
+    <a href="../../">EDGE</a>
 </li>
                                 </ul>
                             </li>
-                            <li class="navitem">
-                                <a href="../../../../Contact/" class="nav-link">Contact</a>
+                            <li >
+                                <a href="../../../../Contact/">Contact</a>
                             </li>
                         </ul>
 
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
@@ -96,26 +104,16 @@
         </div>
 
         <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
-
-    
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-level="1"><a href="#classifying-images-with-imagenet" class="nav-link">Classifying Images with ImageNet</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-        </ul>
-    </div>
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#classifying-images-with-imagenet">Classifying Images with ImageNet</a></li>
+            <li><a href="#how-to-use-imagenet-program-on-jetson">How to use ImageNet Program on Jetson</a></li>
+            <li><a href="#downloading-other-classification-models">Downloading Other Classification Models</a></li>
+            <li><a href="#using-different-classification-models">Using Different Classification Models</a></li>
+            <li><a href="#processing-a-video">Processing a Video</a></li>
+    </ul>
 </div></div>
-                    <div class="col-md-9" role="main">
+                <div class="col-md-9" role="main">
 
 <h1 id="classifying-images-with-imagenet">Classifying Images with ImageNet</h1>
 <ul>
@@ -133,25 +131,28 @@
 <h3 id="how-to-use-imagenet-program-on-jetson">How to use ImageNet Program on Jetson</h3>
 <p>First, let's try using the <code>imagenet</code> program to test imageNet recognition on some example images.  It loads an image (or images), uses TensorRT and the <code>imageNet</code> class to perform the inference, then overlays the classification result and saves the output image. The project comes with sample images for you to use located under the <code>images/</code> directory.</p>
 <p>After <a href="Week1/setup_Jetson-Nano/setup_MLcontainer.md">building</a> the project, make sure your terminal is located in the <code>aarch64/bin</code> directory:</p>
-<pre><code class="language-bash">nano@jetson-nano:~$ cd jetson-inference/
+<pre><code class="bash">nano@jetson-nano:~$ cd jetson-inference/
 nano@jetson-nano:~/jetson-inference$ docker/run.sh 
 root@jetson-nano:/jetson-inference# cd jetson-inference/build/aarch64/bin
 root@jetson-nano:/jetson-inference/build/aarch64/bin#
 </code></pre>
+
 <p>Next, let's classify an example image with the <code>imagenet</code> program, using either the <a href="https://github.com/dusty-nv/jetson-inference/blob/master/examples/imagenet/imagenet.cpp">C++</a> or <a href="https://github.com/dusty-nv/jetson-inference/blob/master/python/examples/imagenet.py">Python</a> variants. The <a href="Week1/setup_Jetson-Nano/setup_MLcontainer.md">Docker container</a> have the <code>images/test</code> mounted directory.  These images will then be easily viewable from your host device in the <code>jetson-inference/data/images/test</code> directory.  </p>
-<pre><code class="language-bash"># C++
+<pre><code class="bash"># C++
 root@jetson-nano:/jetson-inference/build/aarch64/bin# ./imagenet images/orange_0.jpg images/test/output_0.jpg  # (default network is googlenet)
 
 # Python
 root@jetson-nano:/jetson-inference/build/aarch64/bin# ./imagenet.py images/orange_0.jpg images/test/output_0.jpg  # (default network is googlenet)
 </code></pre>
+
 <p><img src="https://github.com/dusty-nv/jetson-inference/raw/dev/docs/images/imagenet-orange.jpg" width="650"></p>
-<pre><code class="language-bash"># C++
+<pre><code class="bash"># C++
 root@jetson-nano:/jetson-inference/build/aarch64/bin# ./imagenet images/strawberry_0.jpg images/test/output_1.jpg
 
 # Python
 root@jetson-nano:/jetson-inference/build/aarch64/bin# ./imagenet.py images/strawberry_0.jpg images/test/output_1.jpg
 </code></pre>
+
 <p><img src="https://github.com/dusty-nv/jetson-inference/raw/dev/docs/images/imagenet-strawberry.jpg" width="650"></p>
 <h3 id="downloading-other-classification-models">Downloading Other Classification Models</h3>
 <p>By default, the project will download the GoogleNet and ResNet-18 networks during the build step.</p>
@@ -218,38 +219,42 @@ root@jetson-nano:/jetson-inference/build/aarch64/bin# ./imagenet.py images/straw
 </tbody>
 </table>
 <p><img alt="foo" src="../figures/models-download.png" /></p>
-<pre><code class="language-shell">nano@jetson-nano:~$ cd jetson-inference/tools
+<pre><code class="shell">nano@jetson-nano:~$ cd jetson-inference/tools
 nano@jetson-nano:~/jetson-inference$ ./download-models.sh
 </code></pre>
+
 <p>Generally the more complex networks can have greater classification accuracy, with increased runtime.</p>
 <h3 id="using-different-classification-models">Using Different Classification Models</h3>
 <p>You can specify which model to load by setting the <code>--network</code> flag on the command line to one of the corresponding CLI arguments from the table above.  By default, GoogleNet is loaded if the optional <code>--network</code> flag isn't specified.</p>
 <p>Below are some examples of using the ResNet-18 model:</p>
-<pre><code class="language-bash"># C++
+<pre><code class="bash"># C++
 root@jetson-nano:/jetson-inference/build/aarch64/bin#  ./imagenet --network=resnet-18 images/jellyfish.jpg images/test/output_jellyfish.jpg
 
 # Python
 root@jetson-nano:/jetson-inference/build/aarch64/bin#  ./imagenet.py --network=resnet-18 images/jellyfish.jpg images/test/output_jellyfish.jpg
 </code></pre>
+
 <p><img src="https://raw.githubusercontent.com/dusty-nv/jetson-inference/python/docs/images/imagenet_jellyfish.jpg" width="650"></p>
-<pre><code class="language-bash"># C++
+<pre><code class="bash"># C++
 root@jetson-nano:/jetson-inference/build/aarch64/bin#  ./imagenet --network=resnet-18 images/stingray.jpg images/test/output_stingray.jpg
 
 # Python
 root@jetson-nano:/jetson-inference/build/aarch64/bin#  ./imagenet.py --network=resnet-18 images/stingray.jpg images/test/output_stingray.jpg
 </code></pre>
+
 <p><img src="https://raw.githubusercontent.com/dusty-nv/jetson-inference/python/docs/images/imagenet_stingray.jpg" width="650"></p>
-<pre><code class="language-bash"># C++
+<pre><code class="bash"># C++
 root@jetson-nano:/jetson-inference/build/aarch64/bin#  ./imagenet --network=resnet-18 images/coral.jpg images/test/output_coral.jpg
 
 # Python
 root@jetson-nano:/jetson-inference/build/aarch64/bin#  ./imagenet.py --network=resnet-18 images/coral.jpg images/test/output_coral.jpg
 </code></pre>
+
 <p><img src="https://raw.githubusercontent.com/dusty-nv/jetson-inference/python/docs/images/imagenet_coral.jpg" width="650"></p>
 <h3 id="processing-a-video">Processing a Video</h3>
 <p>The <a href="../Week1/setup_Jetson-Nano/#camera-setup">Camera Streaming and Multimedia</a> can pass the video directly to <code>imagenet</code>.  </p>
 <p>Here is an example of running it on a video from disk:</p>
-<pre><code class="language-bash"># Download test video (thanks to jell.yfish.us)
+<pre><code class="bash"># Download test video (thanks to jell.yfish.us)
 $ wget https://nvidia.box.com/shared/static/tlswont1jnyu3ix2tbf7utaekpzcx4rc.mkv -O jellyfish.mkv
 
 # C++
@@ -258,12 +263,12 @@ root@jetson-nano:/jetson-inference/build/aarch64/bin#  ./imagenet --network=resn
 # Python
 root@jetson-nano:/jetson-inference/build/aarch64/bin#  ./imagenet.py --network=resnet-18 jellyfish.mkv images/test/jellyfish_resnet18.mkv
 </code></pre>
+
 <div class="admonition danger">
 <p class="admonition-title">Assignment</p>
 <p>Evaluate the accuracy and inference time of <em>fruit_0.jpg</em>, <em>strawberry_1.jpg</em> for the image classification models launching the inference with the option <code>--network</code> for AlexNet, GoogleNet, ResNet-50, VGG-16, Inception-v4</p>
 </div>
 <p><strong>Please send a message to the professor as soon as you finished</strong></p></div>
-            </div>
         </div>
 
         <footer class="col-md-12">
@@ -277,32 +282,35 @@ root@jetson-nano:/jetson-inference/build/aarch64/bin#  ./imagenet.py --network=r
         <script src="../../../../js/base.js" defer></script>
         <script src="../../../../search/main.js" defer></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
             </div>
             <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
                     <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
                     </div>
                 </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+                <div id="mkdocs-search-results"></div>
             </div>
             <div class="modal-footer">
             </div>
         </div>
     </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
             </div>
             <div class="modal-body">
               <table class="table">

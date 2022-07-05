@@ -9,84 +9,92 @@
         <link rel="canonical" href="https://iot-da.github.io/Subjects/EDGE/Week1/docs/aux-docker/">
         <link rel="shortcut icon" href="../../../../../img/favicon.ico">
         <title>Aux docker - Internet of Things and Data Analytics</title>
-        <link href="../../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../../../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../../../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
 
         <script src="../../../../../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../../../../../js/bootstrap.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script src="../../../../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
     <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
-                <a class="navbar-brand" href="../../../../..">Internet of Things and Data Analytics</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../../../../..">Internet of Things and Data Analytics</a>
+                </div>
 
                 <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
+                <div class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li class="navitem">
-                                <a href="../../../../.." class="nav-link">Home</a>
+                            <li >
+                                <a href="../../../../..">Home</a>
                             </li>
-                            <li class="navitem">
-                                <a href="../../../../../General/" class="nav-link">General info.</a>
+                            <li >
+                                <a href="../../../../../General/">General info.</a>
                             </li>
-                            <li class="navitem">
-                                <a href="../../../../../News/" class="nav-link">News</a>
+                            <li >
+                                <a href="../../../../../News/">News</a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Subjects <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
-<li>
-    <a href="../../../../IOTNA/" class="dropdown-item">IOTNA</a>
+<li >
+    <a href="../../../../IOTNA/">IOTNA</a>
 </li>
                                     
-<li>
-    <a href="../../../../MDM/" class="dropdown-item">MDM</a>
+<li >
+    <a href="../../../../MDM/">MDM</a>
 </li>
                                     
-<li>
-    <a href="../../../../SID/" class="dropdown-item">SID</a>
+<li >
+    <a href="../../../../SID/">SID</a>
 </li>
                                     
-<li>
-    <a href="../../../../IA/" class="dropdown-item">IA</a>
+<li >
+    <a href="../../../../IA/">IA</a>
 </li>
                                     
-<li>
-    <a href="../../../../NP1/" class="dropdown-item">NP1</a>
+<li >
+    <a href="../../../../NP1/">NP1</a>
 </li>
                                     
-<li>
-    <a href="../../../../NP2/" class="dropdown-item">NP2</a>
+<li >
+    <a href="../../../../NP2/">NP2</a>
 </li>
                                     
-<li>
-    <a href="../../../../SEC/" class="dropdown-item">SEC</a>
+<li >
+    <a href="../../../../SEC/">SEC</a>
 </li>
                                     
-<li>
-    <a href="../../../" class="dropdown-item">EDGE</a>
+<li >
+    <a href="../../../">EDGE</a>
 </li>
                                 </ul>
                             </li>
-                            <li class="navitem">
-                                <a href="../../../../../Contact/" class="nav-link">Contact</a>
+                            <li >
+                                <a href="../../../../../Contact/">Contact</a>
                             </li>
                         </ul>
 
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
@@ -96,52 +104,21 @@
         </div>
 
         <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
-
-    
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-level="1"><a href="#running-the-docker-container" class="nav-link">Running the Docker Container</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#launching-the-container" class="nav-link">Launching the Container</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#running-applications" class="nav-link">Running Applications</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#building-the-container" class="nav-link">Building the Container</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#getting-started" class="nav-link">Getting Started</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#_1" class="nav-link"></a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-        </ul>
-    </div>
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#running-the-docker-container">Running the Docker Container</a></li>
+            <li><a href="#launching-the-container">Launching the Container</a></li>
+            <li><a href="#running-applications">Running Applications</a></li>
+            <li><a href="#building-the-container">Building the Container</a></li>
+            <li><a href="#getting-started">Getting Started</a></li>
+    </ul>
 </div></div>
-                    <div class="col-md-9" role="main">
+                <div class="col-md-9" role="main">
 
-<p><img src="https://github.com/dusty-nv/jetson-inference/raw/master/docs/images/deep-vision-header.jpg" width="100%"></p>
+<p><img src="https://github.com/dusty-nv/jetson-inference/raw/master/docs/images/deep-vision-header.jpg" width="100%">
 <p align="right"><sup><a href="jetpack-setup-2.md">Back</a> | <a href="building-repo-2.md">Next</a> | </sup><a href="../README.md#hello-ai-world"><sup>Contents</sup></a>
 <br/>
-<sup>System Setup</sup></p>
-
+<sup>System Setup</sup></p>  </p>
 <h1 id="running-the-docker-container">Running the Docker Container</h1>
 <p>Pre-built Docker container images for this project are hosted on <a href="https://hub.docker.com/r/dustynv/jetson-inference/tags">DockerHub</a>.  Alternatively, you can <a href="building-repo-2.md">Build the Project from Source</a>.   </p>
 <p>Below are the currently available container tags:</p>
@@ -187,10 +164,11 @@
 <p>These containers use the <a href="https://ngc.nvidia.com/catalog/containers/nvidia:l4t-pytorch"><code>l4t-pytorch</code></a> base container, so support for transfer learning / re-training is already included.</p>
 <h2 id="launching-the-container">Launching the Container</h2>
 <p>Due to various mounts and devices needed to run the container, it's recommended to use the <a href="../docker/run.sh"><code>docker/run.sh</code></a> script to run the container:</p>
-<pre><code class="language-bash">$ git clone --recursive https://github.com/dusty-nv/jetson-inference
+<pre><code class="bash">$ git clone --recursive https://github.com/dusty-nv/jetson-inference
 $ cd jetson-inference
 $ docker/run.sh
 </code></pre>
+
 <blockquote>
 <p><strong>note:</strong>  because of the Docker scripts used and the data directory structure that gets mounted into the container, you should still clone the project on your host device (i.e. even if not intending to build/install the project natively)</p>
 </blockquote>
@@ -206,24 +184,27 @@ $ docker/run.sh
 </ul>
 <p>These mounted volumes assure that the models and datasets are stored outside the container, and aren't lost when the container is shut down.</p>
 <p>If you wish to mount your own directory into the container, you can use the <code>--volume HOST_DIR:MOUNT_DIR</code> argument to <a href="../docker/run.sh"><code>docker/run.sh</code></a>:</p>
-<pre><code class="language-bash">$ docker/run.sh --volume /my/host/path:/my/container/path    # these should be absolute paths
+<pre><code class="bash">$ docker/run.sh --volume /my/host/path:/my/container/path    # these should be absolute paths
 </code></pre>
+
 <p>For more info, run <code>docker/run.sh --help</code> or see the help text inside <a href="../docker/run.sh"><code>docker/run.sh</code></a></p>
 <h2 id="running-applications">Running Applications</h2>
 <p>Once the container is up and running, you can then run example programs from the tutorial like normal inside the container:</p>
-<pre><code class="language-bash"># cd build/aarch64/bin
+<pre><code class="bash"># cd build/aarch64/bin
 # ./video-viewer /dev/video0
 # ./imagenet images/jellyfish.jpg images/test/jellyfish.jpg
 # ./detectnet images/peds_0.jpg images/test/peds_0.jpg
 # (press Ctrl+D to exit the container)
 </code></pre>
+
 <blockquote>
 <p><strong>note:</strong> when you are saving images from one of the sample programs (like imagenet or detectnet), it's recommended to save them to <code>images/test</code>.  These images will then be easily viewable from your host device in the <code>jetson-inference/data/images/test</code> directory.  </p>
 </blockquote>
 <h2 id="building-the-container">Building the Container</h2>
 <p>If you are following the Hello AI World tutorial, you can ignore this section and skip ahead to the next step.  But if you wish to re-build the container or build your own, you can use the <a href="../docker/build.sh"><code>docker/build.sh</code></a> script which builds the project's <a href="../Dockerfile"><code>Dockerfile</code></a>:</p>
-<pre><code class="language-bash">$ docker/build.sh
+<pre><code class="bash">$ docker/build.sh
 </code></pre>
+
 <blockquote>
 <p><strong>note:</strong> you should first set your default <code>docker-runtime</code> to nvidia, see <a href="https://github.com/dusty-nv/jetson-containers#docker-default-runtime">here</a> for the details.</p>
 </blockquote>
@@ -232,11 +213,10 @@ $ docker/run.sh
 <p>If you have chosen to run the project inside the Docker container, you can proceed to <a href="imagenet-console-2.md">Classifying Images with ImageNet</a>.</p>
 <p>However, if you would prefer to install the project directly on your Jetson (outside of container), go to <a href="building-repo-2.md">Building the Project from Source</a>.</p>
 <h2 id="_1"></h2>
-<p align="right">Next | <b><a href="building-repo-2.md">Building the Project from Source</a></b>
+<p><p align="right">Next | <b><a href="building-repo-2.md">Building the Project from Source</a></b>
 <br/>
 Back | <b><a href="jetpack-setup-2.md">Setting up Jetson with JetPack</a></p>
-<p align="center"><sup>© 2016-2020 NVIDIA | </sup><a href="../README.md#hello-ai-world"><sup>Table of Contents</sup></a></p></div>
-            </div>
+<p align="center"><sup>© 2016-2020 NVIDIA | </sup><a href="../README.md#hello-ai-world"><sup>Table of Contents</sup></a></p></p></div>
         </div>
 
         <footer class="col-md-12">
@@ -250,32 +230,35 @@ Back | <b><a href="jetpack-setup-2.md">Setting up Jetson with JetPack</a></p>
         <script src="../../../../../js/base.js" defer></script>
         <script src="../../../../../search/main.js" defer></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
             </div>
             <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
                     <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
                     </div>
                 </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+                <div id="mkdocs-search-results"></div>
             </div>
             <div class="modal-footer">
             </div>
         </div>
     </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
             </div>
             <div class="modal-body">
               <table class="table">
