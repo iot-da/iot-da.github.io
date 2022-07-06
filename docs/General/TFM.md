@@ -11,9 +11,6 @@
 
 ## Defense sessions
 
-!!! warning "Note"
-    * Zoom links for each defense session will be published in this webpage.
-
 ### Session 1
 
 * Date: **Monday, July 11. 13h-15h (UTC+2)**
