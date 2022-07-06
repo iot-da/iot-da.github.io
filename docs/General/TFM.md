@@ -17,7 +17,7 @@
 ### Session 1
 
 * Date: **Monday, July 11. 13h-15h (UTC+2)**
-* Zoom link: To Be Announced.
+* Zoom link: [Link](https://us02web.zoom.us/j/83127888595?pwd=Tm15QUJlaEVZblRXaER2V1RZQ2hvQT09) Meeting ID: 831 2788 8595. Access code: 783337
 * Committee: Jose Ignacio Gomez, Carlos Garcia Sanchez
 
 | Proposal | Member 1 | Member 2 | Member 3 |
@@ -30,7 +30,7 @@
 ### Session 2
 
 * Date: **Tuesday, July 12. 15:30h-17:30h (UTC+2)**
-* Zoom link: To Be Announced.
+* Zoom link: [Link](https://us02web.zoom.us/j/86110774929?pwd=Y251U0swQlhMWlg0K01RUHBQb1Bwdz09) Meeting ID: 861 1077 4929. Access code: 310783
 * Committee: Rafael Caballero, Ivan Garcia-Magarino
 
 | Proposal | Member 1 | Member 2 | Member 3 |
@@ -43,7 +43,7 @@
 ### Session 3
 
 * Date: **Thursday, July 14. 16h-18h (UTC+2)**
-* Zoom link: To Be Announced.
+* Zoom link: [Link](https://us02web.zoom.us/j/89607861621?pwd=ck5OYm8yRVpVSTNOcWdJTVFDU25Vdz09) Meeting ID: 896 0786 1621. Access code: 755906
 * Committee: Francisco Igual, Christian Tenllado
 
 
