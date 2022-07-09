@@ -20,7 +20,7 @@
 | Proposal | Member 1 | Member 2 | Member 3 |
 |-------|----------|----------|----------|
 | Relation between air pollution, weather and traffic     | Qiuji Chen      | Xiaolan Li      | Zhao Hu      |
-| Machine Learning Ensemble Methods     | Yan Zhao |            |              |
+| Machine Learning Ensemble Methods     | Yan Zhao | JiePing You           |              |
 | IoT devices or services for well-being    | Liu Jinhua| Duan Zhen |  Hu Hao      |
 | Open Source IoT frameworks     | Zhang Yi | Li Tianfeng | Re Wei |
 
