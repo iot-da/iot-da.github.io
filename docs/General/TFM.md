@@ -6,8 +6,8 @@
 - Deadline for proposal notifications: **February 17**
 - Deadline for final deliverables. July session (PDF report, video presentation and supplementary material): **June 27**
 - Final defenses (July session) : **July 11-15**
-- Deadline for final deliverables. September session (PDF report, video presentation and supplementary material): **September 5**
-- Final defenses (September session) : **September 12-15**
+- Deadline for final deliverables. Extraordinary session (PDF report, video presentation and supplementary material): **July 19**
+- Final defenses (September session) : **July 22**
 
 ## Defense sessions
 

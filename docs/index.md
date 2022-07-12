@@ -4,6 +4,17 @@ Welcome to the Master Propio on IoT and Data Analytics. Lectures are starting th
 
 Looking forward to meet you all!
 
+!!! warning "Final evaluation"
+    In order to obtain the Master Degree, the student needs to fulfill the following requirements:
+
+    * An average numerical grade higher than 5 (considering the average grades of all subjects, except the Final Project).
+
+    * A minimal grade of 4 for each subject (excluding the Final Project).
+
+    * A maximum of 2 subjects graded below 5.
+
+    * The grade for the Final Project needs to be higher than 5.
+
 ## **3rd term** - 19 Apr. till 3 Jun.
 *All courses will be starting at 19:00h in China Standard Time*
 
