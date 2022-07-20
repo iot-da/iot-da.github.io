@@ -52,6 +52,19 @@
 | Accelerators in Edge Computing     | Youran Tian | Jun Shou | |
 
 
+### Session 4
+
+* Date: **Friday, July 22. 16h-17h (UTC+2)**
+* Zoom link: TBA 
+* Committee: Jose Ignacio Gomez, Francisco Igual
+
+
+| Proposal | Member 1 | Member 2 | Member 3 |
+|-------|----------|----------|----------|
+| Accelerators in Edge Computing | GongLu Zou | Fengfeng Gu | Binz Zhang |
+| Open Source IoT frameworks     | Xiazu Hu | Qinghong Yu | Suishi Liu |
+
+
 ## Description and rules
 
 The Final Project is a research or development work that aims at demonstrating
