@@ -55,7 +55,7 @@
 ### Session 4
 
 * Date: **Friday, July 22. 16h-17h (UTC+2)**
-* Zoom link: TBA 
+* Zoom link: [Link](https://us02web.zoom.us/j/82944295455?pwd=bHRIaW9BRC9lclgxOG00QTkyYm5uZz09) Meeting ID: 829 4429 5455 Access code: 206343
 * Committee: Jose Ignacio Gomez, Francisco Igual
 
 
